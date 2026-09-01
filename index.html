@@ -7,6 +7,7 @@
 <title>Tipos de tarifas eléctricas</title>
 
 <style>
+
 :root {
     --blue: #087df5;
     --blue-dark: #075bd3;
@@ -41,9 +42,10 @@ input {
     min-height: 100vh;
 }
 
-/* =========================
+
+/* =========================================================
    PORTADA
-========================= */
+========================================================= */
 
 .hero {
     padding: 45px 25px 25px;
@@ -187,9 +189,10 @@ input {
     font-size: 14px;
 }
 
-/* =========================
-   SIMULADOR
-========================= */
+
+/* =========================================================
+   SIMULADORES
+========================================================= */
 
 .simulator-section {
     display: none;
@@ -203,6 +206,7 @@ input {
 }
 
 @keyframes appear {
+
     from {
         opacity: 0;
         transform: translateY(15px);
@@ -212,6 +216,7 @@ input {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 .back-button {
@@ -370,9 +375,10 @@ input[type="range"]::-moz-range-thumb {
     color: var(--text);
 }
 
-/* =========================
-   TOTAL
-========================= */
+
+/* =========================================================
+   TOTAL TARIFA POR USO
+========================================================= */
 
 .total-card {
     margin-top: 25px;
@@ -421,7 +427,10 @@ input[type="range"]::-moz-range-thumb {
     opacity: .75;
 }
 
-/* SWITCH */
+
+/* =========================================================
+   SWITCH
+========================================================= */
 
 .switch {
     position: relative;
@@ -465,7 +474,10 @@ input[type="range"]::-moz-range-thumb {
     transform: translateX(26px);
 }
 
-/* BREAKDOWN */
+
+/* =========================================================
+   DESGLOSE TARIFA POR USO
+========================================================= */
 
 .breakdown {
     display: grid;
@@ -491,9 +503,76 @@ input[type="range"]::-moz-range-thumb {
     font-size: 20px;
 }
 
-/* =========================
+
+/* =========================================================
+   TARIFA PLANA
+========================================================= */
+
+.flat-total-card {
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #ff8a00, #f36d00);
+    color: white;
+    box-shadow: 0 15px 35px rgba(255, 126, 0, .25);
+}
+
+.flat-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.flat-result {
+    background: rgba(255,255,255,.15);
+    border-radius: 16px;
+    padding: 18px;
+    min-height: 115px;
+}
+
+.flat-result-label {
+    display: block;
+    font-size: 14px;
+    opacity: .82;
+    margin-bottom: 10px;
+}
+
+.flat-result-value {
+    font-size: clamp(25px, 4vw, 34px);
+    font-weight: 900;
+}
+
+.flat-result-extra {
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: .75;
+}
+
+.flat-tax-control {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.flat-tax-text strong {
+    display: block;
+    font-size: 16px;
+}
+
+.flat-tax-text span {
+    font-size: 13px;
+    opacity: .75;
+}
+
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media (max-width: 800px) {
 
@@ -535,7 +614,13 @@ input[type="range"]::-moz-range-thumb {
     .total-value {
         font-size: 48px;
     }
+
+    .flat-results {
+        grid-template-columns: 1fr;
+    }
+
 }
+
 
 @media (max-width: 500px) {
 
@@ -559,663 +644,1290 @@ input[type="range"]::-moz-range-thumb {
     .breakdown {
         grid-template-columns: 1fr;
     }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="page">
 
-    <!-- =========================
-         PORTADA
-    ========================== -->
 
-    <section id="home">
+<!-- =========================================================
+     PORTADA
+========================================================= -->
 
-        <header class="hero">
+<section id="home">
 
-            <h1>TIPOS DE TARIFAS ELÉCTRICAS</h1>
+    <header class="hero">
 
-            <div class="subtitle">
-                ⚡ &nbsp; PRINCIPALES OPCIONES &nbsp; ⚡
+        <h1>TIPOS DE TARIFAS ELÉCTRICAS</h1>
+
+        <div class="subtitle">
+            ⚡ &nbsp; PRINCIPALES OPCIONES &nbsp; ⚡
+        </div>
+
+    </header>
+
+
+    <div class="tariffs">
+
+
+        <!-- TARIFA POR USO -->
+
+        <article class="tariff tariff-use" id="useTariff">
+
+            <div class="tariff-image">
+                🏷️💶
             </div>
 
-        </header>
+            <div class="tariff-title">
+                TARIFA POR USO
+            </div>
 
-
-        <div class="tariffs">
-
-            <!-- TARIFA POR USO -->
-
-            <article class="tariff tariff-use" id="useTariff">
-
-                <div class="tariff-image">
-                    🏷️💶
-                </div>
-
-                <div class="tariff-title">
-                    TARIFA POR USO
-                </div>
-
-                <div class="tariff-content">
-
-                    <p>
-                        <span class="icon">⚡</span>
-                        <span>
-                            Pagas por el kWh consumido.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">▮▮▮</span>
-                        <span>
-                            Cuanto más consumes, más pagas.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">✓</span>
-                        <span>
-                            Es la opción más simple y transparente.
-                        </span>
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <!-- TARIFA PLANA -->
-
-            <article class="tariff tariff-flat">
-
-                <div class="tariff-image">
-                    📅💶
-                </div>
-
-                <div class="tariff-title">
-                    TARIFA PLANA /<br>
-                    PRECIO FIJO
-                </div>
-
-                <div class="tariff-content">
-
-                    <p>
-                        <span class="icon">€</span>
-                        <span>
-                            Cuota fija cada mes.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">▤</span>
-                        <span>
-                            La misma factura dentro de unos límites de consumo.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">👍</span>
-                        <span>
-                            Aporta estabilidad y previsibilidad en tus gastos.
-                        </span>
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <!-- TRAMOS -->
-
-            <article class="tariff tariff-hours">
-
-                <div class="tariff-image">
-                    🕐
-                </div>
-
-                <div class="tariff-title">
-                    TARIFA POR<br>
-                    TRAMOS HORARIOS
-                </div>
-
-                <div class="tariff-content">
-
-                    <p>
-                        <span class="icon">◷</span>
-                        <span>
-                            Horas valle, llano y punta.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">€</span>
-                        <span>
-                            Precio diferente según la hora.
-                        </span>
-                    </p>
-
-                    <p>
-                        <span class="icon">⚙</span>
-                        <span>
-                            Permite optimizar el consumo y pagar menos si concentras el uso en las horas económicas.
-                        </span>
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-
-        <div class="info">
-            ℹ️ &nbsp;
-            <strong>La tarifa</strong> es la oferta comercial de la comercializadora,
-            mientras que el <strong>peaje</strong> corresponde a la parte regulada del suministro.
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SIMULADOR
-    ========================== -->
-
-    <section class="simulator-section" id="simulatorSection">
-
-        <div class="simulator">
-
-            <button class="back-button" id="backButton">
-                ← Volver a tipos de tarifas
-            </button>
-
-
-            <div class="simulator-header">
-
-                <h2>Simula tu factura</h2>
+            <div class="tariff-content">
 
                 <p>
-                    Ajusta la potencia y el consumo para ver cómo cambia el importe.
+                    <span class="icon">⚡</span>
+                    <span>
+                        Pagas por el kWh consumido.
+                    </span>
+                </p>
+
+                <p>
+                    <span class="icon">▮▮▮</span>
+                    <span>
+                        Cuanto más consumes, más pagas.
+                    </span>
+                </p>
+
+                <p>
+                    <span class="icon">✓</span>
+                    <span>
+                        Es la opción más simple y transparente.
+                    </span>
                 </p>
 
             </div>
 
-
-            <!-- POTENCIA -->
-
-            <div class="control-card">
-
-                <div class="control-header">
-
-                    <div class="control-name">
-
-                        <div class="control-icon">
-                            ⚡
-                        </div>
-
-                        <div>
-                            <h3>Potencia contratada</h3>
-                            <span>Coste mensual de potencia</span>
-                        </div>
-
-                    </div>
-
-                    <div class="current-value">
-                        <span id="powerValue">3</span> kW
-                    </div>
-
-                </div>
+        </article>
 
 
-                <div class="slider-wrapper">
+        <!-- TARIFA PLANA -->
 
-                    <input
-                        type="range"
-                        id="powerSlider"
-                        min="3"
-                        max="15"
-                        step="0.1"
-                        value="3"
-                    >
+        <article class="tariff tariff-flat" id="flatTariff">
 
-                    <div class="slider-labels">
-                        <span>3 kW</span>
-                        <span>15 kW</span>
-                    </div>
+            <div class="tariff-image">
+                📅💶
+            </div>
 
-                </div>
+            <div class="tariff-title">
+                TARIFA PLANA /<br>
+                PRECIO FIJO
+            </div>
 
+            <div class="tariff-content">
 
-                <div class="cost-row">
-
-                    <span class="cost-label">
-                        Coste de potencia
+                <p>
+                    <span class="icon">€</span>
+                    <span>
+                        Cuota fija cada mes.
                     </span>
+                </p>
 
-                    <span class="cost-value">
-                        <span id="powerCost">15,96</span> €
+                <p>
+                    <span class="icon">▤</span>
+                    <span>
+                        La misma factura dentro de unos límites de consumo.
                     </span>
+                </p>
 
-                </div>
+                <p>
+                    <span class="icon">👍</span>
+                    <span>
+                        Aporta estabilidad y previsibilidad en tus gastos.
+                    </span>
+                </p>
 
             </div>
 
-
-            <!-- CONSUMO -->
-
-            <div class="control-card">
-
-                <div class="control-header">
-
-                    <div class="control-name">
-
-                        <div class="control-icon">
-                            💡
-                        </div>
-
-                        <div>
-                            <h3>Consumo mensual</h3>
-                            <span>Electricidad consumida</span>
-                        </div>
-
-                    </div>
-
-                    <div class="current-value">
-                        <span id="consumptionValue">0</span> kWh
-                    </div>
-
-                </div>
+        </article>
 
 
-                <div class="slider-wrapper">
+        <!-- TRAMOS -->
 
-                    <input
-                        type="range"
-                        id="consumptionSlider"
-                        min="0"
-                        max="800"
-                        step="1"
-                        value="0"
-                    >
+        <article class="tariff tariff-hours">
 
-                    <div class="slider-labels">
-                        <span>0 kWh</span>
-                        <span>800 kWh</span>
-                    </div>
+            <div class="tariff-image">
+                🕐
+            </div>
 
-                </div>
+            <div class="tariff-title">
+                TARIFA POR<br>
+                TRAMOS HORARIOS
+            </div>
 
+            <div class="tariff-content">
 
-                <div class="cost-row">
-
-                    <span class="cost-label">
-                        Coste del consumo
+                <p>
+                    <span class="icon">◷</span>
+                    <span>
+                        Horas valle, llano y punta.
                     </span>
+                </p>
 
-                    <span class="cost-value">
-                        <span id="consumptionCost">0,00</span> €
+                <p>
+                    <span class="icon">€</span>
+                    <span>
+                        Precio diferente según la hora.
                     </span>
+                </p>
 
-                </div>
+                <p>
+                    <span class="icon">⚙</span>
+                    <span>
+                        Permite optimizar el consumo y pagar menos si concentras el uso en las horas económicas.
+                    </span>
+                </p>
 
             </div>
 
+        </article>
 
-            <!-- TOTAL -->
 
-            <div class="total-card">
+    </div>
 
-                <div class="total-top">
+
+    <div class="info">
+
+        ℹ️ &nbsp;
+        <strong>La tarifa</strong> es la oferta comercial de la comercializadora,
+        mientras que el <strong>peaje</strong> corresponde a la parte regulada del suministro.
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SIMULADOR TARIFA POR USO
+========================================================= -->
+
+<section class="simulator-section" id="simulatorSection">
+
+    <div class="simulator">
+
+        <button class="back-button" id="backButton">
+            ← Volver a tipos de tarifas
+        </button>
+
+
+        <div class="simulator-header">
+
+            <h2>Simula tu factura</h2>
+
+            <p>
+                Ajusta la potencia y el consumo para ver cómo cambia el importe.
+            </p>
+
+        </div>
+
+
+        <!-- POTENCIA -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        ⚡
+                    </div>
 
                     <div>
-
-                        <div class="total-title">
-                            TOTAL ESTIMADO DE LA FACTURA
-                        </div>
-
-                        <div class="total-value">
-                            <span id="totalValue">15,96</span> €
-                        </div>
-
+                        <h3>Potencia contratada</h3>
+                        <span>Coste mensual de potencia</span>
                     </div>
 
                 </div>
 
-
-                <div class="breakdown">
-
-                    <div class="breakdown-item">
-
-                        <span>Potencia</span>
-
-                        <strong>
-                            <span id="summaryPower">15,96</span> €
-                        </strong>
-
-                    </div>
-
-
-                    <div class="breakdown-item">
-
-                        <span>Consumo</span>
-
-                        <strong>
-                            <span id="summaryConsumption">0,00</span> €
-                        </strong>
-
-                    </div>
-
+                <div class="current-value">
+                    <span id="powerValue">3</span> kW
                 </div>
 
-
-                <!-- IMPUESTOS -->
-
-                <div class="tax-control">
-
-                    <div class="tax-text">
-
-                        <strong>
-                            Mostrar precio con impuestos
-                        </strong>
-
-                        <span id="taxLabel">
-                            Precio sin impuestos
-                        </span>
-
-                    </div>
+            </div>
 
 
-                    <label class="switch">
+            <div class="slider-wrapper">
 
-                        <input
-                            type="checkbox"
-                            id="taxToggle"
-                        >
+                <input
+                    type="range"
+                    id="powerSlider"
+                    min="3"
+                    max="15"
+                    step="0.1"
+                    value="3"
+                >
 
-                        <span class="switch-slider"></span>
-
-                    </label>
-
+                <div class="slider-labels">
+                    <span>3 kW</span>
+                    <span>15 kW</span>
                 </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste de potencia
+                </span>
+
+                <span class="cost-value">
+                    <span id="powerCost">15,96</span> €
+                </span>
 
             </div>
 
         </div>
 
-    </section>
+
+        <!-- CONSUMO -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <h3>Consumo mensual</h3>
+                        <span>Electricidad consumida</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="consumptionValue">0</span> kWh
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="consumptionSlider"
+                    min="0"
+                    max="800"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste del consumo
+                </span>
+
+                <span class="cost-value">
+                    <span id="consumptionCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="total-card">
+
+            <div class="total-top">
+
+                <div>
+
+                    <div class="total-title">
+                        TOTAL ESTIMADO DE LA FACTURA
+                    </div>
+
+                    <div class="total-value">
+                        <span id="totalValue">15,96</span> €
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="breakdown">
+
+                <div class="breakdown-item">
+
+                    <span>Potencia</span>
+
+                    <strong>
+                        <span id="summaryPower">15,96</span> €
+                    </strong>
+
+                </div>
+
+
+                <div class="breakdown-item">
+
+                    <span>Consumo</span>
+
+                    <strong>
+                        <span id="summaryConsumption">0,00</span> €
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="tax-control">
+
+                <div class="tax-text">
+
+                    <strong>
+                        Mostrar precio con impuestos
+                    </strong>
+
+                    <span id="taxLabel">
+                        Precio sin impuestos
+                    </span>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="taxToggle"
+                    >
+
+                    <span class="switch-slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SIMULADOR TARIFA PLANA
+========================================================= -->
+
+<section class="simulator-section" id="flatSimulatorSection">
+
+    <div class="simulator">
+
+        <button class="back-button" id="flatBackButton">
+            ← Volver a tipos de tarifas
+        </button>
+
+
+        <div class="simulator-header">
+
+            <h2>Tarifa plana / Precio fijo</h2>
+
+            <p>
+                Ajusta la potencia, el consumo anual y la cuota mensual que quieres pagar.
+            </p>
+
+        </div>
+
+
+        <!-- POTENCIA TARIFA PLANA -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+                        <h3>Potencia contratada</h3>
+                        <span>Coste mensual de potencia</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="flatPowerValue">3</span> kW
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="flatPowerSlider"
+                    min="3"
+                    max="15"
+                    step="0.1"
+                    value="3"
+                >
+
+                <div class="slider-labels">
+                    <span>3 kW</span>
+                    <span>15 kW</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste de potencia
+                </span>
+
+                <span class="cost-value">
+                    <span id="flatPowerCost">15,96</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONSUMO ANUAL -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        💡
+                    </div>
+
+                    <div>
+                        <h3>Consumo anual</h3>
+                        <span>Electricidad consumida al año</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="flatConsumptionValue">0</span> kWh
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="flatConsumptionSlider"
+                    min="0"
+                    max="9600"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 kWh</span>
+                    <span>9.600 kWh</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste medio mensual del consumo
+                </span>
+
+                <span class="cost-value">
+                    <span id="flatConsumptionCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRECIO A PAGAR -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        €
+                    </div>
+
+                    <div>
+                        <h3>Precio que quieres pagar</h3>
+                        <span>Cuota fija mensual</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="flatPayValue">0</span> €
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="flatPaySlider"
+                    min="0"
+                    max="150"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 € / mes</span>
+                    <span>150 € / mes</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Cuota mensual seleccionada
+                </span>
+
+                <span class="cost-value">
+                    <span id="flatPayCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULTADOS TARIFA PLANA -->
+
+        <div class="flat-total-card">
+
+            <div class="flat-results">
+
+
+                <!-- PRECIO A PAGAR -->
+
+                <div class="flat-result">
+
+                    <span class="flat-result-label">
+                        Precio a pagar
+                    </span>
+
+                    <div class="flat-result-value">
+                        <span id="flatResultPay">0,00</span> €
+                    </div>
+
+                    <div class="flat-result-extra">
+                        Cuota mensual seleccionada
+                    </div>
+
+                </div>
+
+
+                <!-- PRECIO REAL -->
+
+                <div class="flat-result">
+
+                    <span class="flat-result-label">
+                        Precio real
+                    </span>
+
+                    <div class="flat-result-value">
+                        <span id="flatResultReal">15,96</span> €
+                    </div>
+
+                    <div class="flat-result-extra">
+                        Según potencia y consumo
+                    </div>
+
+                </div>
+
+
+                <!-- DIFERENCIA -->
+
+                <div class="flat-result">
+
+                    <span class="flat-result-label">
+                        Diferencia
+                    </span>
+
+                    <div class="flat-result-value">
+                        <span id="flatResultDifference">15,96</span> €
+                    </div>
+
+                    <div class="flat-result-extra" id="flatDifferenceText">
+                        Diferencia mensual
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- IMPUESTOS -->
+
+            <div class="flat-tax-control">
+
+                <div class="flat-tax-text">
+
+                    <strong>
+                        Mostrar precio con impuestos
+                    </strong>
+
+                    <span id="flatTaxLabel">
+                        Precio sin impuestos
+                    </span>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="flatTaxToggle"
+                    >
+
+                    <span class="switch-slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 </div>
+
 
 
 <script>
 
 (function () {
 
-    /*
-     * ============================================
-     * PRECIOS
-     *
-     * Estos valores NO aparecen visualmente
-     * en la página.
-     * ============================================
-     */
 
-    const POWER_PRICE = 5.31855;
-    const KWH_PRICE = 0.112;
+/* =========================================================
+   PRECIOS OCULTOS
+========================================================= */
 
-    /*
-     * IVA utilizado para el cálculo.
-     * Se mantiene como variable para poder
-     * cambiarlo fácilmente si fuera necesario.
-     */
+const POWER_PRICE = 5.31855;
 
-    const TAX_RATE = 0.21;
+const KWH_PRICE = 0.112;
+
+const TAX_RATE = 0.21;
 
 
-    /*
-     * ELEMENTOS
-     */
+/* =========================================================
+   ELEMENTOS GENERALES
+========================================================= */
 
-    const home = document.getElementById("home");
-    const simulatorSection = document.getElementById("simulatorSection");
-
-    const useTariff = document.getElementById("useTariff");
-    const backButton = document.getElementById("backButton");
-
-    const powerSlider = document.getElementById("powerSlider");
-    const consumptionSlider = document.getElementById("consumptionSlider");
-
-    const powerValue = document.getElementById("powerValue");
-    const consumptionValue = document.getElementById("consumptionValue");
-
-    const powerCost = document.getElementById("powerCost");
-    const consumptionCost = document.getElementById("consumptionCost");
-
-    const summaryPower = document.getElementById("summaryPower");
-    const summaryConsumption = document.getElementById("summaryConsumption");
-
-    const totalValue = document.getElementById("totalValue");
-
-    const taxToggle = document.getElementById("taxToggle");
-    const taxLabel = document.getElementById("taxLabel");
+const home = document.getElementById("home");
 
 
-    /*
-     * FORMATEADOR
-     */
+/* =========================================================
+   TARIFA POR USO
+========================================================= */
 
-    function money(value) {
+const simulatorSection =
+    document.getElementById("simulatorSection");
 
-        return value.toLocaleString("es-ES", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-        });
+const useTariff =
+    document.getElementById("useTariff");
 
-    }
+const backButton =
+    document.getElementById("backButton");
 
+const powerSlider =
+    document.getElementById("powerSlider");
 
-    /*
-     * ACTUALIZAR SLIDER VISUAL
-     */
+const consumptionSlider =
+    document.getElementById("consumptionSlider");
 
-    function updateSliderBackground(slider) {
+const powerValue =
+    document.getElementById("powerValue");
 
-        const min = Number(slider.min);
-        const max = Number(slider.max);
-        const value = Number(slider.value);
+const consumptionValue =
+    document.getElementById("consumptionValue");
 
-        const percentage =
-            ((value - min) / (max - min)) * 100;
+const powerCost =
+    document.getElementById("powerCost");
 
-        slider.style.setProperty(
-            "--progress",
-            percentage + "%"
-        );
+const consumptionCost =
+    document.getElementById("consumptionCost");
 
-    }
+const summaryPower =
+    document.getElementById("summaryPower");
 
+const summaryConsumption =
+    document.getElementById("summaryConsumption");
 
-    /*
-     * CALCULAR
-     */
+const totalValue =
+    document.getElementById("totalValue");
 
-    function calculate() {
+const taxToggle =
+    document.getElementById("taxToggle");
 
-        const power = Number(powerSlider.value);
-        const consumption = Number(consumptionSlider.value);
-
-        /*
-         * Coste potencia:
-         *
-         * kW × €/kW/mes
-         */
-
-        const rawPowerCost =
-            power * POWER_PRICE;
+const taxLabel =
+    document.getElementById("taxLabel");
 
 
-        /*
-         * Coste consumo:
-         *
-         * kWh × €/kWh
-         */
+/* =========================================================
+   TARIFA PLANA
+========================================================= */
 
-        const rawConsumptionCost =
-            consumption * KWH_PRICE;
+const flatTariff =
+    document.getElementById("flatTariff");
+
+const flatSimulatorSection =
+    document.getElementById("flatSimulatorSection");
+
+const flatBackButton =
+    document.getElementById("flatBackButton");
+
+const flatPowerSlider =
+    document.getElementById("flatPowerSlider");
+
+const flatConsumptionSlider =
+    document.getElementById("flatConsumptionSlider");
+
+const flatPaySlider =
+    document.getElementById("flatPaySlider");
+
+const flatPowerValue =
+    document.getElementById("flatPowerValue");
+
+const flatConsumptionValue =
+    document.getElementById("flatConsumptionValue");
+
+const flatPayValue =
+    document.getElementById("flatPayValue");
+
+const flatPowerCost =
+    document.getElementById("flatPowerCost");
+
+const flatConsumptionCost =
+    document.getElementById("flatConsumptionCost");
+
+const flatPayCost =
+    document.getElementById("flatPayCost");
+
+const flatResultPay =
+    document.getElementById("flatResultPay");
+
+const flatResultReal =
+    document.getElementById("flatResultReal");
+
+const flatResultDifference =
+    document.getElementById("flatResultDifference");
+
+const flatDifferenceText =
+    document.getElementById("flatDifferenceText");
+
+const flatTaxToggle =
+    document.getElementById("flatTaxToggle");
+
+const flatTaxLabel =
+    document.getElementById("flatTaxLabel");
 
 
-        /*
-         * Subtotal
-         */
+/* =========================================================
+   FORMATO MONETARIO
+========================================================= */
 
-        const subtotal =
-            rawPowerCost + rawConsumptionCost;
+function money(value) {
+
+    return value.toLocaleString("es-ES", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+}
 
 
-        /*
-         * Aplicar impuestos si el usuario
-         * activa el interruptor.
-         */
+/* =========================================================
+   FONDO DE LOS SLIDERS
+========================================================= */
 
-        const total = taxToggle.checked
+function updateSliderBackground(slider) {
+
+    const min = Number(slider.min);
+
+    const max = Number(slider.max);
+
+    const value = Number(slider.value);
+
+    const percentage =
+        ((value - min) / (max - min)) * 100;
+
+    slider.style.setProperty(
+        "--progress",
+        percentage + "%"
+    );
+
+}
+
+
+/* =========================================================
+   CALCULAR TARIFA POR USO
+========================================================= */
+
+function calculateUseTariff() {
+
+    const power =
+        Number(powerSlider.value);
+
+    const consumption =
+        Number(consumptionSlider.value);
+
+
+    const rawPowerCost =
+        power * POWER_PRICE;
+
+
+    const rawConsumptionCost =
+        consumption * KWH_PRICE;
+
+
+    const subtotal =
+        rawPowerCost + rawConsumptionCost;
+
+
+    const total =
+        taxToggle.checked
             ? subtotal * (1 + TAX_RATE)
             : subtotal;
 
 
-        /*
-         * Actualizar textos
-         */
-
-        powerValue.textContent =
-            power.toFixed(1).replace(".", ",");
-
-        consumptionValue.textContent =
-            Math.round(consumption);
+    powerValue.textContent =
+        power.toFixed(1).replace(".", ",");
 
 
-        powerCost.textContent =
-            money(rawPowerCost);
-
-        consumptionCost.textContent =
-            money(rawConsumptionCost);
+    consumptionValue.textContent =
+        Math.round(consumption);
 
 
-        summaryPower.textContent =
-            money(
-                taxToggle.checked
-                    ? rawPowerCost * (1 + TAX_RATE)
-                    : rawPowerCost
-            );
+    powerCost.textContent =
+        money(rawPowerCost);
 
 
-        summaryConsumption.textContent =
-            money(
-                taxToggle.checked
-                    ? rawConsumptionCost * (1 + TAX_RATE)
-                    : rawConsumptionCost
-            );
+    consumptionCost.textContent =
+        money(rawConsumptionCost);
 
 
-        totalValue.textContent =
-            money(total);
+    summaryPower.textContent =
+        money(
+            taxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
 
 
-        /*
-         * Texto del impuesto
-         */
-
-        if (taxToggle.checked) {
-
-            taxLabel.textContent =
-                "Precio final con impuestos incluidos";
-
-        } else {
-
-            taxLabel.textContent =
-                "Precio sin impuestos";
-
-        }
+    summaryConsumption.textContent =
+        money(
+            taxToggle.checked
+                ? rawConsumptionCost * (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
 
 
-        /*
-         * Actualizar barra visual
-         */
+    totalValue.textContent =
+        money(total);
 
-        updateSliderBackground(powerSlider);
-        updateSliderBackground(consumptionSlider);
+
+    if (taxToggle.checked) {
+
+        taxLabel.textContent =
+            "Precio final con impuestos incluidos";
+
+    } else {
+
+        taxLabel.textContent =
+            "Precio sin impuestos";
+
+    }
+
+
+    updateSliderBackground(powerSlider);
+
+    updateSliderBackground(consumptionSlider);
+
+}
+
+
+/* =========================================================
+   CALCULAR TARIFA PLANA
+========================================================= */
+
+function calculateFlatTariff() {
+
+
+    const power =
+        Number(flatPowerSlider.value);
+
+
+    const annualConsumption =
+        Number(flatConsumptionSlider.value);
+
+
+    const priceToPay =
+        Number(flatPaySlider.value);
+
+
+    /*
+     * COSTE DE POTENCIA
+     *
+     * kW × €/kW/mes
+     */
+
+    const rawPowerCost =
+        power * POWER_PRICE;
+
+
+    /*
+     * COSTE DEL CONSUMO
+     *
+     * Primero calculamos el coste anual
+     * y posteriormente lo dividimos entre 12
+     * para obtener el coste mensual medio.
+     */
+
+    const annualConsumptionCost =
+        annualConsumption * KWH_PRICE;
+
+
+    const monthlyConsumptionCost =
+        annualConsumptionCost / 12;
+
+
+    /*
+     * PRECIO REAL MENSUAL
+     */
+
+    const rawRealPrice =
+        rawPowerCost + monthlyConsumptionCost;
+
+
+    /*
+     * SI SE ACTIVAN IMPUESTOS
+     */
+
+    const realPrice =
+        flatTaxToggle.checked
+            ? rawRealPrice * (1 + TAX_RATE)
+            : rawRealPrice;
+
+
+    /*
+     * DIFERENCIA
+     *
+     * Precio real - precio que quieres pagar.
+     */
+
+    const difference =
+        realPrice - priceToPay;
+
+
+    /*
+     * ACTUALIZAR VALORES
+     */
+
+    flatPowerValue.textContent =
+        power.toFixed(1).replace(".", ",");
+
+
+    flatConsumptionValue.textContent =
+        Math.round(annualConsumption).toLocaleString("es-ES");
+
+
+    flatPayValue.textContent =
+        money(priceToPay);
+
+
+    flatPowerCost.textContent =
+        money(
+            flatTaxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    flatConsumptionCost.textContent =
+        money(monthlyConsumptionCost);
+
+
+    flatPayCost.textContent =
+        money(priceToPay);
+
+
+    /*
+     * TRES RECUADROS
+     */
+
+    flatResultPay.textContent =
+        money(priceToPay);
+
+
+    flatResultReal.textContent =
+        money(realPrice);
+
+
+    flatResultDifference.textContent =
+        money(Math.abs(difference));
+
+
+    /*
+     * Texto explicativo de la diferencia
+     */
+
+    if (difference > 0.005) {
+
+        flatDifferenceText.textContent =
+            "Ahorro mensual";
+
+    } else if (difference < -0.005) {
+
+        flatDifferenceText.textContent =
+            "Coste adicional mensual";
+
+    } else {
+
+        flatDifferenceText.textContent =
+            "Sin diferencia";
 
     }
 
 
     /*
-     * EVENTOS
+     * IMPUESTOS
      */
 
-    powerSlider.addEventListener(
-        "input",
-        calculate
-    );
+    if (flatTaxToggle.checked) {
 
-    consumptionSlider.addEventListener(
-        "input",
-        calculate
-    );
+        flatTaxLabel.textContent =
+            "Precio real con impuestos incluidos";
 
-    taxToggle.addEventListener(
-        "change",
-        calculate
-    );
+    } else {
+
+        flatTaxLabel.textContent =
+            "Precio real sin impuestos";
+
+    }
 
 
     /*
-     * ENTRAR EN TARIFA POR USO
+     * ACTUALIZAR BARRAS
      */
 
-    useTariff.addEventListener(
-        "click",
-        function () {
+    updateSliderBackground(flatPowerSlider);
 
-            home.style.display = "none";
+    updateSliderBackground(flatConsumptionSlider);
 
-            simulatorSection.classList.add("active");
+    updateSliderBackground(flatPaySlider);
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
+}
 
 
-    /*
-     * VOLVER
-     */
+/* =========================================================
+   EVENTOS TARIFA POR USO
+========================================================= */
 
-    backButton.addEventListener(
-        "click",
-        function () {
-
-            simulatorSection.classList.remove("active");
-
-            home.style.display = "block";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
+powerSlider.addEventListener(
+    "input",
+    calculateUseTariff
+);
 
 
-    /*
-     * INICIALIZAR
-     */
+consumptionSlider.addEventListener(
+    "input",
+    calculateUseTariff
+);
 
-    calculate();
+
+taxToggle.addEventListener(
+    "change",
+    calculateUseTariff
+);
+
+
+/* =========================================================
+   ABRIR TARIFA POR USO
+========================================================= */
+
+useTariff.addEventListener(
+    "click",
+    function () {
+
+        home.style.display = "none";
+
+        flatSimulatorSection.classList.remove("active");
+
+        simulatorSection.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR TARIFA PLANA
+========================================================= */
+
+flatTariff.addEventListener(
+    "click",
+    function () {
+
+        home.style.display = "none";
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   VOLVER DESDE TARIFA POR USO
+========================================================= */
+
+backButton.addEventListener(
+    "click",
+    function () {
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.remove("active");
+
+        home.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   VOLVER DESDE TARIFA PLANA
+========================================================= */
+
+flatBackButton.addEventListener(
+    "click",
+    function () {
+
+        flatSimulatorSection.classList.remove("active");
+
+        simulatorSection.classList.remove("active");
+
+        home.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   EVENTOS TARIFA PLANA
+========================================================= */
+
+flatPowerSlider.addEventListener(
+    "input",
+    calculateFlatTariff
+);
+
+
+flatConsumptionSlider.addEventListener(
+    "input",
+    calculateFlatTariff
+);
+
+
+flatPaySlider.addEventListener(
+    "input",
+    calculateFlatTariff
+);
+
+
+flatTaxToggle.addEventListener(
+    "change",
+    calculateFlatTariff
+);
+
+
+/* =========================================================
+   INICIALIZAR
+========================================================= */
+
+calculateUseTariff();
+
+calculateFlatTariff();
+
 
 })();
 
