@@ -427,11 +427,6 @@ input[type="range"]::-moz-range-thumb {
     opacity: .75;
 }
 
-
-/* =========================================================
-   SWITCH
-========================================================= */
-
 .switch {
     position: relative;
     width: 58px;
@@ -473,11 +468,6 @@ input[type="range"]::-moz-range-thumb {
 .switch input:checked + .switch-slider:before {
     transform: translateX(26px);
 }
-
-
-/* =========================================================
-   DESGLOSE TARIFA POR USO
-========================================================= */
 
 .breakdown {
     display: grid;
@@ -571,6 +561,93 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
+   TARIFA POR TRAMOS
+========================================================= */
+
+.hours-total-card {
+    margin-top: 25px;
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #087df5, #075bd3);
+    color: white;
+    box-shadow: 0 15px 35px rgba(8, 125, 245, .25);
+}
+
+.hours-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.hours-result {
+    background: rgba(255,255,255,.13);
+    border-radius: 15px;
+    padding: 16px;
+    min-height: 115px;
+}
+
+.hours-result-label {
+    display: block;
+    font-size: 13px;
+    opacity: .78;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.hours-result-value {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.hours-result-extra {
+    margin-top: 5px;
+    font-size: 11px;
+    opacity: .72;
+}
+
+.hours-tax-control {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.hours-tax-text strong {
+    display: block;
+    font-size: 16px;
+}
+
+.hours-tax-text span {
+    font-size: 13px;
+    opacity: .75;
+}
+
+
+/* =========================================================
+   COLORES DE LOS TRAMOS
+========================================================= */
+
+.valley-icon {
+    background: #d9f7ed;
+    color: #08a678;
+}
+
+.flat-icon {
+    background: #fff0d8;
+    color: #f28700;
+}
+
+.peak-icon {
+    background: #ffe0e0;
+    color: #e53935;
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -619,6 +696,10 @@ input[type="range"]::-moz-range-thumb {
         grid-template-columns: 1fr;
     }
 
+    .hours-results {
+        grid-template-columns: 1fr 1fr;
+    }
+
 }
 
 
@@ -642,6 +723,10 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .breakdown {
+        grid-template-columns: 1fr;
+    }
+
+    .hours-results {
         grid-template-columns: 1fr;
     }
 
@@ -757,9 +842,9 @@ input[type="range"]::-moz-range-thumb {
         </article>
 
 
-        <!-- TRAMOS -->
+        <!-- TARIFA POR TRAMOS -->
 
-        <article class="tariff tariff-hours">
+        <article class="tariff tariff-hours" id="hoursTariff">
 
             <div class="tariff-image">
                 🕐
@@ -1064,7 +1149,7 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
-        <!-- POTENCIA TARIFA PLANA -->
+        <!-- POTENCIA -->
 
         <div class="control-card">
 
@@ -1244,14 +1329,11 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
-        <!-- RESULTADOS TARIFA PLANA -->
+        <!-- RESULTADOS -->
 
         <div class="flat-total-card">
 
             <div class="flat-results">
-
-
-                <!-- PRECIO A PAGAR -->
 
                 <div class="flat-result">
 
@@ -1270,8 +1352,6 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
 
-                <!-- PRECIO REAL -->
-
                 <div class="flat-result">
 
                     <span class="flat-result-label">
@@ -1289,8 +1369,6 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
 
-                <!-- DIFERENCIA -->
-
                 <div class="flat-result">
 
                     <span class="flat-result-label">
@@ -1307,11 +1385,8 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
-
             </div>
 
-
-            <!-- IMPUESTOS -->
 
             <div class="flat-tax-control">
 
@@ -1348,6 +1423,411 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 
+
+<!-- =========================================================
+     SIMULADOR TARIFA POR TRAMOS HORARIOS
+========================================================= -->
+
+<section class="simulator-section" id="hoursSimulatorSection">
+
+    <div class="simulator">
+
+        <button class="back-button" id="hoursBackButton">
+            ← Volver a tipos de tarifas
+        </button>
+
+
+        <div class="simulator-header">
+
+            <h2>Tarifa por tramos horarios</h2>
+
+            <p>
+                Reparte tu consumo entre valle, llano y punta para ver cómo cambia tu factura.
+            </p>
+
+        </div>
+
+
+        <!-- POTENCIA -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+                        <h3>Potencia contratada</h3>
+                        <span>Coste mensual de potencia</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="hoursPowerValue">3</span> kW
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="hoursPowerSlider"
+                    min="3"
+                    max="15"
+                    step="0.1"
+                    value="3"
+                >
+
+                <div class="slider-labels">
+                    <span>3 kW</span>
+                    <span>15 kW</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste de potencia
+                </span>
+
+                <span class="cost-value">
+                    <span id="hoursPowerCost">15,96</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- VALLE -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon valley-icon">
+                        🌙
+                    </div>
+
+                    <div>
+                        <h3>Consumo Valle <span>(00:00–08:00)</span></h3>
+                        <span>Horas de menor precio</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="valleyValue">0</span> kWh
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="valleySlider"
+                    min="0"
+                    max="800"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste consumo valle
+                </span>
+
+                <span class="cost-value">
+                    <span id="valleyCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LLANO -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon flat-icon">
+                        ☀️
+                    </div>
+
+                    <div>
+                        <h3>Consumo Llano <span>(08:00–10:00 / 14:00–18:00 / 22:00–00:00)</span></h3>
+                        <span>Horas de precio intermedio</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="flatHoursValue">0</span> kWh
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="flatHoursSlider"
+                    min="0"
+                    max="800"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste consumo llano
+                </span>
+
+                <span class="cost-value">
+                    <span id="flatHoursCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- PUNTA -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon peak-icon">
+                        ☀️
+                    </div>
+
+                    <div>
+                        <h3>Consumo Punta <span>(10:00–14:00 / 18:00–22:00)</span></h3>
+                        <span>Horas de mayor precio</span>
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+                    <span id="peakValue">0</span> kWh
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="peakSlider"
+                    min="0"
+                    max="800"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste consumo punta
+                </span>
+
+                <span class="cost-value">
+                    <span id="peakCost">0,00</span> €
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL TRAMOS -->
+
+        <div class="hours-total-card">
+
+            <div class="total-top">
+
+                <div>
+
+                    <div class="total-title">
+                        TOTAL ESTIMADO DE LA FACTURA
+                    </div>
+
+                    <div class="total-value">
+                        <span id="hoursTotalValue">15,96</span> €
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="hours-results">
+
+
+                <!-- POTENCIA -->
+
+                <div class="hours-result">
+
+                    <span class="hours-result-label">
+                        Potencia
+                    </span>
+
+                    <div class="hours-result-value">
+                        <span id="hoursSummaryPower">15,96</span> €
+                    </div>
+
+                    <div class="hours-result-extra">
+                        Coste mensual
+                    </div>
+
+                </div>
+
+
+                <!-- VALLE -->
+
+                <div class="hours-result">
+
+                    <span class="hours-result-label">
+                        Valle
+                    </span>
+
+                    <div class="hours-result-value">
+                        <span id="hoursSummaryValley">0,00</span> €
+                    </div>
+
+                    <div class="hours-result-extra">
+                        0,08 €/kWh
+                    </div>
+
+                </div>
+
+
+                <!-- LLANO -->
+
+                <div class="hours-result">
+
+                    <span class="hours-result-label">
+                        Llano
+                    </span>
+
+                    <div class="hours-result-value">
+                        <span id="hoursSummaryFlat">0,00</span> €
+                    </div>
+
+                    <div class="hours-result-extra">
+                        0,14 €/kWh
+                    </div>
+
+                </div>
+
+
+                <!-- PUNTA -->
+
+                <div class="hours-result">
+
+                    <span class="hours-result-label">
+                        Punta
+                    </span>
+
+                    <div class="hours-result-value">
+                        <span id="hoursSummaryPeak">0,00</span> €
+                    </div>
+
+                    <div class="hours-result-extra">
+                        0,21 €/kWh
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- IMPUESTOS -->
+
+            <div class="hours-tax-control">
+
+                <div class="hours-tax-text">
+
+                    <strong>
+                        Mostrar precio con impuestos
+                    </strong>
+
+                    <span id="hoursTaxLabel">
+                        Precio sin impuestos
+                    </span>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="hoursTaxToggle"
+                    >
+
+                    <span class="switch-slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 </div>
 
 
@@ -1358,12 +1838,18 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   PRECIOS OCULTOS
+   PRECIOS
 ========================================================= */
 
 const POWER_PRICE = 5.31855;
 
 const KWH_PRICE = 0.112;
+
+const VALLEY_PRICE = 0.08;
+
+const FLAT_HOURS_PRICE = 0.14;
+
+const PEAK_PRICE = 0.21;
 
 const TAX_RATE = 0.21;
 
@@ -1372,7 +1858,8 @@ const TAX_RATE = 0.21;
    ELEMENTOS GENERALES
 ========================================================= */
 
-const home = document.getElementById("home");
+const home =
+    document.getElementById("home");
 
 
 /* =========================================================
@@ -1482,6 +1969,77 @@ const flatTaxLabel =
 
 
 /* =========================================================
+   TARIFA POR TRAMOS
+========================================================= */
+
+const hoursTariff =
+    document.getElementById("hoursTariff");
+
+const hoursSimulatorSection =
+    document.getElementById("hoursSimulatorSection");
+
+const hoursBackButton =
+    document.getElementById("hoursBackButton");
+
+const hoursPowerSlider =
+    document.getElementById("hoursPowerSlider");
+
+const valleySlider =
+    document.getElementById("valleySlider");
+
+const flatHoursSlider =
+    document.getElementById("flatHoursSlider");
+
+const peakSlider =
+    document.getElementById("peakSlider");
+
+const hoursPowerValue =
+    document.getElementById("hoursPowerValue");
+
+const valleyValue =
+    document.getElementById("valleyValue");
+
+const flatHoursValue =
+    document.getElementById("flatHoursValue");
+
+const peakValue =
+    document.getElementById("peakValue");
+
+const hoursPowerCost =
+    document.getElementById("hoursPowerCost");
+
+const valleyCost =
+    document.getElementById("valleyCost");
+
+const flatHoursCost =
+    document.getElementById("flatHoursCost");
+
+const peakCost =
+    document.getElementById("peakCost");
+
+const hoursTotalValue =
+    document.getElementById("hoursTotalValue");
+
+const hoursSummaryPower =
+    document.getElementById("hoursSummaryPower");
+
+const hoursSummaryValley =
+    document.getElementById("hoursSummaryValley");
+
+const hoursSummaryFlat =
+    document.getElementById("hoursSummaryFlat");
+
+const hoursSummaryPeak =
+    document.getElementById("hoursSummaryPeak");
+
+const hoursTaxToggle =
+    document.getElementById("hoursTaxToggle");
+
+const hoursTaxLabel =
+    document.getElementById("hoursTaxLabel");
+
+
+/* =========================================================
    FORMATO MONETARIO
 ========================================================= */
 
@@ -1501,11 +2059,14 @@ function money(value) {
 
 function updateSliderBackground(slider) {
 
-    const min = Number(slider.min);
+    const min =
+        Number(slider.min);
 
-    const max = Number(slider.max);
+    const max =
+        Number(slider.max);
 
-    const value = Number(slider.value);
+    const value =
+        Number(slider.value);
 
     const percentage =
         ((value - min) / (max - min)) * 100;
@@ -1519,7 +2080,7 @@ function updateSliderBackground(slider) {
 
 
 /* =========================================================
-   CALCULAR TARIFA POR USO
+   TARIFA POR USO
 ========================================================= */
 
 function calculateUseTariff() {
@@ -1585,17 +2146,10 @@ function calculateUseTariff() {
         money(total);
 
 
-    if (taxToggle.checked) {
-
-        taxLabel.textContent =
-            "Precio final con impuestos incluidos";
-
-    } else {
-
-        taxLabel.textContent =
-            "Precio sin impuestos";
-
-    }
+    taxLabel.textContent =
+        taxToggle.checked
+            ? "Precio final con impuestos incluidos"
+            : "Precio sin impuestos";
 
 
     updateSliderBackground(powerSlider);
@@ -1606,7 +2160,7 @@ function calculateUseTariff() {
 
 
 /* =========================================================
-   CALCULAR TARIFA PLANA
+   TARIFA PLANA
 ========================================================= */
 
 function calculateFlatTariff() {
@@ -1624,23 +2178,9 @@ function calculateFlatTariff() {
         Number(flatPaySlider.value);
 
 
-    /*
-     * COSTE DE POTENCIA
-     *
-     * kW × €/kW/mes
-     */
-
     const rawPowerCost =
         power * POWER_PRICE;
 
-
-    /*
-     * COSTE DEL CONSUMO
-     *
-     * Primero calculamos el coste anual
-     * y posteriormente lo dividimos entre 12
-     * para obtener el coste mensual medio.
-     */
 
     const annualConsumptionCost =
         annualConsumption * KWH_PRICE;
@@ -1650,17 +2190,9 @@ function calculateFlatTariff() {
         annualConsumptionCost / 12;
 
 
-    /*
-     * PRECIO REAL MENSUAL
-     */
-
     const rawRealPrice =
         rawPowerCost + monthlyConsumptionCost;
 
-
-    /*
-     * SI SE ACTIVAN IMPUESTOS
-     */
 
     const realPrice =
         flatTaxToggle.checked
@@ -1668,26 +2200,17 @@ function calculateFlatTariff() {
             : rawRealPrice;
 
 
-    /*
-     * DIFERENCIA
-     *
-     * Precio real - precio que quieres pagar.
-     */
-
     const difference =
         realPrice - priceToPay;
 
-
-    /*
-     * ACTUALIZAR VALORES
-     */
 
     flatPowerValue.textContent =
         power.toFixed(1).replace(".", ",");
 
 
     flatConsumptionValue.textContent =
-        Math.round(annualConsumption).toLocaleString("es-ES");
+        Math.round(annualConsumption)
+        .toLocaleString("es-ES");
 
 
     flatPayValue.textContent =
@@ -1710,10 +2233,6 @@ function calculateFlatTariff() {
         money(priceToPay);
 
 
-    /*
-     * TRES RECUADROS
-     */
-
     flatResultPay.textContent =
         money(priceToPay);
 
@@ -1725,10 +2244,6 @@ function calculateFlatTariff() {
     flatResultDifference.textContent =
         money(Math.abs(difference));
 
-
-    /*
-     * Texto explicativo de la diferencia
-     */
 
     if (difference > 0.005) {
 
@@ -1748,32 +2263,210 @@ function calculateFlatTariff() {
     }
 
 
-    /*
-     * IMPUESTOS
-     */
+    flatTaxLabel.textContent =
+        flatTaxToggle.checked
+            ? "Precio real con impuestos incluidos"
+            : "Precio real sin impuestos";
 
-    if (flatTaxToggle.checked) {
-
-        flatTaxLabel.textContent =
-            "Precio real con impuestos incluidos";
-
-    } else {
-
-        flatTaxLabel.textContent =
-            "Precio real sin impuestos";
-
-    }
-
-
-    /*
-     * ACTUALIZAR BARRAS
-     */
 
     updateSliderBackground(flatPowerSlider);
 
     updateSliderBackground(flatConsumptionSlider);
 
     updateSliderBackground(flatPaySlider);
+
+}
+
+
+/* =========================================================
+   TARIFA POR TRAMOS
+========================================================= */
+
+function calculateHoursTariff() {
+
+
+    const power =
+        Number(hoursPowerSlider.value);
+
+
+    const valley =
+        Number(valleySlider.value);
+
+
+    const flatHours =
+        Number(flatHoursSlider.value);
+
+
+    const peak =
+        Number(peakSlider.value);
+
+
+    /*
+     * POTENCIA
+     */
+
+    const rawPowerCost =
+        power * POWER_PRICE;
+
+
+    /*
+     * CONSUMOS
+     */
+
+    const rawValleyCost =
+        valley * VALLEY_PRICE;
+
+
+    const rawFlatHoursCost =
+        flatHours * FLAT_HOURS_PRICE;
+
+
+    const rawPeakCost =
+        peak * PEAK_PRICE;
+
+
+    /*
+     * TOTAL SIN IMPUESTOS
+     */
+
+    const subtotal =
+        rawPowerCost +
+        rawValleyCost +
+        rawFlatHoursCost +
+        rawPeakCost;
+
+
+    /*
+     * TOTAL FINAL
+     */
+
+    const total =
+        hoursTaxToggle.checked
+            ? subtotal * (1 + TAX_RATE)
+            : subtotal;
+
+
+    /*
+     * ACTUALIZAR VALORES
+     */
+
+    hoursPowerValue.textContent =
+        power.toFixed(1).replace(".", ",");
+
+
+    valleyValue.textContent =
+        Math.round(valley);
+
+
+    flatHoursValue.textContent =
+        Math.round(flatHours);
+
+
+    peakValue.textContent =
+        Math.round(peak);
+
+
+    /*
+     * COSTES INDIVIDUALES
+     */
+
+    hoursPowerCost.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    valleyCost.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawValleyCost * (1 + TAX_RATE)
+                : rawValleyCost
+        );
+
+
+    flatHoursCost.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawFlatHoursCost * (1 + TAX_RATE)
+                : rawFlatHoursCost
+        );
+
+
+    peakCost.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawPeakCost * (1 + TAX_RATE)
+                : rawPeakCost
+        );
+
+
+    /*
+     * TOTAL
+     */
+
+    hoursTotalValue.textContent =
+        money(total);
+
+
+    /*
+     * CUATRO RECUADROS
+     */
+
+    hoursSummaryPower.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    hoursSummaryValley.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawValleyCost * (1 + TAX_RATE)
+                : rawValleyCost
+        );
+
+
+    hoursSummaryFlat.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawFlatHoursCost * (1 + TAX_RATE)
+                : rawFlatHoursCost
+        );
+
+
+    hoursSummaryPeak.textContent =
+        money(
+            hoursTaxToggle.checked
+                ? rawPeakCost * (1 + TAX_RATE)
+                : rawPeakCost
+        );
+
+
+    /*
+     * IMPUESTOS
+     */
+
+    hoursTaxLabel.textContent =
+        hoursTaxToggle.checked
+            ? "Precio final con impuestos incluidos"
+            : "Precio sin impuestos";
+
+
+    /*
+     * ACTUALIZAR BARRAS
+     */
+
+    updateSliderBackground(hoursPowerSlider);
+
+    updateSliderBackground(valleySlider);
+
+    updateSliderBackground(flatHoursSlider);
+
+    updateSliderBackground(peakSlider);
 
 }
 
@@ -1797,98 +2490,6 @@ consumptionSlider.addEventListener(
 taxToggle.addEventListener(
     "change",
     calculateUseTariff
-);
-
-
-/* =========================================================
-   ABRIR TARIFA POR USO
-========================================================= */
-
-useTariff.addEventListener(
-    "click",
-    function () {
-
-        home.style.display = "none";
-
-        flatSimulatorSection.classList.remove("active");
-
-        simulatorSection.classList.add("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   ABRIR TARIFA PLANA
-========================================================= */
-
-flatTariff.addEventListener(
-    "click",
-    function () {
-
-        home.style.display = "none";
-
-        simulatorSection.classList.remove("active");
-
-        flatSimulatorSection.classList.add("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   VOLVER DESDE TARIFA POR USO
-========================================================= */
-
-backButton.addEventListener(
-    "click",
-    function () {
-
-        simulatorSection.classList.remove("active");
-
-        flatSimulatorSection.classList.remove("active");
-
-        home.style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   VOLVER DESDE TARIFA PLANA
-========================================================= */
-
-flatBackButton.addEventListener(
-    "click",
-    function () {
-
-        flatSimulatorSection.classList.remove("active");
-
-        simulatorSection.classList.remove("active");
-
-        home.style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
 );
 
 
@@ -1921,12 +2522,198 @@ flatTaxToggle.addEventListener(
 
 
 /* =========================================================
+   EVENTOS TRAMOS
+========================================================= */
+
+hoursPowerSlider.addEventListener(
+    "input",
+    calculateHoursTariff
+);
+
+
+valleySlider.addEventListener(
+    "input",
+    calculateHoursTariff
+);
+
+
+flatHoursSlider.addEventListener(
+    "input",
+    calculateHoursTariff
+);
+
+
+peakSlider.addEventListener(
+    "input",
+    calculateHoursTariff
+);
+
+
+hoursTaxToggle.addEventListener(
+    "change",
+    calculateHoursTariff
+);
+
+
+/* =========================================================
+   ABRIR TARIFA POR USO
+========================================================= */
+
+useTariff.addEventListener(
+    "click",
+    function () {
+
+        home.style.display = "none";
+
+        simulatorSection.classList.add("active");
+
+        flatSimulatorSection.classList.remove("active");
+
+        hoursSimulatorSection.classList.remove("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR TARIFA PLANA
+========================================================= */
+
+flatTariff.addEventListener(
+    "click",
+    function () {
+
+        home.style.display = "none";
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.add("active");
+
+        hoursSimulatorSection.classList.remove("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   ABRIR TRAMOS
+========================================================= */
+
+hoursTariff.addEventListener(
+    "click",
+    function () {
+
+        home.style.display = "none";
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.remove("active");
+
+        hoursSimulatorSection.classList.add("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   VOLVER TARIFA POR USO
+========================================================= */
+
+backButton.addEventListener(
+    "click",
+    function () {
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.remove("active");
+
+        hoursSimulatorSection.classList.remove("active");
+
+        home.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   VOLVER TARIFA PLANA
+========================================================= */
+
+flatBackButton.addEventListener(
+    "click",
+    function () {
+
+        flatSimulatorSection.classList.remove("active");
+
+        simulatorSection.classList.remove("active");
+
+        hoursSimulatorSection.classList.remove("active");
+
+        home.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
+   VOLVER TRAMOS
+========================================================= */
+
+hoursBackButton.addEventListener(
+    "click",
+    function () {
+
+        hoursSimulatorSection.classList.remove("active");
+
+        simulatorSection.classList.remove("active");
+
+        flatSimulatorSection.classList.remove("active");
+
+        home.style.display = "block";
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+/* =========================================================
    INICIALIZAR
 ========================================================= */
 
 calculateUseTariff();
 
 calculateFlatTariff();
+
+calculateHoursTariff();
 
 
 })();
