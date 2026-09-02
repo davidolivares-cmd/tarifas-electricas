@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tarifas, facturas, precios y compañías</title>
+<title>Tarifas eléctricas - Formación</title>
 
 <style>
 
@@ -78,7 +78,7 @@ button {
 
 
 /* =========================================================
-   PORTADA GENERAL
+   PORTADA
 ========================================================= */
 
 #cover {
@@ -86,6 +86,7 @@ button {
     min-height: 100vh;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
@@ -199,12 +200,7 @@ button {
 
 }
 
-.cover-icon .ray {
-
-    font-size: 105px;
-
-}
-
+.cover-icon .ray,
 .cover-icon .flame {
 
     font-size: 105px;
@@ -277,11 +273,12 @@ button {
 
 .electricity-button {
 
-    background: linear-gradient(
-        90deg,
-        #10b96d,
-        #0aaa67
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #10b96d,
+            #0aaa67
+        );
 
     box-shadow:
         0 10px 25px rgba(16,185,109,.20);
@@ -290,11 +287,12 @@ button {
 
 .gas-button {
 
-    background: linear-gradient(
-        90deg,
-        #ff9218,
-        #ff7910
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #ff9218,
+            #ff7910
+        );
 
     box-shadow:
         0 10px 25px rgba(255,126,0,.20);
@@ -654,7 +652,7 @@ button {
 
     width: min(1100px,94%);
 
-    margin: 0 auto 30px;
+    margin: 0 auto 35px;
 
     text-align: center;
 
@@ -695,16 +693,6 @@ button {
 
     box-shadow:
         0 10px 25px rgba(45,88,210,.20);
-
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-
-}
-
-.invoice-button:hover {
-
-    transform: translateY(-3px);
 
 }
 
@@ -898,21 +886,15 @@ button {
 }
 
 .company-naturgy .company-enter {
-
     background: #087db8;
-
 }
 
 .company-gana .company-enter {
-
     background: #b5d900;
-
 }
 
 .company-total .company-enter {
-
     background: #ed1c24;
-
 }
 
 
@@ -948,21 +930,13 @@ button {
 @keyframes appear {
 
     from {
-
         opacity: 0;
-
-        transform:
-            translateY(15px);
-
+        transform: translateY(15px);
     }
 
     to {
-
         opacity: 1;
-
-        transform:
-            translateY(0);
-
+        transform: translateY(0);
     }
 
 }
@@ -1327,9 +1301,7 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-.tax-control,
-.company-sva-control,
-.company-dual-control {
+.tax-control {
 
     margin-top: 22px;
 
@@ -1348,9 +1320,7 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-.tax-text strong,
-.company-sva-text strong,
-.company-dual-text strong {
+.tax-text strong {
 
     display: block;
 
@@ -1358,9 +1328,7 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-.tax-text span,
-.company-sva-text span,
-.company-dual-text span {
+.tax-text span {
 
     font-size: 13px;
 
@@ -1643,16 +1611,6 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-.hours-result-extra {
-
-    margin-top: 5px;
-
-    font-size: 11px;
-
-    opacity: .72;
-
-}
-
 .valley-icon {
 
     background: #d9f7ed;
@@ -1688,7 +1646,8 @@ input[type="range"]::-moz-range-thumb {
 
     background: white;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     padding: 20px;
 
@@ -1732,7 +1691,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   SVA CARD
+   OPCIONES COMPAÑÍA
 ========================================================= */
 
 .company-options-card {
@@ -1884,7 +1843,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   INVOICE
+   FACTURA
 ========================================================= */
 
 .invoice-section {
@@ -2058,8 +2017,6 @@ input[type="range"]::-moz-range-thumb {
             rgba(0,0,0,.16)
         );
 
-    stroke-width: 5;
-
 }
 
 .chart-center {
@@ -2206,8 +2163,6 @@ input[type="range"]::-moz-range-thumb {
 
     font-size: 30px;
 
-    line-height: 1.1;
-
 }
 
 .explanation-percentage {
@@ -2238,12 +2193,6 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-.explanation-text p:last-child {
-
-    margin-bottom: 0;
-
-}
-
 .invoice-distribution {
 
     margin-top: 30px;
@@ -2256,9 +2205,6 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 22px;
 
     overflow: hidden;
-
-    box-shadow:
-        0 8px 25px rgba(30,70,120,.07);
 
 }
 
@@ -2292,9 +2238,6 @@ input[type="range"]::-moz-range-thumb {
 
     cursor: pointer;
 
-    transition:
-        background .2s ease;
-
 }
 
 .distribution-row:hover,
@@ -2322,8 +2265,6 @@ input[type="range"]::-moz-range-thumb {
 
     font-weight: 900;
 
-    color: var(--text);
-
 }
 
 .distribution-total {
@@ -2349,18 +2290,6 @@ input[type="range"]::-moz-range-thumb {
     font-size: 13px;
 
     line-height: 1.5;
-
-}
-
-.invoice-footer-note {
-
-    margin-top: 22px;
-
-    text-align: center;
-
-    color: var(--muted);
-
-    font-size: 12px;
 
 }
 
@@ -2413,12 +2342,6 @@ input[type="range"]::-moz-range-thumb {
 
     }
 
-    .invoice-explanation {
-
-        min-height: auto;
-
-    }
-
     .hours-results {
 
         grid-template-columns:
@@ -2430,21 +2353,9 @@ input[type="range"]::-moz-range-thumb {
 
 @media (max-width:600px) {
 
-    #cover {
+    .cover-options {
 
-        padding-top: 25px;
-
-    }
-
-    .cover-header h1 {
-
-        letter-spacing: -1px;
-
-    }
-
-    .cover-header p {
-
-        font-size: 15px;
+        width: 100%;
 
     }
 
@@ -2461,29 +2372,9 @@ input[type="range"]::-moz-range-thumb {
 
     }
 
-    .hero {
+    .tariffs {
 
-        padding-top: 25px;
-
-    }
-
-    .hero h1 {
-
-        letter-spacing: -1px;
-
-    }
-
-    .subtitle {
-
-        font-size: 16px;
-
-        padding: 10px 20px;
-
-    }
-
-    .tariff-image {
-
-        height: 130px;
+        width: 94%;
 
     }
 
@@ -2505,12 +2396,6 @@ input[type="range"]::-moz-range-thumb {
 
     }
 
-    .cost-row {
-
-        align-items: flex-start;
-
-    }
-
     .breakdown {
 
         grid-template-columns: 1fr;
@@ -2526,12 +2411,6 @@ input[type="range"]::-moz-range-thumb {
     .hours-results {
 
         grid-template-columns: 1fr;
-
-    }
-
-    .total-value {
-
-        font-size: 46px;
 
     }
 
@@ -2553,30 +2432,9 @@ input[type="range"]::-moz-range-thumb {
 
     }
 
-    .explanation-title {
-
-        font-size: 26px;
-
-    }
-
     .chart-legend {
 
         grid-template-columns: 1fr;
-
-    }
-
-    .distribution-row {
-
-        grid-template-columns:
-            1fr 100px;
-
-    }
-
-    .invoice-button {
-
-        width: 100%;
-
-        font-size: 16px;
 
     }
 
@@ -2596,36 +2454,17 @@ input[type="range"]::-moz-range-thumb {
 
 }
 
-@media (max-width:380px) {
 
-    .control-header {
+/* =========================================================
+   OCULTAR OPCIONES CUANDO NO APLICAN
+========================================================= */
 
-        flex-direction: column;
+.company-options-card.hidden {
+    display: none;
+}
 
-    }
-
-    .current-value {
-
-        align-self: flex-end;
-
-    }
-
-    .distribution-row {
-
-        grid-template-columns: 1fr;
-
-        gap: 5px;
-
-    }
-
-    .distribution-percentage {
-
-        text-align: left;
-
-        padding-left: 30px;
-
-    }
-
+.company-sva-breakdown.hidden {
+    display: none;
 }
 
 </style>
@@ -2640,7 +2479,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     PORTADA GENERAL
+     PORTADA
 ========================================================= -->
 
 <section id="cover">
@@ -2648,7 +2487,7 @@ input[type="range"]::-moz-range-thumb {
     <header class="cover-header">
 
         <h1>
-            Tarifas, facturas, precios y compañías
+            Compañías
         </h1>
 
         <p>
@@ -2661,8 +2500,6 @@ input[type="range"]::-moz-range-thumb {
 
     <div class="cover-options">
 
-
-        <!-- ELECTRICIDAD -->
 
         <article class="cover-card electricity">
 
@@ -2693,8 +2530,6 @@ input[type="range"]::-moz-range-thumb {
 
         </article>
 
-
-        <!-- GAS -->
 
         <article class="cover-card gas">
 
@@ -2742,10 +2577,13 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     ELECTRICIDAD
+     HOME
 ========================================================= -->
 
-<section id="home" style="display:none;">
+<section
+    id="home"
+    style="display:none;"
+>
 
 
     <header class="hero">
@@ -2763,17 +2601,19 @@ input[type="range"]::-moz-range-thumb {
             TIPOS DE TARIFAS ELÉCTRICAS
         </h1>
 
+
         <div class="subtitle">
-            ⚡ &nbsp; PRINCIPALES OPCIONES &nbsp; ⚡
+            ⚡ PRINCIPALES OPCIONES ⚡
         </div>
 
     </header>
 
 
+
     <div class="tariffs">
 
 
-        <!-- TARIFA USO -->
+        <!-- TARIFA POR USO -->
 
         <article
             class="tariff tariff-use"
@@ -2819,6 +2659,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
         </article>
+
 
 
         <!-- TARIFA PLANA -->
@@ -2870,7 +2711,8 @@ input[type="range"]::-moz-range-thumb {
         </article>
 
 
-        <!-- TRAMOS -->
+
+        <!-- TARIFA TRAMOS -->
 
         <article
             class="tariff tariff-hours"
@@ -2922,6 +2764,7 @@ input[type="range"]::-moz-range-thumb {
     </div>
 
 
+
     <div class="info">
 
         ℹ️ &nbsp;
@@ -2932,7 +2775,6 @@ input[type="range"]::-moz-range-thumb {
     </div>
 
 
-    <!-- FACTURA -->
 
     <div class="invoice-access">
 
@@ -2955,11 +2797,13 @@ input[type="range"]::-moz-range-thumb {
     </div>
 
 
+
     <!-- =====================================================
          COMPAÑÍAS
     ====================================================== -->
 
     <div class="companies-section">
+
 
         <div class="companies-header">
 
@@ -2975,10 +2819,13 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <div class="companies-grid">
 
 
-            <!-- NATURGY -->
+            <!-- =================================================
+                 NATURGY
+            ================================================= -->
 
             <article
                 class="company-card company-naturgy"
@@ -2997,6 +2844,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="company-price-box">
 
+
                     <div class="company-price-row">
 
                         <span>P1</span>
@@ -3006,6 +2854,7 @@ input[type="range"]::-moz-range-thumb {
                         </strong>
 
                     </div>
+
 
                     <div class="company-price-row">
 
@@ -3017,6 +2866,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="company-price-row">
 
                         <span>V</span>
@@ -3026,6 +2876,7 @@ input[type="range"]::-moz-range-thumb {
                         </strong>
 
                     </div>
+
 
                     <div class="company-price-row">
 
@@ -3037,6 +2888,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="company-price-row">
 
                         <span>SVA Hogar</span>
@@ -3047,7 +2899,9 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                 </div>
+
 
                 <button
                     class="company-enter"
@@ -3059,7 +2913,13 @@ input[type="range"]::-moz-range-thumb {
             </article>
 
 
-            <!-- GANA ENERGÍA -->
+
+            <!-- =================================================
+                 GANA ENERGÍA
+                 
+                 IMPORTANTE:
+                 AQUÍ SE HA ELIMINADO SVA LUZ
+            ================================================= -->
 
             <article
                 class="company-card company-gana"
@@ -3076,7 +2936,9 @@ input[type="range"]::-moz-range-thumb {
                     Gana Energía
                 </div>
 
+
                 <div class="company-price-box">
+
 
                     <div class="company-price-row">
 
@@ -3088,6 +2950,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="company-price-row">
 
                         <span>P2</span>
@@ -3097,6 +2960,7 @@ input[type="range"]::-moz-range-thumb {
                         </strong>
 
                     </div>
+
 
                     <div class="company-price-row">
 
@@ -3108,17 +2972,14 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
-                    <div class="company-price-row">
 
-                        <span>SVA Luz</span>
+                    <!--
+                        NO HAY SVA
+                    -->
 
-                        <strong>
-                            4,12 €/mes
-                        </strong>
-
-                    </div>
 
                 </div>
+
 
                 <button
                     class="company-enter"
@@ -3130,7 +2991,10 @@ input[type="range"]::-moz-range-thumb {
             </article>
 
 
-            <!-- TOTALENERGIES -->
+
+            <!-- =================================================
+                 TOTALENERGIES
+            ================================================= -->
 
             <article
                 class="company-card company-total"
@@ -3147,7 +3011,9 @@ input[type="range"]::-moz-range-thumb {
                     TotalEnergies
                 </div>
 
+
                 <div class="company-price-box">
+
 
                     <div class="company-price-row">
 
@@ -3159,6 +3025,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="company-price-row">
 
                         <span>P2</span>
@@ -3168,6 +3035,7 @@ input[type="range"]::-moz-range-thumb {
                         </strong>
 
                     </div>
+
 
                     <div class="company-price-row">
 
@@ -3179,6 +3047,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="company-price-row">
 
                         <span>V DUAL</span>
@@ -3188,6 +3057,7 @@ input[type="range"]::-moz-range-thumb {
                         </strong>
 
                     </div>
+
 
                     <div class="company-price-row">
 
@@ -3199,7 +3069,9 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                 </div>
+
 
                 <button
                     class="company-enter"
@@ -3209,6 +3081,7 @@ input[type="range"]::-moz-range-thumb {
                 </button>
 
             </article>
+
 
         </div>
 
@@ -3228,6 +3101,7 @@ input[type="range"]::-moz-range-thumb {
 >
 
     <div class="simulator">
+
 
         <button
             class="back-button"
@@ -3252,9 +3126,14 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
+        <!-- POTENCIA -->
+
         <div class="control-card">
 
+
             <div class="control-header">
+
 
                 <div class="control-name">
 
@@ -3276,16 +3155,18 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <div class="current-value">
 
                     <span id="powerValue">
-                        3
+                        3,0
                     </span>
                     kW
 
                 </div>
 
             </div>
+
 
 
             <div class="slider-wrapper">
@@ -3309,6 +3190,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+
             <div class="cost-row">
 
                 <span class="cost-label">
@@ -3329,9 +3211,14 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
+        <!-- CONSUMO -->
+
         <div class="control-card">
 
+
             <div class="control-header">
+
 
                 <div class="control-name">
 
@@ -3353,6 +3240,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <div class="current-value">
 
                     <span id="consumptionValue">
@@ -3363,6 +3251,7 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
             </div>
+
 
 
             <div class="slider-wrapper">
@@ -3386,6 +3275,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+
             <div class="cost-row">
 
                 <span class="cost-label">
@@ -3406,11 +3296,16 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
+        <!-- TOTAL -->
+
         <div class="total-card">
+
 
             <div class="total-title">
                 TOTAL ESTIMADO DE LA FACTURA
             </div>
+
 
             <div class="total-value">
 
@@ -3423,6 +3318,7 @@ input[type="range"]::-moz-range-thumb {
 
 
             <div class="breakdown">
+
 
                 <div class="breakdown-item">
 
@@ -3455,10 +3351,12 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
             </div>
 
 
             <div class="tax-control">
+
 
                 <div class="tax-text">
 
@@ -3486,7 +3384,9 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -3504,6 +3404,7 @@ input[type="range"]::-moz-range-thumb {
 >
 
     <div class="simulator">
+
 
         <button
             class="back-button"
@@ -3526,6 +3427,7 @@ input[type="range"]::-moz-range-thumb {
             </p>
 
         </div>
+
 
 
         <div class="control-card">
@@ -3555,7 +3457,7 @@ input[type="range"]::-moz-range-thumb {
                 <div class="current-value">
 
                     <span id="flatPowerValue">
-                        3
+                        3,0
                     </span>
                     kW
 
@@ -3603,6 +3505,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
         </div>
+
 
 
         <div class="control-card">
@@ -3682,6 +3585,7 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <div class="control-card">
 
             <div class="control-header">
@@ -3759,9 +3663,11 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <div class="flat-total-card">
 
             <div class="flat-results">
+
 
                 <div class="flat-result">
 
@@ -3776,10 +3682,6 @@ input[type="range"]::-moz-range-thumb {
                         </span>
                         €
 
-                    </div>
-
-                    <div class="flat-result-extra">
-                        Cuota mensual seleccionada
                     </div>
 
                 </div>
@@ -3798,10 +3700,6 @@ input[type="range"]::-moz-range-thumb {
                         </span>
                         €
 
-                    </div>
-
-                    <div class="flat-result-extra">
-                        Según potencia y consumo
                     </div>
 
                 </div>
@@ -3831,6 +3729,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
             </div>
 
 
@@ -3848,6 +3747,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <label class="switch">
 
                     <input
@@ -3861,7 +3761,9 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -3870,7 +3772,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     TRAMOS
+     TRAMOS HORARIOS
 ========================================================= -->
 
 <section
@@ -3879,6 +3781,7 @@ input[type="range"]::-moz-range-thumb {
 >
 
     <div class="simulator">
+
 
         <button
             class="back-button"
@@ -3902,6 +3805,9 @@ input[type="range"]::-moz-range-thumb {
 
         </div>
 
+
+
+        <!-- POTENCIA -->
 
         <div class="control-card">
 
@@ -3930,7 +3836,7 @@ input[type="range"]::-moz-range-thumb {
                 <div class="current-value">
 
                     <span id="hoursPowerValue">
-                        3
+                        3,0
                     </span>
                     kW
 
@@ -3979,6 +3885,9 @@ input[type="range"]::-moz-range-thumb {
 
         </div>
 
+
+
+        <!-- VALLE -->
 
         <div class="control-card">
 
@@ -4060,6 +3969,9 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
+        <!-- LLANO -->
+
         <div class="control-card">
 
             <div class="control-header">
@@ -4139,6 +4051,9 @@ input[type="range"]::-moz-range-thumb {
 
         </div>
 
+
+
+        <!-- PUNTA -->
 
         <div class="control-card">
 
@@ -4220,6 +4135,9 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
+        <!-- TOTAL -->
+
         <div class="hours-total-card">
 
             <div class="total-title">
@@ -4237,6 +4155,7 @@ input[type="range"]::-moz-range-thumb {
 
 
             <div class="hours-results">
+
 
                 <div class="hours-result">
 
@@ -4309,6 +4228,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
             </div>
 
 
@@ -4326,6 +4246,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <label class="switch">
 
                     <input
@@ -4339,7 +4260,9 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -4357,6 +4280,7 @@ input[type="range"]::-moz-range-thumb {
 >
 
     <div class="simulator">
+
 
         <button
             class="back-button"
@@ -4380,6 +4304,7 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <div class="company-simulator-header">
 
             <div
@@ -4398,9 +4323,11 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <!-- POTENCIA -->
 
         <div class="control-card">
+
 
             <div class="control-header">
 
@@ -4424,6 +4351,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <div class="current-value">
 
                     <span id="companyPowerValue">
@@ -4434,6 +4362,7 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
             </div>
+
 
 
             <div class="slider-wrapper">
@@ -4457,6 +4386,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+
             <div class="cost-row">
 
                 <span class="cost-label">
@@ -4474,12 +4404,15 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
+
 
 
         <!-- CONSUMO -->
 
         <div class="control-card">
+
 
             <div class="control-header">
 
@@ -4503,6 +4436,7 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
                 <div class="current-value">
 
                     <span id="companyConsumptionValue">
@@ -4513,6 +4447,7 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
             </div>
+
 
 
             <div class="slider-wrapper">
@@ -4536,6 +4471,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+
             <div class="cost-row">
 
                 <span class="cost-label">
@@ -4553,10 +4489,16 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
 
 
-        <!-- OPCIONES -->
+
+        <!-- =================================================
+             OPCIONES DE LA COMPAÑÍA
+             
+             Este bloque se oculta automáticamente para GANA
+        ================================================== -->
 
         <div
             class="company-options-card"
@@ -4568,7 +4510,8 @@ input[type="range"]::-moz-range-thumb {
             </h3>
 
 
-            <!-- SVA -->
+
+            <!-- SVA LUZ -->
 
             <div
                 class="company-option"
@@ -4600,6 +4543,7 @@ input[type="range"]::-moz-range-thumb {
                 </label>
 
             </div>
+
 
 
             <!-- MANTENIMIENTO -->
@@ -4636,6 +4580,7 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+
             <!-- DUAL -->
 
             <div
@@ -4669,16 +4614,22 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
 
 
-        <!-- TOTAL -->
+
+        <!-- =================================================
+             TOTAL COMPAÑÍA
+        ================================================== -->
 
         <div class="total-card">
+
 
             <div class="total-title">
                 TOTAL ESTIMADO DE LA FACTURA
             </div>
+
 
             <div class="total-value">
 
@@ -4691,6 +4642,7 @@ input[type="range"]::-moz-range-thumb {
 
 
             <div class="breakdown">
+
 
                 <div class="breakdown-item">
 
@@ -4728,7 +4680,14 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
 
-                <div class="breakdown-item">
+                <!--
+                    ESTE BLOQUE SE OCULTA PARA GANA
+                -->
+
+                <div
+                    class="breakdown-item company-sva-breakdown"
+                    id="companySvaBreakdown"
+                >
 
                     <span>
                         SVA / mantenimiento
@@ -4763,10 +4722,13 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
             </div>
 
 
+
             <div class="tax-control">
+
 
                 <div class="tax-text">
 
@@ -4794,7 +4756,9 @@ input[type="range"]::-moz-range-thumb {
 
             </div>
 
+
         </div>
+
 
     </div>
 
@@ -4803,7 +4767,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     FACTURA
+     PARTES DE UNA FACTURA
 ========================================================= -->
 
 <section
@@ -4838,10 +4802,12 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
+
         <div class="invoice-layout">
 
 
             <div class="chart-panel">
+
 
                 <div class="chart-title">
 
@@ -4861,8 +4827,8 @@ input[type="range"]::-moz-range-thumb {
                     viewBox="0 0 420 420"
                 >
 
+
                     <path
-                        id="segment-energy"
                         class="chart-segment selected"
                         data-part="energy"
                         fill="#4caf35"
@@ -4871,7 +4837,6 @@ input[type="range"]::-moz-range-thumb {
 
 
                     <path
-                        id="segment-power"
                         class="chart-segment"
                         data-part="power"
                         fill="#3489e8"
@@ -4880,7 +4845,6 @@ input[type="range"]::-moz-range-thumb {
 
 
                     <path
-                        id="segment-taxes"
                         class="chart-segment"
                         data-part="taxes"
                         fill="#ffc21a"
@@ -4889,7 +4853,6 @@ input[type="range"]::-moz-range-thumb {
 
 
                     <path
-                        id="segment-meter"
                         class="chart-segment"
                         data-part="meter"
                         fill="#d8d8d8"
@@ -4898,7 +4861,6 @@ input[type="range"]::-moz-range-thumb {
 
 
                     <path
-                        id="segment-services"
                         class="chart-segment"
                         data-part="services"
                         fill="#f06c37"
@@ -4922,6 +4884,7 @@ input[type="range"]::-moz-range-thumb {
                         FACTURA
                     </text>
 
+
                     <text
                         class="chart-center-subtitle"
                         x="210"
@@ -4930,10 +4893,13 @@ input[type="range"]::-moz-range-thumb {
                         100 %
                     </text>
 
+
                 </svg>
 
 
+
                 <div class="chart-legend">
+
 
                     <div class="legend-item">
 
@@ -4946,6 +4912,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="legend-item">
 
                         <span
@@ -4956,6 +4923,7 @@ input[type="range"]::-moz-range-thumb {
                         Potencia contratada
 
                     </div>
+
 
                     <div class="legend-item">
 
@@ -4968,6 +4936,7 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                     <div class="legend-item">
 
                         <span
@@ -4978,6 +4947,7 @@ input[type="range"]::-moz-range-thumb {
                         Alquiler contador
 
                     </div>
+
 
                     <div class="legend-item">
 
@@ -4990,9 +4960,12 @@ input[type="range"]::-moz-range-thumb {
 
                     </div>
 
+
                 </div>
 
+
             </div>
+
 
 
             <div
@@ -5000,12 +4973,14 @@ input[type="range"]::-moz-range-thumb {
                 id="invoiceExplanation"
             >
 
+
                 <div
                     class="explanation-badge"
                     id="explanationBadge"
                 >
                     ⚡ ENERGÍA
                 </div>
+
 
                 <div
                     class="explanation-icon"
@@ -5018,6 +4993,7 @@ input[type="range"]::-moz-range-thumb {
                     ⚡
                 </div>
 
+
                 <h3
                     class="explanation-title"
                     id="explanationTitle"
@@ -5025,12 +5001,14 @@ input[type="range"]::-moz-range-thumb {
                     Energía consumida
                 </h3>
 
+
                 <div
                     class="explanation-percentage"
                     id="explanationPercentage"
                 >
                     45–55 %
                 </div>
+
 
                 <div
                     class="explanation-text"
@@ -5054,12 +5032,16 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
+
             </div>
+
 
         </div>
 
 
+
         <div class="invoice-distribution">
+
 
             <div class="distribution-title">
                 Distribución orientativa de una factura
@@ -5072,8 +5054,13 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="distribution-name">
+
                     <span>⚡</span>
-                    <span>Energía consumida</span>
+
+                    <span>
+                        Energía consumida
+                    </span>
+
                 </div>
 
                 <div class="distribution-percentage">
@@ -5089,8 +5076,13 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="distribution-name">
+
                     <span>🔌</span>
-                    <span>Potencia contratada</span>
+
+                    <span>
+                        Potencia contratada
+                    </span>
+
                 </div>
 
                 <div class="distribution-percentage">
@@ -5106,8 +5098,13 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="distribution-name">
+
                     <span>🏛️</span>
-                    <span>Impuestos</span>
+
+                    <span>
+                        Impuestos
+                    </span>
+
                 </div>
 
                 <div class="distribution-percentage">
@@ -5123,8 +5120,13 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="distribution-name">
+
                     <span>📟</span>
-                    <span>Alquiler contador</span>
+
+                    <span>
+                        Alquiler contador
+                    </span>
+
                 </div>
 
                 <div class="distribution-percentage">
@@ -5140,8 +5142,13 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="distribution-name">
+
                     <span>🛠️</span>
-                    <span>Servicios adicionales</span>
+
+                    <span>
+                        Servicios adicionales
+                    </span>
+
                 </div>
 
                 <div class="distribution-percentage">
@@ -5153,7 +5160,9 @@ input[type="range"]::-moz-range-thumb {
 
             <div class="distribution-row">
 
-                <div class="distribution-name distribution-total">
+                <div
+                    class="distribution-name distribution-total"
+                >
 
                     <span>✓</span>
 
@@ -5163,13 +5172,17 @@ input[type="range"]::-moz-range-thumb {
 
                 </div>
 
-                <div class="distribution-percentage distribution-total">
+                <div
+                    class="distribution-percentage distribution-total"
+                >
                     ≈ 100 %
                 </div>
 
             </div>
 
+
         </div>
+
 
 
         <div class="invoice-note">
@@ -5184,17 +5197,10 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
-        <div class="invoice-footer-note">
-
-            Los conceptos regulados y los servicios adicionales
-            pueden variar según el suministro
-            y las condiciones contratadas.
-
-        </div>
-
     </div>
 
 </section>
+
 
 
 </div>
@@ -5223,16 +5229,13 @@ const PEAK_PRICE = 0.21;
 const TAX_RATE = 0.21;
 
 
-/*
-    PRECIOS DE COMPAÑÍAS
 
-    Los precios de potencia son €/kW/día.
-    Para el cálculo mensual se utilizan 30 días.
-
-    P1 + P2 se aplican sobre la potencia contratada.
-*/
+/* =========================================================
+   DATOS COMPAÑÍAS
+========================================================= */
 
 const COMPANY_DATA = {
+
 
     naturgy: {
 
@@ -5255,6 +5258,13 @@ const COMPANY_DATA = {
     },
 
 
+    /*
+     * GANA ENERGÍA
+     *
+     * IMPORTANTE:
+     * No tiene SVA ni mantenimiento en esta versión.
+     */
+
     gana: {
 
         name: "Gana Energía",
@@ -5267,7 +5277,7 @@ const COMPANY_DATA = {
 
         energy: 0.119,
 
-        sva: 4.12395,
+        sva: 0,
 
         maintenance: 0,
 
@@ -5297,6 +5307,7 @@ const COMPANY_DATA = {
     }
 
 };
+
 
 
 /* =========================================================
@@ -5338,6 +5349,7 @@ function updateSliderBackground(slider) {
 }
 
 
+
 /* =========================================================
    REFERENCIAS
 ========================================================= */
@@ -5362,6 +5374,7 @@ const companySimulatorSection =
 
 const invoiceSection =
     document.getElementById("invoiceSection");
+
 
 
 /* =========================================================
@@ -5441,6 +5454,7 @@ function showSection(section) {
 }
 
 
+
 /* =========================================================
    PORTADA
 ========================================================= */
@@ -5459,6 +5473,7 @@ document
         "click",
         showCover
     );
+
 
 
 /* =========================================================
@@ -5512,6 +5527,7 @@ function calculateUseTariff() {
 
     const consumption =
         Number(consumptionSlider.value);
+
 
     const rawPowerCost =
         power * POWER_PRICE;
@@ -5649,6 +5665,7 @@ taxToggle.addEventListener(
 );
 
 
+
 /* =========================================================
    TARIFA PLANA
 ========================================================= */
@@ -5766,8 +5783,7 @@ function calculateFlatTariff() {
     flatConsumptionCost.textContent =
         money(
             flatTaxToggle.checked
-                ? monthlyConsumptionCost *
-                  (1 + TAX_RATE)
+                ? monthlyConsumptionCost * (1 + TAX_RATE)
                 : monthlyConsumptionCost
         );
 
@@ -5891,8 +5907,9 @@ flatTaxToggle.addEventListener(
 );
 
 
+
 /* =========================================================
-   TRAMOS
+   TRAMOS HORARIOS
 ========================================================= */
 
 const hoursTariff =
@@ -5981,17 +5998,18 @@ function calculateHoursTariff() {
         valley * VALLEY_PRICE;
 
     const rawFlatHoursCost =
-        flatHours *
-        FLAT_HOURS_PRICE;
+        flatHours * FLAT_HOURS_PRICE;
 
     const rawPeakCost =
         peak * PEAK_PRICE;
+
 
     const subtotal =
         rawPowerCost +
         rawValleyCost +
         rawFlatHoursCost +
         rawPeakCost;
+
 
     const total =
         hoursTaxToggle.checked
@@ -6018,8 +6036,7 @@ function calculateHoursTariff() {
     hoursPowerCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPowerCost *
-                  (1 + TAX_RATE)
+                ? rawPowerCost * (1 + TAX_RATE)
                 : rawPowerCost
         );
 
@@ -6027,8 +6044,7 @@ function calculateHoursTariff() {
     valleyCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawValleyCost *
-                  (1 + TAX_RATE)
+                ? rawValleyCost * (1 + TAX_RATE)
                 : rawValleyCost
         );
 
@@ -6036,8 +6052,7 @@ function calculateHoursTariff() {
     flatHoursCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawFlatHoursCost *
-                  (1 + TAX_RATE)
+                ? rawFlatHoursCost * (1 + TAX_RATE)
                 : rawFlatHoursCost
         );
 
@@ -6045,8 +6060,7 @@ function calculateHoursTariff() {
     peakCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPeakCost *
-                  (1 + TAX_RATE)
+                ? rawPeakCost * (1 + TAX_RATE)
                 : rawPeakCost
         );
 
@@ -6058,8 +6072,7 @@ function calculateHoursTariff() {
     hoursSummaryPower.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPowerCost *
-                  (1 + TAX_RATE)
+                ? rawPowerCost * (1 + TAX_RATE)
                 : rawPowerCost
         );
 
@@ -6067,8 +6080,7 @@ function calculateHoursTariff() {
     hoursSummaryValley.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawValleyCost *
-                  (1 + TAX_RATE)
+                ? rawValleyCost * (1 + TAX_RATE)
                 : rawValleyCost
         );
 
@@ -6076,8 +6088,7 @@ function calculateHoursTariff() {
     hoursSummaryFlat.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawFlatHoursCost *
-                  (1 + TAX_RATE)
+                ? rawFlatHoursCost * (1 + TAX_RATE)
                 : rawFlatHoursCost
         );
 
@@ -6085,8 +6096,7 @@ function calculateHoursTariff() {
     hoursSummaryPeak.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPeakCost *
-                  (1 + TAX_RATE)
+                ? rawPeakCost * (1 + TAX_RATE)
                 : rawPeakCost
         );
 
@@ -6181,11 +6191,13 @@ hoursTaxToggle.addEventListener(
 );
 
 
+
 /* =========================================================
-   COMPAÑÍAS
+   SIMULADOR COMPAÑÍAS
 ========================================================= */
 
-let currentCompany = "naturgy";
+let currentCompany =
+    "naturgy";
 
 
 const companyPowerSlider =
@@ -6269,10 +6281,42 @@ const companyDualToggle =
     );
 
 
+const companyOptionsCard =
+    document.getElementById(
+        "companyOptionsCard"
+    );
+
+const companySvaOption =
+    document.getElementById(
+        "companySvaOption"
+    );
+
+const companyMaintenanceOption =
+    document.getElementById(
+        "companyMaintenanceOption"
+    );
+
+const companyDualOption =
+    document.getElementById(
+        "companyDualOption"
+    );
+
+const companySvaBreakdown =
+    document.getElementById(
+        "companySvaBreakdown"
+    );
+
+
+
+/* =========================================================
+   ABRIR COMPAÑÍA
+========================================================= */
+
 function openCompany(companyKey) {
 
     currentCompany =
         companyKey;
+
 
     const data =
         COMPANY_DATA[companyKey];
@@ -6301,100 +6345,153 @@ function openCompany(companyKey) {
     ).innerHTML =
 
         "P1: <strong>" +
-        data.p1.toFixed(6).replace(".", ",") +
+
+        data.p1
+            .toFixed(6)
+            .replace(".", ",") +
+
         " €/kW/día</strong><br>" +
+
 
         "P2: <strong>" +
-        data.p2.toFixed(6).replace(".", ",") +
+
+        data.p2
+            .toFixed(6)
+            .replace(".", ",") +
+
         " €/kW/día</strong><br>" +
 
+
         "V: <strong>" +
-        data.energy.toFixed(4).replace(".", ",") +
+
+        data.energy
+            .toFixed(4)
+            .replace(".", ",") +
+
         " €/kWh</strong>";
 
 
-    /*
-     * SVA
-     */
 
-    document.getElementById(
-        "companySvaName"
-    ).textContent =
-        "Añadir SVA Luz";
+    /* =====================================================
+       GANA ENERGÍA
+       
+       SI ES GANA:
+       - desaparece TODO el bloque de opciones
+       - desaparece SVA del resumen
+    ===================================================== */
 
+    if (companyKey === "gana") {
 
-    document.getElementById(
-        "companySvaDescription"
-    ).textContent =
-        "+ " +
-        money(data.sva) +
-        " €/mes sin impuestos";
-
-
-    /*
-     * Mantenimiento
-     */
-
-    const maintenanceOption =
-        document.getElementById(
-            "companyMaintenanceOption"
+        companyOptionsCard.classList.add(
+            "hidden"
         );
 
+        companySvaBreakdown.classList.add(
+            "hidden"
+        );
 
-    if (data.maintenance > 0) {
-
-        maintenanceOption.style.display =
-            "flex";
-
-    }
-
-    else {
-
-        maintenanceOption.style.display =
-            "none";
+        companySvaToggle.checked =
+            false;
 
         companyMaintenanceToggle.checked =
             false;
-
-    }
-
-
-    /*
-     * DUAL
-     */
-
-    const dualOption =
-        document.getElementById(
-            "companyDualOption"
-        );
-
-
-    if (data.dual !== null) {
-
-        dualOption.style.display =
-            "flex";
-
-    }
-
-    else {
-
-        dualOption.style.display =
-            "none";
 
         companyDualToggle.checked =
             false;
 
     }
 
+    else {
 
-    companySvaToggle.checked =
-        false;
+        companyOptionsCard.classList.remove(
+            "hidden"
+        );
 
-    companyMaintenanceToggle.checked =
-        false;
+        companySvaBreakdown.classList.remove(
+            "hidden"
+        );
 
-    companyDualToggle.checked =
-        false;
+
+        /*
+         * SVA
+         */
+
+        document.getElementById(
+            "companySvaName"
+        ).textContent =
+            "Añadir SVA Luz";
+
+
+        document.getElementById(
+            "companySvaDescription"
+        ).textContent =
+            "+ " +
+            money(data.sva) +
+            " €/mes sin impuestos";
+
+
+        /*
+         * MANTENIMIENTO
+         */
+
+        if (data.maintenance > 0) {
+
+            companyMaintenanceOption.style.display =
+                "flex";
+
+        }
+
+        else {
+
+            companyMaintenanceOption.style.display =
+                "none";
+
+            companyMaintenanceToggle.checked =
+                false;
+
+        }
+
+
+        /*
+         * DUAL
+         */
+
+        if (data.dual !== null) {
+
+            companyDualOption.style.display =
+                "flex";
+
+        }
+
+        else {
+
+            companyDualOption.style.display =
+                "none";
+
+            companyDualToggle.checked =
+                false;
+
+        }
+
+    }
+
+
+    /*
+     * Para Gana dejamos los toggles apagados.
+     */
+
+    if (companyKey === "gana") {
+
+        companySvaToggle.checked =
+            false;
+
+        companyMaintenanceToggle.checked =
+            false;
+
+        companyDualToggle.checked =
+            false;
+
+    }
 
 
     showSection(
@@ -6406,6 +6503,11 @@ function openCompany(companyKey) {
 
 }
 
+
+
+/* =========================================================
+   CÁLCULO COMPAÑÍA
+========================================================= */
 
 function calculateCompanyTariff() {
 
@@ -6428,7 +6530,7 @@ function calculateCompanyTariff() {
     /*
      * POTENCIA
      *
-     * P1 y P2 se calculan
+     * P1 + P2
      * durante 30 días.
      */
 
@@ -6439,7 +6541,7 @@ function calculateCompanyTariff() {
 
 
     /*
-     * ENERGÍA
+     * PRECIO ENERGÍA
      */
 
     const selectedEnergyPrice =
@@ -6447,7 +6549,9 @@ function calculateCompanyTariff() {
             data.dual !== null &&
             companyDualToggle.checked
         )
+
             ? data.dual
+
             : data.energy;
 
 
@@ -6463,7 +6567,13 @@ function calculateCompanyTariff() {
     let rawSvaCost = 0;
 
 
+    /*
+     * GANA NUNCA ENTRA AQUÍ
+     * porque no tiene SVA.
+     */
+
     if (
+        currentCompany !== "gana" &&
         companySvaToggle.checked
     ) {
 
@@ -6478,6 +6588,7 @@ function calculateCompanyTariff() {
      */
 
     if (
+        currentCompany !== "gana" &&
         data.maintenance > 0 &&
         companyMaintenanceToggle.checked
     ) {
@@ -6508,9 +6619,10 @@ function calculateCompanyTariff() {
             : subtotal;
 
 
-    /*
-     * MOSTRAR VALORES
-     */
+
+    /* =====================================================
+       MOSTRAR
+    ===================================================== */
 
     companyPowerValue.textContent =
         power
@@ -6519,9 +6631,7 @@ function calculateCompanyTariff() {
 
 
     companyConsumptionValue.textContent =
-        Math.round(
-            consumption
-        );
+        Math.round(consumption);
 
 
     companyPowerCost.textContent =
@@ -6594,6 +6704,7 @@ function calculateCompanyTariff() {
     );
 
 }
+
 
 
 /* =========================================================
@@ -6686,8 +6797,9 @@ document
     );
 
 
+
 /* =========================================================
-   FACTURA
+   PARTES DE UNA FACTURA
 ========================================================= */
 
 const invoiceButton =
@@ -6702,6 +6814,7 @@ const invoiceBackButton =
 
 
 const invoiceData = {
+
 
     energy: {
 
@@ -6799,11 +6912,6 @@ const invoiceData = {
             <p>
                 La comercializadora los recauda
                 y los repercute según corresponda.
-            </p>
-
-            <p>
-                Una parte del importe final no depende
-                directamente de la decisión comercial.
             </p>
 
         `
@@ -6922,6 +7030,7 @@ function selectInvoicePart(part) {
     const data =
         invoiceData[part];
 
+
     if (!data) {
         return;
     }
@@ -6930,23 +7039,30 @@ function selectInvoicePart(part) {
     explanationBadge.textContent =
         data.badge;
 
+
     explanationIcon.textContent =
         data.icon;
+
 
     explanationIcon.style.background =
         data.background;
 
+
     explanationIcon.style.color =
         data.color;
+
 
     explanationTitle.textContent =
         data.title;
 
+
     explanationPercentage.textContent =
         data.percentage;
 
+
     explanationPercentage.style.color =
         data.color;
+
 
     explanationText.innerHTML =
         data.text;
@@ -7032,6 +7148,7 @@ distributionRows.forEach(
 );
 
 
+
 /* =========================================================
    INICIALIZACIÓN
 ========================================================= */
@@ -7044,7 +7161,9 @@ calculateHoursTariff();
 
 calculateCompanyTariff();
 
-selectInvoicePart("energy");
+selectInvoicePart(
+    "energy"
+);
 
 
 })();
