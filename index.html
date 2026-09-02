@@ -803,8 +803,7 @@ input[type="range"]::-moz-range-thumb {
     cursor: pointer;
     transform-origin: 210px 210px;
     transition: opacity .2s ease, transform .2s ease, filter .2s ease;
-    stroke: white;
-    stroke-width: 3;
+    stroke-width: 70px;
 }
 
 .chart-segment:hover {
@@ -814,7 +813,7 @@ input[type="range"]::-moz-range-thumb {
 .chart-segment.selected {
     transform: scale(1.045);
     filter: brightness(1.06) drop-shadow(0 5px 7px rgba(0,0,0,.16));
-    stroke-width: 5;
+    stroke-width: 70px;
 }
 
 .chart-center {
@@ -2679,7 +2678,7 @@ input[type="range"]::-moz-range-thumb {
 
 <script>
 
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
 
 /* =========================================================
@@ -2758,45 +2757,39 @@ const invoiceSection =
     document.getElementById("invoiceSection");
 
 
-function showSection(section) {
+function hideAllSections() {
+    [
+        simulatorSection,
+        flatSimulatorSection,
+        hoursSimulatorSection,
+        invoiceSection,
+        document.getElementById("companySection"),
+        document.getElementById("bonoSection")
+    ].forEach(function (section) {
+        if (section) section.classList.remove("active");
+    });
+}
 
+function showSection(section) {
+    hideAllSections();
     home.style.display = "none";
 
-    simulatorSection.classList.remove("active");
-
-    flatSimulatorSection.classList.remove("active");
-
-    hoursSimulatorSection.classList.remove("active");
-
-    invoiceSection.classList.remove("active");
-
-    section.classList.add("active");
+    if (section) section.classList.add("active");
 
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "auto"
     });
-
 }
 
-
 function showHome() {
-
-    simulatorSection.classList.remove("active");
-
-    flatSimulatorSection.classList.remove("active");
-
-    hoursSimulatorSection.classList.remove("active");
-
-    invoiceSection.classList.remove("active");
-
+    hideAllSections();
     home.style.display = "block";
 
     window.scrollTo({
         top: 0,
-        behavior: "smooth"
+        behavior: "auto"
     });
-
 }
 
 
@@ -3876,7 +3869,13 @@ const COMPANY_DATA={naturgy:{name:"Naturgy",p1:.123030,p2:.061562,energy:.112,sv
 let selectedCompany="naturgy";
 function showCompany(key){selectedCompany=key;const d=COMPANY_DATA[key];companyTitle.textContent=d.name;companyPrices.textContent="P1 "+d.p1.toFixed(6).replace(".",",")+" €/kW/día · P2 "+d.p2.toFixed(6).replace(".",",")+" €/kW/día · V "+String(d.energy).replace(".",",")+" €/kWh";companySvaToggle.checked=false;companyMaintenanceToggle.checked=false;companyDualToggle.checked=false;companyTaxToggle.checked=false;companyOptionsCard.style.display=key==="gana"?"none":"block";companySvaOption.style.display=key==="gana"?"none":"flex";companyMaintenanceOption.style.display=key==="naturgy"?"flex":"none";companyDualOption.style.display=key==="total"?"flex":"none";companySvaPrice.textContent=key==="naturgy"?"+ 8,40 €/mes sin impuestos":"+ 7,62 €/mes sin impuestos";showSection(companySection);calculateCompany();}
 function calculateCompany(){const d=COMPANY_DATA[selectedCompany],p=Number(companyPowerSlider.value),c=Number(companyConsumptionSlider.value),ep=selectedCompany==="total"&&companyDualToggle.checked?d.dual:d.energy,rp=p*(d.p1+d.p2)*30,rc=c*ep;let rs=0;if(selectedCompany!=="gana"&&companySvaToggle.checked)rs+=d.sva;if(selectedCompany==="naturgy"&&companyMaintenanceToggle.checked)rs+=d.maintenance;const mult=companyTaxToggle.checked?1+TAX_RATE:1;companyPowerValue.textContent=p.toFixed(1).replace(".",",");companyConsumptionValue.textContent=Math.round(c);companyPowerCost.textContent=money(rp*mult);companyConsumptionCost.textContent=money(rc*mult);companySummaryPower.textContent=money(rp*mult);companySummaryConsumption.textContent=money(rc*mult);companyTotalValue.textContent=money((rp+rc+rs)*mult);companyTaxLabel.textContent=companyTaxToggle.checked?"Precio final con impuestos incluidos":"Precio sin impuestos";updateSliderBackground(companyPowerSlider);updateSliderBackground(companyConsumptionSlider);}
-if(companyBackButton)companyBackButton.addEventListener("click",function(){showHome();setTimeout(function(){const c=document.querySelector(".companies-section");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});},50);});document.querySelectorAll(".company-card").forEach(c=>c.addEventListener("click",()=>showCompany(c.dataset.company)));[companyPowerSlider,companyConsumptionSlider].forEach(i=>i.addEventListener("input",calculateCompany));[companyTaxToggle,companySvaToggle,companyMaintenanceToggle,companyDualToggle].forEach(i=>i.addEventListener("change",calculateCompany));
+if(companyBackButton)companyBackButton.addEventListener("click",function(){
+    showHome();
+    requestAnimationFrame(function(){
+        const c=document.querySelector(".companies-section");
+        if(c)c.scrollIntoView({behavior:"smooth",block:"start"});
+    });
+});document.querySelectorAll(".company-card").forEach(c=>c.addEventListener("click",()=>showCompany(c.dataset.company)));[companyPowerSlider,companyConsumptionSlider].forEach(i=>i.addEventListener("input",calculateCompany));[companyTaxToggle,companySvaToggle,companyMaintenanceToggle,companyDualToggle].forEach(i=>i.addEventListener("change",calculateCompany));
 
 /* =========================================================
    BONO SOCIAL
