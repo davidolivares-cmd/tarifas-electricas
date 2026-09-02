@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tarifas eléctricas - Formación</title>
+<title>Tarifas, facturas, precios y compañías</title>
 
 <style>
 
@@ -62,11 +62,244 @@ button {
 
 
 /* =========================================================
-   PORTADA
+   NUEVA PORTADA GENERAL
+========================================================= */
+
+#cover {
+    min-height: 100vh;
+    padding: 45px 25px 55px;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(8,125,245,.045), transparent 28%),
+        radial-gradient(circle at 85% 25%, rgba(255,139,22,.055), transparent 28%),
+        #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cover-header {
+    width: min(1200px, 100%);
+    text-align: center;
+}
+
+.cover-header h1 {
+    margin: 0;
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.05;
+    font-weight: 900;
+    color: var(--orange);
+    letter-spacing: -2px;
+}
+
+.cover-subtitle {
+    max-width: 820px;
+    margin: 20px auto 0;
+    color: var(--text);
+    font-size: clamp(16px, 2vw, 21px);
+    line-height: 1.5;
+}
+
+.cover-options {
+    width: min(1050px, 100%);
+    margin: 48px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 55px;
+}
+
+.cover-card {
+    position: relative;
+    min-height: 500px;
+    padding: 34px;
+    border-radius: 28px;
+    background: white;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 35px rgba(26, 60, 110, .10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cover-card.clickable {
+    cursor: pointer;
+}
+
+.cover-card.clickable:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 42px rgba(26, 60, 110, .16);
+}
+
+.cover-card:focus-visible {
+    outline: 4px solid rgba(8,125,245,.25);
+    outline-offset: 4px;
+}
+
+
+/* ELECTRICIDAD */
+
+.cover-electricity {
+    border-color: #cfeedd;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f8fff9 100%
+    );
+}
+
+
+/* GAS */
+
+.cover-gas {
+    border-color: #ffe0b8;
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #fffaf4 100%
+    );
+}
+
+.cover-icon {
+    width: 210px;
+    height: 210px;
+    margin: 5px auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 105px;
+}
+
+.cover-electricity .cover-icon {
+    background:
+        radial-gradient(
+            circle at center,
+            #d9f4ff 0%,
+            #e8f8ff 65%,
+            transparent 66%
+        );
+}
+
+.cover-gas .cover-icon {
+    background:
+        radial-gradient(
+            circle at center,
+            #e8f6ff 0%,
+            #f2faff 65%,
+            transparent 66%
+        );
+}
+
+.cover-card h2 {
+    margin: 0;
+    font-size: clamp(28px, 3vw, 36px);
+    font-weight: 900;
+}
+
+.cover-electricity h2 {
+    color: #12a964;
+}
+
+.cover-gas h2 {
+    color: #ed7208;
+}
+
+.cover-card p {
+    max-width: 480px;
+    margin: 12px 0 28px;
+    color: #52657f;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.cover-button {
+    margin-top: auto;
+    width: 100%;
+    min-height: 56px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cover-electricity .cover-button {
+    background: linear-gradient(
+        90deg,
+        #19b66b,
+        #12a75d
+    );
+    box-shadow: 0 9px 22px rgba(18,167,93,.20);
+}
+
+.cover-gas .cover-button {
+    background: linear-gradient(
+        90deg,
+        #ff8a18,
+        #ff6f00
+    );
+    box-shadow: 0 9px 22px rgba(255,126,0,.20);
+}
+
+.cover-button:hover {
+    transform: translateY(-2px);
+}
+
+.cover-gas .cover-button {
+    cursor: default;
+}
+
+.cover-gas .cover-button:hover {
+    transform: none;
+}
+
+.cover-button-arrow {
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+.cover-info {
+    width: min(1050px, 100%);
+    margin-top: 45px;
+    padding: 18px 25px;
+    border: 1px solid #bfd8ff;
+    border-radius: 18px;
+    background: #f2f7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #27538e;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.cover-info-icon {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   PORTADA ELECTRICIDAD
 ========================================================= */
 
 #home {
     min-height: 100vh;
+    display: none;
 }
 
 .hero {
@@ -1015,6 +1248,16 @@ input[type="range"]::-moz-range-thumb {
 
 @media (max-width: 900px) {
 
+    .cover-options {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+        gap: 25px;
+    }
+
+    .cover-card {
+        min-height: 450px;
+    }
+
     .tariffs {
         grid-template-columns: 1fr;
         max-width: 500px;
@@ -1041,6 +1284,46 @@ input[type="range"]::-moz-range-thumb {
 
 
 @media (max-width: 600px) {
+
+    #cover {
+        padding: 30px 18px 40px;
+    }
+
+    .cover-header h1 {
+        letter-spacing: -1px;
+    }
+
+    .cover-subtitle {
+        font-size: 15px;
+    }
+
+    .cover-options {
+        margin-top: 32px;
+    }
+
+    .cover-card {
+        min-height: 420px;
+        padding: 25px 20px;
+    }
+
+    .cover-icon {
+        width: 175px;
+        height: 175px;
+        font-size: 85px;
+    }
+
+    .cover-card h2 {
+        font-size: 28px;
+    }
+
+    .cover-card p {
+        font-size: 15px;
+    }
+
+    .cover-info {
+        font-size: 12px;
+        padding: 15px;
+    }
 
     .hero {
         padding-top: 25px;
@@ -1155,7 +1438,135 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     PORTADA
+     PORTADA GENERAL
+========================================================= -->
+
+<section id="cover">
+
+    <div class="cover-header">
+
+        <h1>
+            Tarifas, facturas, precios y compañías
+        </h1>
+
+        <div class="cover-subtitle">
+
+            Aprende a entender tus facturas, comparar tarifas
+            y conocer las principales compañías de electricidad y gas.
+
+        </div>
+
+    </div>
+
+
+    <div class="cover-options">
+
+
+        <!-- =================================================
+             ELECTRICIDAD
+        ================================================== -->
+
+        <article
+            class="cover-card cover-electricity clickable"
+            id="electricityAccess"
+            tabindex="0"
+            role="button"
+            aria-label="Entrar en electricidad"
+        >
+
+            <div class="cover-icon">
+                ⚡🏗️
+            </div>
+
+
+            <h2>
+                ELECTRICIDAD
+            </h2>
+
+
+            <p>
+                Tarifas, simuladores y todo lo que necesitas
+                saber sobre electricidad.
+            </p>
+
+
+            <button
+                class="cover-button"
+                type="button"
+                id="electricityButton"
+            >
+
+                Entrar
+
+                <span class="cover-button-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </article>
+
+
+
+        <!-- =================================================
+             GAS
+        ================================================== -->
+
+        <article
+            class="cover-card cover-gas"
+        >
+
+            <div class="cover-icon">
+                🔧🔥
+            </div>
+
+
+            <h2>
+                GAS
+            </h2>
+
+
+            <p>
+                Tarifas, simuladores y todo lo que necesitas
+                saber sobre gas.
+            </p>
+
+
+            <button
+                class="cover-button"
+                type="button"
+                disabled
+            >
+
+                Próximamente
+
+            </button>
+
+        </article>
+
+    </div>
+
+
+    <div class="cover-info">
+
+        <div class="cover-info-icon">
+            i
+        </div>
+
+        <div>
+            Herramientas interactivas y recursos educativos
+            para ayudarte a entender y optimizar tus facturas
+            de luz y gas.
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PORTADA ELECTRICIDAD
 ========================================================= -->
 
 <section id="home">
@@ -2765,12 +3176,6 @@ input[type="range"]::-moz-range-thumb {
    PRECIOS INTERNOS
 ========================================================= */
 
-/*
-   Estos valores se utilizan únicamente para realizar
-   los cálculos. No se muestran como información comercial
-   en la interfaz.
-*/
-
 const POWER_PRICE = 5.31855;
 
 const KWH_PRICE = 0.112;
@@ -2821,6 +3226,9 @@ function updateSliderBackground(slider) {
    SECCIONES
 ========================================================= */
 
+const cover =
+    document.getElementById("cover");
+
 const home =
     document.getElementById("home");
 
@@ -2838,6 +3246,8 @@ const invoiceSection =
 
 
 function showSection(section) {
+
+    cover.style.display = "none";
 
     home.style.display = "none";
 
@@ -2861,6 +3271,8 @@ function showSection(section) {
 
 function showHome() {
 
+    cover.style.display = "none";
+
     simulatorSection.classList.remove("active");
 
     flatSimulatorSection.classList.remove("active");
@@ -2877,6 +3289,68 @@ function showHome() {
     });
 
 }
+
+
+/* =========================================================
+   ENTRADA A ELECTRICIDAD
+========================================================= */
+
+const electricityAccess =
+    document.getElementById("electricityAccess");
+
+const electricityButton =
+    document.getElementById("electricityButton");
+
+
+function enterElectricity() {
+
+    cover.style.display = "none";
+
+    home.style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+electricityAccess.addEventListener(
+    "click",
+    enterElectricity
+);
+
+
+electricityButton.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+        enterElectricity();
+
+    }
+);
+
+
+electricityAccess.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            enterElectricity();
+
+        }
+
+    }
+);
 
 
 /* =========================================================
@@ -3591,10 +4065,6 @@ function selectInvoicePart(part) {
     }
 
 
-    /*
-     * Actualizar explicación
-     */
-
     explanationBadge.textContent =
         data.badge;
 
@@ -3627,10 +4097,6 @@ function selectInvoicePart(part) {
         data.text;
 
 
-    /*
-     * Actualizar segmentos
-     */
-
     chartSegments.forEach(function (segment) {
 
         segment.classList.toggle(
@@ -3640,10 +4106,6 @@ function selectInvoicePart(part) {
 
     });
 
-
-    /*
-     * Actualizar tabla
-     */
 
     distributionRows.forEach(function (row) {
 
