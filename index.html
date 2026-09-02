@@ -806,6 +806,12 @@ input[type="range"]::-moz-range-thumb {
     stroke-width: 70px;
 }
 
+#segment-energy { stroke: #4caf35 !important; }
+#segment-power { stroke: #3489e8 !important; }
+#segment-taxes { stroke: #ffc21a !important; }
+#segment-meter { stroke: #d8d8d8 !important; }
+#segment-services { stroke: #f06c37 !important; }
+
 .chart-segment:hover {
     filter: brightness(1.06);
 }
@@ -1173,6 +1179,8 @@ input[type="range"]::-moz-range-thumb {
 ========================================================= -->
 
 <section id="home" style="display:none;">
+
+    <button class="back-button" id="portalBackButton" type="button">← Volver a inicio</button>
 
     <header class="hero">
 
@@ -2676,6 +2684,17 @@ input[type="range"]::-moz-range-thumb {
 
 
 
+<section class="bono-section" id="bonoSection"><div class="bono-page"><button class="back-button" id="bonoBackButton" type="button">← Volver a tipos de tarifas</button><div class="bono-header"><h2>Calculadora del Bono Social</h2><p>Comprueba de forma orientativa si una unidad de convivencia podría cumplir los requisitos para acceder al Bono Social eléctrico.</p></div><div class="bono-progress"><div class="bono-progress-bar" id="bonoProgress"></div></div>
+<div class="bono-step active" data-step="1"><div class="bono-question"><h3>¿Cuántos adultos forman la unidad de convivencia?</h3><p>Introduce el número de personas mayores de edad que forman parte de la unidad.</p><input class="number-input" id="bonoAdults" type="number" min="1" max="15" value="1"><div class="bono-navigation"><span></span><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="2"><div class="bono-question"><h3>¿Cuántos menores forman parte de la unidad?</h3><p>Introduce el número de menores de edad.</p><input class="number-input" id="bonoChildren" type="number" min="0" max="15" value="0"><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="3"><div class="bono-question"><h3>¿Es familia numerosa?</h3><p>Debe existir un título de familia numerosa en vigor.</p><div class="option-grid"><button class="option-button" data-field="family" data-value="yes" type="button">Sí</button><button class="option-button" data-field="family" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="4"><div class="bono-question"><h3>¿Todos los miembros con ingresos son pensionistas con pensión mínima?</h3><p>Jubilación o incapacidad permanente, con cuantía mínima y sin otros ingresos agregados superiores a 500 € anuales.</p><div class="option-grid"><button class="option-button" data-field="pension" data-value="yes" type="button">Sí</button><button class="option-button" data-field="pension" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="5"><div class="bono-question"><h3>¿Algún miembro recibe el Ingreso Mínimo Vital?</h3><p>Indica si el titular o algún miembro de la unidad de convivencia es beneficiario del IMV.</p><div class="option-grid"><button class="option-button" data-field="imv" data-value="yes" type="button">Sí</button><button class="option-button" data-field="imv" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="6"><div class="bono-question"><h3>¿Existe alguna circunstancia especial?</h3><p>Marca todas las que correspondan. Si existe al menos una, se añade 1 IPREM al umbral general de renta.</p><div class="special-grid"><label class="special-option"><input type="checkbox" value="disability" class="special-check"> Discapacidad ≥ 33 %</label><label class="special-option"><input type="checkbox" value="violence" class="special-check"> Violencia de género</label><label class="special-option"><input type="checkbox" value="terrorism" class="special-check"> Víctima de terrorismo</label><label class="special-option"><input type="checkbox" value="dependence" class="special-check"> Dependencia grado II/III</label><label class="special-option"><input type="checkbox" value="single" class="special-check"> Familia monoparental</label><label class="special-option"><input type="checkbox" value="electro" class="special-check"> Electrodependencia</label></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="7"><div class="bono-question"><h3>¿Cuál es la renta anual de la unidad de convivencia?</h3><p>Introduce la renta anual que corresponda para la comprobación.</p><input class="number-input" id="bonoIncome" type="number" min="0" step="100" value="0" placeholder="Ej.: 18500"><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
+<div class="bono-step" data-step="8"><div class="bono-question"><h3>¿El suministro cumple las condiciones?</h3><p>Debe ser la vivienda habitual del titular, estar acogido al PVPC y tener una potencia contratada igual o inferior a 10 kW.</p><div class="option-grid"><button class="option-button" data-field="supply" data-value="yes" type="button">Sí, vivienda habitual + PVPC + ≤ 10 kW</button><button class="option-button" data-field="supply" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Ver resultado →</button></div></div></div>
+<div class="bono-step" data-step="9"><div class="bono-result-card" id="bonoResultCard"><div class="bono-result-icon" id="bonoResultIcon">🧮</div><h3 id="bonoResultTitle">Resultado</h3><p id="bonoResultSubtitle"></p><div class="result-grid"><div class="result-item"><strong id="bonoThreshold">0 €</strong><span>Límite de renta aplicado</span></div><div class="result-item"><strong id="bonoDiscount">—</strong><span>Descuento 2026</span></div><div class="result-item"><strong id="bonoConsumptionLimit">1.587 kWh</strong><span>Límite anual de consumo bonificado</span></div><div class="result-item"><strong id="bonoCategory">—</strong><span>Tipo de consumidor</span></div></div><div class="explanation-box" id="bonoExplanation"></div><div class="bono-summary" id="bonoSummary"></div><div class="warning-box">⚠️ Resultado orientativo. La concesión definitiva corresponde a la comercializadora de referencia y depende de la comprobación de la documentación y de los requisitos vigentes.</div><button class="bono-nav-button bono-next" id="bonoRestart" type="button" style="margin-top:25px;">🔄 Nueva simulación</button></div></div></div></section>
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -2774,12 +2793,17 @@ function showSection(section) {
     hideAllSections();
     home.style.display = "none";
 
-    if (section) section.classList.add("active");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "auto"
-    });
+    if (section) {
+        section.classList.add("active");
+        // Coloca exactamente el inicio de la sección en el viewport.
+        // Evita el espacio en blanco superior al entrar en Bono Social.
+        requestAnimationFrame(function () {
+            section.scrollIntoView({
+                behavior: "auto",
+                block: "start"
+            });
+        });
+    }
 }
 
 function showHome() {
@@ -2790,6 +2814,13 @@ function showHome() {
         top: 0,
         behavior: "auto"
     });
+}
+
+function showPortal() {
+    hideAllSections();
+    home.style.display = "none";
+    cover.style.display = "flex";
+    window.scrollTo({ top: 0, behavior: "auto" });
 }
 
 
@@ -3837,7 +3868,9 @@ selectInvoicePart("energy");
 ========================================================= */
 const cover = document.getElementById("cover");
 const electricityButton = document.getElementById("electricityButton");
+const portalBackButton = document.getElementById("portalBackButton");
 if (electricityButton) electricityButton.addEventListener("click", function(){ cover.style.display="none"; showHome(); });
+if (portalBackButton) portalBackButton.addEventListener("click", showPortal);
 
 /* =========================================================
    COMPAÑÍAS
@@ -3882,7 +3915,7 @@ if(companyBackButton)companyBackButton.addEventListener("click",function(){
 ========================================================= */
 const bonoSection=document.getElementById("bonoSection"),bonoButton=document.getElementById("bonoButton"),bonoBackButton=document.getElementById("bonoBackButton"),bonoProgress=document.getElementById("bonoProgress"),bonoAdults=document.getElementById("bonoAdults"),bonoChildren=document.getElementById("bonoChildren"),bonoIncome=document.getElementById("bonoIncome");let bonoStep=1;const IPREM=8400,VULNERABLE_DISCOUNT=42.5,SEVERE_DISCOUNT=57.5,bonoData={adults:1,children:0,family:null,pension:null,imv:null,supply:null,special:[],income:0};
 function resetBono(){Object.assign(bonoData,{adults:1,children:0,family:null,pension:null,imv:null,supply:null,special:[],income:0});bonoAdults.value=1;bonoChildren.value=0;bonoIncome.value=0;document.querySelectorAll(".option-button").forEach(b=>b.classList.remove("selected"));document.querySelectorAll(".special-check").forEach(c=>c.checked=false);}
-function updateBonoStep(){document.querySelectorAll(".bono-step").forEach(s=>s.classList.remove("active"));const cur=document.querySelector('.bono-step[data-step="'+bonoStep+'"]');if(cur)cur.classList.add("active");bonoProgress.style.width=((bonoStep-1)/8*100)+"%";window.scrollTo({top:0,behavior:"smooth"});}
+function updateBonoStep(){document.querySelectorAll(".bono-step").forEach(s=>s.classList.remove("active"));const cur=document.querySelector('.bono-step[data-step="'+bonoStep+'"]');if(cur)cur.classList.add("active");bonoProgress.style.width=((bonoStep-1)/8*100)+"%";requestAnimationFrame(()=>{bonoSection.scrollIntoView({behavior:"smooth",block:"start"});});}
 function saveBonoStep(){if(bonoStep===1)bonoData.adults=Math.max(1,Number(bonoAdults.value)||1);if(bonoStep===2)bonoData.children=Math.max(0,Number(bonoChildren.value)||0);if(bonoStep===6)bonoData.special=Array.from(document.querySelectorAll(".special-check:checked")).map(c=>c.value);if(bonoStep===7)bonoData.income=Math.max(0,Number(bonoIncome.value)||0);}
 function threshold(){let m=1.5+Math.max(0,bonoData.adults-1)*.3+bonoData.children*.5;if(bonoData.special.length)m+=1;return m*IPREM;}
 function severeThreshold(){return threshold()/2;}
@@ -3896,16 +3929,7 @@ bonoButton.addEventListener("click",()=>{resetBono();bonoStep=1;showSection(bono
 </script>
 
 
-<section class="bono-section" id="bonoSection"><div class="bono-page"><button class="back-button" id="bonoBackButton" type="button">← Volver a electricidad</button><div class="bono-header"><h2>Calculadora del Bono Social</h2><p>Comprueba de forma orientativa si una unidad de convivencia podría cumplir los requisitos para acceder al Bono Social eléctrico.</p></div><div class="bono-progress"><div class="bono-progress-bar" id="bonoProgress"></div></div>
-<div class="bono-step active" data-step="1"><div class="bono-question"><h3>¿Cuántos adultos forman la unidad de convivencia?</h3><p>Introduce el número de personas mayores de edad que forman parte de la unidad.</p><input class="number-input" id="bonoAdults" type="number" min="1" max="15" value="1"><div class="bono-navigation"><span></span><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="2"><div class="bono-question"><h3>¿Cuántos menores forman parte de la unidad?</h3><p>Introduce el número de menores de edad.</p><input class="number-input" id="bonoChildren" type="number" min="0" max="15" value="0"><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="3"><div class="bono-question"><h3>¿Es familia numerosa?</h3><p>Debe existir un título de familia numerosa en vigor.</p><div class="option-grid"><button class="option-button" data-field="family" data-value="yes" type="button">Sí</button><button class="option-button" data-field="family" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="4"><div class="bono-question"><h3>¿Todos los miembros con ingresos son pensionistas con pensión mínima?</h3><p>Jubilación o incapacidad permanente, con cuantía mínima y sin otros ingresos agregados superiores a 500 € anuales.</p><div class="option-grid"><button class="option-button" data-field="pension" data-value="yes" type="button">Sí</button><button class="option-button" data-field="pension" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="5"><div class="bono-question"><h3>¿Algún miembro recibe el Ingreso Mínimo Vital?</h3><p>Indica si el titular o algún miembro de la unidad de convivencia es beneficiario del IMV.</p><div class="option-grid"><button class="option-button" data-field="imv" data-value="yes" type="button">Sí</button><button class="option-button" data-field="imv" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="6"><div class="bono-question"><h3>¿Existe alguna circunstancia especial?</h3><p>Marca todas las que correspondan. Si existe al menos una, se añade 1 IPREM al umbral general de renta.</p><div class="special-grid"><label class="special-option"><input type="checkbox" value="disability" class="special-check"> Discapacidad ≥ 33 %</label><label class="special-option"><input type="checkbox" value="violence" class="special-check"> Violencia de género</label><label class="special-option"><input type="checkbox" value="terrorism" class="special-check"> Víctima de terrorismo</label><label class="special-option"><input type="checkbox" value="dependence" class="special-check"> Dependencia grado II/III</label><label class="special-option"><input type="checkbox" value="single" class="special-check"> Familia monoparental</label><label class="special-option"><input type="checkbox" value="electro" class="special-check"> Electrodependencia</label></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="7"><div class="bono-question"><h3>¿Cuál es la renta anual de la unidad de convivencia?</h3><p>Introduce la renta anual que corresponda para la comprobación.</p><input class="number-input" id="bonoIncome" type="number" min="0" step="100" value="0" placeholder="Ej.: 18500"><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Continuar →</button></div></div></div>
-<div class="bono-step" data-step="8"><div class="bono-question"><h3>¿El suministro cumple las condiciones?</h3><p>Debe ser la vivienda habitual del titular, estar acogido al PVPC y tener una potencia contratada igual o inferior a 10 kW.</p><div class="option-grid"><button class="option-button" data-field="supply" data-value="yes" type="button">Sí, vivienda habitual + PVPC + ≤ 10 kW</button><button class="option-button" data-field="supply" data-value="no" type="button">No</button></div><div class="bono-navigation"><button class="bono-nav-button bono-prev" data-prev type="button">← Atrás</button><button class="bono-nav-button bono-next" data-next type="button">Ver resultado →</button></div></div></div>
-<div class="bono-step" data-step="9"><div class="bono-result-card" id="bonoResultCard"><div class="bono-result-icon" id="bonoResultIcon">🧮</div><h3 id="bonoResultTitle">Resultado</h3><p id="bonoResultSubtitle"></p><div class="result-grid"><div class="result-item"><strong id="bonoThreshold">0 €</strong><span>Límite de renta aplicado</span></div><div class="result-item"><strong id="bonoDiscount">—</strong><span>Descuento 2026</span></div><div class="result-item"><strong id="bonoConsumptionLimit">1.587 kWh</strong><span>Límite anual de consumo bonificado</span></div><div class="result-item"><strong id="bonoCategory">—</strong><span>Tipo de consumidor</span></div></div><div class="explanation-box" id="bonoExplanation"></div><div class="bono-summary" id="bonoSummary"></div><div class="warning-box">⚠️ Resultado orientativo. La concesión definitiva corresponde a la comercializadora de referencia y depende de la comprobación de la documentación y de los requisitos vigentes.</div><button class="bono-nav-button bono-next" id="bonoRestart" type="button" style="margin-top:25px;">🔄 Nueva simulación</button></div></div></div></section>
+
 
 </body>
 </html>
