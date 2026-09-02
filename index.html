@@ -57,6 +57,7 @@ body {
         sans-serif;
 
     background: #ffffff;
+
     color: var(--text);
 
 }
@@ -80,251 +81,179 @@ button {
    PORTADA GENERAL
 ========================================================= */
 
-#portal {
+#cover {
 
     min-height: 100vh;
 
-    padding:
-        45px
-        20px
-        60px;
+    display: flex;
+    flex-direction: column;
 
-    background:
-        linear-gradient(
-            180deg,
-            #ffffff 0%,
-            #ffffff 80%,
-            #f8fbff 100%
-        );
+    justify-content: center;
+
+    padding: 35px 20px 50px;
 
 }
 
-.portal-header {
+.cover-header {
 
     text-align: center;
 
-    max-width: 950px;
-
-    margin:
-        0
-        auto
-        45px;
+    margin-bottom: 38px;
 
 }
 
-.portal-header h1 {
+.cover-header h1 {
 
     margin: 0;
 
-    font-size:
-        clamp(
-            38px,
-            5vw,
-            62px
-        );
+    font-size: clamp(38px, 5vw, 64px);
 
     font-weight: 900;
 
-    color:
-        var(--orange);
+    color: var(--orange);
 
     letter-spacing: -2px;
 
 }
 
-.portal-header p {
+.cover-header p {
 
-    margin:
-        16px
-        auto
-        0;
+    margin: 18px auto 0;
 
     max-width: 760px;
 
-    font-size: 17px;
+    color: var(--blue);
+
+    font-size: 18px;
 
     line-height: 1.5;
 
-    color:
-        var(--text);
+}
+
+.cover-options {
+
+    width: min(900px, 94%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 45px;
 
 }
 
-.portal-options {
+.cover-card {
 
-    width:
-        min(
-            900px,
-            94%
-        );
+    border-radius: 24px;
 
-    margin:
-        0
-        auto;
+    padding: 28px;
 
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    gap: 44px;
-
-}
-
-.portal-card {
-
-    min-height: 405px;
-
-    border-radius: 25px;
+    text-align: center;
 
     background: white;
 
     border: 1px solid var(--border);
 
     box-shadow:
-        0
-        12px
-        32px
-        rgba(
-            26,
-            60,
-            110,
-            .10
-        );
-
-    padding:
-        25px
-        28px
-        28px;
-
-    display:
-        flex;
-
-    flex-direction:
-        column;
-
-    align-items:
-        center;
-
-    text-align: center;
+        0 12px 32px rgba(26,60,110,.10);
 
 }
 
-.portal-card-electricity {
+.cover-card.electricity {
 
-    border-color:
-        #bdebdc;
+    border-color: #bcebd9;
 
     background:
         linear-gradient(
             180deg,
-            #ffffff,
-            #f7fffb
+            #ffffff 0%,
+            #f4fffa 100%
         );
 
 }
 
-.portal-card-gas {
+.cover-card.gas {
 
-    border-color:
-        #ffd8b0;
+    border-color: #ffd7a8;
 
     background:
         linear-gradient(
             180deg,
-            #ffffff,
-            #fffaf5
+            #ffffff 0%,
+            #fffaf3 100%
         );
 
 }
 
-.portal-icon {
+.cover-icon {
 
     height: 190px;
 
-    width: 100%;
+    display: flex;
 
-    display:
-        flex;
+    align-items: center;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    justify-content: center;
 
 }
 
-.portal-icon .lightning {
+.cover-icon .ray {
 
-    font-size:
-        115px;
-
-    line-height: 1;
+    font-size: 105px;
 
 }
 
-.portal-icon .flame {
+.cover-icon .flame {
 
-    font-size:
-        115px;
-
-    line-height: 1;
+    font-size: 105px;
 
 }
 
-.portal-card h2 {
+.cover-card h2 {
 
-    margin:
-        0
-        0
-        10px;
+    margin: 0 0 12px;
 
-    font-size: 30px;
+    font-size: 31px;
 
     font-weight: 900;
 
 }
 
-.portal-card-electricity h2 {
+.cover-card.electricity h2 {
     color: var(--green);
 }
 
-.portal-card-gas h2 {
+.cover-card.gas h2 {
     color: var(--orange);
 }
 
-.portal-card p {
+.cover-card p {
 
-    margin:
-        0
-        auto
-        25px;
+    min-height: 50px;
 
-    max-width: 450px;
+    margin: 0 auto 22px;
 
-    color:
-        var(--text);
+    max-width: 410px;
 
-    line-height: 1.5;
+    color: #345078;
 
     font-size: 14px;
 
+    line-height: 1.5;
+
 }
 
-.portal-button {
+.cover-button {
 
     width: 100%;
 
-    min-height: 54px;
+    min-height: 48px;
 
-    border: 0;
+    border: none;
 
-    border-radius: 30px;
+    border-radius: 28px;
 
     color: white;
 
@@ -334,155 +263,82 @@ button {
 
     cursor: pointer;
 
-    margin-top: auto;
-
     transition:
         transform .2s ease,
         box-shadow .2s ease;
 
 }
 
-.portal-button:hover {
+.cover-button:hover {
 
-    transform:
-        translateY(-3px);
-
-}
-
-.portal-button-electricity {
-
-    background:
-        linear-gradient(
-            90deg,
-            #16b86b,
-            #08a95f
-        );
-
-    box-shadow:
-        0
-        10px
-        25px
-        rgba(
-            5,
-            168,
-            117,
-            .22
-        );
+    transform: translateY(-3px);
 
 }
 
-.portal-button-gas {
+.electricity-button {
 
-    background:
-        linear-gradient(
-            90deg,
-            #ff9417,
-            #ff7510
-        );
+    background: linear-gradient(
+        90deg,
+        #10b96d,
+        #0aaa67
+    );
 
     box-shadow:
-        0
-        10px
-        25px
-        rgba(
-            255,
-            126,
-            0,
-            .22
-        );
+        0 10px 25px rgba(16,185,109,.20);
+
+}
+
+.gas-button {
+
+    background: linear-gradient(
+        90deg,
+        #ff9218,
+        #ff7910
+    );
+
+    box-shadow:
+        0 10px 25px rgba(255,126,0,.20);
+
+}
+
+.cover-info {
+
+    width: min(900px,94%);
+
+    margin: 35px auto 0;
+
+    padding: 15px 20px;
+
+    border-radius: 14px;
+
+    background: #eef5ff;
+
+    color: #21477c;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    line-height: 1.5;
 
 }
 
 
 /* =========================================================
-   PORTADA ELECTRICIDAD
+   HOME ELECTRICIDAD
 ========================================================= */
 
 #home {
 
-    display: none;
-
     min-height: 100vh;
 
-    padding-bottom: 50px;
-
 }
-
-#home.active {
-    display: block;
-}
-
-.electricity-back {
-
-    width:
-        min(
-            1100px,
-            94%
-        );
-
-    margin:
-        20px
-        auto
-        0;
-
-    display:
-        flex;
-
-    justify-content:
-        flex-start;
-
-}
-
-.portal-back-button {
-
-    border: none;
-
-    background: white;
-
-    color:
-        var(--blue);
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    padding:
-        12px
-        18px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0
-        4px
-        15px
-        rgba(
-            0,
-            0,
-            0,
-            .07
-        );
-
-}
-
-.portal-back-button:hover {
-    background: #f5f9ff;
-}
-
-
-/* =========================================================
-   HERO ELECTRICIDAD
-========================================================= */
 
 .hero {
 
-    padding:
-        25px
-        20px
-        15px;
+    padding: 32px 20px 15px;
 
-    text-align:
-        center;
+    text-align: center;
 
 }
 
@@ -490,37 +346,25 @@ button {
 
     margin: 0;
 
-    font-size:
-        clamp(
-            34px,
-            5vw,
-            62px
-        );
+    font-size: clamp(34px, 5vw, 62px);
 
     font-weight: 900;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    letter-spacing:
-        -2px;
+    letter-spacing: -2px;
 
 }
 
 .subtitle {
 
-    display:
-        inline-block;
+    display: inline-block;
 
-    margin-top:
-        18px;
+    margin-top: 18px;
 
-    padding:
-        12px
-        34px;
+    padding: 12px 34px;
 
-    border-radius:
-        30px;
+    border-radius: 30px;
 
     background:
         linear-gradient(
@@ -529,14 +373,11 @@ button {
             #ff8a18
         );
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        19px;
+    font-size: 19px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
@@ -547,115 +388,69 @@ button {
 
 .tariffs {
 
-    width:
-        min(
-            1100px,
-            94%
-        );
+    width: min(1100px,94%);
 
-    margin:
-        35px
-        auto
-        48px;
+    margin: 35px auto 48px;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        repeat(3,1fr);
 
-    gap:
-        22px;
+    gap: 22px;
 
 }
 
 .tariff {
 
-    border-radius:
-        25px;
+    border-radius: 25px;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    background:
-        white;
+    background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     box-shadow:
-        0
-        10px
-        30px
-        rgba(
-            26,
-            60,
-            110,
-            .10
-        );
+        0 10px 30px rgba(26,60,110,.10);
 
     transition:
         transform .25s ease,
         box-shadow .25s ease;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
 }
 
 .tariff:hover {
 
-    transform:
-        translateY(-7px);
+    transform: translateY(-7px);
 
     box-shadow:
-        0
-        18px
-        38px
-        rgba(
-            26,
-            60,
-            110,
-            .17
-        );
+        0 18px 38px rgba(26,60,110,.17);
 
 }
 
 .tariff:focus-visible {
 
-    outline:
-        4px solid
-        rgba(
-            8,
-            125,
-            245,
-            .25
-        );
+    outline: 4px solid
+        rgba(8,125,245,.25);
 
-    outline-offset:
-        3px;
+    outline-offset: 3px;
 
 }
 
 .tariff-image {
 
-    height:
-        155px;
+    height: 155px;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    font-size:
-        70px;
+    font-size: 70px;
 
 }
 
@@ -694,30 +489,21 @@ button {
 
 .tariff-title {
 
-    min-height:
-        56px;
+    min-height: 56px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    color:
-        white;
+    color: white;
 
-    padding:
-        13px
-        15px;
+    padding: 13px 15px;
 
-    font-size:
-        20px;
+    font-size: 20px;
 
-    line-height:
-        1.15;
+    line-height: 1.15;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
@@ -757,193 +543,140 @@ button {
 .tariff-content {
 
     padding:
-        17px
-        20px
-        22px;
+        17px 20px 22px;
 
-    text-align:
-        left;
+    text-align: left;
 
 }
 
 .tariff-content p {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        flex-start;
+    align-items: flex-start;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    margin:
-        0;
+    margin: 0;
 
-    padding:
-        12px 0;
+    padding: 12px 0;
 
     border-bottom:
         1px solid #edf1f5;
 
-    font-size:
-        14px;
+    font-size: 14px;
 
-    line-height:
-        1.35;
+    line-height: 1.35;
 
 }
 
 .tariff-content p:last-child {
+
     border-bottom: none;
+
 }
 
 .icon {
 
-    min-width:
-        34px;
+    min-width: 34px;
 
-    height:
-        34px;
+    height: 34px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    align-items:
-        center;
+    align-items: center;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 
 }
 
 .tariff-use .icon {
 
-    background:
-        var(--green-light);
+    background: var(--green-light);
 
-    color:
-        var(--green);
+    color: var(--green);
 
 }
 
 .tariff-flat .icon {
 
-    background:
-        var(--orange-light);
+    background: var(--orange-light);
 
-    color:
-        var(--orange);
+    color: var(--orange);
 
 }
 
 .tariff-hours .icon {
 
-    background:
-        var(--purple-light);
+    background: var(--purple-light);
 
-    color:
-        var(--purple);
+    color: var(--purple);
 
 }
 
 
 /* =========================================================
-   INFORMACIÓN
+   INFO
 ========================================================= */
 
 .info {
 
-    width:
-        min(
-            1100px,
-            94%
-        );
+    width: min(1100px,94%);
 
-    margin:
-        0
-        auto
-        25px;
+    margin: 0 auto 25px;
 
-    padding:
-        15px
-        20px;
+    padding: 15px 20px;
 
-    border-radius:
-        14px;
+    border-radius: 14px;
 
-    background:
-        #eef5ff;
+    background: #eef5ff;
 
-    text-align:
-        center;
+    text-align: center;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    line-height:
-        1.4;
+    line-height: 1.4;
 
 }
 
 
 /* =========================================================
-   FACTURA
+   BOTÓN FACTURA
 ========================================================= */
 
 .invoice-access {
 
-    width:
-        min(
-            1100px,
-            94%
-        );
+    width: min(1100px,94%);
 
-    margin:
-        0
-        auto
-        35px;
+    margin: 0 auto 30px;
 
-    text-align:
-        center;
+    text-align: center;
 
 }
 
 .invoice-button {
 
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    min-height:
-        54px;
+    min-height: 54px;
 
-    padding:
-        13px
-        30px;
+    padding: 13px 30px;
 
-    border:
-        0;
+    border: 0;
 
-    border-radius:
-        18px;
+    border-radius: 18px;
 
     background:
         linear-gradient(
@@ -952,28 +685,16 @@ button {
             #5b35d8
         );
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        18px;
+    font-size: 18px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     box-shadow:
-        0
-        10px
-        25px
-        rgba(
-            45,
-            88,
-            210,
-            .20
-        );
+        0 10px 25px rgba(45,88,210,.20);
 
     transition:
         transform .2s ease,
@@ -983,8 +704,7 @@ button {
 
 .invoice-button:hover {
 
-    transform:
-        translateY(-3px);
+    transform: translateY(-3px);
 
 }
 
@@ -995,330 +715,218 @@ button {
 
 .companies-section {
 
-    width:
-        min(
-            1100px,
-            94%
-        );
+    width: min(1100px,94%);
 
-    margin:
-        15px
-        auto
-        0;
+    margin: 0 auto 65px;
 
 }
 
 .companies-header {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        22px;
+    margin: 25px 0 28px;
 
 }
 
 .companies-header h2 {
 
-    margin:
-        0
-        0
-        8px;
+    margin: 0 0 10px;
 
-    color:
-        var(--orange);
+    color: var(--orange);
 
-    font-size:
-        clamp(
-            28px,
-            4vw,
-            40px
-        );
+    font-size: clamp(30px,4vw,45px);
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
 .companies-header p {
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        14px;
+    line-height: 1.5;
 
 }
 
-.company-grid {
+.companies-grid {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        repeat(3,1fr);
 
-    gap:
-        20px;
+    gap: 22px;
 
 }
 
 .company-card {
 
-    border-radius:
-        24px;
+    border-radius: 25px;
 
-    padding:
-        20px;
+    padding: 20px;
 
-    background:
-        white;
+    background: white;
 
-    border:
-        1px solid var(--border);
+    border: 1px solid var(--border);
 
     box-shadow:
-        0
-        9px
-        25px
-        rgba(
-            26,
-            60,
-            110,
-            .09
-        );
+        0 10px 30px rgba(26,60,110,.09);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform .25s ease,
+        box-shadow .25s ease;
 
 }
 
 .company-card:hover {
 
-    transform:
-        translateY(-5px);
+    transform: translateY(-7px);
 
     box-shadow:
-        0
-        15px
-        32px
-        rgba(
-            26,
-            60,
-            110,
-            .15
-        );
+        0 18px 38px rgba(26,60,110,.16);
 
 }
 
 .company-logo {
 
-    min-height:
-        90px;
+    height: 95px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    font-size:
-        28px;
+    font-size: 31px;
 
-    font-weight:
-        900;
-
-    text-align:
-        center;
+    font-weight: 900;
 
 }
 
 .company-naturgy .company-logo {
-    color: #07538a;
+    color: #00558c;
 }
 
 .company-gana .company-logo {
-    color: #343434;
+    color: #a8cf00;
 }
 
 .company-total .company-logo {
-    color: #ed171c;
+    color: #f01824;
 }
 
-.company-subtitle {
+.company-name {
 
-    text-align:
-        center;
+    text-align: center;
 
-    color:
-        var(--muted);
+    font-size: 20px;
 
-    font-size:
-        12px;
+    font-weight: 900;
 
-    margin-bottom:
-        15px;
+    margin-bottom: 15px;
 
 }
 
-.company-price {
+.company-price-box {
 
-    border-radius:
-        15px;
+    border-radius: 17px;
 
-    overflow:
-        hidden;
+    padding: 15px;
 
-    margin-bottom:
-        10px;
+    background: #f7faff;
 
 }
 
-.company-price-title {
+.company-price-row {
 
-    padding:
-        8px;
+    display: flex;
 
-    text-align:
-        center;
+    justify-content: space-between;
 
-    color:
-        white;
+    gap: 10px;
 
-    font-size:
-        15px;
+    padding: 7px 0;
 
-    font-weight:
-        900;
+    border-bottom:
+        1px solid #e7edf5;
+
+    font-size: 13px;
 
 }
 
-.company-naturgy .company-price-title {
-    background: #167cb4;
-}
+.company-price-row:last-child {
 
-.company-gana .company-price-title {
-    background: #c3df00;
-}
-
-.company-total .company-price-title {
-    background: #ff0808;
-}
-
-.company-price-value {
-
-    background:
-        #f8fafc;
-
-    min-height:
-        70px;
-
-    padding:
-        12px;
-
-    text-align:
-        center;
-
-    font-size:
-        17px;
-
-    line-height:
-        1.4;
+    border-bottom: none;
 
 }
 
-.company-price-value strong {
+.company-price-row strong {
 
-    font-size:
-        21px;
+    color: var(--text);
 
 }
 
-.company-naturgy strong {
-    color: #0879b2;
-}
+.company-price-row span {
 
-.company-gana strong {
-    color: #a8c800;
-}
+    color: var(--muted);
 
-.company-total strong {
-    color: #f00000;
 }
 
 .company-enter {
 
-    width:
-        100%;
+    margin-top: 15px;
 
-    margin-top:
-        15px;
+    width: 100%;
 
-    min-height:
-        44px;
+    min-height: 43px;
 
-    border:
-        none;
+    border: none;
 
-    border-radius:
-        14px;
+    border-radius: 22px;
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        14px;
+    font-weight: 900;
 
-    font-weight:
-        900;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 
 }
 
 .company-naturgy .company-enter {
-    background: #167cb4;
+
+    background: #087db8;
+
 }
 
 .company-gana .company-enter {
-    background: #b6d500;
+
+    background: #b5d900;
+
 }
 
 .company-total .company-enter {
-    background: #ed171c;
+
+    background: #ed1c24;
+
 }
 
 
 /* =========================================================
-   PANTALLAS SIMULADORES
+   SIMULADORES
 ========================================================= */
 
 .simulator-section {
 
-    display:
-        none;
+    display: none;
 
-    min-height:
-        100vh;
+    min-height: 100vh;
 
-    padding:
-        20px
-        20px
-        70px;
+    padding: 20px 20px 70px;
 
     background:
         linear-gradient(
@@ -1331,11 +939,9 @@ button {
 
 .simulator-section.active {
 
-    display:
-        block;
+    display: block;
 
-    animation:
-        appear .4s ease;
+    animation: appear .4s ease;
 
 }
 
@@ -1363,277 +969,209 @@ button {
 
 .simulator {
 
-    width:
-        min(
-            900px,
-            100%
-        );
+    width: min(900px,100%);
 
-    margin:
-        auto;
+    margin: auto;
 
 }
 
 .back-button {
 
-    border:
-        none;
+    border: none;
 
-    background:
-        white;
+    background: white;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    font-weight:
-        800;
+    font-weight: 800;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    padding:
-        12px
-        18px;
+    padding: 12px 18px;
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 
     box-shadow:
-        0
-        4px
-        15px
-        rgba(
-            0,
-            0,
-            0,
-            .07
-        );
+        0 4px 15px rgba(0,0,0,.07);
 
-    margin-bottom:
-        25px;
+    margin-bottom: 25px;
 
 }
 
 .back-button:hover {
+
     background: #f5f9ff;
+
 }
 
 .simulator-header {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        35px;
+    margin-bottom: 35px;
 
 }
 
 .simulator-header h2 {
 
-    margin:
-        0
-        0
-        10px;
+    margin: 0 0 10px;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
     font-size:
-        clamp(
-            28px,
-            4vw,
-            44px
-        );
+        clamp(28px,4vw,44px);
 
 }
 
 .simulator-header p {
 
-    margin:
-        0;
+    margin: 0;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 
 }
 
 
 /* =========================================================
-   CONTROLES
+   CONTROL CARDS
 ========================================================= */
 
 .control-card {
 
-    background:
-        white;
+    background: white;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        22px;
+    border-radius: 22px;
 
-    padding:
-        28px;
+    padding: 28px;
 
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 
     box-shadow:
-        0
-        8px
-        25px
-        rgba(
-            30,
-            70,
-            120,
-            .08
-        );
+        0 8px 25px rgba(30,70,120,.08);
 
 }
 
 .control-header {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        20px;
+    gap: 20px;
 
-    margin-bottom:
-        22px;
+    margin-bottom: 22px;
 
 }
 
 .control-name {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        12px;
+    gap: 12px;
 
-    min-width:
-        0;
+    min-width: 0;
 
 }
 
 .control-icon {
 
-    width:
-        46px;
+    width: 46px;
 
-    height:
-        46px;
+    height: 46px;
 
-    flex-shrink:
-        0;
+    flex-shrink: 0;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    border-radius:
-        14px;
+    border-radius: 14px;
 
-    font-size:
-        23px;
+    font-size: 23px;
 
-    background:
-        #e7f4ff;
+    background: #e7f4ff;
 
 }
 
 .control-name h3 {
 
-    margin:
-        0;
+    margin: 0;
 
-    font-size:
-        20px;
+    font-size: 20px;
 
 }
 
-.control-name span {
+.control-name h3 span {
 
-    display:
-        block;
+    font-size: 12px;
 
-    margin-top:
-        4px;
+    color: var(--muted);
 
-    color:
-        var(--muted);
+    font-weight: 700;
 
-    font-size:
-        13px;
+}
 
-    line-height:
-        1.35;
+.control-name > div > span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.35;
 
 }
 
 .current-value {
 
-    font-size:
-        30px;
+    font-size: 30px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    white-space:
-        nowrap;
+    white-space: nowrap;
 
 }
 
+
+/* =========================================================
+   SLIDERS
+========================================================= */
+
 .slider-wrapper {
 
-    position:
-        relative;
+    position: relative;
 
-    padding:
-        10px
-        0
-        5px;
+    padding: 10px 0 5px;
 
 }
 
 input[type="range"] {
 
-    width:
-        100%;
+    width: 100%;
 
-    height:
-        12px;
+    height: 12px;
 
-    appearance:
-        none;
+    appearance: none;
 
-    -webkit-appearance:
-        none;
+    -webkit-appearance: none;
 
-    border-radius:
-        20px;
+    border-radius: 20px;
 
     background:
         linear-gradient(
@@ -1644,63 +1182,43 @@ input[type="range"] {
             #e8eef5 100%
         );
 
-    outline:
-        none;
+    outline: none;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
 }
 
 input[type="range"]::-webkit-slider-thumb {
 
-    appearance:
-        none;
+    appearance: none;
 
-    -webkit-appearance:
-        none;
+    -webkit-appearance: none;
 
-    width:
-        30px;
+    width: 30px;
 
-    height:
-        30px;
+    height: 30px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    background:
-        white;
+    background: white;
 
     border:
         5px solid var(--cyan);
 
     box-shadow:
-        0
-        4px
-        12px
-        rgba(
-            0,
-            0,
-            0,
-            .18
-        );
+        0 4px 12px rgba(0,0,0,.18);
 
 }
 
 input[type="range"]::-moz-range-thumb {
 
-    width:
-        24px;
+    width: 24px;
 
-    height:
-        24px;
+    height: 24px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    background:
-        white;
+    background: white;
 
     border:
         5px solid var(--cyan);
@@ -1709,45 +1227,33 @@ input[type="range"]::-moz-range-thumb {
 
 .slider-labels {
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        15px;
+    gap: 15px;
 
-    margin-top:
-        10px;
+    margin-top: 10px;
 
-    color:
-        #8a98aa;
+    color: #8a98aa;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
 }
 
 .cost-row {
 
-    margin-top:
-        23px;
+    margin-top: 23px;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        15px;
+    gap: 15px;
 
-    padding-top:
-        17px;
+    padding-top: 17px;
 
     border-top:
         1px solid #edf1f5;
@@ -1756,43 +1262,34 @@ input[type="range"]::-moz-range-thumb {
 
 .cost-label {
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        14px;
+    font-size: 14px;
 
 }
 
 .cost-value {
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    color:
-        var(--text);
+    color: var(--text);
 
 }
 
 
 /* =========================================================
-   TOTAL
+   TOTAL AZUL
 ========================================================= */
 
-.total-card,
-.hours-total-card {
+.total-card {
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding:
-        30px;
+    padding: 30px;
 
-    border-radius:
-        25px;
+    border-radius: 25px;
 
     background:
         linear-gradient(
@@ -1801,104 +1298,74 @@ input[type="range"]::-moz-range-thumb {
             #075bd3
         );
 
-    color:
-        white;
+    color: white;
 
     box-shadow:
-        0
-        15px
-        35px
-        rgba(
-            8,
-            125,
-            245,
-            .25
-        );
+        0 15px 35px
+        rgba(8,125,245,.25);
 
 }
 
 .total-title {
 
-    font-size:
-        18px;
+    font-size: 18px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    opacity:
-        .9;
+    opacity: .9;
 
 }
 
 .total-value {
 
-    margin-top:
-        8px;
+    margin-top: 8px;
 
     font-size:
-        clamp(
-            42px,
-            6vw,
-            60px
-        );
+        clamp(42px,6vw,60px);
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
-.breakdown {
+.tax-control,
+.company-sva-control,
+.company-dual-control {
 
-    display:
-        grid;
+    margin-top: 22px;
 
-    grid-template-columns:
-        1fr 1fr;
+    padding-top: 20px;
 
-    gap:
-        15px;
+    border-top:
+        1px solid rgba(255,255,255,.25);
 
-    margin-top:
-        20px;
+    display: flex;
 
-}
+    align-items: center;
 
-.breakdown-item {
+    justify-content: space-between;
 
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .13
-        );
-
-    border-radius:
-        15px;
-
-    padding:
-        15px;
+    gap: 15px;
 
 }
 
-.breakdown-item span {
+.tax-text strong,
+.company-sva-text strong,
+.company-dual-text strong {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        13px;
-
-    opacity:
-        .75;
-
-    margin-bottom:
-        5px;
+    font-size: 16px;
 
 }
 
-.breakdown-item strong {
-    font-size: 20px;
+.tax-text span,
+.company-sva-text span,
+.company-dual-text span {
+
+    font-size: 13px;
+
+    opacity: .75;
+
 }
 
 
@@ -1906,160 +1373,126 @@ input[type="range"]::-moz-range-thumb {
    SWITCH
 ========================================================= */
 
-.tax-control,
-.flat-tax-control,
-.hours-tax-control {
-
-    margin-top:
-        22px;
-
-    padding-top:
-        20px;
-
-    border-top:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            .25
-        );
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        space-between;
-
-    gap:
-        15px;
-
-}
-
-.tax-text strong,
-.flat-tax-text strong,
-.hours-tax-text strong {
-
-    display:
-        block;
-
-    font-size:
-        16px;
-
-}
-
-.tax-text span,
-.flat-tax-text span,
-.hours-tax-text span {
-
-    font-size:
-        13px;
-
-    opacity:
-        .75;
-
-}
-
 .switch {
 
-    position:
-        relative;
+    position: relative;
 
-    width:
-        58px;
+    width: 58px;
 
-    height:
-        32px;
+    height: 32px;
 
-    flex-shrink:
-        0;
+    flex-shrink: 0;
 
 }
 
 .switch input {
 
-    opacity:
-        0;
+    opacity: 0;
 
-    width:
-        0;
+    width: 0;
 
-    height:
-        0;
+    height: 0;
 
 }
 
 .switch-slider {
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .3
-        );
+        rgba(255,255,255,.3);
 
-    border-radius:
-        30px;
+    border-radius: 30px;
 
-    cursor:
-        pointer;
+    cursor: pointer;
+
+    transition: .25s;
 
 }
 
 .switch-slider:before {
 
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    width:
-        24px;
+    width: 24px;
 
-    height:
-        24px;
+    height: 24px;
 
-    left:
-        4px;
+    left: 4px;
 
-    top:
-        4px;
+    top: 4px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
-    background:
-        white;
+    background: white;
 
-    transition:
-        .25s;
+    transition: .25s;
 
 }
 
-.switch input:checked +
-.switch-slider {
+.switch input:checked
++ .switch-slider {
 
-    background:
-        #35d49c;
+    background: #35d49c;
 
 }
 
-.switch input:checked +
-.switch-slider:before {
+.switch input:checked
++ .switch-slider:before {
 
     transform:
         translateX(26px);
+
+}
+
+
+/* =========================================================
+   DESGLOSE
+========================================================= */
+
+.breakdown {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+.breakdown-item {
+
+    background:
+        rgba(255,255,255,.13);
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+}
+
+.breakdown-item span {
+
+    display: block;
+
+    font-size: 13px;
+
+    opacity: .75;
+
+    margin-bottom: 5px;
+
+}
+
+.breakdown-item strong {
+
+    font-size: 20px;
 
 }
 
@@ -2070,14 +1503,11 @@ input[type="range"]::-moz-range-thumb {
 
 .flat-total-card {
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding:
-        30px;
+    padding: 30px;
 
-    border-radius:
-        25px;
+    border-radius: 25px;
 
     background:
         linear-gradient(
@@ -2086,88 +1516,62 @@ input[type="range"]::-moz-range-thumb {
             #f36d00
         );
 
-    color:
-        white;
+    color: white;
 
 }
 
 .flat-results {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
+        repeat(3,1fr);
 
-    gap:
-        15px;
+    gap: 15px;
 
 }
 
 .flat-result {
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .15
-        );
+        rgba(255,255,255,.15);
 
-    border-radius:
-        16px;
+    border-radius: 16px;
 
-    padding:
-        18px;
+    padding: 18px;
 
-    min-height:
-        115px;
+    min-height: 115px;
 
 }
 
 .flat-result-label {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        14px;
+    font-size: 14px;
 
-    opacity:
-        .82;
+    opacity: .82;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
 }
 
 .flat-result-value {
 
     font-size:
-        clamp(
-            25px,
-            4vw,
-            34px
-        );
+        clamp(25px,4vw,34px);
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
 .flat-result-extra {
 
-    margin-top:
-        5px;
+    margin-top: 5px;
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    opacity:
-        .75;
+    opacity: .75;
 
 }
 
@@ -2176,294 +1580,320 @@ input[type="range"]::-moz-range-thumb {
    TRAMOS
 ========================================================= */
 
-.hours-results {
+.hours-total-card {
 
-    display:
-        grid;
+    margin-top: 25px;
 
-    grid-template-columns:
-        repeat(
-            4,
-            1fr
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087df5,
+            #075bd3
         );
 
-    gap:
-        12px;
+    color: white;
+
+}
+
+.hours-results {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 12px;
 
 }
 
 .hours-result {
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .13
-        );
+        rgba(255,255,255,.13);
 
-    border-radius:
-        15px;
+    border-radius: 15px;
 
-    padding:
-        16px;
+    padding: 16px;
 
-    min-height:
-        110px;
+    min-height: 110px;
 
 }
 
 .hours-result-label {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    opacity:
-        .78;
+    opacity: .78;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
 }
 
 .hours-result-value {
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
 .hours-result-extra {
 
-    margin-top:
-        5px;
+    margin-top: 5px;
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    opacity:
-        .72;
+    opacity: .72;
 
 }
 
 .valley-icon {
 
-    background:
-        #d9f7ed;
+    background: #d9f7ed;
 
-    color:
-        #08a678;
+    color: #08a678;
 
 }
 
 .flat-icon {
 
-    background:
-        #fff0d8;
+    background: #fff0d8;
 
-    color:
-        #f28700;
+    color: #f28700;
 
 }
 
 .peak-icon {
 
-    background:
-        #ffe0e0;
+    background: #ffe0e0;
 
-    color:
-        #e53935;
+    color: #e53935;
 
 }
 
 
 /* =========================================================
-   PANTALLA COMPAÑÍA
+   SIMULADOR COMPAÑÍAS
 ========================================================= */
 
-.company-detail-section {
+.company-simulator-header {
 
-    display:
-        none;
+    border-radius: 22px;
 
-    min-height:
-        100vh;
+    background: white;
 
-    padding:
-        20px;
+    border: 1px solid var(--border);
 
-    background:
-        linear-gradient(
-            180deg,
-            #f6fbff 0%,
-            #ffffff 100%
-        );
+    padding: 20px;
 
-}
+    margin-bottom: 22px;
 
-.company-detail-section.active {
+    display: flex;
 
-    display:
-        block;
+    align-items: center;
 
-    animation:
-        appear .4s ease;
+    justify-content: space-between;
+
+    gap: 20px;
 
 }
 
-.company-detail {
+.company-simulator-logo {
 
-    width:
-        min(
-            900px,
-            100%
-        );
+    font-size: 30px;
 
-    margin:
-        auto;
+    font-weight: 900;
 
 }
 
-.company-detail-card {
+.company-simulator-price-info {
 
-    background:
-        white;
+    text-align: right;
 
-    border:
-        1px solid var(--border);
+    color: var(--muted);
 
-    border-radius:
-        25px;
+    font-size: 13px;
 
-    padding:
-        35px;
-
-    box-shadow:
-        0
-        10px
-        30px
-        rgba(
-            26,
-            60,
-            110,
-            .08
-        );
+    line-height: 1.6;
 
 }
 
-.company-detail-title {
+.company-simulator-price-info strong {
 
-    text-align:
-        center;
-
-    margin-bottom:
-        30px;
-
-}
-
-.company-detail-title h2 {
-
-    margin:
-        0
-        0
-        8px;
-
-    font-size:
-        40px;
-
-}
-
-.company-detail-title p {
-
-    margin:
-        0;
-
-    color:
-        var(--muted);
-
-}
-
-.company-detail-prices {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(
-            2,
-            1fr
-        );
-
-    gap:
-        15px;
-
-}
-
-.detail-price {
-
-    padding:
-        20px;
-
-    border-radius:
-        18px;
-
-    background:
-        #f7faff;
-
-    border:
-        1px solid var(--border);
-
-    text-align:
-        center;
-
-}
-
-.detail-price span {
-
-    display:
-        block;
-
-    color:
-        var(--muted);
-
-    font-size:
-        14px;
-
-    margin-bottom:
-        8px;
-
-}
-
-.detail-price strong {
-
-    font-size:
-        25px;
+    color: var(--text);
 
 }
 
 
 /* =========================================================
-   FACTURA
+   SVA CARD
+========================================================= */
+
+.company-options-card {
+
+    background: white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 8px 25px rgba(30,70,120,.08);
+
+}
+
+.company-options-title {
+
+    margin: 0 0 20px;
+
+    font-size: 20px;
+
+}
+
+.company-option {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid #edf1f5;
+
+}
+
+.company-option:last-child {
+
+    border-bottom: none;
+
+}
+
+.company-option-info strong {
+
+    display: block;
+
+    font-size: 15px;
+
+}
+
+.company-option-info span {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+.option-switch {
+
+    position: relative;
+
+    width: 52px;
+
+    height: 28px;
+
+    flex-shrink: 0;
+
+}
+
+.option-switch input {
+
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+
+}
+
+.option-switch-slider {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #dce5ef;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.option-switch-slider:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    left: 4px;
+
+    top: 4px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: .25s;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.15);
+
+}
+
+.option-switch input:checked
++ .option-switch-slider {
+
+    background: var(--green);
+
+}
+
+.option-switch input:checked
++ .option-switch-slider:before {
+
+    transform:
+        translateX(24px);
+
+}
+
+
+/* =========================================================
+   INVOICE
 ========================================================= */
 
 .invoice-section {
 
-    display:
-        none;
+    display: none;
 
-    min-height:
-        100vh;
+    min-height: 100vh;
 
-    padding:
-        20px
-        20px
-        70px;
+    padding: 20px 20px 70px;
 
     background:
         linear-gradient(
@@ -2476,182 +1906,126 @@ input[type="range"]::-moz-range-thumb {
 
 .invoice-section.active {
 
-    display:
-        block;
+    display: block;
 
-    animation:
-        appear .4s ease;
+    animation: appear .4s ease;
 
 }
 
 .invoice-page {
 
-    width:
-        min(
-            1120px,
-            100%
-        );
+    width: min(1120px,100%);
 
-    margin:
-        auto;
+    margin: auto;
 
 }
 
 .invoice-header {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        35px;
+    margin-bottom: 35px;
 
 }
 
 .invoice-header h2 {
 
-    margin:
-        0
-        0
-        10px;
+    margin: 0 0 10px;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
     font-size:
-        clamp(
-            30px,
-            4.5vw,
-            48px
-        );
+        clamp(30px,4.5vw,48px);
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
 .invoice-header p {
 
-    margin:
-        0
-        auto;
+    margin: 0 auto;
 
-    max-width:
-        720px;
+    max-width: 720px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 
 }
 
 .invoice-layout {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        minmax(
-            400px,
-            1fr
-        )
-        minmax(
-            360px,
-            1fr
-        );
+        minmax(400px,1fr)
+        minmax(360px,1fr);
 
-    gap:
-        45px;
+    gap: 45px;
 
-    align-items:
-        center;
+    align-items: center;
 
 }
 
 .chart-panel {
 
-    background:
-        white;
+    background: white;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
-    padding:
-        28px;
+    padding: 28px;
 
     box-shadow:
-        0
-        10px
-        30px
-        rgba(
-            26,
-            60,
-            110,
-            .08
-        );
+        0 10px 30px rgba(26,60,110,.08);
 
 }
 
 .chart-title {
 
-    text-align:
-        center;
+    text-align: center;
 
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
 }
 
 .chart-title strong {
 
-    display:
-        block;
+    display: block;
 
-    font-size:
-        19px;
+    font-size: 19px;
 
 }
 
 .chart-title span {
 
-    display:
-        block;
+    display: block;
 
-    margin-top:
-        5px;
+    margin-top: 5px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        13px;
+    font-size: 13px;
 
 }
 
 .invoice-chart {
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        460px;
+    max-width: 460px;
 
-    margin:
-        auto;
+    margin: auto;
 
-    display:
-        block;
+    display: block;
 
 }
 
 .chart-segment {
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transform-origin:
         210px 210px;
@@ -2661,356 +2035,332 @@ input[type="range"]::-moz-range-thumb {
         transform .2s ease,
         filter .2s ease;
 
-    stroke:
-        white;
+    stroke: white;
 
-    stroke-width:
-        3;
+    stroke-width: 3;
+
+}
+
+.chart-segment:hover {
+
+    filter: brightness(1.06);
 
 }
 
 .chart-segment.selected {
 
-    transform:
-        scale(
-            1.045
+    transform: scale(1.045);
+
+    filter:
+        brightness(1.06)
+        drop-shadow(
+            0 5px 7px
+            rgba(0,0,0,.16)
         );
+
+    stroke-width: 5;
 
 }
 
 .chart-center {
 
-    fill:
-        white;
+    fill: white;
 
-    stroke:
-        #e5ebf4;
+    stroke: #e5ebf4;
 
-    stroke-width:
-        2;
+    stroke-width: 2;
 
 }
 
 .chart-center-title {
 
-    font-size:
-        18px;
+    font-size: 18px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    fill:
-        var(--text);
+    fill: var(--text);
 
-    text-anchor:
-        middle;
+    text-anchor: middle;
 
 }
 
 .chart-center-subtitle {
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    fill:
-        var(--muted);
+    fill: var(--muted);
 
-    text-anchor:
-        middle;
+    text-anchor: middle;
 
 }
 
 .chart-legend {
 
-    margin-top:
-        15px;
+    margin-top: 15px;
 
-    display:
-        grid;
+    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
-    gap:
-        8px
-        15px;
+    gap: 8px 15px;
 
 }
 
 .legend-item {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        8px;
+    gap: 8px;
 
-    font-size:
-        12px;
+    font-size: 12px;
+
+    color: var(--text);
 
 }
 
 .legend-dot {
 
-    width:
-        11px;
+    width: 11px;
 
-    height:
-        11px;
+    height: 11px;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
+
+    flex-shrink: 0;
 
 }
 
 .invoice-explanation {
 
-    background:
-        white;
+    background: white;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        28px;
+    border-radius: 28px;
 
-    padding:
-        32px;
+    padding: 32px;
 
     box-shadow:
-        0
-        10px
-        30px
-        rgba(
-            26,
-            60,
-            110,
-            .08
-        );
+        0 10px 30px rgba(26,60,110,.08);
 
-    min-height:
-        430px;
+    min-height: 430px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
 
 }
 
 .explanation-badge {
 
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    padding:
-        7px
-        13px;
+    align-items: center;
 
-    border-radius:
-        20px;
+    align-self: flex-start;
 
-    background:
-        #eef5ff;
+    gap: 8px;
 
-    color:
-        var(--blue);
+    padding: 7px 13px;
 
-    font-size:
-        12px;
+    border-radius: 20px;
 
-    font-weight:
-        900;
+    background: #eef5ff;
+
+    color: var(--blue);
+
+    font-size: 12px;
+
+    font-weight: 900;
 
 }
 
 .explanation-icon {
 
-    width:
-        58px;
+    width: 58px;
 
-    height:
-        58px;
+    height: 58px;
 
-    margin-top:
-        18px;
+    margin-top: 18px;
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    border-radius:
-        17px;
+    border-radius: 17px;
 
-    font-size:
-        28px;
+    font-size: 28px;
 
 }
 
 .explanation-title {
 
-    margin:
-        16px
-        0
-        4px;
+    margin: 16px 0 4px;
 
-    font-size:
-        30px;
+    font-size: 30px;
+
+    line-height: 1.1;
 
 }
 
 .explanation-percentage {
 
-    font-size:
-        24px;
+    font-size: 24px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
-    color:
-        var(--blue);
+    color: var(--blue);
 
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 
 }
 
 .explanation-text {
 
-    color:
-        #344766;
+    color: #344766;
 
-    font-size:
-        16px;
+    font-size: 16px;
 
-    line-height:
-        1.65;
+    line-height: 1.65;
+
+}
+
+.explanation-text p {
+
+    margin: 0 0 13px;
+
+}
+
+.explanation-text p:last-child {
+
+    margin-bottom: 0;
 
 }
 
 .invoice-distribution {
 
-    margin-top:
-        30px;
+    margin-top: 30px;
 
-    background:
-        white;
+    background: white;
 
     border:
         1px solid var(--border);
 
-    border-radius:
-        22px;
+    border-radius: 22px;
 
-    overflow:
-        hidden;
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(30,70,120,.07);
 
 }
 
 .distribution-title {
 
-    padding:
-        17px
-        22px;
+    padding: 17px 22px;
 
-    background:
-        #f5f9ff;
+    background: #f5f9ff;
 
-    font-size:
-        17px;
+    font-size: 17px;
 
-    font-weight:
-        900;
+    font-weight: 900;
 
 }
 
 .distribution-row {
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        1fr
-        140px;
+        1fr 140px;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        15px;
+    gap: 15px;
 
-    padding:
-        13px
-        22px;
+    padding: 13px 22px;
 
     border-top:
         1px solid #edf1f5;
 
-    cursor:
-        pointer;
+    cursor: pointer;
+
+    transition:
+        background .2s ease;
 
 }
 
 .distribution-row:hover,
 .distribution-row.selected {
 
-    background:
-        #f6faff;
+    background: #f6faff;
 
 }
 
 .distribution-name {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        10px;
+    gap: 10px;
 
-    font-size:
-        14px;
+    font-size: 14px;
 
 }
 
 .distribution-percentage {
 
-    text-align:
-        right;
+    text-align: right;
 
-    font-weight:
-        900;
+    font-weight: 900;
+
+    color: var(--text);
+
+}
+
+.distribution-total {
+
+    font-weight: 900;
+
+    color: var(--blue);
 
 }
 
 .invoice-note {
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding:
-        15px
-        18px;
+    padding: 15px 18px;
 
-    border-radius:
-        14px;
+    border-radius: 14px;
 
-    background:
-        #eef5ff;
+    background: #eef5ff;
 
-    color:
-        #45617f;
+    color: #45617f;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
+
+}
+
+.invoice-footer-note {
+
+    margin-top: 22px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
 
 }
 
@@ -3019,213 +2369,260 @@ input[type="range"]::-moz-range-thumb {
    RESPONSIVE
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width:900px) {
 
-    .portal-options {
+    .cover-options {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        max-width:
-            500px;
+        max-width: 500px;
+
+        gap: 25px;
 
     }
 
     .tariffs {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        max-width:
-            500px;
+        max-width: 500px;
 
     }
 
-    .company-grid {
+    .companies-grid {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        max-width:
-            500px;
+        max-width: 500px;
 
-        margin:
-            auto;
+        margin: auto;
 
     }
 
     .invoice-layout {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        gap:
-            25px;
+        gap: 25px;
 
     }
 
-    .hours-results {
+    .invoice-page {
 
-        grid-template-columns:
-            1fr
-            1fr;
-
-    }
-
-}
-
-@media (max-width: 600px) {
-
-    #portal {
-
-        padding-top:
-            25px;
-
-    }
-
-    .portal-header h1 {
-
-        letter-spacing:
-            -1px;
-
-    }
-
-    .portal-card {
-
-        min-height:
-            370px;
-
-    }
-
-    .portal-icon {
-
-        height:
-            160px;
-
-    }
-
-    .portal-icon .lightning,
-    .portal-icon .flame {
-
-        font-size:
-            90px;
-
-    }
-
-    .hero {
-
-        padding-top:
-            20px;
-
-    }
-
-    .hero h1 {
-
-        letter-spacing:
-            -1px;
-
-    }
-
-    .subtitle {
-
-        font-size:
-            16px;
-
-        padding:
-            10px
-            20px;
-
-    }
-
-    .tariff-image {
-
-        height:
-            130px;
-
-    }
-
-    .control-card {
-
-        padding:
-            21px;
-
-    }
-
-    .control-header {
-
-        align-items:
-            flex-start;
-
-    }
-
-    .current-value {
-
-        font-size:
-            25px;
-
-    }
-
-    .breakdown {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .flat-results {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .hours-results {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .total-value {
-
-        font-size:
-            46px;
-
-    }
-
-    .chart-panel {
-
-        padding:
-            18px;
+        width: min(700px,100%);
 
     }
 
     .invoice-explanation {
 
-        padding:
-            24px;
+        min-height: auto;
+
+    }
+
+    .hours-results {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+}
+
+@media (max-width:600px) {
+
+    #cover {
+
+        padding-top: 25px;
+
+    }
+
+    .cover-header h1 {
+
+        letter-spacing: -1px;
+
+    }
+
+    .cover-header p {
+
+        font-size: 15px;
+
+    }
+
+    .cover-icon {
+
+        height: 140px;
+
+    }
+
+    .cover-icon .ray,
+    .cover-icon .flame {
+
+        font-size: 80px;
+
+    }
+
+    .hero {
+
+        padding-top: 25px;
+
+    }
+
+    .hero h1 {
+
+        letter-spacing: -1px;
+
+    }
+
+    .subtitle {
+
+        font-size: 16px;
+
+        padding: 10px 20px;
+
+    }
+
+    .tariff-image {
+
+        height: 130px;
+
+    }
+
+    .control-card {
+
+        padding: 21px;
+
+    }
+
+    .control-header {
+
+        align-items: flex-start;
+
+    }
+
+    .current-value {
+
+        font-size: 25px;
+
+    }
+
+    .cost-row {
+
+        align-items: flex-start;
+
+    }
+
+    .breakdown {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .flat-results {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .hours-results {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .total-value {
+
+        font-size: 46px;
+
+    }
+
+    .invoice-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .chart-panel {
+
+        padding: 18px;
+
+    }
+
+    .invoice-explanation {
+
+        padding: 24px;
+
+    }
+
+    .explanation-title {
+
+        font-size: 26px;
 
     }
 
     .chart-legend {
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
     }
 
     .distribution-row {
 
         grid-template-columns:
-            1fr
-            100px;
+            1fr 100px;
 
     }
 
-    .company-detail-prices {
+    .invoice-button {
 
-        grid-template-columns:
-            1fr;
+        width: 100%;
+
+        font-size: 16px;
+
+    }
+
+    .company-simulator-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .company-simulator-price-info {
+
+        text-align: left;
+
+    }
+
+}
+
+@media (max-width:380px) {
+
+    .control-header {
+
+        flex-direction: column;
+
+    }
+
+    .current-value {
+
+        align-self: flex-end;
+
+    }
+
+    .distribution-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+
+    }
+
+    .distribution-percentage {
+
+        text-align: left;
+
+        padding-left: 30px;
 
     }
 
@@ -3238,6 +2635,7 @@ input[type="range"]::-moz-range-thumb {
 
 <body>
 
+
 <div class="page">
 
 
@@ -3245,32 +2643,32 @@ input[type="range"]::-moz-range-thumb {
      PORTADA GENERAL
 ========================================================= -->
 
-<section id="portal">
+<section id="cover">
 
-    <header class="portal-header">
+    <header class="cover-header">
 
         <h1>
             Tarifas, facturas, precios y compañías
         </h1>
 
         <p>
-            Aprende a entender tus facturas, comparar tarifas y conocer
-            las principales compañías de electricidad y gas.
+            Aprende a entender tus facturas, comparar tarifas
+            y conocer las principales compañías de electricidad y gas.
         </p>
 
     </header>
 
 
-    <div class="portal-options">
+    <div class="cover-options">
 
 
         <!-- ELECTRICIDAD -->
 
-        <article class="portal-card portal-card-electricity">
+        <article class="cover-card electricity">
 
-            <div class="portal-icon">
+            <div class="cover-icon">
 
-                <span class="lightning">
+                <span class="ray">
                     ⚡
                 </span>
 
@@ -3281,16 +2679,16 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                Tarifas, simuladores y todo lo que necesitas saber
-                sobre electricidad.
+                Tarifas, simuladores y todo lo que necesitas
+                saber sobre electricidad.
             </p>
 
             <button
+                class="cover-button electricity-button"
+                id="electricityButton"
                 type="button"
-                class="portal-button portal-button-electricity"
-                id="enterElectricity"
             >
-                Entrar &nbsp; →
+                Entrar&nbsp;&nbsp; →
             </button>
 
         </article>
@@ -3298,9 +2696,9 @@ input[type="range"]::-moz-range-thumb {
 
         <!-- GAS -->
 
-        <article class="portal-card portal-card-gas">
+        <article class="cover-card gas">
 
-            <div class="portal-icon">
+            <div class="cover-icon">
 
                 <span class="flame">
                     🔥
@@ -3313,18 +2711,29 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                Tarifas, simuladores y todo lo que necesitas saber
-                sobre gas.
+                Tarifas, simuladores y todo lo que necesitas
+                saber sobre gas.
             </p>
 
             <button
+                class="cover-button gas-button"
                 type="button"
-                class="portal-button portal-button-gas"
+                disabled
             >
                 Próximamente
             </button>
 
         </article>
+
+    </div>
+
+
+    <div class="cover-info">
+
+        ℹ️ &nbsp;
+
+        Herramientas interactivas y recursos educativos
+        para ayudarte a entender y optimizar tus facturas de luz y gas.
 
     </div>
 
@@ -3336,25 +2745,19 @@ input[type="range"]::-moz-range-thumb {
      ELECTRICIDAD
 ========================================================= -->
 
-<section id="home">
-
-
-    <!-- VOLVER A PORTADA GENERAL -->
-
-    <div class="electricity-back">
-
-        <button
-            type="button"
-            class="portal-back-button"
-            id="backToPortal"
-        >
-            ← Volver a Electricidad y Gas
-        </button>
-
-    </div>
+<section id="home" style="display:none;">
 
 
     <header class="hero">
+
+        <button
+            class="back-button"
+            id="backToCoverButton"
+            type="button"
+        >
+            ← Volver a electricidad y gas
+        </button>
+
 
         <h1>
             TIPOS DE TARIFAS ELÉCTRICAS
@@ -3370,7 +2773,7 @@ input[type="range"]::-moz-range-thumb {
     <div class="tariffs">
 
 
-        <!-- TARIFA POR USO -->
+        <!-- TARIFA USO -->
 
         <article
             class="tariff tariff-use"
@@ -3450,8 +2853,7 @@ input[type="range"]::-moz-range-thumb {
                     <span class="icon">▤</span>
 
                     <span>
-                        La misma factura dentro de unos límites
-                        de consumo.
+                        La misma factura dentro de unos límites de consumo.
                     </span>
                 </p>
 
@@ -3524,9 +2926,8 @@ input[type="range"]::-moz-range-thumb {
 
         ℹ️ &nbsp;
 
-        <strong>La tarifa</strong> es la oferta comercial de la
-        comercializadora, mientras que el <strong>peaje</strong>
-        corresponde a la parte regulada del suministro.
+        <strong>La tarifa</strong> es la oferta comercial de la comercializadora,
+        mientras que el <strong>peaje</strong> corresponde a la parte regulada del suministro.
 
     </div>
 
@@ -3558,23 +2959,23 @@ input[type="range"]::-moz-range-thumb {
          COMPAÑÍAS
     ====================================================== -->
 
-    <section class="companies-section">
+    <div class="companies-section">
 
         <div class="companies-header">
 
             <h2>
-                COMPAÑÍAS
+                Compañías y precios
             </h2>
 
             <p>
-                Consulta y compara los precios de las principales
-                compañías de electricidad.
+                Consulta los precios de las principales compañías
+                y simula cómo cambiaría la factura según el consumo.
             </p>
 
         </div>
 
 
-        <div class="company-grid">
+        <div class="companies-grid">
 
 
             <!-- NATURGY -->
@@ -3590,85 +2991,72 @@ input[type="range"]::-moz-range-thumb {
                     Naturgy
                 </div>
 
-                <div class="company-subtitle">
-                    Tarifa eléctrica
+                <div class="company-name">
+                    Naturgy
                 </div>
 
+                <div class="company-price-box">
 
-                <div class="company-price">
+                    <div class="company-price-row">
 
-                    <div class="company-price-title">
-                        Energía
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P1</span>
 
                         <strong>
-                            0,112
+                            0,123030 €/kW/día
                         </strong>
 
-                        €/kWh
-
                     </div>
 
-                </div>
+                    <div class="company-price-row">
 
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        Potencia
-                    </div>
-
-                    <div class="company-price-value">
-
-                        P1:
-                        <strong>
-                            0,123030
-                        </strong>
-                        €/kW/día
-
-                        <br>
-
-                        P2:
-                        <strong>
-                            0,061562
-                        </strong>
-                        €/kW/día
-
-                    </div>
-
-                </div>
-
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        SVA Luz
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P2</span>
 
                         <strong>
-                            0,28
+                            0,061562 €/kW/día
                         </strong>
 
-                        €/día
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>V</span>
+
+                        <strong>
+                            0,112 €/kWh
+                        </strong>
+
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>SVA Luz</span>
+
+                        <strong>
+                            8,40 €/mes
+                        </strong>
+
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>SVA Hogar</span>
+
+                        <strong>
+                            4,41 €/mes
+                        </strong>
 
                     </div>
 
                 </div>
-
 
                 <button
-                    type="button"
                     class="company-enter"
+                    type="button"
                 >
                     Ver precios →
                 </button>
 
             </article>
-
 
 
             <!-- GANA ENERGÍA -->
@@ -3681,84 +3069,65 @@ input[type="range"]::-moz-range-thumb {
             >
 
                 <div class="company-logo">
-                    💡 Gana Energía
+                    Gana Energía
                 </div>
 
-                <div class="company-subtitle">
-                    Tarifa eléctrica
+                <div class="company-name">
+                    Gana Energía
                 </div>
 
+                <div class="company-price-box">
 
-                <div class="company-price">
+                    <div class="company-price-row">
 
-                    <div class="company-price-title">
-                        Energía
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P1</span>
 
                         <strong>
-                            0,119
+                            0,089434 €/kW/día
                         </strong>
 
-                        €/kWh
-
                     </div>
 
-                </div>
+                    <div class="company-price-row">
 
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        Potencia
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P2</span>
 
                         <strong>
-                            0,089434
+                            0,089434 €/kW/día
                         </strong>
 
-                        €/kW/día
-
-                        <br>
-
-                        (ambos tramos)
-
                     </div>
 
-                </div>
+                    <div class="company-price-row">
 
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        SVA Luz
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>V</span>
 
                         <strong>
-                            0,137465
+                            0,119 €/kWh
                         </strong>
 
-                        €/día
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>SVA Luz</span>
+
+                        <strong>
+                            4,12 €/mes
+                        </strong>
 
                     </div>
 
                 </div>
-
 
                 <button
-                    type="button"
                     class="company-enter"
+                    type="button"
                 >
                     Ver precios →
                 </button>
 
             </article>
-
 
 
             <!-- TOTALENERGIES -->
@@ -3774,85 +3143,67 @@ input[type="range"]::-moz-range-thumb {
                     TotalEnergies
                 </div>
 
-                <div class="company-subtitle">
-                    Tarifa eléctrica
+                <div class="company-name">
+                    TotalEnergies
                 </div>
 
+                <div class="company-price-box">
 
-                <div class="company-price">
+                    <div class="company-price-row">
 
-                    <div class="company-price-title">
-                        Energía
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P1</span>
 
                         <strong>
-                            0,1399
+                            0,075315 €/kW/día
                         </strong>
 
-                        €/kWh
-
-                        <br>
-
-                        <small>
-                            Dual:
-                            <strong>
-                                0,1299
-                            </strong>
-                            €/kWh
-                        </small>
-
                     </div>
 
-                </div>
+                    <div class="company-price-row">
 
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        Potencia
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>P2</span>
 
                         <strong>
-                            0,075315
+                            0,075315 €/kW/día
                         </strong>
 
-                        €/kW/día
-
-                        <br>
-
-                        (ambos tramos)
-
                     </div>
 
-                </div>
+                    <div class="company-price-row">
 
-
-                <div class="company-price">
-
-                    <div class="company-price-title">
-                        SVA Luz
-                    </div>
-
-                    <div class="company-price-value">
+                        <span>V</span>
 
                         <strong>
-                            7,62
+                            0,1399 €/kWh
                         </strong>
 
-                        €/mes
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>V DUAL</span>
+
+                        <strong>
+                            0,1299 €/kWh
+                        </strong>
+
+                    </div>
+
+                    <div class="company-price-row">
+
+                        <span>SVA Luz</span>
+
+                        <strong>
+                            7,62 €/mes
+                        </strong>
 
                     </div>
 
                 </div>
-
 
                 <button
-                    type="button"
                     class="company-enter"
+                    type="button"
                 >
                     Ver precios →
                 </button>
@@ -3861,14 +3212,14 @@ input[type="range"]::-moz-range-thumb {
 
         </div>
 
-    </section>
+    </div>
 
 </section>
 
 
 
 <!-- =========================================================
-     SIMULADOR POR USO
+     TARIFA POR USO
 ========================================================= -->
 
 <section
@@ -3894,8 +3245,8 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                Ajusta la potencia y el consumo para ver cómo cambia
-                el importe.
+                Ajusta la potencia y el consumo
+                para ver cómo cambia el importe.
             </p>
 
         </div>
@@ -3926,7 +3277,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="powerValue">3</span> kW
+
+                    <span id="powerValue">
+                        3
+                    </span>
+                    kW
+
                 </div>
 
             </div>
@@ -3945,13 +3301,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        3 kW
-                    </span>
-
-                    <span>
-                        15 kW
-                    </span>
+                    <span>3 kW</span>
+                    <span>15 kW</span>
 
                 </div>
 
@@ -3965,7 +3316,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="powerCost">15,96</span> €
+
+                    <span id="powerCost">
+                        15,96
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -3998,7 +3354,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="consumptionValue">0</span> kWh
+
+                    <span id="consumptionValue">
+                        0
+                    </span>
+                    kWh
+
                 </div>
 
             </div>
@@ -4017,13 +3378,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 kWh
-                    </span>
-
-                    <span>
-                        800 kWh
-                    </span>
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
 
                 </div>
 
@@ -4037,7 +3393,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="consumptionCost">0,00</span> €
+
+                    <span id="consumptionCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4052,8 +3413,14 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
             <div class="total-value">
-                <span id="totalValue">15,96</span> €
+
+                <span id="totalValue">
+                    15,96
+                </span>
+                €
+
             </div>
+
 
             <div class="breakdown">
 
@@ -4064,10 +3431,14 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <strong>
-                        <span id="summaryPower">15,96</span> €
+                        <span id="summaryPower">
+                            15,96
+                        </span>
+                        €
                     </strong>
 
                 </div>
+
 
                 <div class="breakdown-item">
 
@@ -4076,7 +3447,10 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <strong>
-                        <span id="summaryConsumption">0,00</span> €
+                        <span id="summaryConsumption">
+                            0,00
+                        </span>
+                        €
                     </strong>
 
                 </div>
@@ -4097,6 +3471,7 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                 </div>
+
 
                 <label class="switch">
 
@@ -4146,8 +3521,8 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                Ajusta la potencia, el consumo anual y la cuota mensual
-                que quieres pagar.
+                Ajusta la potencia, el consumo anual
+                y la cuota mensual que quieres pagar.
             </p>
 
         </div>
@@ -4178,7 +3553,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="flatPowerValue">3</span> kW
+
+                    <span id="flatPowerValue">
+                        3
+                    </span>
+                    kW
+
                 </div>
 
             </div>
@@ -4197,13 +3577,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        3 kW
-                    </span>
-
-                    <span>
-                        15 kW
-                    </span>
+                    <span>3 kW</span>
+                    <span>15 kW</span>
 
                 </div>
 
@@ -4217,7 +3592,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="flatPowerCost">15,96</span> €
+
+                    <span id="flatPowerCost">
+                        15,96
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4250,7 +3630,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="flatConsumptionValue">0</span> kWh
+
+                    <span id="flatConsumptionValue">
+                        0
+                    </span>
+                    kWh
+
                 </div>
 
             </div>
@@ -4269,13 +3654,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 kWh
-                    </span>
-
-                    <span>
-                        9.600 kWh
-                    </span>
+                    <span>0 kWh</span>
+                    <span>9.600 kWh</span>
 
                 </div>
 
@@ -4289,7 +3669,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="flatConsumptionCost">0,00</span> €
+
+                    <span id="flatConsumptionCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4322,7 +3707,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="flatPayValue">0</span> €
+
+                    <span id="flatPayValue">
+                        0
+                    </span>
+                    €
+
                 </div>
 
             </div>
@@ -4341,13 +3731,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 € / mes
-                    </span>
-
-                    <span>
-                        150 € / mes
-                    </span>
+                    <span>0 € / mes</span>
+                    <span>150 € / mes</span>
 
                 </div>
 
@@ -4361,7 +3746,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="flatPayCost">0,00</span> €
+
+                    <span id="flatPayCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4380,7 +3770,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="flat-result-value">
-                        <span id="flatResultPay">0,00</span> €
+
+                        <span id="flatResultPay">
+                            0,00
+                        </span>
+                        €
+
                     </div>
 
                     <div class="flat-result-extra">
@@ -4397,7 +3792,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="flat-result-value">
-                        <span id="flatResultReal">15,96</span> €
+
+                        <span id="flatResultReal">
+                            15,96
+                        </span>
+                        €
+
                     </div>
 
                     <div class="flat-result-extra">
@@ -4414,7 +3814,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="flat-result-value">
-                        <span id="flatResultDifference">15,96</span> €
+
+                        <span id="flatResultDifference">
+                            15,96
+                        </span>
+                        €
+
                     </div>
 
                     <div
@@ -4429,9 +3834,9 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
-            <div class="flat-tax-control">
+            <div class="tax-control">
 
-                <div class="flat-tax-text">
+                <div class="tax-text">
 
                     <strong>
                         Mostrar precio con impuestos
@@ -4465,7 +3870,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     TRAMOS HORARIOS
+     TRAMOS
 ========================================================= -->
 
 <section
@@ -4491,8 +3896,8 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                Reparte tu consumo entre valle, llano y punta para ver
-                cómo cambia tu factura.
+                Reparte tu consumo entre valle, llano y punta
+                para ver cómo cambia tu factura.
             </p>
 
         </div>
@@ -4523,7 +3928,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="hoursPowerValue">3</span> kW
+
+                    <span id="hoursPowerValue">
+                        3
+                    </span>
+                    kW
+
                 </div>
 
             </div>
@@ -4542,13 +3952,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        3 kW
-                    </span>
-
-                    <span>
-                        15 kW
-                    </span>
+                    <span>3 kW</span>
+                    <span>15 kW</span>
 
                 </div>
 
@@ -4562,7 +3967,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="hoursPowerCost">15,96</span> €
+
+                    <span id="hoursPowerCost">
+                        15,96
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4598,7 +4008,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="valleyValue">0</span> kWh
+
+                    <span id="valleyValue">
+                        0
+                    </span>
+                    kWh
+
                 </div>
 
             </div>
@@ -4617,13 +4032,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 kWh
-                    </span>
-
-                    <span>
-                        800 kWh
-                    </span>
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
 
                 </div>
 
@@ -4637,7 +4047,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="valleyCost">0,00</span> €
+
+                    <span id="valleyCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4673,7 +4088,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="flatHoursValue">0</span> kWh
+
+                    <span id="flatHoursValue">
+                        0
+                    </span>
+                    kWh
+
                 </div>
 
             </div>
@@ -4692,13 +4112,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 kWh
-                    </span>
-
-                    <span>
-                        800 kWh
-                    </span>
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
 
                 </div>
 
@@ -4712,7 +4127,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="flatHoursCost">0,00</span> €
+
+                    <span id="flatHoursCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4748,7 +4168,12 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
                 <div class="current-value">
-                    <span id="peakValue">0</span> kWh
+
+                    <span id="peakValue">
+                        0
+                    </span>
+                    kWh
+
                 </div>
 
             </div>
@@ -4767,13 +4192,8 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="slider-labels">
 
-                    <span>
-                        0 kWh
-                    </span>
-
-                    <span>
-                        800 kWh
-                    </span>
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
 
                 </div>
 
@@ -4787,7 +4207,12 @@ input[type="range"]::-moz-range-thumb {
                 </span>
 
                 <span class="cost-value">
-                    <span id="peakCost">0,00</span> €
+
+                    <span id="peakCost">
+                        0,00
+                    </span>
+                    €
+
                 </span>
 
             </div>
@@ -4802,7 +4227,12 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
             <div class="total-value">
-                <span id="hoursTotalValue">15,96</span> €
+
+                <span id="hoursTotalValue">
+                    15,96
+                </span>
+                €
+
             </div>
 
 
@@ -4815,11 +4245,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="hours-result-value">
-                        <span id="hoursSummaryPower">15,96</span> €
-                    </div>
 
-                    <div class="hours-result-extra">
-                        Coste mensual
+                        <span id="hoursSummaryPower">
+                            15,96
+                        </span>
+                        €
+
                     </div>
 
                 </div>
@@ -4832,7 +4263,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="hours-result-value">
-                        <span id="hoursSummaryValley">0,00</span> €
+
+                        <span id="hoursSummaryValley">
+                            0,00
+                        </span>
+                        €
+
                     </div>
 
                 </div>
@@ -4845,7 +4281,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="hours-result-value">
-                        <span id="hoursSummaryFlat">0,00</span> €
+
+                        <span id="hoursSummaryFlat">
+                            0,00
+                        </span>
+                        €
+
                     </div>
 
                 </div>
@@ -4858,7 +4299,12 @@ input[type="range"]::-moz-range-thumb {
                     </span>
 
                     <div class="hours-result-value">
-                        <span id="hoursSummaryPeak">0,00</span> €
+
+                        <span id="hoursSummaryPeak">
+                            0,00
+                        </span>
+                        €
+
                     </div>
 
                 </div>
@@ -4866,9 +4312,9 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
-            <div class="hours-tax-control">
+            <div class="tax-control">
 
-                <div class="hours-tax-text">
+                <div class="tax-text">
 
                     <strong>
                         Mostrar precio con impuestos
@@ -4902,102 +4348,449 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     DETALLE COMPAÑÍA
+     SIMULADOR COMPAÑÍAS
 ========================================================= -->
 
 <section
-    class="company-detail-section"
-    id="companyDetailSection"
+    class="simulator-section"
+    id="companySimulatorSection"
 >
 
-    <div class="company-detail">
+    <div class="simulator">
 
         <button
             class="back-button"
             id="companyBackButton"
             type="button"
         >
-            ← Volver a compañías
+            ← Volver a compañías y precios
         </button>
 
 
-        <div class="company-detail-card">
+        <div class="simulator-header">
 
-            <div class="company-detail-title">
+            <h2 id="companySimulatorTitle">
+                Naturgy
+            </h2>
 
-                <h2 id="companyDetailName">
-                    Compañía
-                </h2>
+            <p>
+                Simula tu factura utilizando los precios de esta compañía.
+            </p>
 
-                <p>
-                    Precios de la tarifa eléctrica
-                </p>
+        </div>
+
+
+        <div class="company-simulator-header">
+
+            <div
+                class="company-simulator-logo"
+                id="companySimulatorLogo"
+            >
+                Naturgy
+            </div>
+
+            <div
+                class="company-simulator-price-info"
+                id="companySimulatorPriceInfo"
+            >
+            </div>
+
+        </div>
+
+
+        <!-- POTENCIA -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Potencia contratada
+                        </h3>
+
+                        <span>
+                            P1 + P2 · precio por kW/día
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+
+                    <span id="companyPowerValue">
+                        3,0
+                    </span>
+                    kW
+
+                </div>
 
             </div>
 
 
-            <div class="company-detail-prices">
+            <div class="slider-wrapper">
 
-                <div class="detail-price">
+                <input
+                    type="range"
+                    id="companyPowerSlider"
+                    min="3"
+                    max="15"
+                    step="0.1"
+                    value="3"
+                >
 
-                    <span>
-                        P1
+                <div class="slider-labels">
+
+                    <span>3 kW</span>
+                    <span>15 kW</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste mensual de potencia
+                </span>
+
+                <span class="cost-value">
+
+                    <span id="companyPowerCost">
+                        16,61
                     </span>
+                    €
 
-                    <strong id="detailP1">
-                        -
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONSUMO -->
+
+        <div class="control-card">
+
+            <div class="control-header">
+
+                <div class="control-name">
+
+                    <div class="control-icon">
+                        💡
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Consumo mensual
+                        </h3>
+
+                        <span>
+                            Electricidad consumida
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="current-value">
+
+                    <span id="companyConsumptionValue">
+                        0
+                    </span>
+                    kWh
+
+                </div>
+
+            </div>
+
+
+            <div class="slider-wrapper">
+
+                <input
+                    type="range"
+                    id="companyConsumptionSlider"
+                    min="0"
+                    max="800"
+                    step="1"
+                    value="0"
+                >
+
+                <div class="slider-labels">
+
+                    <span>0 kWh</span>
+                    <span>800 kWh</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="cost-row">
+
+                <span class="cost-label">
+                    Coste del consumo
+                </span>
+
+                <span class="cost-value">
+
+                    <span id="companyConsumptionCost">
+                        0,00
+                    </span>
+                    €
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- OPCIONES -->
+
+        <div
+            class="company-options-card"
+            id="companyOptionsCard"
+        >
+
+            <h3 class="company-options-title">
+                Opciones de la tarifa
+            </h3>
+
+
+            <!-- SVA -->
+
+            <div
+                class="company-option"
+                id="companySvaOption"
+            >
+
+                <div class="company-option-info">
+
+                    <strong id="companySvaName">
+                        Añadir SVA Luz
                     </strong>
 
-                    €/kW/día
+                    <span id="companySvaDescription">
+                        + 8,40 €/mes sin impuestos
+                    </span>
 
                 </div>
 
 
-                <div class="detail-price">
+                <label class="option-switch">
 
-                    <span>
-                        P2
-                    </span>
+                    <input
+                        type="checkbox"
+                        id="companySvaToggle"
+                    >
 
-                    <strong id="detailP2">
-                        -
+                    <span class="option-switch-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- MANTENIMIENTO -->
+
+            <div
+                class="company-option"
+                id="companyMaintenanceOption"
+            >
+
+                <div class="company-option-info">
+
+                    <strong>
+                        Añadir SVA Hogar / Mantenimiento
                     </strong>
 
-                    €/kW/día
+                    <span>
+                        + 4,41 €/mes sin impuestos
+                    </span>
 
                 </div>
 
 
-                <div class="detail-price">
+                <label class="option-switch">
 
-                    <span>
-                        V
-                    </span>
+                    <input
+                        type="checkbox"
+                        id="companyMaintenanceToggle"
+                    >
 
-                    <strong id="detailEnergy">
-                        -
+                    <span class="option-switch-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- DUAL -->
+
+            <div
+                class="company-option"
+                id="companyDualOption"
+            >
+
+                <div class="company-option-info">
+
+                    <strong>
+                        Luz + Gas · Tarifa DUAL
                     </strong>
 
-                    €/kWh
+                    <span>
+                        Utiliza el precio dual de 0,1299 €/kWh
+                    </span>
 
                 </div>
 
 
-                <div class="detail-price">
+                <label class="option-switch">
+
+                    <input
+                        type="checkbox"
+                        id="companyDualToggle"
+                    >
+
+                    <span class="option-switch-slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- TOTAL -->
+
+        <div class="total-card">
+
+            <div class="total-title">
+                TOTAL ESTIMADO DE LA FACTURA
+            </div>
+
+            <div class="total-value">
+
+                <span id="companyTotalValue">
+                    16,61
+                </span>
+                €
+
+            </div>
+
+
+            <div class="breakdown">
+
+                <div class="breakdown-item">
 
                     <span>
-                        SVA Luz
+                        Potencia
                     </span>
 
-                    <strong id="detailSva">
-                        -
+                    <strong>
+
+                        <span id="companySummaryPower">
+                            16,61
+                        </span>
+                        €
+
                     </strong>
 
-                    <span id="detailSvaUnit">
-                        €/día
+                </div>
+
+
+                <div class="breakdown-item">
+
+                    <span>
+                        Consumo
+                    </span>
+
+                    <strong>
+
+                        <span id="companySummaryConsumption">
+                            0,00
+                        </span>
+                        €
+
+                    </strong>
+
+                </div>
+
+
+                <div class="breakdown-item">
+
+                    <span>
+                        SVA / mantenimiento
+                    </span>
+
+                    <strong>
+
+                        <span id="companySummarySva">
+                            0,00
+                        </span>
+                        €
+
+                    </strong>
+
+                </div>
+
+
+                <div class="breakdown-item">
+
+                    <span>
+                        Precio energía
+                    </span>
+
+                    <strong>
+
+                        <span id="companySummaryEnergyPrice">
+                            0,112
+                        </span>
+                        €/kWh
+
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="tax-control">
+
+                <div class="tax-text">
+
+                    <strong>
+                        Mostrar precio con impuestos
+                    </strong>
+
+                    <span id="companyTaxLabel">
+                        Precio sin impuestos
                     </span>
 
                 </div>
+
+
+                <label class="switch">
+
+                    <input
+                        type="checkbox"
+                        id="companyTaxToggle"
+                    >
+
+                    <span class="switch-slider"></span>
+
+                </label>
 
             </div>
 
@@ -5026,7 +4819,7 @@ input[type="range"]::-moz-range-thumb {
             id="invoiceBackButton"
             type="button"
         >
-            ← Volver a tipos de tarifas
+            ← Volver a electricidad
         </button>
 
 
@@ -5037,8 +4830,9 @@ input[type="range"]::-moz-range-thumb {
             </h2>
 
             <p>
-                La factura eléctrica no está formada únicamente por el coste
-                de la energía. Descubre qué representa cada parte.
+                La factura eléctrica no está formada únicamente
+                por el coste de la energía.
+                Descubre qué representa cada parte.
             </p>
 
         </div>
@@ -5142,43 +4936,58 @@ input[type="range"]::-moz-range-thumb {
                 <div class="chart-legend">
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#4caf35"
                         ></span>
+
                         Energía consumida
+
                     </div>
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#3489e8"
                         ></span>
+
                         Potencia contratada
+
                     </div>
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#ffc21a"
                         ></span>
+
                         Impuestos
+
                     </div>
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#d8d8d8"
                         ></span>
+
                         Alquiler contador
+
                     </div>
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#f06c37"
                         ></span>
+
                         Servicios adicionales
+
                     </div>
 
                 </div>
@@ -5198,7 +5007,6 @@ input[type="range"]::-moz-range-thumb {
                     ⚡ ENERGÍA
                 </div>
 
-
                 <div
                     class="explanation-icon"
                     id="explanationIcon"
@@ -5210,14 +5018,12 @@ input[type="range"]::-moz-range-thumb {
                     ⚡
                 </div>
 
-
                 <h3
                     class="explanation-title"
                     id="explanationTitle"
                 >
                     Energía consumida
                 </h3>
-
 
                 <div
                     class="explanation-percentage"
@@ -5226,20 +5032,24 @@ input[type="range"]::-moz-range-thumb {
                     45–55 %
                 </div>
 
-
                 <div
                     class="explanation-text"
                     id="explanationText"
                 >
 
                     <p>
-                        Es la parte más directamente relacionada con
-                        la electricidad que consumes.
+                        Es la parte más directamente relacionada
+                        con la electricidad que consumes.
                     </p>
 
                     <p>
-                        Cuanto mayor sea tu consumo en kWh, mayor será
-                        esta parte de la factura.
+                        Cuanto mayor sea tu consumo en kWh,
+                        mayor será esta parte de la factura.
+                    </p>
+
+                    <p>
+                        La energía es solo una parte
+                        del importe final.
                     </p>
 
                 </div>
@@ -5263,7 +5073,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="distribution-name">
                     <span>⚡</span>
-                    Energía consumida
+                    <span>Energía consumida</span>
                 </div>
 
                 <div class="distribution-percentage">
@@ -5280,7 +5090,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="distribution-name">
                     <span>🔌</span>
-                    Potencia contratada
+                    <span>Potencia contratada</span>
                 </div>
 
                 <div class="distribution-percentage">
@@ -5297,7 +5107,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="distribution-name">
                     <span>🏛️</span>
-                    Impuestos
+                    <span>Impuestos</span>
                 </div>
 
                 <div class="distribution-percentage">
@@ -5314,7 +5124,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="distribution-name">
                     <span>📟</span>
-                    Alquiler contador
+                    <span>Alquiler contador</span>
                 </div>
 
                 <div class="distribution-percentage">
@@ -5331,7 +5141,7 @@ input[type="range"]::-moz-range-thumb {
 
                 <div class="distribution-name">
                     <span>🛠️</span>
-                    Servicios adicionales
+                    <span>Servicios adicionales</span>
                 </div>
 
                 <div class="distribution-percentage">
@@ -5341,15 +5151,44 @@ input[type="range"]::-moz-range-thumb {
             </div>
 
 
+            <div class="distribution-row">
+
+                <div class="distribution-name distribution-total">
+
+                    <span>✓</span>
+
+                    <span>
+                        Total orientativo
+                    </span>
+
+                </div>
+
+                <div class="distribution-percentage distribution-total">
+                    ≈ 100 %
+                </div>
+
+            </div>
+
         </div>
 
 
         <div class="invoice-note">
 
             ℹ️ <strong>Importante:</strong>
-            estos porcentajes son orientativos. La distribución real puede variar
-            según el consumo, la potencia contratada, la tarifa, los impuestos
-            y los servicios adicionales incluidos.
+
+            estos porcentajes son orientativos.
+            La distribución real puede variar según el consumo,
+            la potencia contratada, la tarifa,
+            los impuestos y los servicios adicionales.
+
+        </div>
+
+
+        <div class="invoice-footer-note">
+
+            Los conceptos regulados y los servicios adicionales
+            pueden variar según el suministro
+            y las condiciones contratadas.
 
         </div>
 
@@ -5382,6 +5221,82 @@ const FLAT_HOURS_PRICE = 0.14;
 const PEAK_PRICE = 0.21;
 
 const TAX_RATE = 0.21;
+
+
+/*
+    PRECIOS DE COMPAÑÍAS
+
+    Los precios de potencia son €/kW/día.
+    Para el cálculo mensual se utilizan 30 días.
+
+    P1 + P2 se aplican sobre la potencia contratada.
+*/
+
+const COMPANY_DATA = {
+
+    naturgy: {
+
+        name: "Naturgy",
+
+        color: "#087db8",
+
+        p1: 0.123030,
+
+        p2: 0.061562,
+
+        energy: 0.112,
+
+        sva: 8.40,
+
+        maintenance: 4.41,
+
+        dual: null
+
+    },
+
+
+    gana: {
+
+        name: "Gana Energía",
+
+        color: "#a8c900",
+
+        p1: 0.089434,
+
+        p2: 0.089434,
+
+        energy: 0.119,
+
+        sva: 4.12395,
+
+        maintenance: 0,
+
+        dual: null
+
+    },
+
+
+    total: {
+
+        name: "TotalEnergies",
+
+        color: "#ed1c24",
+
+        p1: 0.075315,
+
+        p2: 0.075315,
+
+        energy: 0.1399,
+
+        sva: 7.62,
+
+        maintenance: 0,
+
+        dual: 0.1299
+
+    }
+
+};
 
 
 /* =========================================================
@@ -5424,11 +5339,11 @@ function updateSliderBackground(slider) {
 
 
 /* =========================================================
-   SECCIONES
+   REFERENCIAS
 ========================================================= */
 
-const portal =
-    document.getElementById("portal");
+const cover =
+    document.getElementById("cover");
 
 const home =
     document.getElementById("home");
@@ -5442,51 +5357,39 @@ const flatSimulatorSection =
 const hoursSimulatorSection =
     document.getElementById("hoursSimulatorSection");
 
+const companySimulatorSection =
+    document.getElementById("companySimulatorSection");
+
 const invoiceSection =
     document.getElementById("invoiceSection");
 
-const companyDetailSection =
-    document.getElementById("companyDetailSection");
 
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
 
 function hideAllSections() {
 
-    portal.style.display =
-        "none";
+    home.style.display = "none";
 
-    home.classList.remove(
-        "active"
-    );
+    simulatorSection.classList.remove("active");
 
-    simulatorSection.classList.remove(
-        "active"
-    );
+    flatSimulatorSection.classList.remove("active");
 
-    flatSimulatorSection.classList.remove(
-        "active"
-    );
+    hoursSimulatorSection.classList.remove("active");
 
-    hoursSimulatorSection.classList.remove(
-        "active"
-    );
+    companySimulatorSection.classList.remove("active");
 
-    invoiceSection.classList.remove(
-        "active"
-    );
-
-    companyDetailSection.classList.remove(
-        "active"
-    );
+    invoiceSection.classList.remove("active");
 
 }
 
 
-function showPortal() {
+function showCover() {
 
     hideAllSections();
 
-    portal.style.display =
-        "block";
+    cover.style.display = "flex";
 
     window.scrollTo({
         top: 0,
@@ -5498,11 +5401,11 @@ function showPortal() {
 
 function showHome() {
 
+    cover.style.display = "none";
+
     hideAllSections();
 
-    home.classList.add(
-        "active"
-    );
+    home.style.display = "block";
 
     window.scrollTo({
         top: 0,
@@ -5514,11 +5417,21 @@ function showHome() {
 
 function showSection(section) {
 
-    hideAllSections();
+    cover.style.display = "none";
 
-    section.classList.add(
-        "active"
-    );
+    home.style.display = "none";
+
+    simulatorSection.classList.remove("active");
+
+    flatSimulatorSection.classList.remove("active");
+
+    hoursSimulatorSection.classList.remove("active");
+
+    companySimulatorSection.classList.remove("active");
+
+    invoiceSection.classList.remove("active");
+
+    section.classList.add("active");
 
     window.scrollTo({
         top: 0,
@@ -5533,7 +5446,7 @@ function showSection(section) {
 ========================================================= */
 
 document
-    .getElementById("enterElectricity")
+    .getElementById("electricityButton")
     .addEventListener(
         "click",
         showHome
@@ -5541,10 +5454,10 @@ document
 
 
 document
-    .getElementById("backToPortal")
+    .getElementById("backToCoverButton")
     .addEventListener(
         "click",
-        showPortal
+        showCover
     );
 
 
@@ -5615,13 +5528,16 @@ function calculateUseTariff() {
             ? subtotal * (1 + TAX_RATE)
             : subtotal;
 
+
     powerValue.textContent =
         power
             .toFixed(1)
             .replace(".", ",");
 
+
     consumptionValue.textContent =
         Math.round(consumption);
+
 
     powerCost.textContent =
         money(
@@ -5630,6 +5546,7 @@ function calculateUseTariff() {
                 : rawPowerCost
         );
 
+
     consumptionCost.textContent =
         money(
             taxToggle.checked
@@ -5637,19 +5554,32 @@ function calculateUseTariff() {
                 : rawConsumptionCost
         );
 
+
     summaryPower.textContent =
-        powerCost.textContent;
+        money(
+            taxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
 
     summaryConsumption.textContent =
-        consumptionCost.textContent;
+        money(
+            taxToggle.checked
+                ? rawConsumptionCost * (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
+
 
     totalValue.textContent =
         money(total);
+
 
     taxLabel.textContent =
         taxToggle.checked
             ? "Precio final con impuestos incluidos"
             : "Precio sin impuestos";
+
 
     updateSliderBackground(
         powerSlider
@@ -5673,20 +5603,45 @@ useTariff.addEventListener(
     }
 );
 
+
+useTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(
+                simulatorSection
+            );
+
+        }
+
+    }
+);
+
+
 backButton.addEventListener(
     "click",
     showHome
 );
+
 
 powerSlider.addEventListener(
     "input",
     calculateUseTariff
 );
 
+
 consumptionSlider.addEventListener(
     "input",
     calculateUseTariff
 );
+
 
 taxToggle.addEventListener(
     "change",
@@ -5753,27 +5708,23 @@ const flatTaxLabel =
 function calculateFlatTariff() {
 
     const power =
-        Number(
-            flatPowerSlider.value
-        );
+        Number(flatPowerSlider.value);
 
     const annualConsumption =
-        Number(
-            flatConsumptionSlider.value
-        );
+        Number(flatConsumptionSlider.value);
 
     const priceToPay =
-        Number(
-            flatPaySlider.value
-        );
+        Number(flatPaySlider.value);
+
 
     const rawPowerCost =
         power * POWER_PRICE;
 
+    const annualConsumptionCost =
+        annualConsumption * KWH_PRICE;
+
     const monthlyConsumptionCost =
-        annualConsumption *
-        KWH_PRICE /
-        12;
+        annualConsumptionCost / 12;
 
     const rawRealPrice =
         rawPowerCost +
@@ -5785,23 +5736,24 @@ function calculateFlatTariff() {
             : rawRealPrice;
 
     const difference =
-        realPrice -
-        priceToPay;
+        realPrice - priceToPay;
+
 
     flatPowerValue.textContent =
         power
             .toFixed(1)
             .replace(".", ",");
 
+
     flatConsumptionValue.textContent =
         Math.round(
             annualConsumption
-        ).toLocaleString(
-            "es-ES"
-        );
+        ).toLocaleString("es-ES");
+
 
     flatPayValue.textContent =
         money(priceToPay);
+
 
     flatPowerCost.textContent =
         money(
@@ -5810,48 +5762,59 @@ function calculateFlatTariff() {
                 : rawPowerCost
         );
 
+
     flatConsumptionCost.textContent =
         money(
-            monthlyConsumptionCost
+            flatTaxToggle.checked
+                ? monthlyConsumptionCost *
+                  (1 + TAX_RATE)
+                : monthlyConsumptionCost
         );
+
 
     flatPayCost.textContent =
         money(priceToPay);
 
+
     flatResultPay.textContent =
         money(priceToPay);
+
 
     flatResultReal.textContent =
         money(realPrice);
 
+
     flatResultDifference.textContent =
-        money(
-            Math.abs(
-                difference
-            )
-        );
+        money(Math.abs(difference));
+
 
     if (difference > 0.005) {
 
         flatDifferenceText.textContent =
             "Ahorro mensual";
 
-    } else if (difference < -0.005) {
+    }
+
+    else if (difference < -0.005) {
 
         flatDifferenceText.textContent =
             "Coste adicional mensual";
 
-    } else {
+    }
+
+    else {
 
         flatDifferenceText.textContent =
             "Sin diferencia";
 
     }
 
+
     flatTaxLabel.textContent =
         flatTaxToggle.checked
             ? "Precio real con impuestos incluidos"
             : "Precio real sin impuestos";
+
 
     updateSliderBackground(
         flatPowerSlider
@@ -5879,10 +5842,33 @@ flatTariff.addEventListener(
     }
 );
 
+
+flatTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(
+                flatSimulatorSection
+            );
+
+        }
+
+    }
+);
+
+
 flatBackButton.addEventListener(
     "click",
     showHome
 );
+
 
 flatPowerSlider.addEventListener(
     "input",
@@ -5906,7 +5892,7 @@ flatTaxToggle.addEventListener(
 
 
 /* =========================================================
-   TRAMOS HORARIOS
+   TRAMOS
 ========================================================= */
 
 const hoursTariff =
@@ -5976,24 +5962,17 @@ const hoursTaxLabel =
 function calculateHoursTariff() {
 
     const power =
-        Number(
-            hoursPowerSlider.value
-        );
+        Number(hoursPowerSlider.value);
 
     const valley =
-        Number(
-            valleySlider.value
-        );
+        Number(valleySlider.value);
 
     const flatHours =
-        Number(
-            flatHoursSlider.value
-        );
+        Number(flatHoursSlider.value);
 
     const peak =
-        Number(
-            peakSlider.value
-        );
+        Number(peakSlider.value);
+
 
     const rawPowerCost =
         power * POWER_PRICE;
@@ -6019,10 +5998,12 @@ function calculateHoursTariff() {
             ? subtotal * (1 + TAX_RATE)
             : subtotal;
 
+
     hoursPowerValue.textContent =
         power
             .toFixed(1)
             .replace(".", ",");
+
 
     valleyValue.textContent =
         Math.round(valley);
@@ -6033,53 +6014,88 @@ function calculateHoursTariff() {
     peakValue.textContent =
         Math.round(peak);
 
+
     hoursPowerCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPowerCost * (1 + TAX_RATE)
+                ? rawPowerCost *
+                  (1 + TAX_RATE)
                 : rawPowerCost
         );
+
 
     valleyCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawValleyCost * (1 + TAX_RATE)
+                ? rawValleyCost *
+                  (1 + TAX_RATE)
                 : rawValleyCost
         );
+
 
     flatHoursCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawFlatHoursCost * (1 + TAX_RATE)
+                ? rawFlatHoursCost *
+                  (1 + TAX_RATE)
                 : rawFlatHoursCost
         );
+
 
     peakCost.textContent =
         money(
             hoursTaxToggle.checked
-                ? rawPeakCost * (1 + TAX_RATE)
+                ? rawPeakCost *
+                  (1 + TAX_RATE)
                 : rawPeakCost
         );
+
 
     hoursTotalValue.textContent =
         money(total);
 
+
     hoursSummaryPower.textContent =
-        hoursPowerCost.textContent;
+        money(
+            hoursTaxToggle.checked
+                ? rawPowerCost *
+                  (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
 
     hoursSummaryValley.textContent =
-        valleyCost.textContent;
+        money(
+            hoursTaxToggle.checked
+                ? rawValleyCost *
+                  (1 + TAX_RATE)
+                : rawValleyCost
+        );
+
 
     hoursSummaryFlat.textContent =
-        flatHoursCost.textContent;
+        money(
+            hoursTaxToggle.checked
+                ? rawFlatHoursCost *
+                  (1 + TAX_RATE)
+                : rawFlatHoursCost
+        );
+
 
     hoursSummaryPeak.textContent =
-        peakCost.textContent;
+        money(
+            hoursTaxToggle.checked
+                ? rawPeakCost *
+                  (1 + TAX_RATE)
+                : rawPeakCost
+        );
+
 
     hoursTaxLabel.textContent =
         hoursTaxToggle.checked
             ? "Precio final con impuestos incluidos"
             : "Precio sin impuestos";
+
 
     updateSliderBackground(
         hoursPowerSlider
@@ -6111,10 +6127,33 @@ hoursTariff.addEventListener(
     }
 );
 
+
+hoursTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(
+                hoursSimulatorSection
+            );
+
+        }
+
+    }
+);
+
+
 hoursBackButton.addEventListener(
     "click",
     showHome
 );
+
 
 hoursPowerSlider.addEventListener(
     "input",
@@ -6146,148 +6185,431 @@ hoursTaxToggle.addEventListener(
    COMPAÑÍAS
 ========================================================= */
 
-const companyData = {
-
-    naturgy: {
-
-        name:
-            "Naturgy",
-
-        p1:
-            "0,123030",
-
-        p2:
-            "0,061562",
-
-        energy:
-            "0,112",
-
-        sva:
-            "0,28",
-
-        svaUnit:
-            "€/día"
-
-    },
-
-    gana: {
-
-        name:
-            "Gana Energía",
-
-        p1:
-            "0,089434",
-
-        p2:
-            "0,089434",
-
-        energy:
-            "0,119",
-
-        sva:
-            "0,137465",
-
-        svaUnit:
-            "€/día"
-
-    },
-
-    total: {
-
-        name:
-            "TotalEnergies",
-
-        p1:
-            "0,075315",
-
-        p2:
-            "0,075315",
-
-        energy:
-            "0,1399",
-
-        sva:
-            "7,62",
-
-        svaUnit:
-            "€/mes"
-
-    }
-
-};
+let currentCompany = "naturgy";
 
 
-const companyDetailName =
+const companyPowerSlider =
     document.getElementById(
-        "companyDetailName"
+        "companyPowerSlider"
     );
 
-const detailP1 =
+const companyConsumptionSlider =
     document.getElementById(
-        "detailP1"
+        "companyConsumptionSlider"
     );
 
-const detailP2 =
+const companyPowerValue =
     document.getElementById(
-        "detailP2"
+        "companyPowerValue"
     );
 
-const detailEnergy =
+const companyConsumptionValue =
     document.getElementById(
-        "detailEnergy"
+        "companyConsumptionValue"
     );
 
-const detailSva =
+const companyPowerCost =
     document.getElementById(
-        "detailSva"
+        "companyPowerCost"
     );
 
-const detailSvaUnit =
+const companyConsumptionCost =
     document.getElementById(
-        "detailSvaUnit"
+        "companyConsumptionCost"
+    );
+
+const companyTotalValue =
+    document.getElementById(
+        "companyTotalValue"
+    );
+
+const companySummaryPower =
+    document.getElementById(
+        "companySummaryPower"
+    );
+
+const companySummaryConsumption =
+    document.getElementById(
+        "companySummaryConsumption"
+    );
+
+const companySummarySva =
+    document.getElementById(
+        "companySummarySva"
+    );
+
+const companySummaryEnergyPrice =
+    document.getElementById(
+        "companySummaryEnergyPrice"
+    );
+
+const companyTaxToggle =
+    document.getElementById(
+        "companyTaxToggle"
+    );
+
+const companyTaxLabel =
+    document.getElementById(
+        "companyTaxLabel"
+    );
+
+const companySvaToggle =
+    document.getElementById(
+        "companySvaToggle"
+    );
+
+const companyMaintenanceToggle =
+    document.getElementById(
+        "companyMaintenanceToggle"
+    );
+
+const companyDualToggle =
+    document.getElementById(
+        "companyDualToggle"
     );
 
 
-function openCompany(company) {
+function openCompany(companyKey) {
+
+    currentCompany =
+        companyKey;
 
     const data =
-        companyData[company];
+        COMPANY_DATA[companyKey];
 
-    if (!data) {
-        return;
-    }
 
-    companyDetailName.textContent =
+    document.getElementById(
+        "companySimulatorTitle"
+    ).textContent =
         data.name;
 
-    detailP1.textContent =
-        data.p1;
 
-    detailP2.textContent =
-        data.p2;
+    document.getElementById(
+        "companySimulatorLogo"
+    ).textContent =
+        data.name;
 
-    detailEnergy.textContent =
-        data.energy;
 
-    detailSva.textContent =
-        data.sva;
+    document.getElementById(
+        "companySimulatorLogo"
+    ).style.color =
+        data.color;
 
-    detailSvaUnit.textContent =
-        data.svaUnit;
+
+    document.getElementById(
+        "companySimulatorPriceInfo"
+    ).innerHTML =
+
+        "P1: <strong>" +
+        data.p1.toFixed(6).replace(".", ",") +
+        " €/kW/día</strong><br>" +
+
+        "P2: <strong>" +
+        data.p2.toFixed(6).replace(".", ",") +
+        " €/kW/día</strong><br>" +
+
+        "V: <strong>" +
+        data.energy.toFixed(4).replace(".", ",") +
+        " €/kWh</strong>";
+
+
+    /*
+     * SVA
+     */
+
+    document.getElementById(
+        "companySvaName"
+    ).textContent =
+        "Añadir SVA Luz";
+
+
+    document.getElementById(
+        "companySvaDescription"
+    ).textContent =
+        "+ " +
+        money(data.sva) +
+        " €/mes sin impuestos";
+
+
+    /*
+     * Mantenimiento
+     */
+
+    const maintenanceOption =
+        document.getElementById(
+            "companyMaintenanceOption"
+        );
+
+
+    if (data.maintenance > 0) {
+
+        maintenanceOption.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        maintenanceOption.style.display =
+            "none";
+
+        companyMaintenanceToggle.checked =
+            false;
+
+    }
+
+
+    /*
+     * DUAL
+     */
+
+    const dualOption =
+        document.getElementById(
+            "companyDualOption"
+        );
+
+
+    if (data.dual !== null) {
+
+        dualOption.style.display =
+            "flex";
+
+    }
+
+    else {
+
+        dualOption.style.display =
+            "none";
+
+        companyDualToggle.checked =
+            false;
+
+    }
+
+
+    companySvaToggle.checked =
+        false;
+
+    companyMaintenanceToggle.checked =
+        false;
+
+    companyDualToggle.checked =
+        false;
+
 
     showSection(
-        companyDetailSection
+        companySimulatorSection
+    );
+
+
+    calculateCompanyTariff();
+
+}
+
+
+function calculateCompanyTariff() {
+
+    const data =
+        COMPANY_DATA[currentCompany];
+
+
+    const power =
+        Number(
+            companyPowerSlider.value
+        );
+
+
+    const consumption =
+        Number(
+            companyConsumptionSlider.value
+        );
+
+
+    /*
+     * POTENCIA
+     *
+     * P1 y P2 se calculan
+     * durante 30 días.
+     */
+
+    const rawPowerCost =
+        power *
+        (data.p1 + data.p2) *
+        30;
+
+
+    /*
+     * ENERGÍA
+     */
+
+    const selectedEnergyPrice =
+        (
+            data.dual !== null &&
+            companyDualToggle.checked
+        )
+            ? data.dual
+            : data.energy;
+
+
+    const rawConsumptionCost =
+        consumption *
+        selectedEnergyPrice;
+
+
+    /*
+     * SVA
+     */
+
+    let rawSvaCost = 0;
+
+
+    if (
+        companySvaToggle.checked
+    ) {
+
+        rawSvaCost +=
+            data.sva;
+
+    }
+
+
+    /*
+     * MANTENIMIENTO
+     */
+
+    if (
+        data.maintenance > 0 &&
+        companyMaintenanceToggle.checked
+    ) {
+
+        rawSvaCost +=
+            data.maintenance;
+
+    }
+
+
+    /*
+     * SUBTOTAL
+     */
+
+    const subtotal =
+        rawPowerCost +
+        rawConsumptionCost +
+        rawSvaCost;
+
+
+    /*
+     * IMPUESTOS
+     */
+
+    const total =
+        companyTaxToggle.checked
+            ? subtotal * (1 + TAX_RATE)
+            : subtotal;
+
+
+    /*
+     * MOSTRAR VALORES
+     */
+
+    companyPowerValue.textContent =
+        power
+            .toFixed(1)
+            .replace(".", ",");
+
+
+    companyConsumptionValue.textContent =
+        Math.round(
+            consumption
+        );
+
+
+    companyPowerCost.textContent =
+        money(
+            companyTaxToggle.checked
+                ? rawPowerCost *
+                  (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    companyConsumptionCost.textContent =
+        money(
+            companyTaxToggle.checked
+                ? rawConsumptionCost *
+                  (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
+
+
+    companySummaryPower.textContent =
+        money(
+            companyTaxToggle.checked
+                ? rawPowerCost *
+                  (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    companySummaryConsumption.textContent =
+        money(
+            companyTaxToggle.checked
+                ? rawConsumptionCost *
+                  (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
+
+
+    companySummarySva.textContent =
+        money(
+            companyTaxToggle.checked
+                ? rawSvaCost *
+                  (1 + TAX_RATE)
+                : rawSvaCost
+        );
+
+
+    companySummaryEnergyPrice.textContent =
+        selectedEnergyPrice
+            .toFixed(4)
+            .replace(".", ",");
+
+
+    companyTotalValue.textContent =
+        money(total);
+
+
+    companyTaxLabel.textContent =
+        companyTaxToggle.checked
+            ? "Precio final con impuestos incluidos"
+            : "Precio sin impuestos";
+
+
+    updateSliderBackground(
+        companyPowerSlider
+    );
+
+    updateSliderBackground(
+        companyConsumptionSlider
     );
 
 }
 
+
+/* =========================================================
+   EVENTOS COMPAÑÍAS
+========================================================= */
 
 document
     .getElementById("naturgyCard")
     .addEventListener(
         "click",
         function () {
-            openCompany("naturgy");
+
+            openCompany(
+                "naturgy"
+            );
+
         }
     );
 
@@ -6297,7 +6619,11 @@ document
     .addEventListener(
         "click",
         function () {
-            openCompany("gana");
+
+            openCompany(
+                "gana"
+            );
+
         }
     );
 
@@ -6307,9 +6633,49 @@ document
     .addEventListener(
         "click",
         function () {
-            openCompany("total");
+
+            openCompany(
+                "total"
+            );
+
         }
     );
+
+
+companyPowerSlider.addEventListener(
+    "input",
+    calculateCompanyTariff
+);
+
+
+companyConsumptionSlider.addEventListener(
+    "input",
+    calculateCompanyTariff
+);
+
+
+companySvaToggle.addEventListener(
+    "change",
+    calculateCompanyTariff
+);
+
+
+companyMaintenanceToggle.addEventListener(
+    "change",
+    calculateCompanyTariff
+);
+
+
+companyDualToggle.addEventListener(
+    "change",
+    calculateCompanyTariff
+);
+
+
+companyTaxToggle.addEventListener(
+    "change",
+    calculateCompanyTariff
+);
 
 
 document
@@ -6339,25 +6705,20 @@ const invoiceData = {
 
     energy: {
 
-        icon:
-            "⚡",
+        icon: "⚡",
 
-        title:
-            "Energía consumida",
+        title: "Energía consumida",
 
-        percentage:
-            "45–55 %",
+        percentage: "45–55 %",
 
-        color:
-            "#4caf35",
+        color: "#4caf35",
 
-        background:
-            "#d9f7ed",
+        background: "#d9f7ed",
 
-        badge:
-            "⚡ ENERGÍA",
+        badge: "⚡ ENERGÍA",
 
         text: `
+
             <p>
                 Es la parte más directamente relacionada
                 con la electricidad que consumes.
@@ -6367,137 +6728,151 @@ const invoiceData = {
                 Cuanto mayor sea tu consumo en kWh,
                 mayor será esta parte de la factura.
             </p>
+
+            <p>
+                La energía es solo una parte
+                del importe final.
+            </p>
+
         `
 
     },
+
 
     power: {
 
-        icon:
-            "🔌",
+        icon: "🔌",
 
-        title:
-            "Potencia contratada",
+        title: "Potencia contratada",
 
-        percentage:
-            "20–25 %",
+        percentage: "20–25 %",
 
-        color:
-            "#3489e8",
+        color: "#3489e8",
 
-        background:
-            "#e4f0ff",
+        background: "#e4f0ff",
 
-        badge:
-            "🔌 POTENCIA",
+        badge: "🔌 POTENCIA",
 
         text: `
+
             <p>
-                Es el coste asociado a la potencia que tienes
-                contratada en tu suministro.
+                Es el coste asociado a la potencia
+                que tienes contratada.
             </p>
 
             <p>
-                Esta parte depende principalmente de los kW
-                contratados.
+                Representa la capacidad de electricidad
+                que puedes utilizar simultáneamente.
             </p>
+
+            <p>
+                Esta parte depende principalmente
+                de los kW contratados.
+            </p>
+
         `
 
     },
 
+
     taxes: {
 
-        icon:
-            "🏛️",
+        icon: "🏛️",
 
-        title:
-            "Impuestos",
+        title: "Impuestos",
 
-        percentage:
-            "15–20 %",
+        percentage: "15–20 %",
 
-        color:
-            "#d49e00",
+        color: "#d49e00",
 
-        background:
-            "#fff2c9",
+        background: "#fff2c9",
 
-        badge:
-            "🏛️ IMPUESTOS",
+        badge: "🏛️ IMPUESTOS",
 
         text: `
+
             <p>
                 Son importes establecidos por la normativa
                 y aplicados sobre la factura eléctrica.
             </p>
 
             <p>
-                La comercializadora los recauda y los
-                repercute según corresponda.
+                La comercializadora los recauda
+                y los repercute según corresponda.
             </p>
+
+            <p>
+                Una parte del importe final no depende
+                directamente de la decisión comercial.
+            </p>
+
         `
 
     },
+
 
     meter: {
 
-        icon:
-            "📟",
+        icon: "📟",
 
-        title:
-            "Alquiler del contador",
+        title: "Alquiler del contador",
 
-        percentage:
-            "1–3 %",
+        percentage: "1–3 %",
 
-        color:
-            "#777777",
+        color: "#777777",
 
-        background:
-            "#eeeeee",
+        background: "#eeeeee",
 
-        badge:
-            "📟 CONTADOR",
+        badge: "📟 CONTADOR",
 
         text: `
+
             <p>
-                Corresponde al coste asociado al equipo de medida
-                cuando el contador es de alquiler.
+                Corresponde al coste asociado
+                al equipo de medida cuando el contador es de alquiler.
             </p>
+
+            <p>
+                Es un importe normalmente pequeño
+                dentro del conjunto de la factura.
+            </p>
+
         `
 
     },
 
+
     services: {
 
-        icon:
-            "🛠️",
+        icon: "🛠️",
 
-        title:
-            "Servicios adicionales",
+        title: "Servicios adicionales",
 
-        percentage:
-            "0–10 %",
+        percentage: "0–10 %",
 
-        color:
-            "#f06c37",
+        color: "#f06c37",
 
-        background:
-            "#ffe5dc",
+        background: "#ffe5dc",
 
-        badge:
-            "🛠️ SERVICIOS",
+        badge: "🛠️ SERVICIOS",
 
         text: `
+
             <p>
                 Aquí pueden aparecer servicios complementarios
                 contratados junto con el suministro eléctrico.
             </p>
 
             <p>
-                Si el cliente no tiene contratado ningún servicio
-                adicional, esta parte puede ser de 0 %.
+                Por ejemplo, determinados servicios
+                de mantenimiento o asistencia.
             </p>
+
+            <p>
+                Si el cliente no tiene servicios adicionales,
+                esta parte puede ser de 0 %.
+            </p>
+
         `
 
     }
@@ -6551,6 +6926,7 @@ function selectInvoicePart(part) {
         return;
     }
 
+
     explanationBadge.textContent =
         data.badge;
 
@@ -6575,6 +6951,7 @@ function selectInvoicePart(part) {
     explanationText.innerHTML =
         data.text;
 
+
     chartSegments.forEach(
         function (segment) {
 
@@ -6585,6 +6962,7 @@ function selectInvoicePart(part) {
 
         }
     );
+
 
     distributionRows.forEach(
         function (row) {
@@ -6664,9 +7042,9 @@ calculateFlatTariff();
 
 calculateHoursTariff();
 
-selectInvoicePart(
-    "energy"
-);
+calculateCompanyTariff();
+
+selectInvoicePart("energy");
 
 
 })();
