@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 :root {
     --blue: #087df5;
     --blue-dark: #075bd3;
@@ -22,13 +26,9 @@
     --purple: #6735e8;
     --purple-light: #e7ddff;
 
-    --red: #e74c3c;
-    --red-light: #ffe1df;
-
     --text: #10295a;
     --muted: #66758f;
     --border: #e5ebf4;
-    --light: #f6f9fd;
 }
 
 * {
@@ -53,11 +53,6 @@ input {
 
 button {
     -webkit-tap-highlight-color: transparent;
-}
-
-.page {
-    width: 100%;
-    min-height: 100vh;
 }
 
 
@@ -217,7 +212,7 @@ button {
 
 
 /* =========================================================
-   INFORMACIÓN INFERIOR
+   INFORMACIÓN
 ========================================================= */
 
 .info {
@@ -265,10 +260,6 @@ button {
     box-shadow: 0 15px 30px rgba(45, 88, 210, .27);
 }
 
-.invoice-button span:first-child {
-    font-size: 23px;
-}
-
 
 /* =========================================================
    SECCIONES SIMULADORES
@@ -287,7 +278,6 @@ button {
 }
 
 @keyframes appear {
-
     from {
         opacity: 0;
         transform: translateY(15px);
@@ -297,7 +287,6 @@ button {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
 
 .simulator {
@@ -340,7 +329,7 @@ button {
 
 
 /* =========================================================
-   TARJETAS DE CONTROL
+   CONTROLES
 ========================================================= */
 
 .control-card {
@@ -384,7 +373,13 @@ button {
     font-size: 20px;
 }
 
-.control-name span {
+.control-name h3 span {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: normal;
+}
+
+.control-name > div:last-child > span {
     display: block;
     margin-top: 4px;
     color: var(--muted);
@@ -481,7 +476,8 @@ input[type="range"]::-moz-range-thumb {
    TARJETA TOTAL AZUL
 ========================================================= */
 
-.total-card {
+.total-card,
+.hours-total-card {
     margin-top: 25px;
     padding: 30px;
     border-radius: 25px;
@@ -577,7 +573,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   DESGLOSE TARIFA POR USO
+   DESGLOSE
 ========================================================= */
 
 .breakdown {
@@ -651,17 +647,8 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   TRAMOS HORARIOS
+   TRAMOS
 ========================================================= */
-
-.hours-total-card {
-    margin-top: 25px;
-    padding: 30px;
-    border-radius: 25px;
-    background: linear-gradient(135deg, #087df5, #075bd3);
-    color: white;
-    box-shadow: 0 15px 35px rgba(8, 125, 245, .25);
-}
 
 .hours-results {
     display: grid;
@@ -711,7 +698,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   PANTALLA PARTES DE UNA FACTURA
+   PARTES DE UNA FACTURA
 ========================================================= */
 
 .invoice-section {
@@ -752,7 +739,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   CONTENEDOR DEL GRÁFICO + EXPLICACIÓN
+   GRÁFICO + EXPLICACIÓN
 ========================================================= */
 
 .invoice-layout {
@@ -764,7 +751,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   GRÁFICO CIRCULAR
+   PANEL GRÁFICO
 ========================================================= */
 
 .chart-panel {
@@ -792,29 +779,71 @@ input[type="range"]::-moz-range-thumb {
     font-size: 13px;
 }
 
+
+/* =========================================================
+   GRÁFICO CIRCULAR PROPORCIONAL
+========================================================= */
+
 .invoice-chart {
     width: 100%;
     max-width: 460px;
     margin: auto;
     display: block;
+    overflow: visible;
 }
 
 .chart-segment {
     cursor: pointer;
     transform-origin: 210px 210px;
-    transition: opacity .2s ease, transform .2s ease, filter .2s ease;
-    stroke: white;
-    stroke-width: 3;
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        opacity .25s ease;
 }
 
 .chart-segment:hover {
-    filter: brightness(1.06);
+    filter: brightness(1.07);
 }
 
 .chart-segment.selected {
     transform: scale(1.045);
-    filter: brightness(1.06) drop-shadow(0 5px 7px rgba(0,0,0,.16));
-    stroke-width: 5;
+    filter:
+        brightness(1.06)
+        drop-shadow(0 5px 7px rgba(0,0,0,.16));
+}
+
+.chart-segment-border {
+    pointer-events: none;
+}
+
+.chart-percentage {
+    pointer-events: none;
+    fill: white;
+    text-anchor: middle;
+    font-weight: 900;
+    font-size: 20px;
+    paint-order: stroke;
+    stroke: rgba(0,0,0,.12);
+    stroke-width: 2px;
+}
+
+.chart-label {
+    pointer-events: none;
+    fill: white;
+    text-anchor: middle;
+    font-weight: 700;
+    font-size: 12px;
+    paint-order: stroke;
+    stroke: rgba(0,0,0,.10);
+    stroke-width: 1px;
+}
+
+.chart-percentage-small {
+    font-size: 14px;
+}
+
+.chart-label-small {
+    font-size: 9px;
 }
 
 .chart-center {
@@ -842,7 +871,7 @@ input[type="range"]::-moz-range-thumb {
 ========================================================= */
 
 .chart-legend {
-    margin-top: 15px;
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px 15px;
@@ -913,7 +942,6 @@ input[type="range"]::-moz-range-thumb {
 .explanation-percentage {
     font-size: 24px;
     font-weight: 900;
-    color: var(--blue);
     margin-bottom: 20px;
 }
 
@@ -931,19 +959,9 @@ input[type="range"]::-moz-range-thumb {
     margin-bottom: 0;
 }
 
-.invoice-note {
-    margin-top: 25px;
-    padding: 15px 18px;
-    border-radius: 14px;
-    background: #eef5ff;
-    color: #45617f;
-    font-size: 13px;
-    line-height: 1.5;
-}
-
 
 /* =========================================================
-   TABLA DE PORCENTAJES
+   TABLA PORCENTAJES
 ========================================================= */
 
 .invoice-distribution {
@@ -996,10 +1014,15 @@ input[type="range"]::-moz-range-thumb {
     color: var(--blue);
 }
 
-
-/* =========================================================
-   FOOTER FACTURA
-========================================================= */
+.invoice-note {
+    margin-top: 25px;
+    padding: 15px 18px;
+    border-radius: 14px;
+    background: #eef5ff;
+    color: #45617f;
+    font-size: 13px;
+    line-height: 1.5;
+}
 
 .invoice-footer-note {
     margin-top: 22px;
@@ -1036,7 +1059,6 @@ input[type="range"]::-moz-range-thumb {
     .hours-results {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 
@@ -1091,10 +1113,6 @@ input[type="range"]::-moz-range-thumb {
         font-size: 46px;
     }
 
-    .invoice-layout {
-        grid-template-columns: 1fr;
-    }
-
     .chart-panel {
         padding: 18px;
     }
@@ -1119,7 +1137,6 @@ input[type="range"]::-moz-range-thumb {
         width: 100%;
         font-size: 16px;
     }
-
 }
 
 
@@ -1142,7 +1159,6 @@ input[type="range"]::-moz-range-thumb {
         text-align: left;
         padding-left: 30px;
     }
-
 }
 
 </style>
@@ -1181,7 +1197,6 @@ input[type="range"]::-moz-range-thumb {
             id="useTariff"
             tabindex="0"
             role="button"
-            aria-label="Abrir simulador de tarifa por uso"
         >
 
             <div class="tariff-image">
@@ -1227,7 +1242,6 @@ input[type="range"]::-moz-range-thumb {
             id="flatTariff"
             tabindex="0"
             role="button"
-            aria-label="Abrir simulador de tarifa plana"
         >
 
             <div class="tariff-image">
@@ -1267,14 +1281,13 @@ input[type="range"]::-moz-range-thumb {
         </article>
 
 
-        <!-- TRAMOS -->
+        <!-- TRAMOS HORARIOS -->
 
         <article
             class="tariff tariff-hours"
             id="hoursTariff"
             tabindex="0"
             role="button"
-            aria-label="Abrir simulador de tarifa por tramos horarios"
         >
 
             <div class="tariff-image">
@@ -1325,7 +1338,7 @@ input[type="range"]::-moz-range-thumb {
     </div>
 
 
-    <!-- ACCESO A PARTES DE UNA FACTURA -->
+    <!-- PARTES DE UNA FACTURA -->
 
     <div class="invoice-access">
 
@@ -1337,9 +1350,7 @@ input[type="range"]::-moz-range-thumb {
 
             <span>🧾</span>
 
-            <span>
-                PARTES DE UNA FACTURA
-            </span>
+            <span>PARTES DE UNA FACTURA</span>
 
             <span>→</span>
 
@@ -1398,14 +1409,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Potencia contratada</h3>
 
-                        <span>
-                            Coste mensual de potencia
-                        </span>
+                        <span>Coste mensual de potencia</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="powerValue">3</span> kW
@@ -1464,14 +1472,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Consumo mensual</h3>
 
-                        <span>
-                            Electricidad consumida
-                        </span>
+                        <span>Electricidad consumida</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="consumptionValue">0</span> kWh
@@ -1636,14 +1641,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Potencia contratada</h3>
 
-                        <span>
-                            Coste mensual de potencia
-                        </span>
+                        <span>Coste mensual de potencia</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="flatPowerValue">3</span> kW
@@ -1702,14 +1704,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Consumo anual</h3>
 
-                        <span>
-                            Electricidad consumida al año
-                        </span>
+                        <span>Electricidad consumida al año</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="flatConsumptionValue">0</span> kWh
@@ -1768,14 +1767,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Precio que quieres pagar</h3>
 
-                        <span>
-                            Cuota fija mensual
-                        </span>
+                        <span>Cuota fija mensual</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="flatPayValue">0</span> €
@@ -1823,7 +1819,6 @@ input[type="range"]::-moz-range-thumb {
         <div class="flat-total-card">
 
             <div class="flat-results">
-
 
                 <div class="flat-result">
 
@@ -1918,7 +1913,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     TARIFA POR TRAMOS HORARIOS
+     TRAMOS HORARIOS
 ========================================================= -->
 
 <section
@@ -1964,14 +1959,11 @@ input[type="range"]::-moz-range-thumb {
 
                         <h3>Potencia contratada</h3>
 
-                        <span>
-                            Coste mensual de potencia
-                        </span>
+                        <span>Coste mensual de potencia</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="hoursPowerValue">3</span> kW
@@ -2033,14 +2025,11 @@ input[type="range"]::-moz-range-thumb {
                             <span>(00:00–08:00)</span>
                         </h3>
 
-                        <span>
-                            Horas de menor precio
-                        </span>
+                        <span>Horas de menor precio</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="valleyValue">0</span> kWh
@@ -2104,14 +2093,11 @@ input[type="range"]::-moz-range-thumb {
                             </span>
                         </h3>
 
-                        <span>
-                            Horas de precio intermedio
-                        </span>
+                        <span>Horas de precio intermedio</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="flatHoursValue">0</span> kWh
@@ -2175,14 +2161,11 @@ input[type="range"]::-moz-range-thumb {
                             </span>
                         </h3>
 
-                        <span>
-                            Horas de mayor precio
-                        </span>
+                        <span>Horas de mayor precio</span>
 
                     </div>
 
                 </div>
-
 
                 <div class="current-value">
                     <span id="peakValue">0</span> kWh
@@ -2239,7 +2222,6 @@ input[type="range"]::-moz-range-thumb {
 
 
             <div class="hours-results">
-
 
                 <div class="hours-result">
 
@@ -2386,7 +2368,7 @@ input[type="range"]::-moz-range-thumb {
 
 
             <!-- =================================================
-                 GRÁFICO
+                 GRÁFICO PROPORCIONAL
             ================================================== -->
 
             <div class="chart-panel">
@@ -2408,78 +2390,116 @@ input[type="range"]::-moz-range-thumb {
                     class="invoice-chart"
                     viewBox="0 0 420 420"
                     role="img"
-                    aria-label="Gráfico circular de las partes de una factura eléctrica"
                 >
 
-                    <!-- ENERGÍA -->
 
-                    <path
-                        id="segment-energy"
+                    <!--
+                    Los segmentos representan un ejemplo visual
+                    que suma exactamente 100 %:
+
+                    Energía       50 %
+                    Potencia      22,5 %
+                    Impuestos     17,5 %
+                    Contador       2 %
+                    Servicios      8 %
+                    -->
+
+
+                    <!-- ENERGÍA 50 % -->
+
+                    <circle
                         class="chart-segment selected"
                         data-part="energy"
-                        fill="#4caf35"
-                        d="M210 210 L210 35 A175 175 0 0 1 376 155 Z"
-                    >
-                    </path>
+                        cx="210"
+                        cy="210"
+                        r="150"
+                        fill="none"
+                        stroke="#4caf35"
+                        stroke-width="82"
+                        stroke-dasharray="471.24 471.24"
+                        stroke-dashoffset="0"
+                        transform="rotate(-90 210 210)"
+                    />
 
 
-                    <!-- POTENCIA -->
+                    <!-- POTENCIA 22,5 % -->
 
-                    <path
-                        id="segment-power"
+                    <circle
                         class="chart-segment"
                         data-part="power"
-                        fill="#3489e8"
-                        d="M210 210 L376 155 A175 175 0 0 1 364 282 Z"
-                    >
-                    </path>
+                        cx="210"
+                        cy="210"
+                        r="150"
+                        fill="none"
+                        stroke="#3489e8"
+                        stroke-width="82"
+                        stroke-dasharray="211.30 731.18"
+                        stroke-dashoffset="-471.24"
+                        transform="rotate(-90 210 210)"
+                    />
 
 
-                    <!-- IMPUESTOS -->
+                    <!-- IMPUESTOS 17,5 % -->
 
-                    <path
-                        id="segment-taxes"
+                    <circle
                         class="chart-segment"
                         data-part="taxes"
-                        fill="#ffc21a"
-                        d="M210 210 L364 282 A175 175 0 0 1 116 349 Z"
-                    >
-                    </path>
+                        cx="210"
+                        cy="210"
+                        r="150"
+                        fill="none"
+                        stroke="#ffc21a"
+                        stroke-width="82"
+                        stroke-dasharray="164.93 777.55"
+                        stroke-dashoffset="-682.54"
+                        transform="rotate(-90 210 210)"
+                    />
 
 
-                    <!-- CONTADOR -->
+                    <!-- CONTADOR 2 % -->
 
-                    <path
-                        id="segment-meter"
+                    <circle
                         class="chart-segment"
                         data-part="meter"
-                        fill="#d8d8d8"
-                        d="M210 210 L116 349 A175 175 0 0 1 55 210 Z"
-                    >
-                    </path>
+                        cx="210"
+                        cy="210"
+                        r="150"
+                        fill="none"
+                        stroke="#d2d2d2"
+                        stroke-width="82"
+                        stroke-dasharray="18.85 923.63"
+                        stroke-dashoffset="-847.47"
+                        transform="rotate(-90 210 210)"
+                    />
 
 
-                    <!-- SERVICIOS -->
+                    <!-- SERVICIOS 8 % -->
 
-                    <path
-                        id="segment-services"
+                    <circle
                         class="chart-segment"
                         data-part="services"
-                        fill="#f06c37"
-                        d="M210 210 L55 210 A175 175 0 0 1 210 35 Z"
-                    >
-                    </path>
+                        cx="210"
+                        cy="210"
+                        r="150"
+                        fill="none"
+                        stroke="#f06c37"
+                        stroke-width="82"
+                        stroke-dasharray="75.40 867.08"
+                        stroke-dashoffset="-866.32"
+                        transform="rotate(-90 210 210)"
+                    />
 
 
-                    <!-- CENTRO -->
+                    <!--
+                    CÍRCULO CENTRAL
+                    -->
 
                     <circle
                         class="chart-center"
                         cx="210"
                         cy="210"
-                        r="66"
-                    >
-                    </circle>
+                        r="70"
+                    />
 
 
                     <text
@@ -2490,13 +2510,107 @@ input[type="range"]::-moz-range-thumb {
                         FACTURA
                     </text>
 
+
                     <text
                         class="chart-center-subtitle"
                         x="210"
-                        y="222"
+                        y="224"
                     >
                         100 %
                     </text>
+
+
+                    <!-- =========================================
+                         PORCENTAJES DENTRO DEL GRÁFICO
+                    ========================================== -->
+
+
+                    <!-- 50 % -->
+
+                    <text
+                        class="chart-percentage"
+                        x="315"
+                        y="170"
+                    >
+                        50 %
+                    </text>
+
+                    <text
+                        class="chart-label"
+                        x="315"
+                        y="193"
+                    >
+                        Energía
+                    </text>
+
+
+                    <!-- 22,5 % -->
+
+                    <text
+                        class="chart-percentage"
+                        x="262"
+                        y="325"
+                    >
+                        22,5 %
+                    </text>
+
+                    <text
+                        class="chart-label"
+                        x="262"
+                        y="347"
+                    >
+                        Potencia
+                    </text>
+
+
+                    <!-- 17,5 % -->
+
+                    <text
+                        class="chart-percentage"
+                        x="128"
+                        y="286"
+                    >
+                        17,5 %
+                    </text>
+
+                    <text
+                        class="chart-label"
+                        x="128"
+                        y="308"
+                    >
+                        Impuestos
+                    </text>
+
+
+                    <!-- 2 % -->
+
+                    <text
+                        class="chart-percentage chart-percentage-small"
+                        x="78"
+                        y="194"
+                    >
+                        2 %
+                    </text>
+
+
+                    <!-- 8 % -->
+
+                    <text
+                        class="chart-percentage chart-percentage-small"
+                        x="132"
+                        y="110"
+                    >
+                        8 %
+                    </text>
+
+                    <text
+                        class="chart-label chart-label-small"
+                        x="132"
+                        y="125"
+                    >
+                        Servicios
+                    </text>
+
 
                 </svg>
 
@@ -2506,43 +2620,62 @@ input[type="range"]::-moz-range-thumb {
                 <div class="chart-legend">
 
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#4caf35"
                         ></span>
+
                         Energía consumida
+
                     </div>
 
+
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#3489e8"
                         ></span>
+
                         Potencia contratada
+
                     </div>
 
+
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#ffc21a"
                         ></span>
+
                         Impuestos
+
                     </div>
 
+
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
-                            style="background:#d8d8d8"
+                            style="background:#d2d2d2"
                         ></span>
+
                         Alquiler contador
+
                     </div>
 
+
                     <div class="legend-item">
+
                         <span
                             class="legend-dot"
                             style="background:#f06c37"
                         ></span>
+
                         Servicios adicionales
+
                     </div>
 
                 </div>
@@ -2564,7 +2697,7 @@ input[type="range"]::-moz-range-thumb {
                     class="explanation-badge"
                     id="explanationBadge"
                 >
-                    ⚡ PARTE DE LA FACTURA
+                    ⚡ ENERGÍA
                 </div>
 
 
@@ -2588,6 +2721,7 @@ input[type="range"]::-moz-range-thumb {
                 <div
                     class="explanation-percentage"
                     id="explanationPercentage"
+                    style="color:#4caf35"
                 >
                     45–55 %
                 </div>
@@ -2619,7 +2753,7 @@ input[type="range"]::-moz-range-thumb {
 
 
         <!-- =================================================
-             DISTRIBUCIÓN
+             TABLA
         ================================================== -->
 
         <div class="invoice-distribution">
@@ -2733,7 +2867,8 @@ input[type="range"]::-moz-range-thumb {
         <div class="invoice-note">
 
             ℹ️ <strong>Importante:</strong>
-            estos porcentajes son orientativos. La distribución real puede variar
+            los porcentajes del gráfico son un ejemplo visual que suma 100 %.
+            Los rangos mostrados son orientativos y la distribución real puede variar
             según el consumo, la potencia contratada, la tarifa, los impuestos y
             los servicios adicionales incluidos.
 
@@ -2764,12 +2899,6 @@ input[type="range"]::-moz-range-thumb {
 /* =========================================================
    PRECIOS INTERNOS
 ========================================================= */
-
-/*
-   Estos valores se utilizan únicamente para realizar
-   los cálculos. No se muestran como información comercial
-   en la interfaz.
-*/
 
 const POWER_PRICE = 5.31855;
 
@@ -3176,7 +3305,7 @@ function calculateFlatTariff() {
 
 
 /* =========================================================
-   TARIFA TRAMOS
+   TRAMOS HORARIOS
 ========================================================= */
 
 const hoursTariff =
@@ -3261,14 +3390,11 @@ function calculateHoursTariff() {
     const rawPowerCost =
         power * POWER_PRICE;
 
-
     const rawValleyCost =
         valley * VALLEY_PRICE;
 
-
     const rawFlatHoursCost =
         flatHours * FLAT_HOURS_PRICE;
-
 
     const rawPeakCost =
         peak * PEAK_PRICE;
@@ -3290,14 +3416,11 @@ function calculateHoursTariff() {
     hoursPowerValue.textContent =
         power.toFixed(1).replace(".", ",");
 
-
     valleyValue.textContent =
         Math.round(valley);
 
-
     flatHoursValue.textContent =
         Math.round(flatHours);
-
 
     peakValue.textContent =
         Math.round(peak);
@@ -3591,10 +3714,6 @@ function selectInvoicePart(part) {
     }
 
 
-    /*
-     * Actualizar explicación
-     */
-
     explanationBadge.textContent =
         data.badge;
 
@@ -3627,10 +3746,6 @@ function selectInvoicePart(part) {
         data.text;
 
 
-    /*
-     * Actualizar segmentos
-     */
-
     chartSegments.forEach(function (segment) {
 
         segment.classList.toggle(
@@ -3640,10 +3755,6 @@ function selectInvoicePart(part) {
 
     });
 
-
-    /*
-     * Actualizar tabla
-     */
 
     distributionRows.forEach(function (row) {
 
@@ -3791,12 +3902,10 @@ powerSlider.addEventListener(
     calculateUseTariff
 );
 
-
 consumptionSlider.addEventListener(
     "input",
     calculateUseTariff
 );
-
 
 taxToggle.addEventListener(
     "change",
@@ -3813,18 +3922,15 @@ flatPowerSlider.addEventListener(
     calculateFlatTariff
 );
 
-
 flatConsumptionSlider.addEventListener(
     "input",
     calculateFlatTariff
 );
 
-
 flatPaySlider.addEventListener(
     "input",
     calculateFlatTariff
 );
-
 
 flatTaxToggle.addEventListener(
     "change",
@@ -3841,24 +3947,20 @@ hoursPowerSlider.addEventListener(
     calculateHoursTariff
 );
 
-
 valleySlider.addEventListener(
     "input",
     calculateHoursTariff
 );
-
 
 flatHoursSlider.addEventListener(
     "input",
     calculateHoursTariff
 );
 
-
 peakSlider.addEventListener(
     "input",
     calculateHoursTariff
 );
-
 
 hoursTaxToggle.addEventListener(
     "change",
@@ -3867,7 +3969,7 @@ hoursTaxToggle.addEventListener(
 
 
 /* =========================================================
-   EVENTOS GRÁFICO FACTURA
+   EVENTOS GRÁFICO
 ========================================================= */
 
 chartSegments.forEach(function (segment) {
@@ -3887,7 +3989,7 @@ chartSegments.forEach(function (segment) {
 
 
 /* =========================================================
-   EVENTOS TABLA FACTURA
+   EVENTOS TABLA
 ========================================================= */
 
 distributionRows.forEach(function (row) {
