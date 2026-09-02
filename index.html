@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tipos de tarifas eléctricas</title>
+<title>Tarifas eléctricas - Formación</title>
 
 <style>
 
@@ -12,17 +12,31 @@
     --blue: #087df5;
     --blue-dark: #075bd3;
     --cyan: #45c6e9;
+
     --green: #05a875;
+    --green-light: #d9f7ed;
+
     --orange: #ff8b16;
+    --orange-light: #fff0d8;
+
     --purple: #6735e8;
+    --purple-light: #e7ddff;
+
+    --red: #e74c3c;
+    --red-light: #ffe1df;
+
     --text: #10295a;
     --muted: #66758f;
-    --light: #f5f8fc;
     --border: #e5ebf4;
+    --light: #f6f9fd;
 }
 
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -37,6 +51,10 @@ input {
     font-family: inherit;
 }
 
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .page {
     width: 100%;
     min-height: 100vh;
@@ -47,14 +65,18 @@ input {
    PORTADA
 ========================================================= */
 
+#home {
+    min-height: 100vh;
+}
+
 .hero {
-    padding: 45px 25px 25px;
+    padding: 32px 20px 15px;
     text-align: center;
 }
 
 .hero h1 {
     margin: 0;
-    font-size: clamp(32px, 5vw, 62px);
+    font-size: clamp(34px, 5vw, 62px);
     font-weight: 900;
     color: var(--blue);
     letter-spacing: -2px;
@@ -62,18 +84,23 @@ input {
 
 .subtitle {
     display: inline-block;
-    margin-top: 14px;
-    padding: 12px 30px;
+    margin-top: 18px;
+    padding: 12px 34px;
     border-radius: 30px;
     background: linear-gradient(90deg, #ffb11c, #ff8a18);
     color: white;
-    font-size: 20px;
-    font-weight: 800;
+    font-size: 19px;
+    font-weight: 900;
 }
+
+
+/* =========================================================
+   TARJETAS PRINCIPALES
+========================================================= */
 
 .tariffs {
     width: min(1100px, 94%);
-    margin: 35px auto 50px;
+    margin: 35px auto 48px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
@@ -94,12 +121,17 @@ input {
     box-shadow: 0 18px 38px rgba(26, 60, 110, 0.17);
 }
 
+.tariff:focus-visible {
+    outline: 4px solid rgba(8,125,245,.25);
+    outline-offset: 3px;
+}
+
 .tariff-image {
     height: 155px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 76px;
+    font-size: 70px;
 }
 
 .tariff-use .tariff-image {
@@ -115,9 +147,13 @@ input {
 }
 
 .tariff-title {
+    min-height: 56px;
+    display: flex;
+    align-items: center;
     color: white;
     padding: 13px 15px;
-    font-size: 21px;
+    font-size: 20px;
+    line-height: 1.15;
     font-weight: 900;
 }
 
@@ -134,18 +170,18 @@ input {
 }
 
 .tariff-content {
-    padding: 20px 22px 25px;
+    padding: 17px 20px 22px;
     text-align: left;
 }
 
 .tariff-content p {
     display: flex;
     align-items: flex-start;
-    gap: 13px;
+    gap: 12px;
     margin: 0;
-    padding: 13px 0;
+    padding: 12px 0;
     border-bottom: 1px solid #edf1f5;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.35;
 }
 
@@ -160,42 +196,87 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .tariff-use .icon {
-    background: #cef5e7;
+    background: var(--green-light);
     color: var(--green);
 }
 
 .tariff-flat .icon {
-    background: #ffe4b5;
+    background: var(--orange-light);
     color: var(--orange);
 }
 
 .tariff-hours .icon {
-    background: #e4d8ff;
+    background: var(--purple-light);
     color: var(--purple);
-}
-
-.info {
-    width: min(1100px, 94%);
-    margin: 0 auto 45px;
-    padding: 16px 22px;
-    border-radius: 14px;
-    background: #eef5ff;
-    text-align: center;
-    font-size: 14px;
 }
 
 
 /* =========================================================
-   SIMULADORES
+   INFORMACIÓN INFERIOR
+========================================================= */
+
+.info {
+    width: min(1100px, 94%);
+    margin: 0 auto 35px;
+    padding: 15px 20px;
+    border-radius: 14px;
+    background: #eef5ff;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   BOTÓN PARTES DE UNA FACTURA
+========================================================= */
+
+.invoice-access {
+    width: min(1100px, 94%);
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.invoice-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 54px;
+    padding: 13px 30px;
+    border: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #146fe8, #5b35d8);
+    color: white;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(45, 88, 210, .20);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.invoice-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(45, 88, 210, .27);
+}
+
+.invoice-button span:first-child {
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   SECCIONES SIMULADORES
 ========================================================= */
 
 .simulator-section {
     display: none;
+    min-height: 100vh;
     padding: 20px 20px 70px;
     background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
 }
@@ -219,6 +300,11 @@ input {
 
 }
 
+.simulator {
+    width: min(900px, 100%);
+    margin: auto;
+}
+
 .back-button {
     border: none;
     background: white;
@@ -231,9 +317,8 @@ input {
     margin-bottom: 25px;
 }
 
-.simulator {
-    width: min(900px, 100%);
-    margin: auto;
+.back-button:hover {
+    background: #f5f9ff;
 }
 
 .simulator-header {
@@ -250,7 +335,13 @@ input {
 .simulator-header p {
     margin: 0;
     color: var(--muted);
+    line-height: 1.5;
 }
+
+
+/* =========================================================
+   TARJETAS DE CONTROL
+========================================================= */
 
 .control-card {
     background: white;
@@ -273,11 +364,13 @@ input {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .control-icon {
     width: 46px;
     height: 46px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -293,9 +386,10 @@ input {
 
 .control-name span {
     display: block;
-    margin-top: 3px;
+    margin-top: 4px;
     color: var(--muted);
     font-size: 13px;
+    line-height: 1.35;
 }
 
 .current-value {
@@ -304,6 +398,11 @@ input {
     color: var(--blue);
     white-space: nowrap;
 }
+
+
+/* =========================================================
+   SLIDERS
+========================================================= */
 
 .slider-wrapper {
     position: relative;
@@ -350,6 +449,7 @@ input[type="range"]::-moz-range-thumb {
 .slider-labels {
     display: flex;
     justify-content: space-between;
+    gap: 15px;
     margin-top: 10px;
     color: #8a98aa;
     font-size: 13px;
@@ -360,6 +460,7 @@ input[type="range"]::-moz-range-thumb {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
     padding-top: 17px;
     border-top: 1px solid #edf1f5;
 }
@@ -377,7 +478,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   TOTAL TARIFA POR USO
+   TARJETA TOTAL AZUL
 ========================================================= */
 
 .total-card {
@@ -389,13 +490,6 @@ input[type="range"]::-moz-range-thumb {
     box-shadow: 0 15px 35px rgba(8, 125, 245, .25);
 }
 
-.total-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
 .total-title {
     font-size: 18px;
     font-weight: 700;
@@ -403,11 +497,14 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .total-value {
-    font-size: clamp(38px, 6vw, 60px);
+    margin-top: 8px;
+    font-size: clamp(42px, 6vw, 60px);
     font-weight: 900;
 }
 
-.tax-control {
+.tax-control,
+.flat-tax-control,
+.hours-tax-control {
     margin-top: 22px;
     padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,.25);
@@ -417,15 +514,24 @@ input[type="range"]::-moz-range-thumb {
     gap: 15px;
 }
 
-.tax-text strong {
+.tax-text strong,
+.flat-tax-text strong,
+.hours-tax-text strong {
     display: block;
     font-size: 16px;
 }
 
-.tax-text span {
+.tax-text span,
+.flat-tax-text span,
+.hours-tax-text span {
     font-size: 13px;
     opacity: .75;
 }
+
+
+/* =========================================================
+   SWITCH
+========================================================= */
 
 .switch {
     position: relative;
@@ -469,6 +575,11 @@ input[type="range"]::-moz-range-thumb {
     transform: translateX(26px);
 }
 
+
+/* =========================================================
+   DESGLOSE TARIFA POR USO
+========================================================= */
+
 .breakdown {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -511,7 +622,6 @@ input[type="range"]::-moz-range-thumb {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    margin-top: 5px;
 }
 
 .flat-result {
@@ -539,29 +649,9 @@ input[type="range"]::-moz-range-thumb {
     opacity: .75;
 }
 
-.flat-tax-control {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.25);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.flat-tax-text strong {
-    display: block;
-    font-size: 16px;
-}
-
-.flat-tax-text span {
-    font-size: 13px;
-    opacity: .75;
-}
-
 
 /* =========================================================
-   TARIFA POR TRAMOS
+   TRAMOS HORARIOS
 ========================================================= */
 
 .hours-total-card {
@@ -577,14 +667,13 @@ input[type="range"]::-moz-range-thumb {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    margin-top: 5px;
 }
 
 .hours-result {
     background: rgba(255,255,255,.13);
     border-radius: 15px;
     padding: 16px;
-    min-height: 115px;
+    min-height: 110px;
 }
 
 .hours-result-label {
@@ -592,7 +681,6 @@ input[type="range"]::-moz-range-thumb {
     font-size: 13px;
     opacity: .78;
     margin-bottom: 10px;
-    line-height: 1.3;
 }
 
 .hours-result-value {
@@ -605,31 +693,6 @@ input[type="range"]::-moz-range-thumb {
     font-size: 11px;
     opacity: .72;
 }
-
-.hours-tax-control {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,.25);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.hours-tax-text strong {
-    display: block;
-    font-size: 16px;
-}
-
-.hours-tax-text span {
-    font-size: 13px;
-    opacity: .75;
-}
-
-
-/* =========================================================
-   COLORES DE LOS TRAMOS
-========================================================= */
 
 .valley-icon {
     background: #d9f7ed;
@@ -648,27 +711,352 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   MOBILE
+   PANTALLA PARTES DE UNA FACTURA
 ========================================================= */
 
-@media (max-width: 800px) {
+.invoice-section {
+    display: none;
+    min-height: 100vh;
+    padding: 20px 20px 70px;
+    background: linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
+}
+
+.invoice-section.active {
+    display: block;
+    animation: appear .4s ease;
+}
+
+.invoice-page {
+    width: min(1120px, 100%);
+    margin: auto;
+}
+
+.invoice-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.invoice-header h2 {
+    margin: 0 0 10px;
+    color: var(--blue);
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 900;
+}
+
+.invoice-header p {
+    margin: 0 auto;
+    max-width: 720px;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONTENEDOR DEL GRÁFICO + EXPLICACIÓN
+========================================================= */
+
+.invoice-layout {
+    display: grid;
+    grid-template-columns: minmax(400px, 1fr) minmax(360px, 1fr);
+    gap: 45px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   GRÁFICO CIRCULAR
+========================================================= */
+
+.chart-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 28px;
+    box-shadow: 0 10px 30px rgba(26,60,110,.08);
+}
+
+.chart-title {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.chart-title strong {
+    display: block;
+    font-size: 19px;
+}
+
+.chart-title span {
+    display: block;
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.invoice-chart {
+    width: 100%;
+    max-width: 460px;
+    margin: auto;
+    display: block;
+}
+
+.chart-segment {
+    cursor: pointer;
+    transform-origin: 210px 210px;
+    transition: opacity .2s ease, transform .2s ease, filter .2s ease;
+    stroke: white;
+    stroke-width: 3;
+}
+
+.chart-segment:hover {
+    filter: brightness(1.06);
+}
+
+.chart-segment.selected {
+    transform: scale(1.045);
+    filter: brightness(1.06) drop-shadow(0 5px 7px rgba(0,0,0,.16));
+    stroke-width: 5;
+}
+
+.chart-center {
+    fill: white;
+    stroke: #e5ebf4;
+    stroke-width: 2;
+}
+
+.chart-center-title {
+    font-size: 18px;
+    font-weight: 900;
+    fill: var(--text);
+    text-anchor: middle;
+}
+
+.chart-center-subtitle {
+    font-size: 12px;
+    fill: var(--muted);
+    text-anchor: middle;
+}
+
+
+/* =========================================================
+   LEYENDA
+========================================================= */
+
+.chart-legend {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text);
+}
+
+.legend-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   EXPLICACIÓN
+========================================================= */
+
+.invoice-explanation {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(26,60,110,.08);
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.explanation-badge {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    background: #eef5ff;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.explanation-icon {
+    width: 58px;
+    height: 58px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    font-size: 28px;
+}
+
+.explanation-title {
+    margin: 16px 0 4px;
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.explanation-percentage {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+.explanation-text {
+    color: #344766;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.explanation-text p {
+    margin: 0 0 13px;
+}
+
+.explanation-text p:last-child {
+    margin-bottom: 0;
+}
+
+.invoice-note {
+    margin-top: 25px;
+    padding: 15px 18px;
+    border-radius: 14px;
+    background: #eef5ff;
+    color: #45617f;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLA DE PORCENTAJES
+========================================================= */
+
+.invoice-distribution {
+    margin-top: 30px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(30,70,120,.07);
+}
+
+.distribution-title {
+    padding: 17px 22px;
+    background: #f5f9ff;
+    font-size: 17px;
+    font-weight: 900;
+}
+
+.distribution-row {
+    display: grid;
+    grid-template-columns: 1fr 140px;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 22px;
+    border-top: 1px solid #edf1f5;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+
+.distribution-row:hover,
+.distribution-row.selected {
+    background: #f6faff;
+}
+
+.distribution-name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.distribution-percentage {
+    text-align: right;
+    font-weight: 900;
+    color: var(--text);
+}
+
+.distribution-total {
+    font-weight: 900;
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   FOOTER FACTURA
+========================================================= */
+
+.invoice-footer-note {
+    margin-top: 22px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
 
     .tariffs {
         grid-template-columns: 1fr;
         max-width: 500px;
     }
 
-    .tariff {
-        cursor: pointer;
+    .invoice-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 
+    .invoice-page {
+        width: min(700px, 100%);
+    }
+
+    .invoice-explanation {
+        min-height: auto;
+    }
+
+    .hours-results {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
     .hero {
-        padding-top: 30px;
+        padding-top: 25px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1px;
     }
 
     .subtitle {
         font-size: 16px;
         padding: 10px 20px;
+    }
+
+    .tariff-image {
+        height: 130px;
     }
 
     .control-card {
@@ -683,13 +1071,12 @@ input[type="range"]::-moz-range-thumb {
         font-size: 25px;
     }
 
-    .total-top {
-        flex-direction: column;
+    .cost-row {
         align-items: flex-start;
     }
 
-    .total-value {
-        font-size: 48px;
+    .breakdown {
+        grid-template-columns: 1fr;
     }
 
     .flat-results {
@@ -697,37 +1084,63 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .hours-results {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .total-value {
+        font-size: 46px;
+    }
+
+    .invoice-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-panel {
+        padding: 18px;
+    }
+
+    .invoice-explanation {
+        padding: 24px;
+    }
+
+    .explanation-title {
+        font-size: 26px;
+    }
+
+    .chart-legend {
+        grid-template-columns: 1fr;
+    }
+
+    .distribution-row {
+        grid-template-columns: 1fr 100px;
+    }
+
+    .invoice-button {
+        width: 100%;
+        font-size: 16px;
     }
 
 }
 
 
-@media (max-width: 500px) {
-
-    .hero h1 {
-        letter-spacing: -1px;
-    }
-
-    .tariff-image {
-        height: 130px;
-    }
+@media (max-width: 380px) {
 
     .control-header {
         flex-direction: column;
-        gap: 12px;
     }
 
     .current-value {
         align-self: flex-end;
     }
 
-    .breakdown {
+    .distribution-row {
         grid-template-columns: 1fr;
+        gap: 5px;
     }
 
-    .hours-results {
-        grid-template-columns: 1fr;
+    .distribution-percentage {
+        text-align: left;
+        padding-left: 30px;
     }
 
 }
@@ -763,7 +1176,13 @@ input[type="range"]::-moz-range-thumb {
 
         <!-- TARIFA POR USO -->
 
-        <article class="tariff tariff-use" id="useTariff">
+        <article
+            class="tariff tariff-use"
+            id="useTariff"
+            tabindex="0"
+            role="button"
+            aria-label="Abrir simulador de tarifa por uso"
+        >
 
             <div class="tariff-image">
                 🏷️💶
@@ -803,7 +1222,13 @@ input[type="range"]::-moz-range-thumb {
 
         <!-- TARIFA PLANA -->
 
-        <article class="tariff tariff-flat" id="flatTariff">
+        <article
+            class="tariff tariff-flat"
+            id="flatTariff"
+            tabindex="0"
+            role="button"
+            aria-label="Abrir simulador de tarifa plana"
+        >
 
             <div class="tariff-image">
                 📅💶
@@ -842,9 +1267,15 @@ input[type="range"]::-moz-range-thumb {
         </article>
 
 
-        <!-- TARIFA POR TRAMOS -->
+        <!-- TRAMOS -->
 
-        <article class="tariff tariff-hours" id="hoursTariff">
+        <article
+            class="tariff tariff-hours"
+            id="hoursTariff"
+            tabindex="0"
+            role="button"
+            aria-label="Abrir simulador de tarifa por tramos horarios"
+        >
 
             <div class="tariff-image">
                 🕐
@@ -882,7 +1313,6 @@ input[type="range"]::-moz-range-thumb {
 
         </article>
 
-
     </div>
 
 
@@ -894,19 +1324,49 @@ input[type="range"]::-moz-range-thumb {
 
     </div>
 
+
+    <!-- ACCESO A PARTES DE UNA FACTURA -->
+
+    <div class="invoice-access">
+
+        <button
+            class="invoice-button"
+            id="invoiceButton"
+            type="button"
+        >
+
+            <span>🧾</span>
+
+            <span>
+                PARTES DE UNA FACTURA
+            </span>
+
+            <span>→</span>
+
+        </button>
+
+    </div>
+
 </section>
 
 
 
 <!-- =========================================================
-     SIMULADOR TARIFA POR USO
+     TARIFA POR USO
 ========================================================= -->
 
-<section class="simulator-section" id="simulatorSection">
+<section
+    class="simulator-section"
+    id="simulatorSection"
+>
 
     <div class="simulator">
 
-        <button class="back-button" id="backButton">
+        <button
+            class="back-button"
+            id="backButton"
+            type="button"
+        >
             ← Volver a tipos de tarifas
         </button>
 
@@ -935,11 +1395,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Potencia contratada</h3>
-                        <span>Coste mensual de potencia</span>
+
+                        <span>
+                            Coste mensual de potencia
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="powerValue">3</span> kW
@@ -995,11 +1461,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Consumo mensual</h3>
-                        <span>Electricidad consumida</span>
+
+                        <span>
+                            Electricidad consumida
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="consumptionValue">0</span> kWh
@@ -1046,20 +1518,12 @@ input[type="range"]::-moz-range-thumb {
 
         <div class="total-card">
 
-            <div class="total-top">
+            <div class="total-title">
+                TOTAL ESTIMADO DE LA FACTURA
+            </div>
 
-                <div>
-
-                    <div class="total-title">
-                        TOTAL ESTIMADO DE LA FACTURA
-                    </div>
-
-                    <div class="total-value">
-                        <span id="totalValue">15,96</span> €
-                    </div>
-
-                </div>
-
+            <div class="total-value">
+                <span id="totalValue">15,96</span> €
             </div>
 
 
@@ -1126,14 +1590,21 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     SIMULADOR TARIFA PLANA
+     TARIFA PLANA
 ========================================================= -->
 
-<section class="simulator-section" id="flatSimulatorSection">
+<section
+    class="simulator-section"
+    id="flatSimulatorSection"
+>
 
     <div class="simulator">
 
-        <button class="back-button" id="flatBackButton">
+        <button
+            class="back-button"
+            id="flatBackButton"
+            type="button"
+        >
             ← Volver a tipos de tarifas
         </button>
 
@@ -1162,11 +1633,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Potencia contratada</h3>
-                        <span>Coste mensual de potencia</span>
+
+                        <span>
+                            Coste mensual de potencia
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="flatPowerValue">3</span> kW
@@ -1222,11 +1699,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Consumo anual</h3>
-                        <span>Electricidad consumida al año</span>
+
+                        <span>
+                            Electricidad consumida al año
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="flatConsumptionValue">0</span> kWh
@@ -1282,11 +1765,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Precio que quieres pagar</h3>
-                        <span>Cuota fija mensual</span>
+
+                        <span>
+                            Cuota fija mensual
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="flatPayValue">0</span> €
@@ -1335,6 +1824,7 @@ input[type="range"]::-moz-range-thumb {
 
             <div class="flat-results">
 
+
                 <div class="flat-result">
 
                     <span class="flat-result-label">
@@ -1379,7 +1869,10 @@ input[type="range"]::-moz-range-thumb {
                         <span id="flatResultDifference">15,96</span> €
                     </div>
 
-                    <div class="flat-result-extra" id="flatDifferenceText">
+                    <div
+                        class="flat-result-extra"
+                        id="flatDifferenceText"
+                    >
                         Diferencia mensual
                     </div>
 
@@ -1425,14 +1918,21 @@ input[type="range"]::-moz-range-thumb {
 
 
 <!-- =========================================================
-     SIMULADOR TARIFA POR TRAMOS HORARIOS
+     TARIFA POR TRAMOS HORARIOS
 ========================================================= -->
 
-<section class="simulator-section" id="hoursSimulatorSection">
+<section
+    class="simulator-section"
+    id="hoursSimulatorSection"
+>
 
     <div class="simulator">
 
-        <button class="back-button" id="hoursBackButton">
+        <button
+            class="back-button"
+            id="hoursBackButton"
+            type="button"
+        >
             ← Volver a tipos de tarifas
         </button>
 
@@ -1461,11 +1961,17 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
+
                         <h3>Potencia contratada</h3>
-                        <span>Coste mensual de potencia</span>
+
+                        <span>
+                            Coste mensual de potencia
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="hoursPowerValue">3</span> kW
@@ -1521,11 +2027,20 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
-                        <h3>Consumo Valle <span>(00:00–08:00)</span></h3>
-                        <span>Horas de menor precio</span>
+
+                        <h3>
+                            Consumo Valle
+                            <span>(00:00–08:00)</span>
+                        </h3>
+
+                        <span>
+                            Horas de menor precio
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="valleyValue">0</span> kWh
@@ -1581,11 +2096,22 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
-                        <h3>Consumo Llano <span>(08:00–10:00 / 14:00–18:00 / 22:00–00:00)</span></h3>
-                        <span>Horas de precio intermedio</span>
+
+                        <h3>
+                            Consumo Llano
+                            <span>
+                                (08:00–10:00 / 14:00–18:00 / 22:00–00:00)
+                            </span>
+                        </h3>
+
+                        <span>
+                            Horas de precio intermedio
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="flatHoursValue">0</span> kWh
@@ -1641,11 +2167,22 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div>
-                        <h3>Consumo Punta <span>(10:00–14:00 / 18:00–22:00)</span></h3>
-                        <span>Horas de mayor precio</span>
+
+                        <h3>
+                            Consumo Punta
+                            <span>
+                                (10:00–14:00 / 18:00–22:00)
+                            </span>
+                        </h3>
+
+                        <span>
+                            Horas de mayor precio
+                        </span>
+
                     </div>
 
                 </div>
+
 
                 <div class="current-value">
                     <span id="peakValue">0</span> kWh
@@ -1688,31 +2225,21 @@ input[type="range"]::-moz-range-thumb {
         </div>
 
 
-        <!-- TOTAL TRAMOS -->
+        <!-- TOTAL -->
 
         <div class="hours-total-card">
 
-            <div class="total-top">
+            <div class="total-title">
+                TOTAL ESTIMADO DE LA FACTURA
+            </div>
 
-                <div>
-
-                    <div class="total-title">
-                        TOTAL ESTIMADO DE LA FACTURA
-                    </div>
-
-                    <div class="total-value">
-                        <span id="hoursTotalValue">15,96</span> €
-                    </div>
-
-                </div>
-
+            <div class="total-value">
+                <span id="hoursTotalValue">15,96</span> €
             </div>
 
 
             <div class="hours-results">
 
-
-                <!-- POTENCIA -->
 
                 <div class="hours-result">
 
@@ -1731,8 +2258,6 @@ input[type="range"]::-moz-range-thumb {
                 </div>
 
 
-                <!-- VALLE -->
-
                 <div class="hours-result">
 
                     <span class="hours-result-label">
@@ -1744,13 +2269,11 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div class="hours-result-extra">
-                        0,08 €/kWh
+                        Consumo valle
                     </div>
 
                 </div>
 
-
-                <!-- LLANO -->
 
                 <div class="hours-result">
 
@@ -1763,13 +2286,11 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div class="hours-result-extra">
-                        0,14 €/kWh
+                        Consumo llano
                     </div>
 
                 </div>
 
-
-                <!-- PUNTA -->
 
                 <div class="hours-result">
 
@@ -1782,16 +2303,13 @@ input[type="range"]::-moz-range-thumb {
                     </div>
 
                     <div class="hours-result-extra">
-                        0,21 €/kWh
+                        Consumo punta
                     </div>
 
                 </div>
 
-
             </div>
 
-
-            <!-- IMPUESTOS -->
 
             <div class="hours-tax-control">
 
@@ -1828,6 +2346,412 @@ input[type="range"]::-moz-range-thumb {
 </section>
 
 
+
+<!-- =========================================================
+     PARTES DE UNA FACTURA
+========================================================= -->
+
+<section
+    class="invoice-section"
+    id="invoiceSection"
+>
+
+    <div class="invoice-page">
+
+
+        <button
+            class="back-button"
+            id="invoiceBackButton"
+            type="button"
+        >
+            ← Volver a tipos de tarifas
+        </button>
+
+
+        <div class="invoice-header">
+
+            <h2>
+                ¿En qué se divide una factura de luz?
+            </h2>
+
+            <p>
+                La factura eléctrica no está formada únicamente por el coste de la energía.
+                Descubre qué representa cada parte y por qué el importe final puede variar.
+            </p>
+
+        </div>
+
+
+        <div class="invoice-layout">
+
+
+            <!-- =================================================
+                 GRÁFICO
+            ================================================== -->
+
+            <div class="chart-panel">
+
+                <div class="chart-title">
+
+                    <strong>
+                        PARTES DE UNA FACTURA
+                    </strong>
+
+                    <span>
+                        Pulsa sobre cada parte para conocerla
+                    </span>
+
+                </div>
+
+
+                <svg
+                    class="invoice-chart"
+                    viewBox="0 0 420 420"
+                    role="img"
+                    aria-label="Gráfico circular de las partes de una factura eléctrica"
+                >
+
+                    <!-- ENERGÍA -->
+
+                    <path
+                        id="segment-energy"
+                        class="chart-segment selected"
+                        data-part="energy"
+                        fill="#4caf35"
+                        d="M210 210 L210 35 A175 175 0 0 1 376 155 Z"
+                    >
+                    </path>
+
+
+                    <!-- POTENCIA -->
+
+                    <path
+                        id="segment-power"
+                        class="chart-segment"
+                        data-part="power"
+                        fill="#3489e8"
+                        d="M210 210 L376 155 A175 175 0 0 1 364 282 Z"
+                    >
+                    </path>
+
+
+                    <!-- IMPUESTOS -->
+
+                    <path
+                        id="segment-taxes"
+                        class="chart-segment"
+                        data-part="taxes"
+                        fill="#ffc21a"
+                        d="M210 210 L364 282 A175 175 0 0 1 116 349 Z"
+                    >
+                    </path>
+
+
+                    <!-- CONTADOR -->
+
+                    <path
+                        id="segment-meter"
+                        class="chart-segment"
+                        data-part="meter"
+                        fill="#d8d8d8"
+                        d="M210 210 L116 349 A175 175 0 0 1 55 210 Z"
+                    >
+                    </path>
+
+
+                    <!-- SERVICIOS -->
+
+                    <path
+                        id="segment-services"
+                        class="chart-segment"
+                        data-part="services"
+                        fill="#f06c37"
+                        d="M210 210 L55 210 A175 175 0 0 1 210 35 Z"
+                    >
+                    </path>
+
+
+                    <!-- CENTRO -->
+
+                    <circle
+                        class="chart-center"
+                        cx="210"
+                        cy="210"
+                        r="66"
+                    >
+                    </circle>
+
+
+                    <text
+                        class="chart-center-title"
+                        x="210"
+                        y="204"
+                    >
+                        FACTURA
+                    </text>
+
+                    <text
+                        class="chart-center-subtitle"
+                        x="210"
+                        y="222"
+                    >
+                        100 %
+                    </text>
+
+                </svg>
+
+
+                <!-- LEYENDA -->
+
+                <div class="chart-legend">
+
+                    <div class="legend-item">
+                        <span
+                            class="legend-dot"
+                            style="background:#4caf35"
+                        ></span>
+                        Energía consumida
+                    </div>
+
+                    <div class="legend-item">
+                        <span
+                            class="legend-dot"
+                            style="background:#3489e8"
+                        ></span>
+                        Potencia contratada
+                    </div>
+
+                    <div class="legend-item">
+                        <span
+                            class="legend-dot"
+                            style="background:#ffc21a"
+                        ></span>
+                        Impuestos
+                    </div>
+
+                    <div class="legend-item">
+                        <span
+                            class="legend-dot"
+                            style="background:#d8d8d8"
+                        ></span>
+                        Alquiler contador
+                    </div>
+
+                    <div class="legend-item">
+                        <span
+                            class="legend-dot"
+                            style="background:#f06c37"
+                        ></span>
+                        Servicios adicionales
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 EXPLICACIÓN
+            ================================================== -->
+
+            <div
+                class="invoice-explanation"
+                id="invoiceExplanation"
+            >
+
+                <div
+                    class="explanation-badge"
+                    id="explanationBadge"
+                >
+                    ⚡ PARTE DE LA FACTURA
+                </div>
+
+
+                <div
+                    class="explanation-icon"
+                    id="explanationIcon"
+                    style="background:#d9f7ed;color:#4caf35"
+                >
+                    ⚡
+                </div>
+
+
+                <h3
+                    class="explanation-title"
+                    id="explanationTitle"
+                >
+                    Energía consumida
+                </h3>
+
+
+                <div
+                    class="explanation-percentage"
+                    id="explanationPercentage"
+                >
+                    45–55 %
+                </div>
+
+
+                <div
+                    class="explanation-text"
+                    id="explanationText"
+                >
+
+                    <p>
+                        Es la parte más directamente relacionada con la electricidad que consumes.
+                    </p>
+
+                    <p>
+                        Cuanto mayor sea tu consumo en kWh, mayor será esta parte de la factura.
+                    </p>
+
+                    <p>
+                        Es importante recordar que la energía es solo una parte del importe final.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DISTRIBUCIÓN
+        ================================================== -->
+
+        <div class="invoice-distribution">
+
+            <div class="distribution-title">
+                Distribución orientativa de una factura
+            </div>
+
+
+            <div
+                class="distribution-row selected"
+                data-part="energy"
+            >
+
+                <div class="distribution-name">
+                    <span>⚡</span>
+                    <span>Energía consumida</span>
+                </div>
+
+                <div class="distribution-percentage">
+                    45–55 %
+                </div>
+
+            </div>
+
+
+            <div
+                class="distribution-row"
+                data-part="power"
+            >
+
+                <div class="distribution-name">
+                    <span>🔌</span>
+                    <span>Potencia contratada</span>
+                </div>
+
+                <div class="distribution-percentage">
+                    20–25 %
+                </div>
+
+            </div>
+
+
+            <div
+                class="distribution-row"
+                data-part="taxes"
+            >
+
+                <div class="distribution-name">
+                    <span>🏛️</span>
+                    <span>Impuestos</span>
+                </div>
+
+                <div class="distribution-percentage">
+                    15–20 %
+                </div>
+
+            </div>
+
+
+            <div
+                class="distribution-row"
+                data-part="meter"
+            >
+
+                <div class="distribution-name">
+                    <span>📟</span>
+                    <span>Alquiler contador</span>
+                </div>
+
+                <div class="distribution-percentage">
+                    1–3 %
+                </div>
+
+            </div>
+
+
+            <div
+                class="distribution-row"
+                data-part="services"
+            >
+
+                <div class="distribution-name">
+                    <span>🛠️</span>
+                    <span>Servicios adicionales</span>
+                </div>
+
+                <div class="distribution-percentage">
+                    0–10 %
+                </div>
+
+            </div>
+
+
+            <div class="distribution-row">
+
+                <div class="distribution-name distribution-total">
+                    <span>✓</span>
+                    <span>Total orientativo</span>
+                </div>
+
+                <div class="distribution-percentage distribution-total">
+                    ≈ 100 %
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="invoice-note">
+
+            ℹ️ <strong>Importante:</strong>
+            estos porcentajes son orientativos. La distribución real puede variar
+            según el consumo, la potencia contratada, la tarifa, los impuestos y
+            los servicios adicionales incluidos.
+
+        </div>
+
+
+        <div class="invoice-footer-note">
+
+            Los conceptos regulados y los servicios adicionales pueden variar
+            según el suministro y las condiciones contratadas.
+
+        </div>
+
+    </div>
+
+</section>
+
+
 </div>
 
 
@@ -1838,8 +2762,14 @@ input[type="range"]::-moz-range-thumb {
 
 
 /* =========================================================
-   PRECIOS
+   PRECIOS INTERNOS
 ========================================================= */
+
+/*
+   Estos valores se utilizan únicamente para realizar
+   los cálculos. No se muestran como información comercial
+   en la interfaz.
+*/
 
 const POWER_PRICE = 5.31855;
 
@@ -1855,19 +2785,103 @@ const TAX_RATE = 0.21;
 
 
 /* =========================================================
-   ELEMENTOS GENERALES
+   UTILIDADES
+========================================================= */
+
+function money(value) {
+
+    return value.toLocaleString("es-ES", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+}
+
+
+function updateSliderBackground(slider) {
+
+    const min = Number(slider.min);
+
+    const max = Number(slider.max);
+
+    const value = Number(slider.value);
+
+    const percentage =
+        ((value - min) / (max - min)) * 100;
+
+    slider.style.setProperty(
+        "--progress",
+        percentage + "%"
+    );
+
+}
+
+
+/* =========================================================
+   SECCIONES
 ========================================================= */
 
 const home =
     document.getElementById("home");
 
+const simulatorSection =
+    document.getElementById("simulatorSection");
+
+const flatSimulatorSection =
+    document.getElementById("flatSimulatorSection");
+
+const hoursSimulatorSection =
+    document.getElementById("hoursSimulatorSection");
+
+const invoiceSection =
+    document.getElementById("invoiceSection");
+
+
+function showSection(section) {
+
+    home.style.display = "none";
+
+    simulatorSection.classList.remove("active");
+
+    flatSimulatorSection.classList.remove("active");
+
+    hoursSimulatorSection.classList.remove("active");
+
+    invoiceSection.classList.remove("active");
+
+    section.classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+function showHome() {
+
+    simulatorSection.classList.remove("active");
+
+    flatSimulatorSection.classList.remove("active");
+
+    hoursSimulatorSection.classList.remove("active");
+
+    invoiceSection.classList.remove("active");
+
+    home.style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
 
 /* =========================================================
    TARIFA POR USO
 ========================================================= */
-
-const simulatorSection =
-    document.getElementById("simulatorSection");
 
 const useTariff =
     document.getElementById("useTariff");
@@ -1909,15 +2923,96 @@ const taxLabel =
     document.getElementById("taxLabel");
 
 
+function calculateUseTariff() {
+
+    const power =
+        Number(powerSlider.value);
+
+    const consumption =
+        Number(consumptionSlider.value);
+
+
+    const rawPowerCost =
+        power * POWER_PRICE;
+
+
+    const rawConsumptionCost =
+        consumption * KWH_PRICE;
+
+
+    const subtotal =
+        rawPowerCost + rawConsumptionCost;
+
+
+    const total =
+        taxToggle.checked
+            ? subtotal * (1 + TAX_RATE)
+            : subtotal;
+
+
+    powerValue.textContent =
+        power.toFixed(1).replace(".", ",");
+
+
+    consumptionValue.textContent =
+        Math.round(consumption);
+
+
+    powerCost.textContent =
+        money(
+            taxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    consumptionCost.textContent =
+        money(
+            taxToggle.checked
+                ? rawConsumptionCost * (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
+
+
+    summaryPower.textContent =
+        money(
+            taxToggle.checked
+                ? rawPowerCost * (1 + TAX_RATE)
+                : rawPowerCost
+        );
+
+
+    summaryConsumption.textContent =
+        money(
+            taxToggle.checked
+                ? rawConsumptionCost * (1 + TAX_RATE)
+                : rawConsumptionCost
+        );
+
+
+    totalValue.textContent =
+        money(total);
+
+
+    taxLabel.textContent =
+        taxToggle.checked
+            ? "Precio final con impuestos incluidos"
+            : "Precio sin impuestos";
+
+
+    updateSliderBackground(powerSlider);
+
+    updateSliderBackground(consumptionSlider);
+
+}
+
+
 /* =========================================================
    TARIFA PLANA
 ========================================================= */
 
 const flatTariff =
     document.getElementById("flatTariff");
-
-const flatSimulatorSection =
-    document.getElementById("flatSimulatorSection");
 
 const flatBackButton =
     document.getElementById("flatBackButton");
@@ -1968,211 +3063,13 @@ const flatTaxLabel =
     document.getElementById("flatTaxLabel");
 
 
-/* =========================================================
-   TARIFA POR TRAMOS
-========================================================= */
-
-const hoursTariff =
-    document.getElementById("hoursTariff");
-
-const hoursSimulatorSection =
-    document.getElementById("hoursSimulatorSection");
-
-const hoursBackButton =
-    document.getElementById("hoursBackButton");
-
-const hoursPowerSlider =
-    document.getElementById("hoursPowerSlider");
-
-const valleySlider =
-    document.getElementById("valleySlider");
-
-const flatHoursSlider =
-    document.getElementById("flatHoursSlider");
-
-const peakSlider =
-    document.getElementById("peakSlider");
-
-const hoursPowerValue =
-    document.getElementById("hoursPowerValue");
-
-const valleyValue =
-    document.getElementById("valleyValue");
-
-const flatHoursValue =
-    document.getElementById("flatHoursValue");
-
-const peakValue =
-    document.getElementById("peakValue");
-
-const hoursPowerCost =
-    document.getElementById("hoursPowerCost");
-
-const valleyCost =
-    document.getElementById("valleyCost");
-
-const flatHoursCost =
-    document.getElementById("flatHoursCost");
-
-const peakCost =
-    document.getElementById("peakCost");
-
-const hoursTotalValue =
-    document.getElementById("hoursTotalValue");
-
-const hoursSummaryPower =
-    document.getElementById("hoursSummaryPower");
-
-const hoursSummaryValley =
-    document.getElementById("hoursSummaryValley");
-
-const hoursSummaryFlat =
-    document.getElementById("hoursSummaryFlat");
-
-const hoursSummaryPeak =
-    document.getElementById("hoursSummaryPeak");
-
-const hoursTaxToggle =
-    document.getElementById("hoursTaxToggle");
-
-const hoursTaxLabel =
-    document.getElementById("hoursTaxLabel");
-
-
-/* =========================================================
-   FORMATO MONETARIO
-========================================================= */
-
-function money(value) {
-
-    return value.toLocaleString("es-ES", {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-    });
-
-}
-
-
-/* =========================================================
-   FONDO DE LOS SLIDERS
-========================================================= */
-
-function updateSliderBackground(slider) {
-
-    const min =
-        Number(slider.min);
-
-    const max =
-        Number(slider.max);
-
-    const value =
-        Number(slider.value);
-
-    const percentage =
-        ((value - min) / (max - min)) * 100;
-
-    slider.style.setProperty(
-        "--progress",
-        percentage + "%"
-    );
-
-}
-
-
-/* =========================================================
-   TARIFA POR USO
-========================================================= */
-
-function calculateUseTariff() {
-
-    const power =
-        Number(powerSlider.value);
-
-    const consumption =
-        Number(consumptionSlider.value);
-
-
-    const rawPowerCost =
-        power * POWER_PRICE;
-
-
-    const rawConsumptionCost =
-        consumption * KWH_PRICE;
-
-
-    const subtotal =
-        rawPowerCost + rawConsumptionCost;
-
-
-    const total =
-        taxToggle.checked
-            ? subtotal * (1 + TAX_RATE)
-            : subtotal;
-
-
-    powerValue.textContent =
-        power.toFixed(1).replace(".", ",");
-
-
-    consumptionValue.textContent =
-        Math.round(consumption);
-
-
-    powerCost.textContent =
-        money(rawPowerCost);
-
-
-    consumptionCost.textContent =
-        money(rawConsumptionCost);
-
-
-    summaryPower.textContent =
-        money(
-            taxToggle.checked
-                ? rawPowerCost * (1 + TAX_RATE)
-                : rawPowerCost
-        );
-
-
-    summaryConsumption.textContent =
-        money(
-            taxToggle.checked
-                ? rawConsumptionCost * (1 + TAX_RATE)
-                : rawConsumptionCost
-        );
-
-
-    totalValue.textContent =
-        money(total);
-
-
-    taxLabel.textContent =
-        taxToggle.checked
-            ? "Precio final con impuestos incluidos"
-            : "Precio sin impuestos";
-
-
-    updateSliderBackground(powerSlider);
-
-    updateSliderBackground(consumptionSlider);
-
-}
-
-
-/* =========================================================
-   TARIFA PLANA
-========================================================= */
-
 function calculateFlatTariff() {
-
 
     const power =
         Number(flatPowerSlider.value);
 
-
     const annualConsumption =
         Number(flatConsumptionSlider.value);
-
 
     const priceToPay =
         Number(flatPaySlider.value);
@@ -2279,39 +3176,91 @@ function calculateFlatTariff() {
 
 
 /* =========================================================
-   TARIFA POR TRAMOS
+   TARIFA TRAMOS
 ========================================================= */
 
-function calculateHoursTariff() {
+const hoursTariff =
+    document.getElementById("hoursTariff");
 
+const hoursBackButton =
+    document.getElementById("hoursBackButton");
+
+const hoursPowerSlider =
+    document.getElementById("hoursPowerSlider");
+
+const valleySlider =
+    document.getElementById("valleySlider");
+
+const flatHoursSlider =
+    document.getElementById("flatHoursSlider");
+
+const peakSlider =
+    document.getElementById("peakSlider");
+
+const hoursPowerValue =
+    document.getElementById("hoursPowerValue");
+
+const valleyValue =
+    document.getElementById("valleyValue");
+
+const flatHoursValue =
+    document.getElementById("flatHoursValue");
+
+const peakValue =
+    document.getElementById("peakValue");
+
+const hoursPowerCost =
+    document.getElementById("hoursPowerCost");
+
+const valleyCost =
+    document.getElementById("valleyCost");
+
+const flatHoursCost =
+    document.getElementById("flatHoursCost");
+
+const peakCost =
+    document.getElementById("peakCost");
+
+const hoursTotalValue =
+    document.getElementById("hoursTotalValue");
+
+const hoursSummaryPower =
+    document.getElementById("hoursSummaryPower");
+
+const hoursSummaryValley =
+    document.getElementById("hoursSummaryValley");
+
+const hoursSummaryFlat =
+    document.getElementById("hoursSummaryFlat");
+
+const hoursSummaryPeak =
+    document.getElementById("hoursSummaryPeak");
+
+const hoursTaxToggle =
+    document.getElementById("hoursTaxToggle");
+
+const hoursTaxLabel =
+    document.getElementById("hoursTaxLabel");
+
+
+function calculateHoursTariff() {
 
     const power =
         Number(hoursPowerSlider.value);
 
-
     const valley =
         Number(valleySlider.value);
 
-
     const flatHours =
         Number(flatHoursSlider.value);
-
 
     const peak =
         Number(peakSlider.value);
 
 
-    /*
-     * POTENCIA
-     */
-
     const rawPowerCost =
         power * POWER_PRICE;
 
-
-    /*
-     * CONSUMOS
-     */
 
     const rawValleyCost =
         valley * VALLEY_PRICE;
@@ -2325,10 +3274,6 @@ function calculateHoursTariff() {
         peak * PEAK_PRICE;
 
 
-    /*
-     * TOTAL SIN IMPUESTOS
-     */
-
     const subtotal =
         rawPowerCost +
         rawValleyCost +
@@ -2336,19 +3281,11 @@ function calculateHoursTariff() {
         rawPeakCost;
 
 
-    /*
-     * TOTAL FINAL
-     */
-
     const total =
         hoursTaxToggle.checked
             ? subtotal * (1 + TAX_RATE)
             : subtotal;
 
-
-    /*
-     * ACTUALIZAR VALORES
-     */
 
     hoursPowerValue.textContent =
         power.toFixed(1).replace(".", ",");
@@ -2365,10 +3302,6 @@ function calculateHoursTariff() {
     peakValue.textContent =
         Math.round(peak);
 
-
-    /*
-     * COSTES INDIVIDUALES
-     */
 
     hoursPowerCost.textContent =
         money(
@@ -2402,17 +3335,9 @@ function calculateHoursTariff() {
         );
 
 
-    /*
-     * TOTAL
-     */
-
     hoursTotalValue.textContent =
         money(total);
 
-
-    /*
-     * CUATRO RECUADROS
-     */
 
     hoursSummaryPower.textContent =
         money(
@@ -2446,19 +3371,11 @@ function calculateHoursTariff() {
         );
 
 
-    /*
-     * IMPUESTOS
-     */
-
     hoursTaxLabel.textContent =
         hoursTaxToggle.checked
             ? "Precio final con impuestos incluidos"
             : "Precio sin impuestos";
 
-
-    /*
-     * ACTUALIZAR BARRAS
-     */
 
     updateSliderBackground(hoursPowerSlider);
 
@@ -2469,6 +3386,400 @@ function calculateHoursTariff() {
     updateSliderBackground(peakSlider);
 
 }
+
+
+/* =========================================================
+   PARTES DE UNA FACTURA
+========================================================= */
+
+const invoiceButton =
+    document.getElementById("invoiceButton");
+
+const invoiceBackButton =
+    document.getElementById("invoiceBackButton");
+
+
+const invoiceData = {
+
+    energy: {
+
+        icon: "⚡",
+
+        title: "Energía consumida",
+
+        percentage: "45–55 %",
+
+        color: "#4caf35",
+
+        background: "#d9f7ed",
+
+        badge: "⚡ ENERGÍA",
+
+        text: `
+            <p>
+                Es la parte más directamente relacionada con la electricidad que consumes.
+            </p>
+
+            <p>
+                Cuanto mayor sea tu consumo en kWh, mayor será esta parte de la factura.
+            </p>
+
+            <p>
+                Es importante recordar que la energía es solo una parte del importe final.
+            </p>
+        `
+
+    },
+
+
+    power: {
+
+        icon: "🔌",
+
+        title: "Potencia contratada",
+
+        percentage: "20–25 %",
+
+        color: "#3489e8",
+
+        background: "#e4f0ff",
+
+        badge: "🔌 POTENCIA",
+
+        text: `
+            <p>
+                Es el coste asociado a la potencia que tienes contratada en tu suministro.
+            </p>
+
+            <p>
+                Representa la capacidad de electricidad que puedes utilizar de forma simultánea.
+            </p>
+
+            <p>
+                A diferencia del consumo, esta parte depende principalmente de los kW contratados.
+            </p>
+        `
+
+    },
+
+
+    taxes: {
+
+        icon: "🏛️",
+
+        title: "Impuestos",
+
+        percentage: "15–20 %",
+
+        color: "#d49e00",
+
+        background: "#fff2c9",
+
+        badge: "🏛️ IMPUESTOS",
+
+        text: `
+            <p>
+                Son importes establecidos por la normativa y aplicados sobre la factura eléctrica.
+            </p>
+
+            <p>
+                La comercializadora los recauda y los repercute según corresponda.
+            </p>
+
+            <p>
+                Por eso, una parte del importe final de la factura no depende directamente de la decisión comercial de la compañía.
+            </p>
+        `
+
+    },
+
+
+    meter: {
+
+        icon: "📟",
+
+        title: "Alquiler del contador",
+
+        percentage: "1–3 %",
+
+        color: "#777777",
+
+        background: "#eeeeee",
+
+        badge: "📟 CONTADOR",
+
+        text: `
+            <p>
+                Corresponde al coste asociado al equipo de medida cuando el contador es de alquiler.
+            </p>
+
+            <p>
+                Es un importe normalmente pequeño dentro del conjunto de la factura.
+            </p>
+
+            <p>
+                Su existencia y cuantía dependen de las condiciones del suministro y del equipo de medida.
+            </p>
+        `
+
+    },
+
+
+    services: {
+
+        icon: "🛠️",
+
+        title: "Servicios adicionales",
+
+        percentage: "0–10 %",
+
+        color: "#f06c37",
+
+        background: "#ffe5dc",
+
+        badge: "🛠️ SERVICIOS",
+
+        text: `
+            <p>
+                Aquí pueden aparecer servicios complementarios contratados junto con el suministro eléctrico.
+            </p>
+
+            <p>
+                Por ejemplo, determinados servicios de mantenimiento, asistencia o productos adicionales.
+            </p>
+
+            <p>
+                Si el cliente no tiene contratado ningún servicio adicional, esta parte puede ser de 0 %.
+            </p>
+        `
+
+    }
+
+};
+
+
+const explanationBadge =
+    document.getElementById("explanationBadge");
+
+const explanationIcon =
+    document.getElementById("explanationIcon");
+
+const explanationTitle =
+    document.getElementById("explanationTitle");
+
+const explanationPercentage =
+    document.getElementById("explanationPercentage");
+
+const explanationText =
+    document.getElementById("explanationText");
+
+
+const chartSegments =
+    document.querySelectorAll(".chart-segment");
+
+const distributionRows =
+    document.querySelectorAll(".distribution-row[data-part]");
+
+
+function selectInvoicePart(part) {
+
+    const data =
+        invoiceData[part];
+
+    if (!data) {
+        return;
+    }
+
+
+    /*
+     * Actualizar explicación
+     */
+
+    explanationBadge.textContent =
+        data.badge;
+
+
+    explanationIcon.textContent =
+        data.icon;
+
+
+    explanationIcon.style.background =
+        data.background;
+
+
+    explanationIcon.style.color =
+        data.color;
+
+
+    explanationTitle.textContent =
+        data.title;
+
+
+    explanationPercentage.textContent =
+        data.percentage;
+
+
+    explanationPercentage.style.color =
+        data.color;
+
+
+    explanationText.innerHTML =
+        data.text;
+
+
+    /*
+     * Actualizar segmentos
+     */
+
+    chartSegments.forEach(function (segment) {
+
+        segment.classList.toggle(
+            "selected",
+            segment.dataset.part === part
+        );
+
+    });
+
+
+    /*
+     * Actualizar tabla
+     */
+
+    distributionRows.forEach(function (row) {
+
+        row.classList.toggle(
+            "selected",
+            row.dataset.part === part
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   NAVEGACIÓN
+========================================================= */
+
+useTariff.addEventListener(
+    "click",
+    function () {
+
+        showSection(simulatorSection);
+
+    }
+);
+
+
+useTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(simulatorSection);
+
+        }
+
+    }
+);
+
+
+flatTariff.addEventListener(
+    "click",
+    function () {
+
+        showSection(flatSimulatorSection);
+
+    }
+);
+
+
+flatTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(flatSimulatorSection);
+
+        }
+
+    }
+);
+
+
+hoursTariff.addEventListener(
+    "click",
+    function () {
+
+        showSection(hoursSimulatorSection);
+
+    }
+);
+
+
+hoursTariff.addEventListener(
+    "keydown",
+    function (event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            showSection(hoursSimulatorSection);
+
+        }
+
+    }
+);
+
+
+invoiceButton.addEventListener(
+    "click",
+    function () {
+
+        showSection(invoiceSection);
+
+    }
+);
+
+
+backButton.addEventListener(
+    "click",
+    showHome
+);
+
+
+flatBackButton.addEventListener(
+    "click",
+    showHome
+);
+
+
+hoursBackButton.addEventListener(
+    "click",
+    showHome
+);
+
+
+invoiceBackButton.addEventListener(
+    "click",
+    showHome
+);
 
 
 /* =========================================================
@@ -2556,157 +3867,47 @@ hoursTaxToggle.addEventListener(
 
 
 /* =========================================================
-   ABRIR TARIFA POR USO
+   EVENTOS GRÁFICO FACTURA
 ========================================================= */
 
-useTariff.addEventListener(
-    "click",
-    function () {
+chartSegments.forEach(function (segment) {
 
-        home.style.display = "none";
+    segment.addEventListener(
+        "click",
+        function () {
 
-        simulatorSection.classList.add("active");
+            selectInvoicePart(
+                segment.dataset.part
+            );
 
-        flatSimulatorSection.classList.remove("active");
+        }
+    );
 
-        hoursSimulatorSection.classList.remove("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
+});
 
 
 /* =========================================================
-   ABRIR TARIFA PLANA
+   EVENTOS TABLA FACTURA
 ========================================================= */
 
-flatTariff.addEventListener(
-    "click",
-    function () {
+distributionRows.forEach(function (row) {
 
-        home.style.display = "none";
+    row.addEventListener(
+        "click",
+        function () {
 
-        simulatorSection.classList.remove("active");
+            selectInvoicePart(
+                row.dataset.part
+            );
 
-        flatSimulatorSection.classList.add("active");
+        }
+    );
 
-        hoursSimulatorSection.classList.remove("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
+});
 
 
 /* =========================================================
-   ABRIR TRAMOS
-========================================================= */
-
-hoursTariff.addEventListener(
-    "click",
-    function () {
-
-        home.style.display = "none";
-
-        simulatorSection.classList.remove("active");
-
-        flatSimulatorSection.classList.remove("active");
-
-        hoursSimulatorSection.classList.add("active");
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   VOLVER TARIFA POR USO
-========================================================= */
-
-backButton.addEventListener(
-    "click",
-    function () {
-
-        simulatorSection.classList.remove("active");
-
-        flatSimulatorSection.classList.remove("active");
-
-        hoursSimulatorSection.classList.remove("active");
-
-        home.style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   VOLVER TARIFA PLANA
-========================================================= */
-
-flatBackButton.addEventListener(
-    "click",
-    function () {
-
-        flatSimulatorSection.classList.remove("active");
-
-        simulatorSection.classList.remove("active");
-
-        hoursSimulatorSection.classList.remove("active");
-
-        home.style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   VOLVER TRAMOS
-========================================================= */
-
-hoursBackButton.addEventListener(
-    "click",
-    function () {
-
-        hoursSimulatorSection.classList.remove("active");
-
-        simulatorSection.classList.remove("active");
-
-        flatSimulatorSection.classList.remove("active");
-
-        home.style.display = "block";
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-
-/* =========================================================
-   INICIALIZAR
+   INICIALIZACIÓN
 ========================================================= */
 
 calculateUseTariff();
@@ -2714,6 +3915,8 @@ calculateUseTariff();
 calculateFlatTariff();
 
 calculateHoursTariff();
+
+selectInvoicePart("energy");
 
 
 })();
