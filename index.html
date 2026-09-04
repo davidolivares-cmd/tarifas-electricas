@@ -1436,14 +1436,14 @@ input[type="range"]::-moz-range-thumb {
                 <input
                     type="range"
                     id="powerSlider"
-                    min="3"
+                    min="0.1"
                     max="15"
                     step="0.1"
                     value="3"
                 >
 
                 <div class="slider-labels">
-                    <span>3 kW</span>
+                    <span>0,1 kW</span>
                     <span>15 kW</span>
                 </div>
 
@@ -1674,14 +1674,14 @@ input[type="range"]::-moz-range-thumb {
                 <input
                     type="range"
                     id="flatPowerSlider"
-                    min="3"
+                    min="0.1"
                     max="15"
                     step="0.1"
                     value="3"
                 >
 
                 <div class="slider-labels">
-                    <span>3 kW</span>
+                    <span>0,1 kW</span>
                     <span>15 kW</span>
                 </div>
 
@@ -2002,14 +2002,14 @@ input[type="range"]::-moz-range-thumb {
                 <input
                     type="range"
                     id="hoursPowerSlider"
-                    min="3"
+                    min="0.1"
                     max="15"
                     step="0.1"
                     value="3"
                 >
 
                 <div class="slider-labels">
-                    <span>3 kW</span>
+                    <span>0,1 kW</span>
                     <span>15 kW</span>
                 </div>
 
@@ -2367,7 +2367,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- =========================================================
      SIMULADOR COMPAÑÍAS
 ========================================================= -->
-<section class="company-section" id="companySection"><div class="company-page"><button class="back-button" id="companyBackButton" type="button">← Volver a compañías</button><div class="company-header"><h2 id="companyTitle">Naturgy</h2><p id="companyPrices">P1 0,123030 €/kW/día · P2 0,061562 €/kW/día · V 0,112 €/kWh</p></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">⚡</div><div><h3>Potencia contratada</h3><span>Coste mensual de potencia</span></div></div><div class="current-value"><span id="companyPowerValue">3</span> kW</div></div><div class="slider-wrapper"><input type="range" id="companyPowerSlider" min="3" max="15" step="0.1" value="3"><div class="slider-labels"><span>3 kW</span><span>15 kW</span></div></div><div class="cost-row"><span class="cost-label">Coste de potencia</span><span class="cost-value"><span id="companyPowerCost">16,64</span> €</span></div></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">💡</div><div><h3>Consumo mensual</h3><span>Electricidad consumida</span></div></div><div class="current-value"><span id="companyConsumptionValue">0</span> kWh</div></div><div class="slider-wrapper"><input type="range" id="companyConsumptionSlider" min="0" max="800" step="1" value="0"><div class="slider-labels"><span>0 kWh</span><span>800 kWh</span></div></div><div class="cost-row"><span class="cost-label">Coste del consumo</span><span class="cost-value"><span id="companyConsumptionCost">0,00</span> €</span></div></div><div class="company-options" id="companyOptionsCard"><h3>Opciones de la tarifa</h3><label class="company-option" id="companySvaOption"><span><strong>Añadir SVA Luz</strong><small id="companySvaPrice">+ 8,40 €/mes sin impuestos</small></span><input type="checkbox" id="companySvaToggle"></label><label class="company-option" id="companyMaintenanceOption"><span><strong>Añadir SVA Hogar / Mantenimiento</strong><small>+ 4,41 €/mes sin impuestos</small></span><input type="checkbox" id="companyMaintenanceToggle"></label><label class="company-option" id="companyDualOption"><span><strong>Aplicar tarifa DUAL</strong><small>Precio energía: 0,1299 €/kWh</small></span><input type="checkbox" id="companyDualToggle"></label></div><div class="total-card"><div class="total-title">COSTE ESTIMADO MENSUAL</div><div class="total-value"><span id="companyTotalValue">0,00</span> €</div><div class="breakdown"><div class="breakdown-item"><span>Potencia</span><strong><span id="companySummaryPower">0,00</span> €</strong></div><div class="breakdown-item"><span>Consumo</span><strong><span id="companySummaryConsumption">0,00</span> €</strong></div></div><div class="tax-control"><div class="tax-text"><strong>Mostrar precio con impuestos</strong><span id="companyTaxLabel">Precio sin impuestos</span></div><label class="switch"><input type="checkbox" id="companyTaxToggle"><span class="switch-slider"></span></label></div></div></div></section>
+<section class="company-section" id="companySection"><div class="company-page"><button class="back-button" id="companyBackButton" type="button">← Volver a compañías</button><div class="company-header"><h2 id="companyTitle">Naturgy</h2><p id="companyPrices">P1 0,123030 €/kW/día · P2 0,061562 €/kW/día · V 0,112 €/kWh</p></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">⚡</div><div><h3>Potencia contratada</h3><span>Coste mensual de potencia</span></div></div><div class="current-value"><span id="companyPowerValue">3</span> kW</div></div><div class="slider-wrapper"><input type="range" id="companyPowerSlider" min="0.1" max="15" step="0.1" value="3"><div class="slider-labels"><span>0,1 kW</span><span>15 kW</span></div></div><div class="cost-row"><span class="cost-label">Coste de potencia</span><span class="cost-value"><span id="companyPowerCost">16,64</span> €</span></div></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">💡</div><div><h3>Consumo mensual</h3><span>Electricidad consumida</span></div></div><div class="current-value"><span id="companyConsumptionValue">0</span> kWh</div></div><div class="slider-wrapper"><input type="range" id="companyConsumptionSlider" min="0" max="800" step="1" value="0"><div class="slider-labels"><span>0 kWh</span><span>800 kWh</span></div></div><div class="cost-row"><span class="cost-label">Coste del consumo</span><span class="cost-value"><span id="companyConsumptionCost">0,00</span> €</span></div></div><div class="company-options" id="companyOptionsCard"><h3>Opciones de la tarifa</h3><label class="company-option" id="companySvaOption"><span><strong>Añadir SVA Luz</strong><small id="companySvaPrice">+ 8,40 €/mes sin impuestos</small></span><input type="checkbox" id="companySvaToggle"></label><label class="company-option" id="companyMaintenanceOption"><span><strong>Añadir SVA Hogar / Mantenimiento</strong><small>+ 4,41 €/mes sin impuestos</small></span><input type="checkbox" id="companyMaintenanceToggle"></label><label class="company-option" id="companyDualOption"><span><strong>Aplicar tarifa DUAL</strong><small>Precio energía: 0,1299 €/kWh</small></span><input type="checkbox" id="companyDualToggle"></label></div><div class="total-card"><div class="total-title">COSTE ESTIMADO MENSUAL</div><div class="total-value"><span id="companyTotalValue">0,00</span> €</div><div class="breakdown"><div class="breakdown-item"><span>Potencia</span><strong><span id="companySummaryPower">0,00</span> €</strong></div><div class="breakdown-item"><span>Consumo</span><strong><span id="companySummaryConsumption">0,00</span> €</strong></div></div><div class="tax-control"><div class="tax-text"><strong>Mostrar precio con impuestos</strong><span id="companyTaxLabel">Precio sin impuestos</span></div><label class="switch"><input type="checkbox" id="companyTaxToggle"><span class="switch-slider"></span></label></div></div></div></section>
 
 <!-- =========================================================
      PARTES DE UNA FACTURA
