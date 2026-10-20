@@ -3815,6 +3815,7 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
 </script>
 
 
+<script>
 /* Calculadora de costes eléctricos */
 (function(){
   const costsSection=document.getElementById("costsSection");
@@ -3884,6 +3885,6 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
     renderCostResult(box,total,rows,"Estimación para "+power.toLocaleString("es-ES")+" kW. "+(type==="nuevo"?"Se incluyen acceso, extensión y enganche.": "Se presupone que los derechos de extensión siguen vigentes porque la baja es inferior a 3 años.")+" Los tipos fiscales se muestran como referencia y deben verificarse.",warning);
   });
 })();
-
+</script>
 </body>
 </html>
