@@ -1322,6 +1322,34 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 @media(max-width:1150px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.prototype-app .app-tool-grid{grid-template-columns:1fr}.prototype-app .app-nav-item b{font-size:11px}}
 
+
+/* Comparador de tipos de tarifa */
+.prototype-app .app-main.tool-view{min-height:0}
+.prototype-app .app-main.tool-view #appDashboard{display:none!important}
+.prototype-app .tariff-comparator{width:min(1100px,calc(100% - 36px));margin:26px auto 28px;padding:26px;border:1px solid #dce6f3;border-radius:22px;background:#fff;box-shadow:0 12px 32px rgba(25,50,90,.08);box-sizing:border-box}
+.prototype-app .tariff-comparator-heading{text-align:left;margin-bottom:20px}
+.prototype-app .comparator-kicker{font-size:11px;letter-spacing:1.6px;font-weight:900;color:#3977c2}
+.prototype-app .tariff-comparator-heading h2{margin:7px 0;font-size:clamp(23px,3vw,32px);letter-spacing:-.7px;color:#15243b}
+.prototype-app .tariff-comparator-heading p{margin:0;color:#718096;font-size:14px;line-height:1.5}
+.prototype-app .comparator-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0}
+.prototype-app .comparator-controls>label:not(.comparator-tax-option){display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:800;color:#435875}
+.prototype-app .comparator-controls input[type=number]{width:100%;min-height:43px;border:1px solid #dce5f2;border-radius:11px;padding:9px 11px;box-sizing:border-box;font-size:15px;color:#17233b;background:#f9fbff}
+.prototype-app .comparator-tax-option{grid-column:1/-1;display:flex;align-items:center;gap:9px;font-size:13px;color:#435875;font-weight:700}
+.prototype-app .comparator-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.prototype-app .comparator-result{border:1px solid #e0e8f2;border-radius:17px;padding:18px;min-width:0;background:#f8fbff}
+.prototype-app .comparator-result h3{font-size:16px;margin:9px 0 7px;color:#17233b}
+.prototype-app .comparator-result p{min-height:42px;font-size:12px;line-height:1.5;color:#718096;margin:0 0 14px}
+.prototype-app .comparator-result>strong{display:block;font-size:clamp(22px,2.6vw,30px);letter-spacing:-.7px;color:#17233b}
+.prototype-app .comparator-result small{display:block;margin-top:4px;font-size:11px;color:#718096}
+.prototype-app .comparator-result-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#e6f5f0;font-size:21px}
+.prototype-app .comparator-flat .comparator-result-icon{background:#fff0dc}
+.prototype-app .comparator-hours .comparator-result-icon{background:#eee8ff}
+.prototype-app .comparator-result.is-cheapest{border-color:#1aa783;box-shadow:0 0 0 2px rgba(26,167,131,.12);background:#f2fcf8}
+.prototype-app .comparator-verdict{margin-top:15px;padding:13px 15px;border-radius:12px;background:#eef5ff;color:#244d83;font-weight:800;font-size:14px;line-height:1.5}
+.prototype-app .comparator-note{font-size:11px;line-height:1.6;color:#8290a5;margin:13px 0 0}
+@media(max-width:850px){.prototype-app .comparator-results{grid-template-columns:1fr}.prototype-app .comparator-controls{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.prototype-app .tariff-comparator{width:calc(100% - 24px);padding:17px}.prototype-app .comparator-controls{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -1568,6 +1596,45 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
         </article>
 
     </div>
+
+    <section class="tariff-comparator" id="tariffComparator" aria-labelledby="tariffComparatorTitle">
+      <div class="tariff-comparator-heading">
+        <span class="comparator-kicker">COMPARADOR ORIENTATIVO</span>
+        <h2 id="tariffComparatorTitle">¿Qué tipo de tarifa te conviene más?</h2>
+        <p>Introduce tus datos y compara una estimación mensual entre tarifa por uso, cuota fija y tramos horarios.</p>
+      </div>
+      <div class="comparator-controls">
+        <label>Potencia contratada (kW)
+          <input id="comparePower" type="number" min="0.1" max="15" step="0.1" value="3">
+        </label>
+        <label>Consumo mensual (kWh)
+          <input id="compareConsumption" type="number" min="0" max="2000" step="10" value="270">
+        </label>
+        <label>Cuota fija ofertada (€/mes)
+          <input id="compareFlatFee" type="number" min="0" max="1000" step="1" value="80">
+        </label>
+        <label class="comparator-tax-option"><input id="compareTaxes" type="checkbox" checked> Incluir impuestos (estimación del 21 %)</label>
+      </div>
+      <div class="comparator-results" aria-live="polite">
+        <article class="comparator-result comparator-use">
+          <span class="comparator-result-icon">⚡</span><h3>Tarifa por uso</h3>
+          <p>Consumo a precio único de 0,112 €/kWh.</p>
+          <strong id="compareUseResult">—</strong><small>Coste mensual estimado</small>
+        </article>
+        <article class="comparator-result comparator-flat">
+          <span class="comparator-result-icon">📅</span><h3>Tarifa plana / precio fijo</h3>
+          <p>Cuota mensual fija introducida por ti.</p>
+          <strong id="compareFlatResult">—</strong><small>Cuota indicada en la oferta</small>
+        </article>
+        <article class="comparator-result comparator-hours">
+          <span class="comparator-result-icon">🕒</span><h3>Tramos horarios</h3>
+          <p>Reparto de consumo orientativo: 40 % valle, 30 % llano y 30 % punta.</p>
+          <strong id="compareHoursResult">—</strong><small>Coste mensual estimado</small>
+        </article>
+      </div>
+      <div class="comparator-verdict" id="compareVerdict">Introduce tus datos para comparar las opciones.</div>
+      <p class="comparator-note">Comparación didáctica con los precios de referencia configurados en esta herramienta. No es una oferta comercial: no incluye otros conceptos regulados, servicios adicionales ni posibles descuentos. La cuota fija se compara tal como la introduces y se considera total mensual.</p>
+    </section>
 
     <div class="info">
 
@@ -4328,5 +4395,40 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 </script>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  const power=document.getElementById("comparePower");
+  const consumption=document.getElementById("compareConsumption");
+  const flatFee=document.getElementById("compareFlatFee");
+  const taxes=document.getElementById("compareTaxes");
+  const useOut=document.getElementById("compareUseResult");
+  const flatOut=document.getElementById("compareFlatResult");
+  const hoursOut=document.getElementById("compareHoursResult");
+  const verdict=document.getElementById("compareVerdict");
+  const cards=[...document.querySelectorAll(".comparator-result")];
+  if(!power||!consumption||!flatFee||!taxes||!useOut||!flatOut||!hoursOut||!verdict)return;
+  const money=n=>n.toLocaleString("es-ES",{style:"currency",currency:"EUR"});
+  function updateTariffComparison(){
+    const kw=Math.max(0.1,Math.min(15,Number(power.value)||0.1));
+    const kwh=Math.max(0,Math.min(2000,Number(consumption.value)||0));
+    const fee=Math.max(0,Math.min(1000,Number(flatFee.value)||0));
+    const tax=taxes.checked?1.21:1;
+    const powerCost=kw*5.31855;
+    const use=(powerCost+kwh*0.112)*tax;
+    const flat=fee;
+    const hourly=(powerCost+kwh*(.4*.08+.3*.14+.3*.21))*tax;
+    const values=[use,flat,hourly];
+    [useOut,flatOut,hoursOut].forEach((el,i)=>el.textContent=money(values[i]));
+    cards.forEach((card,i)=>card.classList.toggle("is-cheapest",values[i]===Math.min(...values)));
+    const min=Math.min(...values);
+    const names=["Tarifa por uso","Tarifa plana / precio fijo","Tarifa por tramos horarios"];
+    const winners=names.filter((name,i)=>Math.abs(values[i]-min)<0.005);
+    verdict.textContent=winners.length===3?"Con estos datos, las tres opciones tienen un coste mensual similar.":winners.length>1?"Con estos datos, las opciones más económicas son: "+winners.join(" y ")+".":"Con estos datos, la opción más económica es "+winners[0]+", con "+money(min)+" al mes.";
+  }
+  [power,consumption,flatFee].forEach(el=>el.addEventListener("input",updateTariffComparison));
+  taxes.addEventListener("change",updateTariffComparison);
+  updateTariffComparison();
+});
+</script>
 </body>
 </html>
