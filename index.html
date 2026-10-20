@@ -4283,6 +4283,7 @@ document.addEventListener("DOMContentLoaded",function(){
     });
   }
   function hideAppSections(){
+    document.querySelector(".app-main")?.classList.add("tool-view");
     ["simulatorSection","flatSimulatorSection","hoursSimulatorSection","companySection","invoiceSection","costsSection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection","cupsMenu"].forEach(function(id){
       const el=document.getElementById(id);
       if(el){el.classList.remove("active");el.style.display="none";}
