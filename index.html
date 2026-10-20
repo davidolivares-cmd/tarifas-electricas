@@ -3876,17 +3876,29 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
   });
   durationField.style.display=altaType.value==="baja"?"flex":"none";
   function openCostsSection(){
-    [document.getElementById("simulatorSection"),document.getElementById("flatSimulatorSection"),document.getElementById("hoursSimulatorSection"),document.getElementById("invoiceSection"),document.getElementById("companySection"),document.getElementById("bonoSection"),costsSection].forEach(section=>{if(section)section.classList.remove("active");});
+    const sectionIds=["cover","cupsMenu","simulatorSection","flatSimulatorSection","hoursSimulatorSection","invoiceSection","companySection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"];
+    sectionIds.forEach(id=>{
+      const section=document.getElementById(id);
+      if(section){section.classList.remove("active");section.style.display="none";}
+    });
     const home=document.getElementById("home");
     if(home)home.style.display="none";
     costsSection.classList.add("active");
-    requestAnimationFrame(()=>costsSection.scrollIntoView({behavior:"auto",block:"start"}));
+    costsSection.style.display="block";
+    window.scrollTo({top:0,behavior:"auto"});
+    requestAnimationFrame(()=>window.scrollTo({top:costsSection.getBoundingClientRect().top+window.scrollY,behavior:"auto"}));
   }
   function returnToCostsHome(){
-    [document.getElementById("simulatorSection"),document.getElementById("flatSimulatorSection"),document.getElementById("hoursSimulatorSection"),document.getElementById("invoiceSection"),document.getElementById("companySection"),document.getElementById("bonoSection"),costsSection].forEach(section=>{if(section)section.classList.remove("active");});
+    const sectionIds=["cover","cupsMenu","simulatorSection","flatSimulatorSection","hoursSimulatorSection","invoiceSection","companySection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"];
+    sectionIds.forEach(id=>{
+      const section=document.getElementById(id);
+      if(section){section.classList.remove("active");section.style.display="none";}
+    });
+    costsSection.classList.remove("active");
+    costsSection.style.display="none";
     const page=document.querySelector(".page"),home=document.getElementById("home");
     if(page)page.style.display="block";
-    if(home)home.style.display="block";
+    if(home){home.style.display="block";home.style.removeProperty("min-height");}
     window.scrollTo({top:0,behavior:"auto"});
   }
   if(costsButton)costsButton.addEventListener("click",openCostsSection);
