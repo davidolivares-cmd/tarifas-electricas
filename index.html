@@ -1308,6 +1308,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 @media(max-width:1150px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prototype-app .app-top-actions .app-version{display:none}}
 @media(max-width:760px){.prototype-app .app-sidebar{width:76px;padding-inline:9px}.prototype-app .app-brand-name,.prototype-app .app-nav-label,.prototype-app .app-nav-item b,.prototype-app .app-sidebar-footer>div{display:none}.prototype-app .app-brand{justify-content:center;padding:8px 3px;flex-wrap:wrap}.prototype-app .sidebar-collapse{display:none}.prototype-app .app-nav-item{justify-content:center;padding:10px 4px}.prototype-app .app-sidebar-footer{justify-content:center;padding:13px 3px}.prototype-app .app-main{margin-left:76px;padding:10px}.prototype-app .app-topbar{align-items:flex-start;padding:15px;border-radius:17px}.prototype-app .app-topbar p{display:none}.prototype-app .app-top-actions{display:none}.prototype-app .app-breadcrumb-icon{display:none}.prototype-app .app-welcome-card{padding:22px;min-height:0}.prototype-app .app-welcome-symbol{display:none}.prototype-app .app-tool-grid{grid-template-columns:1fr;gap:11px}.prototype-app .app-tool-card{min-height:150px;padding:16px}.prototype-app .app-dashboard{margin-top:12px}.prototype-app .app-section-heading{margin-top:19px}.prototype-app .app-main .costs-section{padding:14px 10px 32px}}
 
+
+/* Navegación separada por herramienta: evitar que se acumulen paneles de distintas áreas */
+.prototype-app .app-nav-item{line-height:1.35;min-height:42px}
+.prototype-app .app-nav-item b{white-space:normal}
+.prototype-app .app-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.prototype-app .app-search{display:none!important}
+.prototype-app .app-main .invoice-section.active,
+.prototype-app .app-main .costs-section.active,
+.prototype-app .app-main .bono-section.active,
+.prototype-app .app-main .gas-home.active,
+.prototype-app .app-main .gas-section.active{display:block!important}
+.prototype-app #home .companies-section{margin-top:0}
+.prototype-app #home .tariffs{margin-bottom:22px}
+.prototype-app #home .invoice-access,.prototype-app #home .costs-access-row{display:none}
+.prototype-app .app-top-actions{gap:0}
+@media(max-width:1150px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.prototype-app .app-tool-grid{grid-template-columns:1fr}.prototype-app .app-nav-item b{font-size:11px}}
+
 </style>
 </head>
 
@@ -1320,12 +1338,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
   </div>
   <nav class="app-nav" aria-label="Navegación principal">
     <button class="app-nav-item active" data-app-nav="inicio"><span>⌂</span><b>Inicio</b></button>
-    <div class="app-nav-label">SUMINISTROS</div>
-    <button class="app-nav-item" data-app-nav="electricidad"><span>ϟ</span><b>Electricidad</b></button>
-    <button class="app-nav-item" data-app-nav="gas"><span>♨</span><b>Gas</b></button>
-    <div class="app-nav-label">CONSULTA Y SIMULACIÓN</div>
-    <button class="app-nav-item" data-app-nav="companias"><span>▦</span><b>Compañías y precios</b></button>
-    <button class="app-nav-item" data-app-nav="facturas"><span>▤</span><b>Facturas</b></button>
+    <div class="app-nav-label">COMERCIALIZADORAS</div>
+    <button class="app-nav-item" data-app-nav="electricidad"><span>ϟ</span><b>Electricidad · Compañías y precios</b></button>
+    <button class="app-nav-item" data-app-nav="gas"><span>♨</span><b>Gas · Compañías y precios</b></button>
+    <div class="app-nav-label">CONSULTA Y HERRAMIENTAS</div>
+    <button class="app-nav-item" data-app-nav="tipos"><span>▦</span><b>Tipos de tarifas</b></button>
+    <button class="app-nav-item" data-app-nav="facturas"><span>▤</span><b>Partes de una factura</b></button>
     <button class="app-nav-item" data-app-nav="bono"><span>♡</span><b>Calculadora bono social</b></button>
     <button class="app-nav-item" data-app-nav="costes"><span>⌁</span><b>Calculadora de costes</b></button>
     <button class="app-nav-item" data-app-nav="cups"><span>▣</span><b>CUPS</b></button>
@@ -1335,23 +1353,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 <div class="app-main">
   <header class="app-topbar">
     <div class="app-breadcrumb"><span class="app-breadcrumb-icon">▦</span><div><div class="app-eyebrow">FORMACIÓN ENERGÍA</div><h1 id="appPageTitle">Hola, bienvenido</h1><p id="appPageSubtitle">Tu espacio de trabajo para consultar tarifas, entender facturas y practicar simulaciones.</p></div></div>
-    <div class="app-top-actions"><label class="app-search"><span>⌕</span><input id="appSearch" type="search" placeholder="Buscar herramienta…"></label><span class="app-version">PANEL DE FORMACIÓN</span></div>
+    <div class="app-top-actions"><span class="app-version">PANEL DE FORMACIÓN</span></div>
   </header>
   <main id="appDashboard" class="app-dashboard">
     <section class="app-welcome-card">
       <div><span class="app-eyebrow">CENTRO DE HERRAMIENTAS</span><h2>Todo lo que necesitas,<br>en un solo lugar.</h2><p>Accede a los recursos de electricidad, gas y facturación sin perder tiempo navegando entre pantallas.</p></div>
       <div class="app-welcome-symbol">ϟ</div>
     </section>
-    <div class="app-section-heading"><div><h2>Áreas de trabajo</h2><p>Selecciona una categoría para empezar.</p></div><span class="app-muted-pill">8 herramientas</span></div>
+    <div class="app-section-heading"><div><h2>Áreas de trabajo</h2><p>Selecciona una categoría para empezar.</p></div><span class="app-muted-pill">7 herramientas</span></div>
     <div class="app-tool-grid">
-      <button class="app-tool-card" data-app-nav="electricidad"><span class="app-tool-icon icon-blue">ϟ</span><span class="app-tool-title">Electricidad</span><span class="app-tool-desc">Tarifas, simuladores y recursos de suministro eléctrico.</span><span class="app-tool-link">Entrar en electricidad <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="gas"><span class="app-tool-icon icon-orange">♨</span><span class="app-tool-title">Gas</span><span class="app-tool-desc">Tarifas, facturas y herramientas de gas natural.</span><span class="app-tool-link">Entrar en gas <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="companias"><span class="app-tool-icon icon-purple">▦</span><span class="app-tool-title">Compañías y precios</span><span class="app-tool-desc">Consulta las comercializadoras y compara tarifas.</span><span class="app-tool-link">Consultar precios <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="facturas"><span class="app-tool-icon icon-teal">▤</span><span class="app-tool-title">Facturas</span><span class="app-tool-desc">Aprende a leer facturas y localizar sus conceptos clave.</span><span class="app-tool-link">Ver facturas <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="bono"><span class="app-tool-icon icon-amber">♡</span><span class="app-tool-title">Bono social</span><span class="app-tool-desc">Comprueba las condiciones mediante la herramienta guiada.</span><span class="app-tool-link">Abrir calculadora <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="costes"><span class="app-tool-icon icon-blue">⌁</span><span class="app-tool-title">Calculadora de costes</span><span class="app-tool-desc">Subidas y bajadas de potencia y altas de suministro.</span><span class="app-tool-link">Calcular costes <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="cups"><span class="app-tool-icon icon-teal">▣</span><span class="app-tool-title">Localizador CUPS</span><span class="app-tool-desc">Practica dónde encontrar el CUPS en facturas de ejemplo.</span><span class="app-tool-link">Localizar CUPS <b>→</b></span></button>
-      <button class="app-tool-card" data-app-nav="electricidad"><span class="app-tool-icon icon-purple">◷</span><span class="app-tool-title">Simuladores de consumo</span><span class="app-tool-desc">Calcula importes con potencias, consumos y periodos.</span><span class="app-tool-link">Abrir simuladores <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="electricidad"><span class="app-tool-icon icon-blue">ϟ</span><span class="app-tool-title">Electricidad · Compañías y precios</span><span class="app-tool-desc">Consulta las comercializadoras eléctricas y sus tarifas.</span><span class="app-tool-link">Consultar precios <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="gas"><span class="app-tool-icon icon-orange">♨</span><span class="app-tool-title">Gas · Compañías y precios</span><span class="app-tool-desc">Consulta tarifas de gas y precios por peaje de acceso.</span><span class="app-tool-link">Consultar precios <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="tipos"><span class="app-tool-icon icon-purple">▦</span><span class="app-tool-title">Tipos de tarifas</span><span class="app-tool-desc">Conoce las modalidades y accede a sus simuladores.</span><span class="app-tool-link">Ver tipos de tarifas <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="facturas"><span class="app-tool-icon icon-teal">▤</span><span class="app-tool-title">Partes de una factura</span><span class="app-tool-desc">Consulta los conceptos principales de una factura eléctrica.</span><span class="app-tool-link">Ver explicación <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="bono"><span class="app-tool-icon icon-amber">♡</span><span class="app-tool-title">Calculadora bono social</span><span class="app-tool-desc">Revisa de forma guiada los requisitos y la situación del hogar.</span><span class="app-tool-link">Abrir calculadora <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="costes"><span class="app-tool-icon icon-blue">⌁</span><span class="app-tool-title">Calculadora de costes</span><span class="app-tool-desc">Calcula costes de potencia y altas de suministro.</span><span class="app-tool-link">Calcular costes <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="cups"><span class="app-tool-icon icon-teal">▣</span><span class="app-tool-title">CUPS</span><span class="app-tool-desc">Practica cómo localizar el CUPS en facturas de ejemplo.</span><span class="app-tool-link">Ver facturas <b>→</b></span></button>
     </div>
     <div class="app-bottom-note"><span>ⓘ</span><p>Los resultados de las calculadoras son orientativos y dependen de los datos introducidos y de las condiciones aplicables.</p></div>
   </main>
@@ -4185,25 +4202,35 @@ document.addEventListener("DOMContentLoaded",function(){
   const dashboard=document.getElementById("appDashboard");
   const pageTitle=document.getElementById("appPageTitle");
   const pageSubtitle=document.getElementById("appPageSubtitle");
-  const search=document.getElementById("appSearch");
   const titles={
     inicio:["Hola, bienvenido","Tu espacio de trabajo para consultar tarifas, entender facturas y practicar simulaciones."],
-    electricidad:["Electricidad","Tarifas, simuladores y recursos de suministro eléctrico."],
-    gas:["Gas","Tarifas, facturas y herramientas de gas natural."],
-    companias:["Compañías y precios","Consulta las comercializadoras y compara tarifas."],
-    facturas:["Facturas de electricidad","Aprende a interpretar facturas y localizar sus conceptos clave."],
-    bono:["Calculadora del bono social","Herramienta guiada para revisar las condiciones del bono social."],
-    costes:["Calculadora de costes eléctricos","Calcula los costes orientativos de subir o bajar potencia y dar de alta un suministro."],
-    cups:["Facturas y CUPS","Practica dónde localizar el CUPS en facturas de ejemplo."]
+    electricidad:["Electricidad · Compañías y precios","Consulta las comercializadoras eléctricas y sus tarifas."],
+    gas:["Gas · Compañías y precios","Consulta las tarifas de gas y sus precios por peaje."],
+    tipos:["Tipos de tarifas","Conoce las modalidades de tarifa eléctrica y utiliza sus simuladores."],
+    facturas:["Partes de una factura","Consulta la explicación de los conceptos de una factura eléctrica."],
+    bono:["Calculadora bono social","Herramienta guiada para revisar los requisitos del bono social."],
+    costes:["Calculadora de costes","Calcula los costes orientativos de subir o bajar potencia y dar de alta un suministro."],
+    cups:["CUPS","Aprende dónde localizar el CUPS en una factura de electricidad."]
   };
+  function clearHomeLayout(){
+    const home=document.getElementById("home");
+    if(!home)return;
+    [".tariffs",".info",".invoice-access",".companies-section",".costs-access-row"].forEach(sel=>{
+      home.querySelectorAll(sel).forEach(el=>el.style.removeProperty("display"));
+    });
+  }
   function hideAppSections(){
     ["simulatorSection","flatSimulatorSection","hoursSimulatorSection","companySection","invoiceSection","costsSection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection","cupsMenu"].forEach(function(id){
-      const el=document.getElementById(id);if(el){el.classList.remove("active");el.style.display="none";}
+      const el=document.getElementById(id);
+      if(el){el.classList.remove("active");el.style.display="none";}
     });
     const home=document.getElementById("home");if(home)home.style.display="none";
     const page=document.querySelector(".page");if(page)page.style.display="none";
     const cover=document.getElementById("cover");if(cover)cover.style.display="none";
     dashboard.style.display="none";
+    clearHomeLayout();
+    document.querySelectorAll(".gas-home-page > .invoice-access").forEach(el=>el.style.removeProperty("display"));
+    const gasCompanies=document.querySelector(".gas-companies-section");if(gasCompanies)gasCompanies.style.removeProperty("display");
   }
   function markActive(key){
     document.querySelectorAll("[data-app-nav]").forEach(function(btn){btn.classList.toggle("active",btn.getAttribute("data-app-nav")===key);});
@@ -4212,31 +4239,83 @@ document.addEventListener("DOMContentLoaded",function(){
   function showDashboard(){
     hideAppSections();dashboard.style.display="block";markActive("inicio");window.scrollTo({top:0,behavior:"auto"});
   }
+  function showHomeArea(){
+    const page=document.querySelector(".page"),home=document.getElementById("home");
+    if(page)page.style.display="block";
+    if(home){home.style.display="block";home.style.removeProperty("min-height");}
+    const cover=document.getElementById("cover");if(cover)cover.style.display="none";
+  }
   function navigate(key){
-    if(key==="inicio"){showDashboard();return;}
     hideAppSections();markActive(key);
-    if(key==="electricidad"){document.getElementById("electricityButton")?.click();return;}
-    if(key==="gas"){["gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.removeProperty("display");});document.getElementById("gasButton")?.click();return;}
-    if(key==="cups"){const el=document.getElementById("cupsMenu");if(el)el.style.removeProperty("display");document.getElementById("cupsButton")?.click();return;}
-    if(key==="companias"){document.getElementById("electricityButton")?.click();document.getElementById("companySection").classList.add("active");document.getElementById("companySection").style.display="block";document.getElementById("home").style.display="none";window.scrollTo({top:0,behavior:"auto"});return;}
-    if(key==="facturas"){const el=document.getElementById("invoiceSection");if(el)el.style.removeProperty("display");document.getElementById("electricityButton")?.click();document.getElementById("invoiceButton")?.click();return;}
-    if(key==="bono"){const el=document.getElementById("bonoSection");if(el)el.style.removeProperty("display");document.getElementById("electricityButton")?.click();document.getElementById("bonoButton")?.click();return;}
-    if(key==="costes"){document.getElementById("electricityButton")?.click();document.getElementById("costsButton")?.click();return;}
+    if(key==="inicio"){showDashboard();return;}
+    if(key==="electricidad"){
+      showHomeArea();
+      const home=document.getElementById("home");
+      home.querySelector(".tariffs").style.display="none";
+      home.querySelector(".info").style.display="none";
+      home.querySelectorAll(".invoice-access,.costs-access-row").forEach(el=>el.style.display="none");
+      home.querySelector(".companies-section").style.display="block";
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="tipos"){
+      showHomeArea();
+      const home=document.getElementById("home");
+      home.querySelector(".companies-section").style.display="none";
+      home.querySelectorAll(".invoice-access,.costs-access-row").forEach(el=>el.style.display="none");
+      home.querySelector(".tariffs").style.display="grid";
+      home.querySelector(".info").style.display="block";
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="gas"){
+      const gasHome=document.getElementById("gasHome");
+      if(gasHome){gasHome.style.display="block";gasHome.classList.add("active");}
+      document.querySelectorAll(".gas-home-page > .invoice-access").forEach(el=>el.style.display="none");
+      const companies=document.querySelector(".gas-companies-section");if(companies)companies.style.display="block";
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="facturas"){
+      const page=document.querySelector(".page");if(page)page.style.display="block";
+      const section=document.getElementById("invoiceSection");
+      if(section){section.style.display="block";section.classList.add("active");}
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="bono"){
+      const page=document.querySelector(".page");if(page)page.style.display="block";
+      const section=document.getElementById("bonoSection");
+      if(section){section.style.display="block";section.classList.add("active");}
+      if(typeof resetBono==="function"){resetBono();bonoStep=1;updateBonoStep();}
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="costes"){
+      const section=document.getElementById("costsSection");
+      if(section){section.style.display="block";section.classList.add("active");}
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
+    if(key==="cups"){
+      const section=document.getElementById("cupsMenu");
+      if(section){section.style.display="block";}
+      window.scrollTo({top:0,behavior:"auto"});return;
+    }
   }
   document.querySelectorAll("[data-app-nav]").forEach(function(btn){btn.addEventListener("click",function(){navigate(btn.getAttribute("data-app-nav"));});});
-  document.getElementById("sidebarCollapse").addEventListener("click",function(){
+  document.querySelectorAll(".app-tool-card").forEach(function(btn){btn.addEventListener("click",function(){navigate(btn.getAttribute("data-app-nav"));});});
+  ["portalBackButton","gasPortalBackButton","cupsBackButton","bonoBackButton","costsBackButton"].forEach(id=>{
+    const button=document.getElementById(id);
+    if(button)button.addEventListener("click",showDashboard);
+  });
+  const bonoBack=document.getElementById("bonoBackButton");if(bonoBack)bonoBack.textContent="← Volver al inicio";
+  const costsBack=document.getElementById("costsBackButton");if(costsBack)costsBack.textContent="← Volver al inicio";
+  const invoiceButton=document.getElementById("invoiceButton");if(invoiceButton)invoiceButton.querySelectorAll("span")[1].textContent="PARTES DE UNA FACTURA";
+  const gasInvoiceButton=document.getElementById("gasInvoiceButton");if(gasInvoiceButton)gasInvoiceButton.querySelectorAll("span")[1].textContent="PARTES DE UNA FACTURA";
+  const cupsBack=document.getElementById("cupsBackButton");if(cupsBack)cupsBack.textContent="← Volver al inicio";
+  const companyBack=document.getElementById("companyBackButton");if(companyBack)companyBack.addEventListener("click",function(){navigate("electricidad");});
+  const gasCompanyBack=document.getElementById("gasCompanyBackButton");if(gasCompanyBack)gasCompanyBack.addEventListener("click",function(){navigate("gas");});
+    document.getElementById("sidebarCollapse").addEventListener("click",function(){
     sidebar.classList.toggle("collapsed");root.classList.toggle("sidebar-collapsed");
     this.textContent=sidebar.classList.contains("collapsed")?"›":"‹";
     this.setAttribute("aria-label",sidebar.classList.contains("collapsed")?"Expandir menú":"Contraer menú");
   });
-  if(search){search.addEventListener("input",function(){
-    const query=search.value.trim().toLocaleLowerCase("es");
-    const cards=[...document.querySelectorAll(".app-tool-card")];let count=0;
-    cards.forEach(function(card){const visible=card.textContent.toLocaleLowerCase("es").includes(query);card.style.display=visible?"flex":"none";if(visible)count++;});
-    let empty=document.getElementById("appSearchEmpty");
-    if(!empty){empty=document.createElement("div");empty.id="appSearchEmpty";empty.className="app-search-empty";empty.textContent="No se han encontrado herramientas con ese término.";document.querySelector(".app-tool-grid").appendChild(empty);}
-    empty.style.display=query&&count===0?"block":"none";
-  });}
+
   showDashboard();
 });
 </script>
