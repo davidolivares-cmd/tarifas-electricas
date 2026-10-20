@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tarifas eléctricas - Formación</title>
+<title>Formación Energía | Panel de formación</title>
 
 <style>
 
@@ -1242,10 +1242,119 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
   .costs-card{padding:19px}
 }
 
+ 
+/* Prototipo independiente de Formación Energía: nueva navegación y panel de inicio */
+.prototype-app{margin:0;background:#f3f6fb;color:#101828;min-height:100vh;font-family:Arial,Helvetica,sans-serif}
+.prototype-app .app-sidebar{position:fixed;z-index:1000;left:0;top:0;bottom:0;width:248px;padding:15px 12px 12px;background:linear-gradient(180deg,#19263c,#111b2d);color:#d9e3f3;display:flex;flex-direction:column;gap:22px;transition:width .22s ease;box-shadow:8px 0 28px rgba(16,35,65,.08)}
+.prototype-app .app-brand{min-height:58px;padding:9px 10px;display:flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.12);border-radius:17px;background:rgba(255,255,255,.06)}
+.prototype-app .app-brand-mark{width:34px;height:34px;flex:0 0 34px;display:grid;place-items:center;border-radius:11px;background:#fff;color:#17233b;font-size:23px;font-weight:900}
+.prototype-app .app-brand-name{font-size:13px;font-weight:800;line-height:1.2;color:#fff;flex:1}
+.prototype-app .sidebar-collapse{border:0;border-radius:50%;width:28px;height:28px;background:rgba(255,255,255,.1);color:#fff;font-size:22px;cursor:pointer}
+.prototype-app .app-nav{display:flex;flex-direction:column;gap:5px}
+.prototype-app .app-nav-label{margin:15px 10px 5px;color:#8392aa;font-size:9px;font-weight:800;letter-spacing:1.3px}
+.prototype-app .app-nav-item{width:100%;min-height:40px;border:0;border-radius:11px;padding:9px 11px;display:flex;align-items:center;gap:12px;text-align:left;color:#c7d2e2;background:transparent;cursor:pointer;font-size:12px}
+.prototype-app .app-nav-item>span{width:19px;flex:0 0 19px;text-align:center;font-size:17px;color:#a9bdd8}
+.prototype-app .app-nav-item b{font-weight:600}
+.prototype-app .app-nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.prototype-app .app-nav-item.active{background:#f4f7fc;color:#17233b;box-shadow:0 3px 10px rgba(0,0,0,.08)}
+.prototype-app .app-nav-item.active>span{color:#17233b}
+.prototype-app .app-sidebar-footer{margin-top:auto;display:flex;align-items:center;gap:9px;padding:13px 10px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(255,255,255,.05)}
+.prototype-app .app-status-dot{width:8px;height:8px;border-radius:50%;background:#51c7a5;box-shadow:0 0 0 4px rgba(81,199,165,.12)}
+.prototype-app .app-sidebar-footer strong,.prototype-app .app-sidebar-footer small{display:block}
+.prototype-app .app-sidebar-footer strong{font-size:10px;color:#fff}.prototype-app .app-sidebar-footer small{font-size:9px;color:#96a5bb;margin-top:4px}
+.prototype-app .app-main{margin-left:248px;min-height:100vh;padding:18px 22px 32px;transition:margin-left .22s ease}
+.prototype-app .app-topbar{min-height:94px;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 24px;background:rgba(255,255,255,.9);border:1px solid #e6ebf3;border-radius:22px;box-shadow:0 8px 26px rgba(20,40,70,.04)}
+.prototype-app .app-breadcrumb{display:flex;align-items:flex-start;gap:13px;min-width:0}
+.prototype-app .app-breadcrumb-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:13px;background:#edf2f9;color:#263d5d;font-size:20px}
+.prototype-app .app-eyebrow{font-size:9px;font-weight:800;letter-spacing:1.4px;color:#8794aa}
+.prototype-app .app-topbar h1{font-size:clamp(23px,2.2vw,34px);letter-spacing:-1px;line-height:1.12;margin:3px 0 6px;color:#101828}
+.prototype-app .app-topbar p{font-size:12px;line-height:1.45;color:#748198;margin:0}
+.prototype-app .app-top-actions{display:flex;align-items:center;gap:12px}
+.prototype-app .app-search{display:flex;align-items:center;gap:8px;border:1px solid #e0e7f0;background:#fff;border-radius:11px;padding:0 11px;height:38px;width:210px;color:#8a98ad}
+.prototype-app .app-search span{font-size:19px}.prototype-app .app-search input{border:0;outline:0;width:100%;min-width:0;font-size:11px;background:transparent;color:#17233b}
+.prototype-app .app-version{font-size:8px;letter-spacing:.8px;font-weight:800;color:#78869b;background:#f1f4f8;border-radius:8px;padding:9px 10px;white-space:nowrap}
+.prototype-app .app-dashboard{max-width:1500px;margin:20px auto 0}
+.prototype-app .app-welcome-card{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:170px;padding:27px 32px;border:1px solid #e2e9f2;border-radius:22px;background:linear-gradient(110deg,#fff 0%,#f7faff 68%,#f4f7fd 100%);box-shadow:0 8px 25px rgba(20,40,70,.035)}
+.prototype-app .app-welcome-card h2{font-size:clamp(24px,3vw,37px);letter-spacing:-1.1px;line-height:1.12;color:#101828;margin:9px 0}
+.prototype-app .app-welcome-card p{font-size:13px;line-height:1.55;color:#748198;max-width:650px;margin:0}
+.prototype-app .app-welcome-symbol{width:105px;height:105px;flex:0 0 105px;display:grid;place-items:center;border-radius:28px;background:#e9f1fd;color:#3c80d6;font-size:78px;font-weight:900}
+.prototype-app .app-section-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:26px 2px 14px}
+.prototype-app .app-section-heading h2{font-size:18px;letter-spacing:-.3px;margin:0 0 5px;color:#17233b}
+.prototype-app .app-section-heading p{font-size:11px;margin:0;color:#8491a5}
+.prototype-app .app-muted-pill{font-size:10px;color:#718097;background:#e9eef6;border-radius:99px;padding:8px 11px}
+.prototype-app .app-tool-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.prototype-app .app-tool-card{min-width:0;min-height:192px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;padding:20px;border:1px solid #e2e8f1;border-radius:18px;background:rgba(255,255,255,.94);box-shadow:0 5px 17px rgba(20,40,70,.035);cursor:pointer;color:#17233b;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+.prototype-app .app-tool-card:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(20,40,70,.08);border-color:#cbd7e8}
+.prototype-app .app-tool-icon{width:40px;height:40px;display:grid;place-items:center;border-radius:13px;font-size:24px;font-weight:800;margin-bottom:15px}
+.prototype-app .icon-blue{background:#e8f1ff;color:#337bd1}.prototype-app .icon-orange{background:#fff0df;color:#b97a35}.prototype-app .icon-purple{background:#efedfa;color:#6659a8}.prototype-app .icon-teal{background:#e2f5f2;color:#168875}.prototype-app .icon-amber{background:#fbf1e3;color:#a87528}
+.prototype-app .app-tool-title{font-size:14px;font-weight:800;line-height:1.3;margin-bottom:8px}
+.prototype-app .app-tool-desc{font-size:11px;color:#748198;line-height:1.5}
+.prototype-app .app-tool-link{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;margin-top:auto;padding-top:17px;font-size:10px;font-weight:800;color:#3977c2}
+.prototype-app .app-tool-link b{font-size:16px}
+.prototype-app .app-bottom-note{display:flex;align-items:flex-start;gap:10px;margin-top:18px;padding:13px 16px;border:1px solid #e3e9f1;border-radius:14px;background:rgba(255,255,255,.6);color:#78869b}
+.prototype-app .app-bottom-note>span{font-size:15px}.prototype-app .app-bottom-note p{margin:0;font-size:10px;line-height:1.5}
+.prototype-app #cover{display:none!important}
+.prototype-app .page,.prototype-app #home{display:none}
+.prototype-app .app-sidebar.collapsed{width:76px;padding-inline:9px}
+.prototype-app .app-sidebar.collapsed .app-brand-name,.prototype-app .app-sidebar.collapsed .app-nav-label,.prototype-app .app-sidebar.collapsed .app-nav-item b,.prototype-app .app-sidebar.collapsed .app-sidebar-footer>div{display:none}
+.prototype-app .app-sidebar.collapsed .app-brand{justify-content:center;padding:8px 3px;flex-wrap:wrap}
+.prototype-app .app-sidebar.collapsed .sidebar-collapse{width:24px;height:24px}
+.prototype-app .app-sidebar.collapsed .app-nav-item{justify-content:center;padding:10px 4px}
+.prototype-app .app-sidebar.collapsed .app-sidebar-footer{justify-content:center;padding:13px 3px}
+.prototype-app.sidebar-collapsed .app-main{margin-left:76px}
+.prototype-app .app-content-view{margin-top:18px}
+.prototype-app .app-search-empty{grid-column:1/-1;padding:24px;text-align:center;border:1px dashed #d5deea;border-radius:16px;color:#748198;background:#fff}
+.prototype-app .app-main .costs-section,.prototype-app .app-main .gas-section,.prototype-app .app-main .company-section,.prototype-app .app-main .simulator-section,.prototype-app .app-main .invoice-section,.prototype-app .app-main .bono-section,.prototype-app .app-main .gas-bono-section,.prototype-app .app-main .gas-invoice-section{border-radius:20px}
+@media(max-width:1150px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prototype-app .app-top-actions .app-version{display:none}}
+@media(max-width:760px){.prototype-app .app-sidebar{width:76px;padding-inline:9px}.prototype-app .app-brand-name,.prototype-app .app-nav-label,.prototype-app .app-nav-item b,.prototype-app .app-sidebar-footer>div{display:none}.prototype-app .app-brand{justify-content:center;padding:8px 3px;flex-wrap:wrap}.prototype-app .sidebar-collapse{display:none}.prototype-app .app-nav-item{justify-content:center;padding:10px 4px}.prototype-app .app-sidebar-footer{justify-content:center;padding:13px 3px}.prototype-app .app-main{margin-left:76px;padding:10px}.prototype-app .app-topbar{align-items:flex-start;padding:15px;border-radius:17px}.prototype-app .app-topbar p{display:none}.prototype-app .app-top-actions{display:none}.prototype-app .app-breadcrumb-icon{display:none}.prototype-app .app-welcome-card{padding:22px;min-height:0}.prototype-app .app-welcome-symbol{display:none}.prototype-app .app-tool-grid{grid-template-columns:1fr;gap:11px}.prototype-app .app-tool-card{min-height:150px;padding:16px}.prototype-app .app-dashboard{margin-top:12px}.prototype-app .app-section-heading{margin-top:19px}.prototype-app .app-main .costs-section{padding:14px 10px 32px}}
+
 </style>
 </head>
 
-<body>
+<body class="prototype-app">
+<aside class="app-sidebar" id="appSidebar">
+  <div class="app-brand">
+    <div class="app-brand-mark">⚡</div>
+    <div class="app-brand-name">Formación<br> Energía</div>
+    <button type="button" class="sidebar-collapse" id="sidebarCollapse" aria-label="Contraer menú">‹</button>
+  </div>
+  <nav class="app-nav" aria-label="Navegación principal">
+    <button class="app-nav-item active" data-app-nav="inicio"><span>⌂</span><b>Inicio</b></button>
+    <div class="app-nav-label">SUMINISTROS</div>
+    <button class="app-nav-item" data-app-nav="electricidad"><span>ϟ</span><b>Electricidad</b></button>
+    <button class="app-nav-item" data-app-nav="gas"><span>♨</span><b>Gas</b></button>
+    <div class="app-nav-label">CONSULTA Y SIMULACIÓN</div>
+    <button class="app-nav-item" data-app-nav="companias"><span>▦</span><b>Compañías y precios</b></button>
+    <button class="app-nav-item" data-app-nav="facturas"><span>▤</span><b>Facturas</b></button>
+    <button class="app-nav-item" data-app-nav="bono"><span>♡</span><b>Calculadora bono social</b></button>
+    <button class="app-nav-item" data-app-nav="costes"><span>⌁</span><b>Calculadora de costes</b></button>
+    <button class="app-nav-item" data-app-nav="cups"><span>▣</span><b>CUPS</b></button>
+  </nav>
+  <div class="app-sidebar-footer"><span class="app-status-dot"></span><div><strong>Formación comercial</strong><small>Herramientas de consulta</small></div></div>
+</aside>
+<div class="app-main">
+  <header class="app-topbar">
+    <div class="app-breadcrumb"><span class="app-breadcrumb-icon">▦</span><div><div class="app-eyebrow">FORMACIÓN ENERGÍA</div><h1 id="appPageTitle">Hola, bienvenido</h1><p id="appPageSubtitle">Tu espacio de trabajo para consultar tarifas, entender facturas y practicar simulaciones.</p></div></div>
+    <div class="app-top-actions"><label class="app-search"><span>⌕</span><input id="appSearch" type="search" placeholder="Buscar herramienta…"></label><span class="app-version">PANEL DE FORMACIÓN</span></div>
+  </header>
+  <main id="appDashboard" class="app-dashboard">
+    <section class="app-welcome-card">
+      <div><span class="app-eyebrow">CENTRO DE HERRAMIENTAS</span><h2>Todo lo que necesitas,<br>en un solo lugar.</h2><p>Accede a los recursos de electricidad, gas y facturación sin perder tiempo navegando entre pantallas.</p></div>
+      <div class="app-welcome-symbol">ϟ</div>
+    </section>
+    <div class="app-section-heading"><div><h2>Áreas de trabajo</h2><p>Selecciona una categoría para empezar.</p></div><span class="app-muted-pill">8 herramientas</span></div>
+    <div class="app-tool-grid">
+      <button class="app-tool-card" data-app-nav="electricidad"><span class="app-tool-icon icon-blue">ϟ</span><span class="app-tool-title">Electricidad</span><span class="app-tool-desc">Tarifas, simuladores y recursos de suministro eléctrico.</span><span class="app-tool-link">Entrar en electricidad <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="gas"><span class="app-tool-icon icon-orange">♨</span><span class="app-tool-title">Gas</span><span class="app-tool-desc">Tarifas, facturas y herramientas de gas natural.</span><span class="app-tool-link">Entrar en gas <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="companias"><span class="app-tool-icon icon-purple">▦</span><span class="app-tool-title">Compañías y precios</span><span class="app-tool-desc">Consulta las comercializadoras y compara tarifas.</span><span class="app-tool-link">Consultar precios <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="facturas"><span class="app-tool-icon icon-teal">▤</span><span class="app-tool-title">Facturas</span><span class="app-tool-desc">Aprende a leer facturas y localizar sus conceptos clave.</span><span class="app-tool-link">Ver facturas <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="bono"><span class="app-tool-icon icon-amber">♡</span><span class="app-tool-title">Bono social</span><span class="app-tool-desc">Comprueba las condiciones mediante la herramienta guiada.</span><span class="app-tool-link">Abrir calculadora <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="costes"><span class="app-tool-icon icon-blue">⌁</span><span class="app-tool-title">Calculadora de costes</span><span class="app-tool-desc">Subidas y bajadas de potencia y altas de suministro.</span><span class="app-tool-link">Calcular costes <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="cups"><span class="app-tool-icon icon-teal">▣</span><span class="app-tool-title">Localizador CUPS</span><span class="app-tool-desc">Practica dónde encontrar el CUPS en facturas de ejemplo.</span><span class="app-tool-link">Localizar CUPS <b>→</b></span></button>
+      <button class="app-tool-card" data-app-nav="electricidad"><span class="app-tool-icon icon-purple">◷</span><span class="app-tool-title">Simuladores de consumo</span><span class="app-tool-desc">Calcula importes con potencias, consumos y periodos.</span><span class="app-tool-link">Abrir simuladores <b>→</b></span></button>
+    </div>
+    <div class="app-bottom-note"><span>ⓘ</span><p>Los resultados de las calculadoras son orientativos y dependen de los datos introducidos y de las condiciones aplicables.</p></div>
+  </main>
 
 <section id="cover"><div class="cover-header"><h1>FORMACIÓN ENERGÍA</h1><p>Aprende los conceptos básicos de electricidad y gas de una forma sencilla e interactiva.</p></div><div class="cover-options">
 <div class="cover-card electricity"><div class="cover-icon"><span class="ray">⚡</span></div><h2>Electricidad</h2><p>Tarifas, facturas, compañías, simuladores y herramientas para la formación.</p><button class="cover-button electricity-button" id="electricityButton" type="button">Entrar en electricidad →</button></div>
@@ -4068,5 +4177,69 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
   });
 })();
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+  const root=document.body;
+  const sidebar=document.getElementById("appSidebar");
+  const dashboard=document.getElementById("appDashboard");
+  const pageTitle=document.getElementById("appPageTitle");
+  const pageSubtitle=document.getElementById("appPageSubtitle");
+  const search=document.getElementById("appSearch");
+  const titles={
+    inicio:["Hola, bienvenido","Tu espacio de trabajo para consultar tarifas, entender facturas y practicar simulaciones."],
+    electricidad:["Electricidad","Tarifas, simuladores y recursos de suministro eléctrico."],
+    gas:["Gas","Tarifas, facturas y herramientas de gas natural."],
+    companias:["Compañías y precios","Consulta las comercializadoras y compara tarifas."],
+    facturas:["Facturas de electricidad","Aprende a interpretar facturas y localizar sus conceptos clave."],
+    bono:["Calculadora del bono social","Herramienta guiada para revisar las condiciones del bono social."],
+    costes:["Calculadora de costes eléctricos","Calcula los costes orientativos de subir o bajar potencia y dar de alta un suministro."],
+    cups:["Facturas y CUPS","Practica dónde localizar el CUPS en facturas de ejemplo."]
+  };
+  function hideAppSections(){
+    ["simulatorSection","flatSimulatorSection","hoursSimulatorSection","companySection","invoiceSection","costsSection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection","cupsMenu"].forEach(function(id){
+      const el=document.getElementById(id);if(el){el.classList.remove("active");el.style.display="none";}
+    });
+    const home=document.getElementById("home");if(home)home.style.display="none";
+    const page=document.querySelector(".page");if(page)page.style.display="none";
+    const cover=document.getElementById("cover");if(cover)cover.style.display="none";
+    dashboard.style.display="none";
+  }
+  function markActive(key){
+    document.querySelectorAll("[data-app-nav]").forEach(function(btn){btn.classList.toggle("active",btn.getAttribute("data-app-nav")===key);});
+    const pair=titles[key]||titles.inicio;pageTitle.textContent=pair[0];pageSubtitle.textContent=pair[1];
+  }
+  function showDashboard(){
+    hideAppSections();dashboard.style.display="block";markActive("inicio");window.scrollTo({top:0,behavior:"auto"});
+  }
+  function navigate(key){
+    if(key==="inicio"){showDashboard();return;}
+    hideAppSections();markActive(key);
+    if(key==="electricidad"){document.getElementById("electricityButton")?.click();return;}
+    if(key==="gas"){["gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"].forEach(id=>{const el=document.getElementById(id);if(el)el.style.removeProperty("display");});document.getElementById("gasButton")?.click();return;}
+    if(key==="cups"){const el=document.getElementById("cupsMenu");if(el)el.style.removeProperty("display");document.getElementById("cupsButton")?.click();return;}
+    if(key==="companias"){document.getElementById("electricityButton")?.click();document.getElementById("companySection").classList.add("active");document.getElementById("companySection").style.display="block";document.getElementById("home").style.display="none";window.scrollTo({top:0,behavior:"auto"});return;}
+    if(key==="facturas"){const el=document.getElementById("invoiceSection");if(el)el.style.removeProperty("display");document.getElementById("electricityButton")?.click();document.getElementById("invoiceButton")?.click();return;}
+    if(key==="bono"){const el=document.getElementById("bonoSection");if(el)el.style.removeProperty("display");document.getElementById("electricityButton")?.click();document.getElementById("bonoButton")?.click();return;}
+    if(key==="costes"){document.getElementById("electricityButton")?.click();document.getElementById("costsButton")?.click();return;}
+  }
+  document.querySelectorAll("[data-app-nav]").forEach(function(btn){btn.addEventListener("click",function(){navigate(btn.getAttribute("data-app-nav"));});});
+  document.getElementById("sidebarCollapse").addEventListener("click",function(){
+    sidebar.classList.toggle("collapsed");root.classList.toggle("sidebar-collapsed");
+    this.textContent=sidebar.classList.contains("collapsed")?"›":"‹";
+    this.setAttribute("aria-label",sidebar.classList.contains("collapsed")?"Expandir menú":"Contraer menú");
+  });
+  if(search){search.addEventListener("input",function(){
+    const query=search.value.trim().toLocaleLowerCase("es");
+    const cards=[...document.querySelectorAll(".app-tool-card")];let count=0;
+    cards.forEach(function(card){const visible=card.textContent.toLocaleLowerCase("es").includes(query);card.style.display=visible?"flex":"none";if(visible)count++;});
+    let empty=document.getElementById("appSearchEmpty");
+    if(!empty){empty=document.createElement("div");empty.id="appSearchEmpty";empty.className="app-search-empty";empty.textContent="No se han encontrado herramientas con ese término.";document.querySelector(".app-tool-grid").appendChild(empty);}
+    empty.style.display=query&&count===0?"block":"none";
+  });}
+  showDashboard();
+});
+</script>
+</div>
 </body>
 </html>
