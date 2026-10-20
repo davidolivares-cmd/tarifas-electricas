@@ -4278,7 +4278,7 @@ document.addEventListener("DOMContentLoaded",function(){
   function clearHomeLayout(){
     const home=document.getElementById("home");
     if(!home)return;
-    [".hero",".tariffs",".info",".invoice-access",".companies-section",".costs-access-row"].forEach(sel=>{
+    [".hero",".tariffs",".info",".invoice-access",".companies-section",".costs-access-row",".tariff-comparator"].forEach(sel=>{
       home.querySelectorAll(sel).forEach(el=>el.style.removeProperty("display"));
     });
   }
@@ -4300,10 +4300,11 @@ document.addEventListener("DOMContentLoaded",function(){
     const pair=titles[key]||titles.inicio;pageTitle.textContent=pair[0];pageSubtitle.textContent=pair[1];
   }
   function showDashboard(){
-    hideAppSections();dashboard.style.display="block";markActive("inicio");window.scrollTo({top:0,behavior:"auto"});
+    hideAppSections();document.querySelector(".app-main")?.classList.remove("tool-view");dashboard.style.display="block";markActive("inicio");window.scrollTo({top:0,behavior:"auto"});
   }
   function showHomeArea(){
     const page=document.querySelector(".page"),home=document.getElementById("home");
+    document.querySelector(".app-main")?.classList.add("tool-view");
     if(page)page.style.display="block";
     if(home){home.style.display="block";home.style.removeProperty("min-height");}
     const cover=document.getElementById("cover");if(cover)cover.style.display="none";
@@ -4319,6 +4320,7 @@ document.addEventListener("DOMContentLoaded",function(){
       home.querySelector(".info").style.display="none";
       home.querySelectorAll(".invoice-access,.costs-access-row").forEach(el=>el.style.display="none");
       home.querySelector(".companies-section").style.display="block";
+      home.querySelector(".tariff-comparator").style.display="none";
       window.scrollTo({top:0,behavior:"auto"});return;
     }
     if(key==="tipos"){
@@ -4327,6 +4329,7 @@ document.addEventListener("DOMContentLoaded",function(){
       home.querySelector(".companies-section").style.display="none";
       home.querySelectorAll(".invoice-access,.costs-access-row").forEach(el=>el.style.display="none");
       home.querySelector(".tariffs").style.display="grid";
+      home.querySelector(".tariff-comparator").style.display="block";
       home.querySelector(".info").style.display="block";
       window.scrollTo({top:0,behavior:"auto"});return;
     }
