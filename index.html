@@ -1270,8 +1270,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 .prototype-app .app-topbar h1{font-size:clamp(23px,2.2vw,34px);letter-spacing:-1px;line-height:1.12;margin:3px 0 6px;color:#101828}
 .prototype-app .app-topbar p{font-size:12px;line-height:1.45;color:#748198;margin:0}
 .prototype-app .app-top-actions{display:flex;align-items:center;gap:12px}
-.prototype-app .app-search{display:flex;align-items:center;gap:8px;border:1px solid #e0e7f0;background:#fff;border-radius:11px;padding:0 11px;height:38px;width:210px;color:#8a98ad}
-.prototype-app .app-search span{font-size:19px}.prototype-app .app-search input{border:0;outline:0;width:100%;min-width:0;font-size:11px;background:transparent;color:#17233b}
 .prototype-app .app-version{font-size:8px;letter-spacing:.8px;font-weight:800;color:#78869b;background:#f1f4f8;border-radius:8px;padding:9px 10px;white-space:nowrap}
 .prototype-app .app-dashboard{max-width:1500px;margin:20px auto 0}
 .prototype-app .app-welcome-card{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:170px;padding:27px 32px;border:1px solid #e2e9f2;border-radius:22px;background:linear-gradient(110deg,#fff 0%,#f7faff 68%,#f4f7fd 100%);box-shadow:0 8px 25px rgba(20,40,70,.035)}
@@ -1303,7 +1301,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 .prototype-app .app-sidebar.collapsed .app-sidebar-footer{justify-content:center;padding:13px 3px}
 .prototype-app.sidebar-collapsed .app-main{margin-left:76px}
 .prototype-app .app-content-view{margin-top:18px}
-.prototype-app .app-search-empty{grid-column:1/-1;padding:24px;text-align:center;border:1px dashed #d5deea;border-radius:16px;color:#748198;background:#fff}
 .prototype-app .app-main .costs-section,.prototype-app .app-main .gas-section,.prototype-app .app-main .company-section,.prototype-app .app-main .simulator-section,.prototype-app .app-main .invoice-section,.prototype-app .app-main .bono-section,.prototype-app .app-main .gas-bono-section,.prototype-app .app-main .gas-invoice-section{border-radius:20px}
 @media(max-width:1150px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prototype-app .app-top-actions .app-version{display:none}}
 @media(max-width:760px){.prototype-app .app-sidebar{width:76px;padding-inline:9px}.prototype-app .app-brand-name,.prototype-app .app-nav-label,.prototype-app .app-nav-item b,.prototype-app .app-sidebar-footer>div{display:none}.prototype-app .app-brand{justify-content:center;padding:8px 3px;flex-wrap:wrap}.prototype-app .sidebar-collapse{display:none}.prototype-app .app-nav-item{justify-content:center;padding:10px 4px}.prototype-app .app-sidebar-footer{justify-content:center;padding:13px 3px}.prototype-app .app-main{margin-left:76px;padding:10px}.prototype-app .app-topbar{align-items:flex-start;padding:15px;border-radius:17px}.prototype-app .app-topbar p{display:none}.prototype-app .app-top-actions{display:none}.prototype-app .app-breadcrumb-icon{display:none}.prototype-app .app-welcome-card{padding:22px;min-height:0}.prototype-app .app-welcome-symbol{display:none}.prototype-app .app-tool-grid{grid-template-columns:1fr;gap:11px}.prototype-app .app-tool-card{min-height:150px;padding:16px}.prototype-app .app-dashboard{margin-top:12px}.prototype-app .app-section-heading{margin-top:19px}.prototype-app .app-main .costs-section{padding:14px 10px 32px}}
@@ -4309,6 +4306,16 @@ document.addEventListener("DOMContentLoaded",function(){
   const invoiceButton=document.getElementById("invoiceButton");if(invoiceButton)invoiceButton.querySelectorAll("span")[1].textContent="PARTES DE UNA FACTURA";
   const gasInvoiceButton=document.getElementById("gasInvoiceButton");if(gasInvoiceButton)gasInvoiceButton.querySelectorAll("span")[1].textContent="PARTES DE UNA FACTURA";
   const cupsBack=document.getElementById("cupsBackButton");if(cupsBack)cupsBack.textContent="← Volver al inicio";
+  ["backButton","flatBackButton","hoursBackButton","invoiceBackButton"].forEach(id=>{
+    const button=document.getElementById(id);
+    if(button)button.addEventListener("click",function(){navigate("tipos");});
+  });
+  document.querySelectorAll(".gas-company-card").forEach(card=>card.addEventListener("click",function(){
+    const gasHome=document.getElementById("gasHome");
+    const detail=document.getElementById("gasCompanySection");
+    if(gasHome)gasHome.style.display="none";
+    if(detail)detail.style.display="block";
+  }));
   const companyBack=document.getElementById("companyBackButton");if(companyBack)companyBack.addEventListener("click",function(){navigate("electricidad");});
   const gasCompanyBack=document.getElementById("gasCompanyBackButton");if(gasCompanyBack)gasCompanyBack.addEventListener("click",function(){navigate("gas");});
     document.getElementById("sidebarCollapse").addEventListener("click",function(){
