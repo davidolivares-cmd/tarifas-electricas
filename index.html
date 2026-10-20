@@ -1122,6 +1122,126 @@ input[type="range"]::-moz-range-thumb {
 .costs-access-row .invoice-access{margin:0!important}
 @media(max-width:760px){.costs-grid{grid-template-columns:1fr}.costs-card{padding:20px}.costs-form-grid{grid-template-columns:1fr}.costs-field.full{grid-column:auto}.costs-access-row{gap:12px}}
 
+
+/* Tema visual CRM: superficies claras, azul noche y acentos discretos.
+   Solo estilos; se conservan textos, cálculos, logotipos y funcionamiento. */
+:root{
+  --blue:#17233b;
+  --blue-dark:#10192b;
+  --cyan:#5f91c9;
+  --green:#168875;
+  --green-light:#e7f5f1;
+  --orange:#bd7b38;
+  --orange-light:#fbf1e6;
+  --purple:#6659a8;
+  --purple-light:#efedfa;
+  --red:#c75f60;
+  --red-light:#fbebeb;
+  --text:#101828;
+  --muted:#748198;
+  --border:#e2e8f0;
+  --light:#f3f6fb;
+}
+html{scroll-padding-top:18px}
+body{
+  color:#101828;
+  background:
+    radial-gradient(ellipse at 4% 0%,rgba(213,235,250,.55),transparent 34%),
+    radial-gradient(ellipse at 100% 8%,rgba(248,231,213,.42),transparent 27%),
+    #f3f6fb;
+  font-family:Arial,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.page{min-height:100vh}
+#home{background:transparent}
+#cover{padding:28px 22px 54px;justify-content:flex-start;background:transparent}
+.cover-header{margin:12px auto 30px;max-width:1000px}
+.cover-header h1{color:#101828;letter-spacing:-1.6px;font-size:clamp(34px,4.2vw,56px)}
+.cover-header p{color:#66758b;font-size:15px;max-width:700px}
+.cover-options{width:min(1180px,100%);gap:20px}
+.cover-card,.company-card,.costs-card,.control-card,.total-card,.flat-total-card,.hours-total-card,
+.chart-panel,.invoice-explanation,.invoice-distribution,.gas-bono-card,.gas-company-card{
+  border:1px solid #e2e8f0;
+  border-radius:21px;
+  box-shadow:0 8px 28px rgba(16,35,65,.055);
+}
+.cover-card{background:rgba(255,255,255,.9);padding:24px}
+.cover-card:hover,.company-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(16,35,65,.09)}
+.cover-card h2,.company-card h3{color:#17233b}
+.cover-button,.invoice-button,.costs-calculate{
+  border-radius:12px;
+  background:#17233b;
+  box-shadow:none;
+  transition:background .2s ease,transform .2s ease;
+}
+.cover-button:hover,.invoice-button:hover,.costs-calculate:hover{background:#263a5b;transform:translateY(-1px)}
+.back-button,.costs-section .back-button{
+  border:1px solid #e2e8f0;
+  border-radius:13px;
+  padding:12px 17px;
+  background:#fff;
+  color:#17233b;
+  box-shadow:0 4px 14px rgba(16,35,65,.045);
+}
+.hero{padding:26px 20px 20px}
+.hero h1{color:#101828;letter-spacing:-1.4px}
+.subtitle{color:#66758b}
+.tariff,.info,.invoice-access{border-radius:18px}
+.tariff{border:1px solid #e2e8f0;box-shadow:0 6px 20px rgba(16,35,65,.045)}
+.simulator-section,.invoice-section,.company-section,.bono-section,.gas-section,
+.gas-bono-section,.gas-invoice-section,.costs-section{
+  background:linear-gradient(180deg,#f3f6fb 0%,#f8fafc 100%);
+}
+.simulator-header h2,.invoice-header h2,.company-header h2,.bono-header h2,
+.gas-header h2,.gas-bono-header h2,.costs-header h2{
+  color:#17233b;
+  letter-spacing:-.7px;
+}
+.simulator-header p,.invoice-header p,.company-header p,.bono-header p,
+.gas-header p,.gas-bono-header p,.costs-header p{color:#748198}
+.control-card,.chart-panel,.costs-card{background:rgba(255,255,255,.96)}
+.control-card{border-radius:18px}
+.total-card,.flat-total-card,.hours-total-card{border-radius:20px;background:#fff;color:#17233b}
+.total-title,.tax-text strong{color:#17233b}
+.total-value,.flat-result-value,.hours-result-value{color:#17233b}
+.tax-control{background:#f6f8fc;border:1px solid #e7edf5;border-radius:14px}
+.invoice-layout{gap:18px}
+.chart-panel,.invoice-explanation,.invoice-distribution{background:#fff}
+.company-card{padding:20px;background:#fff}
+.company-header{margin-bottom:28px}
+.costs-section{padding:18px 20px 64px;min-height:100vh;margin:0}
+.costs-page{width:min(1180px,100%);margin:0 auto}
+.costs-header{margin:18px auto 25px}
+.costs-header h2{font-size:clamp(30px,4vw,44px);font-weight:800}
+.costs-grid{gap:18px}
+.costs-card{padding:24px;border-radius:20px}
+.costs-card h3{color:#17233b;font-size:21px}
+.costs-field label{color:#34445e}
+.costs-field input,.costs-field select{
+  border-color:#dce4ef;border-radius:11px;background:#fff;color:#17233b
+}
+.costs-field input:focus,.costs-field select:focus{outline:2px solid rgba(95,145,201,.24);border-color:#7d9fc7}
+.costs-calculate{background:#17233b}
+.costs-result{background:#f5f8fc;border-color:#e2e8f0}
+.costs-total,.costs-reduction-total{color:#17233b}
+.costs-reduction-card{background:#fff;border-color:#e2e8f0}
+.costs-reduction-summary{border-color:#e5eaf2}
+.costs-warning{background:#fff6e8;color:#875c22}
+.gas-home,.gas-invoice-section,.gas-company-section{background:linear-gradient(180deg,#f3f6fb,#f8fafc)}
+input,select,button{font-family:inherit}
+button{font-weight:700}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid rgba(95,145,201,.35);outline-offset:2px
+}
+@media(max-width:760px){
+  #cover{padding:20px 14px 35px}
+  .cover-header{margin:8px auto 22px}
+  .cover-options{gap:14px}
+  .cover-card{padding:19px}
+  .costs-section{padding:14px 14px 40px}
+  .costs-card{padding:19px}
+}
+
 </style>
 </head>
 
