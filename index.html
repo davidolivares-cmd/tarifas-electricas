@@ -1096,6 +1096,7 @@ input[type="range"]::-moz-range-thumb {
 .costs-header h2{margin:0 0 10px;color:#6735e8;font-size:clamp(30px,4.5vw,48px);font-weight:900}
 .costs-header p{margin:0 auto;max-width:780px;color:var(--muted);line-height:1.55}
 .costs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:start}
+.costs-reduction-card{background:linear-gradient(135deg,#fff 0%,#f5f1ff 100%);border:1px solid #d9ccff}.costs-reduction-total{font-size:36px;font-weight:900;color:#6735e8;line-height:1.2;margin:12px 0 4px}.costs-reduction-base{font-size:14px;color:#596b86}.costs-reduction-summary{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #e1d9f8;font-size:14px}.costs-reduction-summary:last-child{border-bottom:0}.costs-reduction-card .costs-field{margin-top:18px}
 .costs-card{background:#fff;border:1px solid #e2e9f5;border-radius:24px;padding:25px;box-shadow:0 10px 28px rgba(30,70,120,.08);min-width:0}
 .costs-card h3{margin:0 0 8px;font-size:23px;color:#173b73}
 .costs-card>p{color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 22px}
@@ -2657,6 +2658,28 @@ input[type="range"]::-moz-range-thumb {
         <button class="costs-calculate" id="costsAltaCalculate" type="button">Calcular coste del alta →</button>
         <div class="costs-result" id="costsAltaResult" aria-live="polite"></div>
       </article>
+      <article class="costs-card costs-reduction-card">
+        <h3>⬇️ Bajada de potencia</h3>
+        <p>El coste regulado es fijo: no depende de cuántos kW se reduzcan. Solo se cobran los derechos de enganche en el caso habitual de baja tensión.</p>
+        <div class="costs-reduction-summary"><span>Derechos de enganche (sin impuestos)</span><strong>9,044760 €</strong></div>
+        <div class="costs-field">
+          <label for="costsReductionRegion">Ubicación del suministro / impuestos</label>
+          <select id="costsReductionRegion">
+            <option value="peninsula">Península y Baleares — IVA 21 %</option>
+            <option value="canarias">Canarias — IGIC 7 % (referencia)</option>
+            <option value="ceuta">Ceuta — IPSI (introducir tipo)</option>
+            <option value="melilla">Melilla — IPSI (introducir tipo)</option>
+          </select>
+        </div>
+        <div class="costs-field costs-tax-custom" id="costsReductionTaxCustom">
+          <label for="costsReductionTaxRate">Tipo IPSI aplicado (%)</label>
+          <input id="costsReductionTaxRate" type="number" min="0" max="100" step="0.01" value="4" placeholder="Introduce el porcentaje">
+          <span class="costs-hint">Confirma el tipo aplicable al concepto antes de dar un precio definitivo.</span>
+        </div>
+        <div class="costs-reduction-total" id="costsReductionTotal">10,94 €</div>
+        <div class="costs-reduction-base" id="costsReductionTaxLabel">Total orientativo con IVA del 21 % incluido.</div>
+        <p class="costs-note">Importe fijo por la gestión de la bajada de potencia. No incluye conceptos excepcionales que pudiera requerir la distribuidora.</p>
+      </article>
     </div>
     <p class="costs-note">Importes unitarios de referencia: acceso 19,703137 €/kW, extensión 17,374714 €/kW y enganche 9,044760 €. Los impuestos se seleccionan por territorio; Canarias, Ceuta y Melilla tienen regímenes fiscales propios. Esta herramienta no sustituye la confirmación de la distribuidora.</p>
   </div>
@@ -3881,6 +3904,19 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
     const access=delta*ACCESS, extension=delta*EXTENSION, hookup=HOOKUP, base=access+extension+hookup, taxAmount=base*tax.rate/100, total=base+taxAmount;
     renderCostResult(box,total,[["Derechos de acceso",access],["Derechos de extensión (estimación)",extension],["Derechos de enganche",hookup],[tax.name+" ("+tax.rate.toLocaleString("es-ES")+" %)",taxAmount]],"Incremento calculado: "+delta.toLocaleString("es-ES")+" kW. Se supone que corresponde abonar acceso, extensión y enganche.","El importe real de los derechos de extensión depende de los derechos vigentes que conserve el suministro. No incluye posibles obras, verificación ni otros conceptos particulares.");
   });
+  const reductionRegion=document.getElementById("costsReductionRegion");
+  const reductionTaxRate=document.getElementById("costsReductionTaxRate");
+  const reductionTaxCustom=document.getElementById("costsReductionTaxCustom");
+  function updateReductionCost(){
+    const tax=regionTax(reductionRegion.value,reductionTaxRate.value);
+    const amount=HOOKUP*(1+tax.rate/100);
+    document.getElementById("costsReductionTotal").textContent=moneyCost(amount);
+    document.getElementById("costsReductionTaxLabel").textContent="Total orientativo con "+tax.name+" del "+tax.rate.toLocaleString("es-ES")+" % incluido.";
+    reductionTaxCustom.classList.toggle("visible",reductionRegion.value==="ceuta"||reductionRegion.value==="melilla");
+  }
+  reductionRegion.addEventListener("change",updateReductionCost);
+  reductionTaxRate.addEventListener("input",updateReductionCost);
+  updateReductionCost();
   document.getElementById("costsAltaCalculate").addEventListener("click",()=>{
     const type=altaType.value,power=Number(document.getElementById("costsAltaPower").value),duration=document.getElementById("costsBajaDuration").value;
     const region=altaRegion.value,custom=document.getElementById("costsAltaTaxRate").value,cie=document.getElementById("costsBoletin").value;
