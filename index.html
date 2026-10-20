@@ -4215,7 +4215,7 @@ document.addEventListener("DOMContentLoaded",function(){
   function clearHomeLayout(){
     const home=document.getElementById("home");
     if(!home)return;
-    [".tariffs",".info",".invoice-access",".companies-section",".costs-access-row"].forEach(sel=>{
+    [".hero",".tariffs",".info",".invoice-access",".companies-section",".costs-access-row"].forEach(sel=>{
       home.querySelectorAll(sel).forEach(el=>el.style.removeProperty("display"));
     });
   }
@@ -4251,6 +4251,7 @@ document.addEventListener("DOMContentLoaded",function(){
     if(key==="electricidad"){
       showHomeArea();
       const home=document.getElementById("home");
+      home.querySelector(".hero").style.display="none";
       home.querySelector(".tariffs").style.display="none";
       home.querySelector(".info").style.display="none";
       home.querySelectorAll(".invoice-access,.costs-access-row").forEach(el=>el.style.display="none");
@@ -4281,9 +4282,10 @@ document.addEventListener("DOMContentLoaded",function(){
     }
     if(key==="bono"){
       const page=document.querySelector(".page");if(page)page.style.display="block";
+      const button=document.getElementById("bonoButton");
+      if(button)button.click();
       const section=document.getElementById("bonoSection");
       if(section){section.style.display="block";section.classList.add("active");}
-      if(typeof resetBono==="function"){resetBono();bonoStep=1;updateBonoStep();}
       window.scrollTo({top:0,behavior:"auto"});return;
     }
     if(key==="costes"){
