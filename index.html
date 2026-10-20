@@ -3852,8 +3852,22 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
     document.getElementById("costsAltaResult").classList.remove("visible");
   });
   durationField.style.display=altaType.value==="baja"?"flex":"none";
-  costsButton.addEventListener("click",()=>{showSection(costsSection);});
-  costsBackButton.addEventListener("click",showHome);
+  function openCostsSection(){
+    [document.getElementById("simulatorSection"),document.getElementById("flatSimulatorSection"),document.getElementById("hoursSimulatorSection"),document.getElementById("invoiceSection"),document.getElementById("companySection"),document.getElementById("bonoSection"),costsSection].forEach(section=>{if(section)section.classList.remove("active");});
+    const home=document.getElementById("home");
+    if(home)home.style.display="none";
+    costsSection.classList.add("active");
+    requestAnimationFrame(()=>costsSection.scrollIntoView({behavior:"auto",block:"start"}));
+  }
+  function returnToCostsHome(){
+    [document.getElementById("simulatorSection"),document.getElementById("flatSimulatorSection"),document.getElementById("hoursSimulatorSection"),document.getElementById("invoiceSection"),document.getElementById("companySection"),document.getElementById("bonoSection"),costsSection].forEach(section=>{if(section)section.classList.remove("active");});
+    const page=document.querySelector(".page"),home=document.getElementById("home");
+    if(page)page.style.display="block";
+    if(home)home.style.display="block";
+    window.scrollTo({top:0,behavior:"auto"});
+  }
+  if(costsButton)costsButton.addEventListener("click",openCostsSection);
+  if(costsBackButton)costsBackButton.addEventListener("click",returnToCostsHome);
   document.getElementById("costsPowerCalculate").addEventListener("click",()=>{
     const current=Number(document.getElementById("costsPowerCurrent").value);
     const next=Number(document.getElementById("costsPowerNew").value);
