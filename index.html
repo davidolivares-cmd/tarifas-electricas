@@ -1388,6 +1388,37 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 @media(max-width:1100px){.prototype-app .app-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.prototype-app .app-welcome-symbol{width:38%;flex-basis:38%}}
 @media(max-width:680px){.prototype-app .app-tool-grid{grid-template-columns:1fr}.prototype-app .app-welcome-card>div:first-child{max-width:100%}.prototype-app .app-welcome-symbol{display:none}}
 
+
+/* Comparador conjunto de electricidad */
+.electricity-compare-section{display:none;min-height:100vh;padding:24px 20px 70px;background:linear-gradient(180deg,#f6f9ff,#fff)}
+.electricity-compare-section.active{display:block;animation:appear .35s ease}
+.electricity-compare-page{width:min(1120px,96%);margin:auto}
+.electricity-compare-header{text-align:center;margin:18px 0 28px}
+.electricity-compare-header h2{margin:0 0 8px;color:var(--orange);font-size:clamp(30px,4vw,44px);font-weight:900}
+.electricity-compare-header p{margin:0;color:var(--muted);line-height:1.5}
+.compare-inputs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:18px}
+.compare-input-card,.compare-options-card,.compare-result-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:20px;box-shadow:0 8px 24px rgba(26,60,110,.07)}
+.compare-input-card label{display:block;font-weight:800;margin-bottom:10px}
+.compare-input-card input{width:100%;border:1px solid var(--border);border-radius:12px;padding:13px 14px;font:inherit;font-size:20px;font-weight:800;color:var(--text);background:#f8faff}
+.compare-input-card small{display:block;color:var(--muted);margin-top:7px}
+.compare-options-card{margin-bottom:20px}
+.compare-options-card h3{margin:0 0 14px}
+.compare-option-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.compare-option{display:flex;align-items:flex-start;gap:9px;padding:12px;border-radius:13px;background:#f7faff;font-size:13px;line-height:1.4}
+.compare-option input{margin-top:2px;accent-color:#6735e8}
+.compare-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.compare-result-card h3{margin:0 0 5px;font-size:19px}
+.compare-result-card .compare-kind{color:var(--muted);font-size:12px;margin-bottom:14px}
+.compare-result-row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid #edf1f7;font-size:13px}
+.compare-result-row:last-of-type{border-bottom:0}
+.compare-result-total{margin-top:12px;padding:13px;border-radius:14px;background:#f3f6fc}
+.compare-result-total div{display:flex;justify-content:space-between;gap:10px;padding:4px 0}
+.compare-result-total strong{font-size:18px}
+.compare-result-card.is-cheapest{border:2px solid #20a36b}
+.compare-cheapest{display:inline-block;margin:0 0 10px;padding:5px 9px;border-radius:20px;background:#e7f8ef;color:#087d4f;font-size:11px;font-weight:900}
+.compare-footnote{margin:18px 2px;color:var(--muted);font-size:12px;line-height:1.5}
+@media(max-width:720px){.compare-inputs,.compare-results{grid-template-columns:1fr}.compare-option-grid{grid-template-columns:1fr}.electricity-compare-section{padding:18px 12px 50px}}
+
 </style>
 </head>
 
@@ -2607,6 +2638,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
 <section class="company-section" id="companySection"><div class="company-page"><button class="back-button" id="companyBackButton" type="button">← Volver a compañías</button><div class="company-header"><h2 id="companyTitle">Naturgy</h2><p id="companyPrices">P1 0,123030 €/kW/día · P2 0,061562 €/kW/día · V 0,112 €/kWh</p></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">⚡</div><div><h3>Potencia contratada</h3><span>Coste mensual de potencia</span></div></div><div class="current-value"><span id="companyPowerValue">3</span> kW</div></div><div class="slider-wrapper"><input type="range" id="companyPowerSlider" min="0.1" max="15" step="0.1" value="3"><div class="slider-labels"><span>0,1 kW</span><span>15 kW</span></div></div><div class="cost-row"><span class="cost-label">Coste de potencia</span><span class="cost-value"><span id="companyPowerCost">16,64</span> €</span></div></div><div class="control-card"><div class="control-header"><div class="control-name"><div class="control-icon">💡</div><div><h3>Consumo mensual</h3><span>Electricidad consumida</span></div></div><div class="current-value"><span id="companyConsumptionValue">0</span> kWh</div></div><div class="slider-wrapper"><input type="range" id="companyConsumptionSlider" min="0" max="800" step="1" value="0"><div class="slider-labels"><span>0 kWh</span><span>800 kWh</span></div></div><div class="cost-row"><span class="cost-label">Coste del consumo</span><span class="cost-value"><span id="companyConsumptionCost">0,00</span> €</span></div></div><div class="company-options" id="companyOptionsCard"><h3>Opciones de la tarifa</h3><label class="company-option" id="companySvaOption"><span><strong>Añadir SVA Luz</strong><small id="companySvaPrice">+ 8,40 €/mes sin impuestos</small></span><input type="checkbox" id="companySvaToggle"></label><label class="company-option" id="companyMaintenanceOption"><span><strong>Añadir SVA Hogar / Mantenimiento</strong><small>+ 4,41 €/mes sin impuestos</small></span><input type="checkbox" id="companyMaintenanceToggle"></label><label class="company-option" id="companyDualOption"><span><strong>Aplicar tarifa DUAL</strong><small>Precio energía: 0,1299 €/kWh</small></span><input type="checkbox" id="companyDualToggle"></label></div><div class="total-card"><div class="total-title">COSTE ESTIMADO MENSUAL</div><div class="total-value"><span id="companyTotalValue">0,00</span> €</div><div class="breakdown"><div class="breakdown-item"><span>Potencia</span><strong><span id="companySummaryPower">0,00</span> €</strong></div><div class="breakdown-item"><span>Consumo</span><strong><span id="companySummaryConsumption">0,00</span> €</strong></div></div><div class="tax-control"><div class="tax-text"><strong>Mostrar precio con impuestos</strong><span id="companyTaxLabel">Precio sin impuestos</span></div><label class="switch"><input type="checkbox" id="companyTaxToggle"><span class="switch-slider"></span></label></div></div></div></section>
 
+<section class="electricity-compare-section" id="electricityCompareSection">
+ <div class="electricity-compare-page">
+  <button class="back-button" id="electricityCompareBack" type="button">← Volver a compañías</button>
+  <div class="electricity-compare-header"><h2>Comparador de electricidad</h2><p>Introduce los datos del cliente y compara el coste mensual de las tres comercializadoras.</p></div>
+  <div class="compare-inputs">
+   <div class="compare-input-card"><label for="comparePower">Potencia contratada</label><input id="comparePower" type="number" min="0.1" max="15" step="0.1" value="4.6"><small>En kW · Entre 0,1 y 15 kW</small></div>
+   <div class="compare-input-card"><label for="compareConsumption">Consumo mensual</label><input id="compareConsumption" type="number" min="0" max="8000" step="1" value="250"><small>En kWh · Consumo total del mes</small></div>
+  </div>
+  <div class="compare-options-card">
+   <h3>Servicios adicionales</h3>
+   <div class="compare-option-grid">
+    <label class="compare-option"><input type="checkbox" id="compareNaturgySva"><span><strong>Naturgy · SVA Luz</strong><br>+ 8,40 €/mes</span></label>
+    <label class="compare-option"><input type="checkbox" id="compareNaturgyHome"><span><strong>Naturgy · SVA Hogar</strong><br>+ 4,41 €/mes</span></label>
+    <label class="compare-option"><input type="checkbox" id="compareTotalSva"><span><strong>TotalEnergies · SVA Luz</strong><br>+ 7,62 €/mes</span></label>
+   </div>
+  </div>
+  <div class="compare-results" id="compareResults">
+   <article class="compare-result-card" data-result="naturgy"><h3>Naturgy</h3><div class="compare-kind">Tarifa de electricidad</div><div class="compare-result-row"><span>Potencia</span><strong id="compareNaturgyPower">—</strong></div><div class="compare-result-row"><span>Consumo</span><strong id="compareNaturgyEnergy">—</strong></div><div class="compare-result-row"><span>Servicios</span><strong id="compareNaturgyServices">—</strong></div><div class="compare-result-total"><div><span>Total sin impuestos</span><strong id="compareNaturgyNet">—</strong></div><div><span>Total con impuestos (21%)</span><strong id="compareNaturgyGross">—</strong></div></div></article>
+   <article class="compare-result-card" data-result="gana"><h3>Gana Energía</h3><div class="compare-kind">Tarifa de electricidad</div><div class="compare-result-row"><span>Potencia</span><strong id="compareGanaPower">—</strong></div><div class="compare-result-row"><span>Consumo</span><strong id="compareGanaEnergy">—</strong></div><div class="compare-result-row"><span>Servicios</span><strong>0,00 €</strong></div><div class="compare-result-total"><div><span>Total sin impuestos</span><strong id="compareGanaNet">—</strong></div><div><span>Total con impuestos (21%)</span><strong id="compareGanaGross">—</strong></div></div></article>
+   <article class="compare-result-card" data-result="total"><h3>TotalEnergies</h3><div class="compare-kind">Tarifa normal · V 0,1949 €/kWh</div><div class="compare-result-row"><span>Potencia</span><strong id="compareTotalPower">—</strong></div><div class="compare-result-row"><span>Consumo</span><strong id="compareTotalEnergy">—</strong></div><div class="compare-result-row"><span>Servicios</span><strong id="compareTotalServices">—</strong></div><div class="compare-result-total"><div><span>Total sin impuestos</span><strong id="compareTotalNet">—</strong></div><div><span>Total con impuestos (21%)</span><strong id="compareTotalGross">—</strong></div></div></article>
+   <article class="compare-result-card" data-result="totalDual"><h3>TotalEnergies DUAL</h3><div class="compare-kind">Tarifa DUAL · V 0,1849 €/kWh</div><div class="compare-result-row"><span>Potencia</span><strong id="compareDualPower">—</strong></div><div class="compare-result-row"><span>Consumo</span><strong id="compareDualEnergy">—</strong></div><div class="compare-result-row"><span>Servicios</span><strong id="compareDualServices">—</strong></div><div class="compare-result-total"><div><span>Total sin impuestos</span><strong id="compareDualNet">—</strong></div><div><span>Total con impuestos (21%)</span><strong id="compareDualGross">—</strong></div></div></article>
+  </div>
+  <p class="compare-footnote">Estimación mensual calculada con 30 días: potencia = kW × (P1 + P2) × 30; energía = kWh × precio V. Los importes con impuestos aplican el 21% de IVA al subtotal mostrado. No se incluyen otros conceptos regulados, alquiler de contador ni impuesto eléctrico. Los servicios adicionales se suman antes del IVA.</p>
+ </div>
+</section>
+
 <section
     class="invoice-section"
     id="invoiceSection"
@@ -3118,6 +3175,7 @@ function hideAllSections() {
         hoursSimulatorSection,
         invoiceSection,
         document.getElementById("companySection"),
+        document.getElementById("electricityCompareSection"),
         document.getElementById("bonoSection"),
         document.getElementById("costsSection")
     ].forEach(function (section) {
@@ -4096,7 +4154,36 @@ if(companyBackButton)companyBackButton.addEventListener("click",function(){
         const c=document.querySelector(".companies-section");
         if(c)c.scrollIntoView({behavior:"smooth",block:"start"});
     });
-});document.querySelectorAll(".company-card").forEach(c=>c.addEventListener("click",()=>showCompany(c.dataset.company)));[companyPowerSlider,companyConsumptionSlider].forEach(i=>i.addEventListener("input",calculateCompany));[companyTaxToggle,companySvaToggle,companyMaintenanceToggle,companyDualToggle].forEach(i=>i.addEventListener("change",calculateCompany));
+});
+const electricityCompareSection=document.getElementById("electricityCompareSection");
+const comparePower=document.getElementById("comparePower"),compareConsumption=document.getElementById("compareConsumption");
+const compareInputs=["compareNaturgySva","compareNaturgyHome","compareTotalSva"].map(id=>document.getElementById(id));
+function compareMoney(value){return money(value)+" €";}
+function calculateElectricityComparison(){
+ const p=Math.min(15,Math.max(.1,Number(comparePower.value)||.1)),c=Math.min(8000,Math.max(0,Number(compareConsumption.value)||0));
+ comparePower.value=p;compareConsumption.value=c;
+ const definitions=[
+  {id:"naturgy",p1:.123030,p2:.061562,energy:.148,services:(compareInputs[0].checked?8.40:0)+(compareInputs[1].checked?4.41:0)},
+  {id:"gana",p1:.099,p2:.099,energy:.149,services:0},
+  {id:"total",p1:.093123,p2:.093123,energy:.1949,services:compareInputs[2].checked?7.62:0},
+  {id:"totalDual",p1:.093123,p2:.093123,energy:.1849,services:compareInputs[2].checked?7.62:0}
+ ];
+ const results=definitions.map(d=>{const power=p*(d.p1+d.p2)*30,energy=c*d.energy,net=power+energy+d.services;return {...d,power,energy,net,gross:net*(1+TAX_RATE)};});
+ const cheapest=Math.min(...results.map(r=>r.net));
+ results.forEach(r=>{
+  const prefix=r.id==="totalDual"?"Dual":r.id.charAt(0).toUpperCase()+r.id.slice(1);
+  ["Power","Energy","Services","Net","Gross"].forEach((part,i)=>{const key=["power","energy","services","net","gross"][i],el=document.getElementById("compare"+prefix+part);if(el)el.textContent=compareMoney(r[key]);});
+  const card=document.querySelector('[data-result="'+r.id+'"]');if(card){card.classList.toggle("is-cheapest",Math.abs(r.net-cheapest)<.000001);let badge=card.querySelector(".compare-cheapest");if(Math.abs(r.net-cheapest)<.000001){if(!badge){badge=document.createElement("span");badge.className="compare-cheapest";badge.textContent="MENOR COSTE";card.insertBefore(badge,card.querySelector("h3"));}}else if(badge)badge.remove();}
+ });
+}
+function openElectricityComparison(){showSection(electricityCompareSection);calculateElectricityComparison();}
+document.querySelectorAll(".company-card .company-enter").forEach(button=>{button.textContent="Comparar →";button.addEventListener("click",openElectricityComparison);});
+if(electricityCompareBack){} 
+[comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("input",calculateElectricityComparison));
+[comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("change",calculateElectricityComparison));
+const electricityCompareBack=document.getElementById("electricityCompareBack");
+if(electricityCompareBack)electricityCompareBack.addEventListener("click",function(){showHome();requestAnimationFrame(function(){const c=document.querySelector(".companies-section");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});});});
+[companyPowerSlider,companyConsumptionSlider].forEach(i=>i.addEventListener("input",calculateCompany));[companyTaxToggle,companySvaToggle,companyMaintenanceToggle,companyDualToggle].forEach(i=>i.addEventListener("change",calculateCompany));
 
 const bonoSection=document.getElementById("bonoSection"),bonoButton=document.getElementById("bonoButton"),bonoBackButton=document.getElementById("bonoBackButton"),bonoProgress=document.getElementById("bonoProgress"),bonoAdults=document.getElementById("bonoAdults"),bonoChildren=document.getElementById("bonoChildren"),bonoIncome=document.getElementById("bonoIncome");let bonoStep=1;const IPREM=8400,VULNERABLE_DISCOUNT=42.5,SEVERE_DISCOUNT=57.5,bonoData={adults:1,children:0,family:null,pension:null,imv:null,supply:null,special:[],income:0};
 function resetBono(){Object.assign(bonoData,{adults:1,children:0,family:null,pension:null,imv:null,supply:null,special:[],income:0});bonoAdults.value=1;bonoChildren.value=0;bonoIncome.value=0;document.querySelectorAll(".option-button").forEach(b=>b.classList.remove("selected"));document.querySelectorAll(".special-check").forEach(c=>c.checked=false);}
@@ -4233,7 +4320,7 @@ setInterval(function(){if(MIBGAS_API_ENDPOINT)loadMibgasPrice();},3600000);
   });
   durationField.style.display=altaType.value==="baja"?"flex":"none";
   function openCostsSection(){
-    const sectionIds=["cover","cupsMenu","simulatorSection","flatSimulatorSection","hoursSimulatorSection","invoiceSection","companySection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"];
+    const sectionIds=["cover","cupsMenu","simulatorSection","flatSimulatorSection","hoursSimulatorSection","invoiceSection","companySection","electricityCompareSection","bonoSection","gasHome","gasBonoSection","gasInvoiceSection","gasCompanySection"];
     sectionIds.forEach(id=>{
       const section=document.getElementById(id);
       if(section){section.classList.remove("active");section.style.display="none";}
