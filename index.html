@@ -4607,5 +4607,63 @@ document.addEventListener("DOMContentLoaded",function(){
   updateTariffComparison();
 });
 </script>
+
+<!-- Standalone calculator override v1 -->
+<script>
+(function(){
+  function runElectricityComparisonStandalone(){
+    const powerInput=document.getElementById("electricityComparePowerInput");
+    const consumptionInput=document.getElementById("electricityCompareConsumptionInput");
+    const status=document.getElementById("electricityCompareStatus");
+    if(!powerInput||!consumptionInput){if(status)status.textContent="No se encuentran los campos de potencia y consumo.";return;}
+    const power=Number(powerInput.value);
+    const consumption=Number(consumptionInput.value);
+    if(!Number.isFinite(power)||power<0.1||power>15){powerInput.reportValidity();if(status)status.textContent="Introduce una potencia entre 0,1 y 15 kW.";return;}
+    if(!Number.isFinite(consumption)||consumption<0||consumption>8000){consumptionInput.reportValidity();if(status)status.textContent="Introduce un consumo entre 0 y 8.000 kWh.";return;}
+    const naturgySva=document.getElementById("compareNaturgySva");
+    const naturgyHome=document.getElementById("compareNaturgyHome");
+    const totalSva=document.getElementById("compareTotalSva");
+    const definitions=[
+      {id:"naturgy",prefix:"Naturgy",p1:0.123030,p2:0.061562,energy:0.148,services:(naturgySva&&naturgySva.checked?8.40:0)+(naturgyHome&&naturgyHome.checked?4.41:0)},
+      {id:"gana",prefix:"Gana",p1:0.099,p2:0.099,energy:0.149,services:0},
+      {id:"total",prefix:"Total",p1:0.093123,p2:0.093123,energy:0.1949,services:totalSva&&totalSva.checked?7.62:0},
+      {id:"totalDual",prefix:"Dual",p1:0.093123,p2:0.093123,energy:0.1849,services:totalSva&&totalSva.checked?7.62:0}
+    ];
+    const results=definitions.map(d=>{
+      const powerCost=power*(d.p1+d.p2)*30;
+      const energyCost=consumption*d.energy;
+      const net=powerCost+energyCost+d.services;
+      return {...d,powerCost,energyCost,net,gross:net*1.21};
+    });
+    const visibleCards=Array.from(document.querySelectorAll(".compare-result-card")).filter(card=>getComputedStyle(card).display!=="none");
+    const visibleIds=visibleCards.map(card=>card.dataset.result);
+    const visibleResults=results.filter(r=>visibleIds.includes(r.id));
+    const min=visibleResults.length?Math.min(...visibleResults.map(r=>r.net)):null;
+    const euro=n=>n.toLocaleString("es-ES",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
+    results.forEach(r=>{
+      const ids={Power:r.powerCost,Energy:r.energyCost,Services:r.services,Net:r.net,Gross:r.gross};
+      Object.entries(ids).forEach(([part,value])=>{
+        const el=document.getElementById("compare"+r.prefix+part);
+        if(el)el.textContent=euro(value);
+      });
+      const card=document.querySelector('.compare-result-card[data-result="'+r.id+'"]');
+      if(card){
+        const cheapest=visibleIds.includes(r.id)&&Math.abs(r.net-min)<0.000001;
+        card.classList.toggle("is-cheapest",cheapest);
+        let badge=card.querySelector(".compare-cheapest");
+        if(cheapest&&!badge){badge=document.createElement("span");badge.className="compare-cheapest";badge.textContent="MENOR COSTE";card.insertBefore(badge,card.querySelector("h3"));}
+        if(!cheapest&&badge)badge.remove();
+      }
+    });
+    if(status)status.textContent="Cálculo actualizado correctamente.";
+  }
+  window.runElectricityComparison=runElectricityComparisonStandalone;
+  document.addEventListener("DOMContentLoaded",function(){
+    const button=document.getElementById("electricityCompareCalculate");
+    if(button)button.addEventListener("click",runElectricityComparisonStandalone);
+  });
+})();
+</script>
+
 </body>
 </html>
