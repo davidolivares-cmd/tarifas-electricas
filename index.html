@@ -1422,6 +1422,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 
 .electricity-compare-section .compare-results.compare-single{grid-template-columns:minmax(0,680px);justify-content:center}
 .electricity-compare-section .compare-results.compare-single .compare-result-card{width:100%}
+
+.compare-calculate-wrap{display:flex;flex-direction:column;align-items:center;gap:8px;margin:-2px 0 18px}
+.compare-calculate-button{min-width:220px;min-height:48px;padding:12px 30px;border:0;border-radius:24px;background:linear-gradient(100deg,#6235e8,#8b55f6);color:#fff;font-size:16px;font-weight:900;cursor:pointer;box-shadow:0 7px 18px rgba(99,53,232,.2);transition:transform .2s ease,box-shadow .2s ease}
+.compare-calculate-button:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(99,53,232,.28)}
+.compare-calculate-button:active{transform:translateY(0)}
+.compare-calculate-wrap span{font-size:12px;color:var(--muted);text-align:center}
+
 </style>
 </head>
 
@@ -2649,6 +2656,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
    <div class="compare-input-card"><label for="electricityComparePowerInput">Potencia contratada</label><input id="electricityComparePowerInput" type="number" min="0.1" max="15" step="0.1" value="4.6"><small>En kW · Entre 0,1 y 15 kW</small></div>
    <div class="compare-input-card"><label for="electricityCompareConsumptionInput">Consumo mensual</label><input id="electricityCompareConsumptionInput" type="number" min="0" max="8000" step="1" value="250"><small>En kWh · Consumo total del mes</small></div>
   </div>
+  <div class="compare-calculate-wrap"><button type="button" id="electricityCompareCalculate" class="compare-calculate-button">Calcular</button><span id="electricityCompareStatus" aria-live="polite">Modifica los datos y pulsa «Calcular» para actualizar los importes.</span></div>
   <div class="compare-options-card">
    <h3>Servicios adicionales</h3>
    <div class="compare-option-grid">
@@ -4201,8 +4209,14 @@ function openElectricityComparison(company){
  showSection(electricityCompareSection);calculateElectricityComparison();
 }
 document.querySelectorAll(".company-card .company-enter").forEach(button=>{button.textContent="Comparar →";button.addEventListener("click",function(){openElectricityComparison(this.closest(".company-card").dataset.company);});});
-[comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("input",calculateElectricityComparison));
-[comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("change",calculateElectricityComparison));
+const electricityCompareCalculate=document.getElementById("electricityCompareCalculate");
+const electricityCompareStatus=document.getElementById("electricityCompareStatus");
+if(electricityCompareCalculate)electricityCompareCalculate.addEventListener("click",function(){
+ if(!comparePower.checkValidity()){comparePower.reportValidity();return;}
+ if(!compareConsumption.checkValidity()){compareConsumption.reportValidity();return;}
+ calculateElectricityComparison();
+ electricityCompareStatus.textContent="Cálculo actualizado correctamente.";
+});
 const electricityCompareBack=document.getElementById("electricityCompareBack");
 if(electricityCompareBack)electricityCompareBack.addEventListener("click",function(){showHome();requestAnimationFrame(function(){const c=document.querySelector(".companies-section");if(c)c.scrollIntoView({behavior:"smooth",block:"start"});});});
 [companyPowerSlider,companyConsumptionSlider].forEach(i=>i.addEventListener("input",calculateCompany));[companyTaxToggle,companySvaToggle,companyMaintenanceToggle,companyDualToggle].forEach(i=>i.addEventListener("change",calculateCompany));
