@@ -4167,7 +4167,7 @@ if(companyBackButton)companyBackButton.addEventListener("click",function(){
     });
 });
 const electricityCompareSection=document.getElementById("electricityCompareSection");
-const comparePower=document.getElementById("electricityComparePowerInput"),compareConsumption=document.getElementById("electricityCompareConsumptionInput");
+const comparePower=electricityCompareSection.querySelector("#electricityComparePowerInput"),compareConsumption=electricityCompareSection.querySelector("#electricityCompareConsumptionInput");
 const compareInputs=["compareNaturgySva","compareNaturgyHome","compareTotalSva"].map(id=>document.getElementById(id));
 function compareMoney(value){return money(value)+" €";}
 window.runElectricityComparison=function(){try{calculateElectricityComparison();const status=document.getElementById("electricityCompareStatus");if(status)status.textContent="Cálculo actualizado correctamente.";}catch(error){console.error("Error en el comparador eléctrico:",error);const status=document.getElementById("electricityCompareStatus");if(status)status.textContent="No se pudo calcular. Comprueba los datos e inténtalo de nuevo.";}};
@@ -4213,8 +4213,9 @@ document.querySelectorAll(".company-card .company-enter").forEach(button=>{butto
 const electricityCompareCalculate=document.getElementById("electricityCompareCalculate");
 const electricityCompareStatus=document.getElementById("electricityCompareStatus");
 if(electricityCompareCalculate)electricityCompareCalculate.addEventListener("click",function(){
- const powerInput=document.getElementById("electricityComparePowerInput");
- const consumptionInput=document.getElementById("electricityCompareConsumptionInput");
+ const section=document.getElementById("electricityCompareSection");
+ const powerInput=section&&section.querySelector("#electricityComparePowerInput");
+ const consumptionInput=section&&section.querySelector("#electricityCompareConsumptionInput");
  if(!powerInput.checkValidity()){powerInput.reportValidity();return;}
  if(!consumptionInput.checkValidity()){consumptionInput.reportValidity();return;}
  window.runElectricityComparison();
@@ -4612,8 +4613,9 @@ document.addEventListener("DOMContentLoaded",function(){
 <script>
 (function(){
   function runElectricityComparisonStandalone(){
-    const powerInput=document.getElementById("electricityComparePowerInput");
-    const consumptionInput=document.getElementById("electricityCompareConsumptionInput");
+    const section=document.getElementById("electricityCompareSection");
+    const powerInput=section&&section.querySelector("#electricityComparePowerInput");
+    const consumptionInput=section&&section.querySelector("#electricityCompareConsumptionInput");
     const status=document.getElementById("electricityCompareStatus");
     if(!powerInput||!consumptionInput){if(status)status.textContent="No se encuentran los campos de potencia y consumo.";return;}
     const power=Number(powerInput.value);
