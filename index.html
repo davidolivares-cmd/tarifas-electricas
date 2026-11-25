@@ -1419,6 +1419,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 .compare-footnote{margin:18px 2px;color:var(--muted);font-size:12px;line-height:1.5}
 @media(max-width:720px){.compare-inputs,.compare-results{grid-template-columns:1fr}.compare-option-grid{grid-template-columns:1fr}.electricity-compare-section{padding:18px 12px 50px}}
 
+
+.electricity-compare-section .compare-results.compare-single{grid-template-columns:minmax(0,680px);justify-content:center}
+.electricity-compare-section .compare-results.compare-single .compare-result-card{width:100%}
 </style>
 </head>
 
@@ -2641,7 +2644,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
 <section class="electricity-compare-section" id="electricityCompareSection">
  <div class="electricity-compare-page">
   <button class="back-button" id="electricityCompareBack" type="button">← Volver a compañías</button>
-  <div class="electricity-compare-header"><h2>Comparador de electricidad</h2><p>Introduce los datos del cliente y compara el coste mensual de las tres comercializadoras.</p></div>
+  <div class="electricity-compare-header"><h2 id="electricityCompareTitle">Comparador de electricidad</h2><p id="electricityCompareSubtitle">Introduce los datos del cliente para calcular el coste mensual.</p></div>
   <div class="compare-inputs">
    <div class="compare-input-card"><label for="comparePower">Potencia contratada</label><input id="comparePower" type="number" min="0.1" max="15" step="0.1" value="4.6"><small>En kW · Entre 0,1 y 15 kW</small></div>
    <div class="compare-input-card"><label for="compareConsumption">Consumo mensual</label><input id="compareConsumption" type="number" min="0" max="8000" step="1" value="250"><small>En kWh · Consumo total del mes</small></div>
@@ -4169,15 +4172,35 @@ function calculateElectricityComparison(){
   {id:"totalDual",p1:.093123,p2:.093123,energy:.1849,services:compareInputs[2].checked?7.62:0}
  ];
  const results=definitions.map(d=>{const power=p*(d.p1+d.p2)*30,energy=c*d.energy,net=power+energy+d.services;return {...d,power,energy,net,gross:net*(1+TAX_RATE)};});
- const cheapest=Math.min(...results.map(r=>r.net));
+ const visibleIds=Array.from(document.querySelectorAll(".compare-result-card")).filter(card=>card.style.display!=="none").map(card=>card.dataset.result);
+ const visibleResults=results.filter(r=>visibleIds.includes(r.id));
+ const cheapest=Math.min(...visibleResults.map(r=>r.net));
  results.forEach(r=>{
   const prefix=r.id==="totalDual"?"Dual":r.id.charAt(0).toUpperCase()+r.id.slice(1);
   ["Power","Energy","Services","Net","Gross"].forEach((part,i)=>{const key=["power","energy","services","net","gross"][i],el=document.getElementById("compare"+prefix+part);if(el)el.textContent=compareMoney(r[key]);});
-  const card=document.querySelector('[data-result="'+r.id+'"]');if(card){card.classList.toggle("is-cheapest",Math.abs(r.net-cheapest)<.000001);let badge=card.querySelector(".compare-cheapest");if(Math.abs(r.net-cheapest)<.000001){if(!badge){badge=document.createElement("span");badge.className="compare-cheapest";badge.textContent="MENOR COSTE";card.insertBefore(badge,card.querySelector("h3"));}}else if(badge)badge.remove();}
+  const card=document.querySelector('[data-result="'+r.id+'"]');if(card){const isVisible=visibleIds.includes(r.id);card.classList.toggle("is-cheapest",isVisible&&Math.abs(r.net-cheapest)<.000001);let badge=card.querySelector(".compare-cheapest");if(isVisible&&Math.abs(r.net-cheapest)<.000001){if(!badge){badge=document.createElement("span");badge.className="compare-cheapest";badge.textContent="MENOR COSTE";card.insertBefore(badge,card.querySelector("h3"));}}else if(badge)badge.remove();}
  });
 }
-function openElectricityComparison(){showSection(electricityCompareSection);calculateElectricityComparison();}
-document.querySelectorAll(".company-card .company-enter").forEach(button=>{button.textContent="Comparar →";button.addEventListener("click",openElectricityComparison);});
+const electricityCompareTitle=document.getElementById("electricityCompareTitle");
+const electricityCompareSubtitle=document.getElementById("electricityCompareSubtitle");
+const compareResults=document.getElementById("compareResults");
+function openElectricityComparison(company){
+ const visible=company==="naturgy"?["naturgy"]:company==="gana"?["gana"]:["total","totalDual"];
+ document.querySelectorAll(".compare-result-card").forEach(card=>{card.style.display=visible.includes(card.dataset.result)?"block":"none";});
+ compareResults.classList.toggle("compare-single",visible.length===1);
+ const labels={naturgy:"Naturgy",gana:"Gana Energía",total:"TotalEnergies"};
+ electricityCompareTitle.textContent="Comparador · "+labels[company];
+ electricityCompareSubtitle.textContent=company==="total"?"Compara la tarifa normal y la tarifa DUAL de TotalEnergies con los datos del cliente.":"Calcula el coste mensual de "+labels[company]+" con los datos del cliente.";
+ document.getElementById("compareNaturgySva").checked=false;
+ document.getElementById("compareNaturgyHome").checked=false;
+ document.getElementById("compareTotalSva").checked=false;
+ document.getElementById("compareNaturgySva").closest("label").style.display=company==="naturgy"?"flex":"none";
+ document.getElementById("compareNaturgyHome").closest("label").style.display=company==="naturgy"?"flex":"none";
+ document.getElementById("compareTotalSva").closest("label").style.display=company==="total"?"flex":"none";
+ document.querySelector(".compare-options-card").style.display=company==="gana"?"none":"block";
+ showSection(electricityCompareSection);calculateElectricityComparison();
+}
+document.querySelectorAll(".company-card .company-enter").forEach(button=>{button.textContent="Comparar →";button.addEventListener("click",function(){openElectricityComparison(this.closest(".company-card").dataset.company);});});
 [comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("input",calculateElectricityComparison));
 [comparePower,compareConsumption,...compareInputs].forEach(el=>el.addEventListener("change",calculateElectricityComparison));
 const electricityCompareBack=document.getElementById("electricityCompareBack");
