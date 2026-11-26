@@ -3129,9 +3129,14 @@ function hideAllSections() {
 
 function showSection(section) {
     hideAllSections();
+    const page = document.querySelector(".page");
+    if (page) page.style.display = "block";
     home.style.display = "none";
 
     if (section) {
+        // La navegación principal puede dejar el panel con display:none inline.
+        // Retirarlo permite que la clase .active muestre el simulador correctamente.
+        section.style.removeProperty("display");
         section.classList.add("active");
         requestAnimationFrame(function () {
             section.scrollIntoView({
